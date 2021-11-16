@@ -2,7 +2,6 @@
 title: "Chapter 2 - Statistical Learning"
 output: 
   pdf_document:
-    keep_md: yes
     toc: true
     number_sections: true
 header-includes:
@@ -17,10 +16,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Overview
 
-There are 2 types of statistical learning: _supervised_ and _unsupervised_.
+There are 2 types of statistical learning: **_supervised_** and **_unsupervised_**.
 
-* _Supervised_ learning is when you have a label for each data point, which mean it involves building a model that can predict an _output_ based on one or more _inputs_.
-* _Unsupervised_ learning is when you don't have a label for each data point, where there are _inputs_ but no supervising _output_.
+* **_Supervised learning_** is when you have a label for each data point, which mean it involves building a model that can predict an _output_ based on one or more _inputs_.
+* **_Unsupervised learning_** is when you don't have a label for each data point, where there are _inputs_ but no supervising _output_.
 
 In statistical learning, _**input variables**_ ($X_{n}$) are typically denoted by _features_, _predictors_, _indepedent variables_ or _variables_ while _**output variable**_ ($Y$) often called _dependent variable_ or _response_.
 
@@ -53,26 +52,26 @@ Whereas:
 * $\hat{f}$ represents the estimate for $f$
 * $\hat{Y}$ represents the resulting predcition for $Y$
 
-The accurac of $\hat{Y}$ as a prediction for $Y$ depends on 2 quantities: _reducible error_ and _irriducible error_.
+The accuracy of $\hat{Y}$ as a prediction for $Y$ depends on 2 quantities: **_reducible error_** and **_irriducible error_**.
 
-* _reducible error_: Reducible error is the error arising from the mismatch between $\hat{f}$ and $f$. Can be improved by choosing a better model. Usually caused by $variance + bias$.
-_irriducible error_: Errors which can't be removed no matter what algorithm you apply. These errors are caused by unknown variables that are affecting the independent/output variable but are not one of the dependent/input variable while designing the model. 
+* **_reducible error_**: Reducible error is the error arising from the mismatch between $\hat{f}$ and $f$. Can be improved by choosing a better model. Usually caused by $variance + bias$.
+* **_irriducible error_**: Errors which can't be removed no matter what algorithm you apply. These errors are caused by unknown variables that are affecting the independent/output variable but are not one of the dependent/input variable while designing the model. 
 
 ### Inference
 
 Neccessary questions need to be asked in order to further understand the relationship between predictors ($X_{n}$) and outcome ($Y$):
 
-* _Which predictors are associated with response?_ Only a small fraction of the available predictors are associated with the response.
-* _What is the relationship between predictors and response?_ The relationship between predictors and response is not always linear.
-* _Can the relationship between predictors and response be explained by the linear model or it is more complicated?_ The model can explain the relationship between predictors and response if the model is able to predict the response based on the predictors.
+* **_Which predictors are associated with response?_** Only a small fraction of the available predictors are associated with the response.
+* **_What is the relationship between predictors and response?_** The relationship between predictors and response is not always linear.
+* **_Can the relationship between predictors and response be explained by the linear model or it is more complicated?_** The model can explain the relationship between predictors and response if the model is able to predict the response based on the predictors.
 
 ## How Do We Estimate f?
 
-In order to estimate $f$, our goal is to apply a statistical learning method to the training data. Broadly speaking, most statistical learning methods for this task can be characterized as either _parametric_ or _non-parametric_.
+In order to estimate $f$, our goal is to apply a statistical learning method to the training data. Broadly speaking, most statistical learning methods for this task can be characterized as either **_parametric_** or **_non-parametric_**.
 
 ### Parametric Methods
 
-Parametric methods (model-based approach) are those that are able to estimate the parameters of the model based on the training data. It involves a ** two-step model-based approach**.
+Parametric methods (model-based approach) are those that are able to estimate the parameters of the model based on the training data. It involves a **two-step model-based approach**.
 
 1. First, we make an assumption about the functional form, or shape, of $f$. In other words, we need to choose the model that best fits the data.
 2. After the model has been selected, we need a procedure that uses the training data to _fit_ or _train_ the model.
@@ -80,6 +79,7 @@ Parametric methods (model-based approach) are those that are able to estimate th
 Potential disadvantages of parametric methods is that the model will not usually match the true $f$. This can be avoid by choosing a more _flexible_ models that can fit many possible functions for $f$ forms and usually require greater number of parameters.
 
 Example fitting models for parametric methods (linear): Odirnary Least Squares (OLS), Lasso.
+
 
 ### Non-Parametric Methods
 
