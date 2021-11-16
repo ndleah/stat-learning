@@ -81,6 +81,7 @@ Non-parametric methods (model-free approach) seek an estimate of <img src="https
 {% hint style='info' %}
 Example fitting models for non-parametric methods: _smooth thin-plate spline fit_ and _rough thin-plate spline fit_.
 {% endhint %}
+
 ---
 
 ## The Tradeoff Between Prediction Accuracy and Model Interpretability
