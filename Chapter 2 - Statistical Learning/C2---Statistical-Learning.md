@@ -3,14 +3,15 @@ title: "Chapter 2 - Statistical Learning"
 output: 
   pdf_document:
     keep_md: yes
+    toc: true
     number_sections: true
 header-includes:
     - \usepackage{setspace}\doublespacing
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
+
+\newpage
 
 # Overview
 
