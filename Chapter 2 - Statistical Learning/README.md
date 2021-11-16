@@ -15,7 +15,9 @@ To assess the relationship between predictors <img src="https://render.githubuse
 
 Whereas:
 
-$MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2,$
+$$
+MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2,
+$$
 
 * <img src="https://render.githubusercontent.com/render/math?math=f"> is fixed but unknown function of <img src="https://render.githubusercontent.com/render/math?math=X_{1},...,X_{p}">  and <img src="https://render.githubusercontent.com/render/math?math=\epsilon"> is a random _error term_, which is independent of <img src="https://render.githubusercontent.com/render/math?math=X"> and has mean zero.
 
