@@ -6,12 +6,12 @@ There are 2 types of statistical learning: _supervised_ and _unsupervised_.
 > * **Supervised learning** is when you have a label for each data point, which mean it involves building a model that can predict an _output_ based on one or more _inputs_.
 > * **Unsupervised learning** is when you don't have a label for each data point, where there are _inputs_ but no supervising _output_.
 
-In statistical learning, _**input variables**_ <img src="https://render.githubusercontent.com/render/math?math=(X_{n})"> are typically denoted by _features_, _predictors_, _indepedent variables_ or _variables_ while _**output variable**_ <img src="https://render.githubusercontent.com/render/math?math=(Y)"> often called _dependent variable_ or _response_. 
+In statistical learning, _**input variables**_ $$(X_{n})$$ are typically denoted by _features_, _predictors_, _indepedent variables_ or _variables_ while _**output variable**_ $$(Y)$$ often called _dependent variable_ or _response_. 
 
-To assess the relationship between predictors <img src="https://render.githubusercontent.com/render/math?math=X_{1}, X_{2}, ...,X_{p}">, we have the equation as following:
+To assess the relationship between predictors $$X_{1}, X_{2}, ...,X_{p}$$, we have the equation as following:
 
-<p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=\Large Y=f(X)%2B\epsilon"> 
+
+$$\Large Y=f(X)%2B\epsilon$$ 
 
 Whereas:
 
@@ -19,9 +19,9 @@ $$
 MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2,
 $$
 
-* <img src="https://render.githubusercontent.com/render/math?math=f"> is fixed but unknown function of <img src="https://render.githubusercontent.com/render/math?math=X_{1},...,X_{p}">  and <img src="https://render.githubusercontent.com/render/math?math=\epsilon"> is a random _error term_, which is independent of <img src="https://render.githubusercontent.com/render/math?math=X"> and has mean zero.
+* $$f$$ is fixed but unknown function of $$X_{1},...,X_{p}$$  and $$\epsilon$$ is a random _error term_, which is independent of $$X$$ and has mean zero.
 
-In essence, statistical learning refers to a set of approaches for estimating <img src="https://render.githubusercontent.com/render/math?math=f">.
+In essence, statistical learning refers to a set of approaches for estimating $$f$$.
 
 ---
 
@@ -31,26 +31,26 @@ There are 2 main reasons: **_prediction_** and **_inference_**.
 
 ### Prediction
 
-Hypothetically, let's say we have the **_error term_** averages to 0, predicting <img src="https://render.githubusercontent.com/render/math?math=Y"> can be assessed using this equation:
+Hypothetically, let's say we have the **_error term_** averages to 0, predicting $$Y$$ can be assessed using this equation:
 
-<p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=\hat{Y} = \Large \hat{f}(X)">
+
+$$\hat{Y} = \Large \hat{f}(X)$$
 
 
 
 Whereas:
 
-* <img src="https://render.githubusercontent.com/render/math?math=\hat{f}"> represents the estimate for <img src="https://render.githubusercontent.com/render/math?math=f">
-* <img src="https://render.githubusercontent.com/render/math?math=\hat{Y}"> represents the resulting predcition for <img src="https://render.githubusercontent.com/render/math?math=Y">
+* $$\hat{f}$$ represents the estimate for $$f$$
+* $$\hat{Y}$$ represents the resulting predcition for $$Y$$
 
-The accuracy of <img src="https://render.githubusercontent.com/render/math?math=\hat{Y}"> as a prediction for <img src="https://render.githubusercontent.com/render/math?math=Y"> depends on 2 quantities: **_reducible error_** and **_irriducible error_**.
+The accuracy of $$\hat{Y}$$ as a prediction for $$Y$$ depends on 2 quantities: **_reducible error_** and **_irriducible error_**.
 
-> * **_reducible error_**: Reducible error is the error arising from the mismatch between <img src="https://render.githubusercontent.com/render/math?math=\hat{f}"> and <img src="https://render.githubusercontent.com/render/math?math=f">. Can be improved by choosing a better model. Usually caused by [Variance Error](#variance-error)/[Bias Error](#bias-error).
+> * **_reducible error_**: Reducible error is the error arising from the mismatch between $$\hat{f}$$ and $$f$$. Can be improved by choosing a better model. Usually caused by [Variance Error](#variance-error)/[Bias Error](#bias-error).
 > * **_irriducible error_**: Errors which can't be removed no matter what algorithm you apply. These errors are caused by unknown variables that are affecting the independent/output variable but are not one of the dependent/input variable while designing the model. 
 
 ### Inference
 
-Neccessary questions need to be asked in order to further understand the relationship between predictors <img src="https://render.githubusercontent.com/render/math?math=(X_{n})"> and outcome <img src="https://render.githubusercontent.com/render/math?math=(Y)">:
+Neccessary questions need to be asked in order to further understand the relationship between predictors $$(X_{n})$$ and outcome $$(Y)$$:
 
 * **_Which predictors are associated with response?_** Only a small fraction of the available predictors are associated with the response.
 * **_What is the relationship between predictors and response?_** The relationship between predictors and response is not always linear.
@@ -65,22 +65,22 @@ Important info: this note needs to be highlighted
 
 ## How Do We Estimate f?
 
-In order to estimate <img src="https://render.githubusercontent.com/render/math?math=f">, our goal is to apply a statistical learning method to the training data. Broadly speaking, most statistical learning methods for this task can be characterized as either **_parametric_** or **_non-parametric_**.
+In order to estimate $$f$$, our goal is to apply a statistical learning method to the training data. Broadly speaking, most statistical learning methods for this task can be characterized as either **_parametric_** or **_non-parametric_**.
 
 ### Parametric Methods
 
 Parametric methods (model-based approach) are those that are able to estimate the parameters of the model based on the training data. It involves a **two-step model-based approach**:
 
-1. First, we make an assumption about the functional form, or shape, of <img src="https://render.githubusercontent.com/render/math?math=f">. In other words, we need to choose the model that best fits the data.
+1. First, we make an assumption about the functional form, or shape, of $$f$$. In other words, we need to choose the model that best fits the data.
 2. After the model has been selected, we need a procedure that uses the training data to _fit_ or _train_ the model.
 
-Potential disadvantages of parametric methods is that the model will not usually match the true <img src="https://render.githubusercontent.com/render/math?math=f">. This can be avoid by choosing a more _flexible_ models that can fit many possible functions for <img src="https://render.githubusercontent.com/render/math?math=f"> forms and usually require greater number of parameters.
+Potential disadvantages of parametric methods is that the model will not usually match the true $$f$$. This can be avoid by choosing a more _flexible_ models that can fit many possible functions for $$f$$ forms and usually require greater number of parameters.
 
 Example fitting models for parametric methods (linear): Odirnary Least Squares (OLS), Lasso.
 
 ### Non-Parametric Methods
 
-Non-parametric methods (model-free approach) seek an estimate of <img src="https://render.githubusercontent.com/render/math?math=f"> without make explicit assumptions about the functional form of of <img src="https://render.githubusercontent.com/render/math?math=f">. Major disadvantages of this approach is that a very large number of observations is required in order to obtain an accurate estimate for <img src="https://render.githubusercontent.com/render/math?math=f">.
+Non-parametric methods (model-free approach) seek an estimate of $$f$$ without make explicit assumptions about the functional form of of $$f$$. Major disadvantages of this approach is that a very large number of observations is required in order to obtain an accurate estimate for $$f$$.
 
 {% hint style='info' %}
 Example fitting models for non-parametric methods: _smooth thin-plate spline fit_ and _rough thin-plate spline fit_.
@@ -130,11 +130,11 @@ _There is no free lunch in statistics_: no one method dominates all others over 
 
 In order to evaluate the performance of a model, we need to measure how well its predictions actually match the observed data. In the regression setting, the most commonly used measure is the **mean squared error (MSE)**:
 
-<p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=\Large MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2">
+
+$$\Large MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2$$
 
 
-given by where <img src="https://render.githubusercontent.com/render/math?math=\hat{f}(x_{i}"> is the prediction that <img src="https://render.githubusercontent.com/render/math?math=\hat{f}"> gives for the ith observations. 
+given by where $$\hat{f}(x_{i}$$ is the prediction that $$\hat{f}$$ gives for the ith observations. 
 
 The MSE will be small if the predicted responses are very close to the true response, and will be large if for some observations, the predicted and true responses differ substantially.
 
@@ -148,7 +148,7 @@ When a given method yields a small training MSE but a large test MSE, we are sai
 
 #### **Variance Error**
 
-> **Variance** is the amount that the estimate of <img src="https://render.githubusercontent.com/render/math?math=\hat{f}"> will change if different training data was used. 
+> **Variance** is the amount that the estimate of $$\hat{f}$$ will change if different training data was used. 
    
 Ideally, it should not change too much from one training dataset to the next, meaning that the algorithm is good at picking out the hidden underlying mapping between the inputs and the output variables.
 
@@ -183,21 +183,21 @@ You can see a general trend in the examples above:
 
 ## The Classification Setting
 
-The most common approach for quantifying the accuracy of our estimate <img src="https://render.githubusercontent.com/render/math?math=\hat{f}"> is the _training error__ rate, the proportion of mistakes that are made if we apply our estimate <img src="https://render.githubusercontent.com/render/math?math=\hat{f}"> to the training observations:
+The most common approach for quantifying the accuracy of our estimate $$\hat{f}$$ is the _training error__ rate, the proportion of mistakes that are made if we apply our estimate $$\hat{f}$$ to the training observations:
 
-<p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=\Large \frac{1}{n}\sum_{i = 1}^{n} I (y_{i} \neq \hat{y_{i}})">
+
+$$\Large \frac{1}{n}\sum_{i = 1}^{n} I (y_{i} \neq \hat{y_{i}})$$
 
 
 Whereas:
 
-* <img src="https://render.githubusercontent.com/render/math?math=\hat{y_{i}}">: the predicted class label for the ith observation using <img src="https://render.githubusercontent.com/render/math?math=\hat{f}">
-* <img src="https://render.githubusercontent.com/render/math?math=I (y_{i} \neq \hat{y_{i}})">: an _indicator variable_ that equal **1** if <img src="https://render.githubusercontent.com/render/math?math=y_{i} \neq \hat{y_{i}}"> and **0** if <img src="https://render.githubusercontent.com/render/math?math=y_{i} = \hat{y_{i}}">. If:
+* $$\hat{y_{i}}$$: the predicted class label for the ith observation using $$\hat{f}$$
+* $$I (y_{i} \neq \hat{y_{i}})$$: an _indicator variable_ that equal **1** if $$y_{i} \neq \hat{y_{i}}$$ and **0** if $$y_{i} = \hat{y_{i}}$$. If:
   
-  *  <img src="https://render.githubusercontent.com/render/math?math=I (y_{i} \neq \hat{y_{i}}) = 0">: correct classification
-  *  <img src="https://render.githubusercontent.com/render/math?math=I (y_{i} \neq \hat{y_{i}}) \neq 0">: incorrect classification (misclassified)
+  *  $$I (y_{i} \neq \hat{y_{i}}) = 0$$: correct classification
+  *  $$I (y_{i} \neq \hat{y_{i}}) \neq 0$$: incorrect classification (misclassified)
 
-A good classifier is one for which the _test error_ is smallest where the _test error_ rate associated with a set of test observations of the from <img src="https://render.githubusercontent.com/render/math?math=(x_{0}, y_{0})">.
+A good classifier is one for which the _test error_ is smallest where the _test error_ rate associated with a set of test observations of the from $$(x_{0}, y_{0})$$.
 
 ---
 
@@ -205,7 +205,7 @@ A good classifier is one for which the _test error_ is smallest where the _test 
 
 This algorithm is called Naïve because it works on the naïve assumption that the features are independent. Naïve Bayes Classifier works with principle of Bayes Theorem. 
 
-> Conditional probability of an event <img src="https://render.githubusercontent.com/render/math?math=A"> given <img src="https://render.githubusercontent.com/render/math?math=B">, <img src="https://render.githubusercontent.com/render/math?math=P(A|B)"> is the probability of <img src="https://render.githubusercontent.com/render/math?math=A"> given that <img src="https://render.githubusercontent.com/render/math?math=B"> has already occurred. It is often defined as the ratio of joint probability of <img src="https://render.githubusercontent.com/render/math?math=A"> and <img src="https://render.githubusercontent.com/render/math?math=B"> (probability of <img src="https://render.githubusercontent.com/render/math?math=A"> and <img src="https://render.githubusercontent.com/render/math?math=B"> occurring together) to the marginal probability of <img src="https://render.githubusercontent.com/render/math?math=A"> (probability of event <img src="https://render.githubusercontent.com/render/math?math=A">)
+> Conditional probability of an event $$A$$ given $$B$$, $$P(A|B)$$ is the probability of $$A$$ given that $$B$$ has already occurred. It is often defined as the ratio of joint probability of $$A$$ and $$B$$ (probability of $$A$$ and $$B$$ occurring together) to the marginal probability of $$A$$ (probability of event $$A$$)
 
 **Pros**
 
