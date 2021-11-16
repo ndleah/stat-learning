@@ -6,7 +6,7 @@ There are 2 types of statistical learning: _supervised_ and _unsupervised_.
 > * **Supervised learning** is when you have a label for each data point, which mean it involves building a model that can predict an _output_ based on one or more _inputs_.
 > * **Unsupervised learning** is when you don't have a label for each data point, where there are _inputs_ but no supervising _output_.
 
-In statistical learning, _**input variables**_ <img src="https://render.githubusercontent.com/render/math?math=(X_{n})"> are typically denoted by _features_, _predictors_, _indepedent variables_ or _variables_ while _**output variable**_ <img src="https://render.githubusercontent.com/render/math?math=(Y)"> often called _dependent variable_ or _response_.
+In statistical learning, _**input variables**_ <img src="https://render.githubusercontent.com/render/math?math=(X_{n})"> are typically denoted by _features_, _predictors_, _indepedent variables_ or _variables_ while _**output variable**_ <img src="https://render.githubusercontent.com/render/math?math=(Y)"> often called _dependent variable_ or _response_. $$Y$$
 
 To assess the relationship between predictors <img src="https://render.githubusercontent.com/render/math?math=X_{1}, X_{2}, ...,X_{p}">, we have the equation as following:
 
