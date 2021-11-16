@@ -52,11 +52,10 @@ Neccessary questions need to be asked in order to further understand the relatio
 * **_What is the relationship between predictors and response?_** The relationship between predictors and response is not always linear.
 * **_Can the relationship between predictors and response be explained by the linear model or it is more complicated?_** The model can explain the relationship between predictors and response if the model is able to predict the response based on the predictors.
 
-```
 {% hint style='info' %}
 Important info: this note needs to be highlighted
 {% endhint %}
-```
+
 
 ---
 
