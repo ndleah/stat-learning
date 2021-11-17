@@ -4,6 +4,7 @@ showToc: true
 
 # What is Statistical Learning?
 
+<!-- toc -->
 - [What is Statistical Learning?](#what-is-statistical-learning)
   - [Why Estimate f?](#why-estimate-f)
     - [Prediction](#prediction)
