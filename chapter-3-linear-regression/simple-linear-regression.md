@@ -149,7 +149,7 @@ The RSE is considered a measure of the *lack of fit* of the model to the data:
 
 One consideration of RSE is it is the measure in the units of $$Y$$ and thus, the method is not always clear what constitute a good RSE.
 
-### $R^2$ Standard Error
+### $$R^2$$ Standard Error
 
 the $$R^2$$ statistic takes the form of a *proportion*-the proportion of variance explained-and so it always takes on a value between 0 and 1, and is independent of the scale of $$Y$$. To calculate $$R^2$$, we use the formula:
 
