@@ -12,7 +12,9 @@ No one method dominates all others over all possible data sets. This section int
 
 In order to evaluate the performance of a model, we need to measure how well its predictions actually match the observed data. In the regression setting, the most commonly used measure is the **mean squared error (MSE)**:
 
-$$\Large MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2$$
+$$
+\Large MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2
+$$
 
 given by where $$\hat{f}(x_{i}$$ is the prediction that $$\hat{f}$$ gives for the ith observations.
 
@@ -72,7 +74,9 @@ You can see a general trend in the examples above:
 
 The most common approach for quantifying the accuracy of our estimate $$\hat{f}$$ is the _training error_\_ rate, the proportion of mistakes that are made if we apply our estimate $$\hat{f}$$ to the training observations:
 
-$$\Large \frac{1}{n}\sum_{i = 1}^{n} I (y_{i} \neq \hat{y_{i}})$$
+$$
+\Large \frac{1}{n}\sum_{i = 1}^{n} I (y_{i} \neq \hat{y_{i}})
+$$
 
 Whereas:
 
