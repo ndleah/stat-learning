@@ -5,7 +5,6 @@
 No one method dominates all others over all possible data sets. This section introduce some common ways to assess the accuracy of a model to select a statistical learning procedure for a specific data set.
 
 
-
 ## The Regression Setting
 
 ### Measuring the Quality of fit
@@ -87,8 +86,6 @@ Whereas:
 
 A good classifier is one for which the _test error_ is smallest where the _test error_ rate associated with a set of test observations of the from $$(x_{0}, y_{0})$$.
 
-***
-
 ### The Bayes Classifier
 
 This algorithm is called Naïve because it works on the naïve assumption that the features are independent. Naïve Bayes Classifier works with principle of Bayes Theorem.
@@ -104,8 +101,6 @@ This algorithm is called Naïve because it works on the naïve assumption that t
 
 * Poor performance with continuous features
 * Assumption that features are independent is risky
-
-***
 
 ### K-Nearest Neighbors (KNN)
 

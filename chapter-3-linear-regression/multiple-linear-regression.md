@@ -58,6 +58,8 @@ There are 3 classical approaches:
 * ***Backward selection***:starts with the full model, that is, all the variables. At each step, it removes a variable that is least important and does not meet the criterion.
 * ***Mixed (Stepwise) selection***: is the combination of forward selection and backward elimination. Start with no variables in the model, then add variables that is the best fit. However, if at any point the p-value for one of the variables in the model series rises above a certain threshold, then we remove that variable out of the model.
 
+---
+
 ## Model Fit
 
 Using the same methods: RSE and $$R^2$$ statistic as simple linear regression.

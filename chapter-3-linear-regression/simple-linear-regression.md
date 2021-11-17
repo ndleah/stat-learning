@@ -167,6 +167,8 @@ In terms of evaluating the $$R^2$$ statistic result:
 * $$R^2$$ statistic close to 1 - the model fits well.
 * $$R^2$$ statistic close to 0 - the model does not fit well.
 
+---
+
 ## Consideration
 
 > **Simple linear regression** is a useful approach for predicting a response on the basis of a single predictor variable. However, in practice we often have more than one predictor. 
