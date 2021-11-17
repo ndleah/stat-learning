@@ -71,7 +71,10 @@ In other words, if we estimate $$\beta_0$$ and $$\beta_1$$ on the basis of a par
 In fact, we can see from the right-hand panel of Figure 3.3 that the average of many least squares lines, each estimated from a separate data set, is pretty close to the true population regression line.
 
 
-![**Figure 3.2.** A simulated data set. Left: The red line represents the true relationship, f(X) = 2+3Xf(X)=2+3X, which is known as the population regression line. The blue line is the least squares line; it is the least squares estimate for f(X)f(X) based on the observed data, shown in black. Right: The population regression line is again shown in red, and the least squares line in dark blue. In light blue, ten least squares lines are shown, each computed on the basis of a separate random set of observations. Each least squares line is different, but on average, the least squares lines are quite close to the population regression line.](img/fig3.3.png)
+![**Figure 3.2.** A simulated data set.](img/fig3.3.png)
+
+* **Left:** The red line represents the true relationship, $$f(X) = 2+3Xf(X)=2+3X$$, which is known as the population regression line. The blue line is the least squares line; it is the least squares estimate for $$f(X)$$ based on the observed data, shown in black. 
+* **Right:** The population regression line is again shown in red, and the least squares line in dark blue. In light blue, ten least squares lines are shown, each computed on the basis of a separate random set of observations. Each least squares line is different, but on average, the least squares lines are quite close to the population regression line.
 
 ### **How Accurate Is The Sample Mean $$\hat{\mu}$$ As An Estimate Of Population Mean $$\mu$$**
 
@@ -147,8 +150,9 @@ The RSE is considered a measure of the *lack of fit* of the model to the data:
 
 * In contrast, if RSE is large, it indicates that the model doesn't fit the data well.
 
+{% hint style="info" %}
 One consideration of RSE is it is the measure in the units of $$Y$$ and thus, the method is not always clear what constitute a good RSE.
-
+{% endhint %}
 ### $$R^2$$ Standard Error
 
 The $$R^2$$ statistic takes the form of a *proportion*-the proportion of variance explained-and so it always takes on a value between 0 and 1, and is independent of the scale of $$Y$$. To calculate $$R^2$$, we use the formula:
