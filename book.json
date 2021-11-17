@@ -1,3 +1,10 @@
 {
-    "plugins": ["hints", "mathjax","intopic-toc"]
-}
+    "plugins": ["hints", "mathjax"],
+    "pluginsConfig": {
+      "intopic-toc": {
+        "selector": ".markdown-section h2",
+        "visible": true,
+        "label": {"en": "In this article"}
+      }
+    }
+  }
