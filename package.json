@@ -1,0 +1,12 @@
+{
+  "name": "stat-learning",
+  "lockfileVersion": 2,
+  "requires": true,
+  "packages": {},
+  "devDependencies": {
+    "graceful-fs": "^4.2.8"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
