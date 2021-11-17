@@ -151,7 +151,7 @@ One consideration of RSE is it is the measure in the units of $$Y$$ and thus, th
 
 ### $$R^2$$ Standard Error
 
-the $$R^2$$ statistic takes the form of a *proportion*-the proportion of variance explained-and so it always takes on a value between 0 and 1, and is independent of the scale of $$Y$$. To calculate $$R^2$$, we use the formula:
+The $$R^2$$ statistic takes the form of a *proportion*-the proportion of variance explained-and so it always takes on a value between 0 and 1, and is independent of the scale of $$Y$$. To calculate $$R^2$$, we use the formula:
 
 $$
 R^2 = \frac{TSS}{TSS−RSS}=1−\frac{TSS}{RSS}
@@ -166,3 +166,9 @@ In terms of evaluating the $$R^2$$ statistic result:
 
 * $$R^2$$ statistic close to 1 - the model fits well.
 * $$R^2$$ statistic close to 0 - the model does not fit well.
+
+## Consideration
+
+> **Simple linear regression** is a useful approach for predicting a response on the basis of a single predictor variable. However, in practice we often have more than one predictor. 
+> 
+> The solution for this is to use another linear regression named as **Multiple Linear Regression**, which will be discussed in the next section.
