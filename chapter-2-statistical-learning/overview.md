@@ -1,5 +1,5 @@
 ---
-isTocVisible: false
+isTocVisible: true
 ---
 
 # What is Statistical Learning?
