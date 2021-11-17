@@ -1,5 +1,16 @@
 # What is Statistical Learning?
 
+- [What is Statistical Learning?](#what-is-statistical-learning)
+  - [Why Estimate f?](#why-estimate-f)
+    - [Prediction](#prediction)
+    - [Inference](#inference)
+  - [How Do We Estimate f?](#how-do-we-estimate-f)
+    - [Parametric Methods](#parametric-methods)
+    - [Non-Parametric Methods](#non-parametric-methods)
+  - [The Tradeoff Between Prediction Accuracy and Model Interpretability](#the-tradeoff-between-prediction-accuracy-and-model-interpretability)
+  - [Supervised Vs. Unsupervised Learning](#supervised-vs-unsupervised-learning)
+  - [Regression Vs. Classification](#regression-vs-classification)
+
 There are 2 types of statistical learning: _supervised_ and _unsupervised_.
 
 > * **Supervised learning** is when you have a label for each data point, which mean it involves building a model that can predict an _output_ based on one or more _inputs_.
@@ -81,7 +92,7 @@ Example fitting models for non-parametric methods: _**smooth thin-plate spline f
 
 ## The Tradeoff Between Prediction Accuracy and Model Interpretability
 
-![Figure 1. Tradeoff Between Prediction Accuracy and Model Interpretability](<../Chapter 2 - Statistical Learning/img/xkcd-interpretability-vs-flexibility.png>)
+![Figure 1. Tradeoff Between Prediction Accuracy and Model Interpretability](img/xkcd-interpretability-vs-flexibility.png)
 
 Figure 1 illustrates the tradeoff between flexibility and interpretability of using different statistical learning methods. In general, as the flexibility increase, the interpretability decreases.
 
