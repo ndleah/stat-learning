@@ -1,10 +1,14 @@
 {
-    "plugins": ["hints", "mathjax","page-toc","simple-page-toc"],
+    "plugins": ["hints", "mathjax","page-toc","simple-page-toc","github"],
 
-        "pluginsConfig": {
+        "pluginsConfig": 
+        {
             "simple-page-toc": {
                 "maxDepth": 3,
                 "skipFirstH1": true
                }
+        },
+            "github": {
+                "url": "https://github.com/ndleah"
+                }
         }
-    }
