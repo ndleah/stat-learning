@@ -1,10 +1,10 @@
 {
-    "plugins": ["hints", "mathjax","page-toc"],
+    "plugins": ["hints", "mathjax","page-toc","simple-page-toc"],
+
         "pluginsConfig": {
-          "page-toc": {
-            "selector": ".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4",
-            "position": "before-first",
-            "showByDefault": true
-          }
+            "simple-page-toc": {
+                "maxDepth": 3,
+                "skipFirstH1": true
+               }
         }
-      }
+    }
