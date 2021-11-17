@@ -1,5 +1,5 @@
 {
-    "plugins": ["hints", "mathjax"],
+    "plugins": ["hints", "mathjax","intopic-toc"],
     "pluginsConfig": {
       "intopic-toc": {
         "selector": ".markdown-section h2",
