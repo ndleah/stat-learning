@@ -98,7 +98,7 @@ $$
 
 If $$\beta_1 = 0$$ then the model reduces to $$Y=\beta_0+\epsilon$$, and $$X$$ is not associated with $$Y$$.
 
-To test the null hypothesis, we need to determine whether $$\hat{\beta_1}$$, our estimate for $$\beta_1, is sufficiently far from zero that we can be confident that $$\beta_1$$ is non-zero. 
+To test the null hypothesis, we need to determine whether $$\hat{\beta_1}$$, our estimate for $$\beta_1$$, is sufficiently far from zero that we can be confident that $$\beta_1$$ is non-zero. 
  
 ### **How far is far enough?** 
 
@@ -153,7 +153,7 @@ The RSE is considered a measure of the *lack of fit* of the model to the data:
 {% hint style="info" %}
 One consideration of RSE is it is the measure in the units of $$Y$$ and thus, the method is not always clear what constitute a good RSE.
 {% endhint %}
-### $$R^2$$ Standard Error
+### R^2 Standard Error
 
 The $$R^2$$ statistic takes the form of a *proportion*-the proportion of variance explained-and so it always takes on a value between 0 and 1, and is independent of the scale of $$Y$$. To calculate $$R^2$$, we use the formula:
 
