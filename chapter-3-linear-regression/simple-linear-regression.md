@@ -137,7 +137,9 @@ The quality of a linear regression fit is typically assessed using 2 related qua
 ### Residual Standard Error
 The RSE is an estimation of the standard deviation of $$\epsilon$$. Roughly speaking, it is the average amount that the response will deviate from the true regression line. It is computed using the formula:
 
-$$RSE=\sqrt{\frac{1}{n-2}} RSS= \sqrt{\frac{1}{n-2} {\sum_{i=1}^n (y_{i} - \hat{y_1})^{2}}}$$
+$$
+RSE=\sqrt{\frac{1}{n-2}} RSS= \sqrt{\frac{1}{n-2} {\sum_{i=1}^n (y_{i} - \hat{y_1})^{2}}}
+$$
 
 The RSE is considered a measure of the *lack of fit* of the model to the data:
 
