@@ -1,3 +1,7 @@
+---
+isTocVisible: false
+---
+
 # What is Statistical Learning?
 
 - [What is Statistical Learning?](#what-is-statistical-learning)
