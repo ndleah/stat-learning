@@ -2,7 +2,7 @@
 showToc: true
 ---
 
-# (PART) What is Statistical Learning? {-}
+# (PART) What is Statistical Learning?
 
 <!-- toc -->
 
