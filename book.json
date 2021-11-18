@@ -1,5 +1,5 @@
 {
-    "plugins": ["hints", "mathjax","page-toc","simple-page-toc","github"],
+    "plugins": ["hints", "mathjax","github","chapter-numbering"],
 
         "pluginsConfig": 
         {
