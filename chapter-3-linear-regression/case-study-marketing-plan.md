@@ -66,9 +66,11 @@ The VIF scores are $$1.005$$, $$1.145$$, and $$1.145$$ for `TV`,`radio`, and `ne
 
 In order to assess the association of each medium individually on sales, we can perform three separate simple linear regressions. Results
 are shown in Tables 3.1 and 3.3. 
+
 ![Table 3.1. More simple linear regression models for the Advertising data](img/82-Table3.1-1.png)
 
 Coefficients of the least squares model for the regression of number of units sold on `TV` advertising budget. An increase of $1,000 in the `TV` advertising budget is associated with an increase in sales by around 50 units.
+
 ![Table 3.3. More simple linear regression models for the Advertising data](img/86-Table3.3-1.png)
 
 Coefficients of the simple linear regression model for number of units sold on:
