@@ -1,16 +1,4 @@
-# (PART) What is Statistical Learning?
-
-<!-- toc -->
-- [(PART) What is Statistical Learning?](#part-what-is-statistical-learning)
-  - [Why Estimate f?](#why-estimate-f)
-    - [Prediction](#prediction)
-    - [Inference](#inference)
-  - [How Do We Estimate f?](#how-do-we-estimate-f)
-    - [Parametric Methods](#parametric-methods)
-    - [Non-Parametric Methods](#non-parametric-methods)
-  - [The Tradeoff Between Prediction Accuracy and Model Interpretability](#the-tradeoff-between-prediction-accuracy-and-model-interpretability)
-  - [Supervised Vs. Unsupervised Learning](#supervised-vs-unsupervised-learning)
-  - [Regression Vs. Classification](#regression-vs-classification)
+# What is Statistical Learning?
 
 There are 2 types of statistical learning: _supervised_ and _unsupervised_.
 
@@ -32,11 +20,11 @@ Whereas:
 In essence, statistical learning refers to a set of approaches for estimating $$f$$.
 
 
-## Why Estimate f?
+## (PART) Why Estimate f?
 
 There are 2 main reasons: _**prediction**_ and _**inference**_.
 
-### Prediction
+### (PART) Prediction
 
 Hypothetically, let's say we have the _**error term**_ averages to 0, predicting $$Y$$ can be assessed using this equation:
 
@@ -64,7 +52,7 @@ Neccessary questions need to be asked in order to further understand the relatio
 
 ***
 
-## How Do We Estimate f?
+## (PART) How Do We Estimate f?
 
 In order to estimate $$f$$, our goal is to apply a statistical learning method to the training data. Broadly speaking, most statistical learning methods for this task can be characterized as either _**parametric**_ or _**non-parametric**_.
 

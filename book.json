@@ -1,14 +1,8 @@
 {
     "plugins": ["hints", "mathjax","github","chapter-numbering"],
-
-        "pluginsConfig": 
-        {
-            "simple-page-toc": {
-                "maxDepth": 3,
-                "skipFirstH1": true
-               }
-        },
-            "github": {
-                "url": "https://github.com/ndleah"
-                }
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
         }
+    }
+}
