@@ -46,8 +46,7 @@ To answer this question, we can examine the p-values associated with each predic
 
 4. *How large is the effect of each medium on sales?*
 
-The standard error of $$\hat{\beta_j}$$ can be used to construct confidence intervals for $$\hat{\beta_j}$$. For the `Advertising` data,
-the 95% confidence intervals are as follows: $$(0.043, 0.049)$$ for `TV`, $$(0.172, 0.206)$$ for `radio`, and $$(−0.013, 0.011)$$ for `newspaper`. 
+The standard error of $$\hat{\beta_j}$$ can be used to construct confidence intervals for $$\beta_j$$. For the `Advertising` data, the 95% confidence intervals are as follows: $$(0.043, 0.049)$$ for `TV`, $$(0.172, 0.206)$$ for `radio`, and $$(−0.013, 0.011)$$ for `newspaper`. 
 
 The confidence intervals for `TV` and `radio` are narrow and far from zero, providing evidence that these media are related to sales. But the interval for `newspaper` includes zero, indicating that the variable is not statistically significant given the values of `TV` and `radio`.
 
@@ -60,8 +59,7 @@ The VIF scores are $$1.005$$, $$1.145$$, and $$1.145$$ for `TV`,`radio`, and `ne
 {% endhint %}
 
 
-In order to assess the association of each medium individually on sales, we can perform three separate simple linear regressions. Results
-are shown in Tables 3.1 and 3.3. 
+In order to assess the association of each medium individually on sales, we can perform three separate simple linear regressions. Results are shown in Tables 3.1 and 3.3. 
 
 ![Table 3.1. More simple linear regression models for the Advertising data](img/82-Table3.1-1.png)
 
@@ -100,9 +98,6 @@ From the pattern of the residuals, we can see that there is a pronounced non-lin
 7. *Is there synergy among the advertising media?*
 
 The standard linear regression model assumes an additive relationship
-between the predictors and the response. An additive model is easy to interpret because the effect of each predictor on the response is unrelated to the values of the other predictors. However, the additive
-assumption may be unrealistic for certain data sets. A small p-value
-associated with the interaction term indicates the presence of such
-relationships. 
+between the predictors and the response. An additive model is easy to interpret because the effect of each predictor on the response is unrelated to the values of the other predictors. However, the additive assumption may be unrealistic for certain data sets. A small p-value associated with the interaction term indicates the presence of such relationships. 
 
 Figure 3.5 suggested that the `Advertising` data may not be additive. Including an interaction term in the model results in a substantial increase in R2, from around $$90%$$ to almost $$97%$$.
