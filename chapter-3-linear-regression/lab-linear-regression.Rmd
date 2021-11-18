@@ -1,3 +1,8 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
 # Chapter 3 Lab: Linear Regression
 
 ```{r}
@@ -60,6 +65,7 @@ predict(lm.fit,data.frame(lstat=(c(5,10,15))), interval="prediction")
 We will now plot `medv` and `lstat` along with the least squares regression line using the `plot()` and `abline()` functions.
 
 ```{r}
+attach(Boston)
 plot(lstat,medv)
 abline(lm.fit)
 ```
