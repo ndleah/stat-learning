@@ -10,7 +10,7 @@ In statistical learning, _**input variables**_ $$(X_{n})$$ are typically denoted
 To assess the relationship between predictors $$X_{1}, X_{2}, ...,X_{p}$$, we have the equation as following:
 
 $$
-\Large Y=f(X) + \epsilon
+Y=f(X) + \epsilon
 $$
 
 Whereas:
@@ -20,16 +20,16 @@ Whereas:
 In essence, statistical learning refers to a set of approaches for estimating $$f$$.
 
 
-## (PART) Why Estimate f?
+## Why Estimate f?
 
 There are 2 main reasons: _**prediction**_ and _**inference**_.
 
-### (PART) Prediction
+### Prediction
 
 Hypothetically, let's say we have the _**error term**_ averages to 0, predicting $$Y$$ can be assessed using this equation:
 
 $$
-\hat{Y} = \Large \hat{f}(X)
+\hat{Y} = \hat{f}(X)
 $$
 
 Whereas:

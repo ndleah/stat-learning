@@ -20,7 +20,7 @@ This question can be answered by fitting a multiple regression model
 of sales onto `TV`, `radio`, and `newspaper`, as:
 
 $$
-\Large sales = \beta_0 + \beta_1 × TV + \beta_2 × radio + \beta_3 × newspaper + \epsilon.
+sales = \beta_0 + \beta_1 × TV + \beta_2 × radio + \beta_3 × newspaper + \epsilon.
 $$
 
 and testing the hypothesis 

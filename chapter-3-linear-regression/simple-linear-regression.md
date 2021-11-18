@@ -3,7 +3,7 @@
 ***Simple linear regression*** is a very straightforward approach for predicting a qualitative response $$Y$$ on the basis of a single predictor $$X$$. Mathematically, we can write this linear relationship as
 
 $$
-\Large Y \approx \beta_0 + \beta_1 X
+Y \approx \beta_0 + \beta_1 X
 $$
 
 Whereas:
@@ -15,7 +15,7 @@ Whereas:
 In practice, $$\beta_0$$ and $$\beta_1$$ are unknown. So before make predictions, we must use data to estimate the coefficients. Let
 
 $$
-\Large (x_1, Y_1), (x_2, Y_2),...,(x_n, Y_n)
+(x_1, Y_1), (x_2, Y_2),...,(x_n, Y_n)
 $$
 represent $$n$$ observation pairs, each of which consists of a measurement of $$X$$ and a measurement of $$Y$$. Our goal is to obtain coefficient estimates $$\beta_0$$ and $$\beta_1$$ such that the linear model fits the available data well. In other words, we want to find an intercept $$\beta_0$$ and a slope $$\beta_1$$ such that the resulting line is as close as possible to the $$n$$ data points.
 
@@ -30,12 +30,12 @@ There are numbers of ways of measuring *closeness*. However, by far the most com
 Let Y_i = \beta_0 + \beta_1 X_i  be the prediction for $$Y$$ based on the $$i$$th value of $$X$$. Then $$e_i = y_i -\hat{y}+i$$ represents the $$i$$th *residual* - this is the difference between the $$i$$th value and the $$i$$th reponse value that is predicted by our linear model. We define the *residual sum of square (RSS)* as
 
 $$
-\Large RSS = e_1^2 + e_2^2 + ... + e_n^2
+RSS = e_1^2 + e_2^2 + ... + e_n^2
 $$
 
 or equivalent as 
 $$
-\Large RSS = (y_1 - \hat{\beta_0} - \hat{\beta_1}x_2)^2 + (y_2 - \hat{\beta_0} - \hat{\beta_1}x_2)^2  + ... + (y_n - \hat{\beta_0} - \hat{\beta_1}x_n)^2
+RSS = (y_1 - \hat{\beta_0} - \hat{\beta_1}x_2)^2 + (y_2 - \hat{\beta_0} - \hat{\beta_1}x_2)^2  + ... + (y_n - \hat{\beta_0} - \hat{\beta_1}x_n)^2
 $$
 
 ***The least square approach*** chooses $$\hat{\beta_0}$$ and $$\hat{\beta_1}$$ to minimize the RSS.
@@ -46,14 +46,14 @@ $$
 Population Regression Line:
 
 $$
-\Large Y=\beta_0 + \beta_1X + \epsilon
+Y=\beta_0 + \beta_1X + \epsilon
 $$
 
 where $$\epsilon$$ mean zero random error term
 
 Least squares line :
 $$
-\Large \hat{y}=\hat{\beta_0} + \hat{\beta_1}X 
+\hat{y}=\hat{\beta_0} + \hat{\beta_1}X 
 $$
 
 (true relationship between X and Y takes the form $$Y=f(X)+\epsilon$$
@@ -88,12 +88,12 @@ Standard errors ca also be used to perform ***hypothesis tests*** on the coeffic
 Mathematically, this corresponds to testing
 
 $$
-\Large H_0: \beta_1 = 0
+H_0: \beta_1 = 0
 $$
 
 versus
 $$
-\Large H_1: \beta_1 \neq 0
+H_1: \beta_1 \neq 0
 $$
 
 If $$\beta_1 = 0$$ then the model reduces to $$Y=\beta_0+\epsilon$$, and $$X$$ is not associated with $$Y$$.
@@ -112,7 +112,7 @@ This is course depends on the accuracy of $$\hat{\beta_1}$$ -that is, it depends
 
 In practice, we compute a ***t-statistic***, given by
 $$
-\Large t=\dfrac{\hat{\beta_1}-0}{SE(\hat{\beta_1})}
+t=\dfrac{\hat{\beta_1}-0}{SE(\hat{\beta_1})}
 $$
 
 For example, we have a t-distribution with $$n-2$$ degrees of freedom as in Figure 3.3.
@@ -122,7 +122,7 @@ For example, we have a t-distribution with $$n-2$$ degrees of freedom as in Figu
 The t-distribution has a bell shape and for values of n greater than approximately 30 it is quite similar to the normal distribution. Consequently, it is a simple matter to compute probability of observing any value equal to $$|t|$$ or larger, assuming $$\beta_1 =0$$. We call this probability the ***p-value***.
 
 $$
-\Large P(|T| > t) = p
+P(|T| > t) = p
 $$
 
 Roughly speaking, we interpret the ***p-value*** as follows: 
