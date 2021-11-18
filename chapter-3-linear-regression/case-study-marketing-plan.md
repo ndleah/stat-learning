@@ -40,11 +40,7 @@ population regression line. For the `Advertising` data, the RSE is $$1,681$$ uni
 
 3. *Which media contribute to sales?*
 
-To answer this question, we can examine the p-values associated with
-each predictor’s t-statistic. In the multiple linear regression
-displayed in Table 3.4, the p-values for `TV` and `radio` are low,
-but the p-value for `newspaper` is not. This suggests that only `TV` and
-`radio` are related to sales.
+To answer this question, we can examine the p-values associated with each predictor’s t-statistic. In the multiple linear regression displayed in Table 3.4, the p-values for `TV` and `radio` are low, but the p-value for `newspaper` is not. This suggests that only `TV` and `radio` are related to sales.
 
 ![Table 3.4. For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets. ](img/88-Table3.4-1.png)
 
