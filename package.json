@@ -7,6 +7,7 @@
     "graceful-fs": "^4.2.8"
   },
   "dependencies": {
+    "gitbook-plugin-chapter-numbering": "^1.2.0",
     "gitbook-plugin-github-buttons": "^3.0.0",
     "gulp": "^3.9.1"
   }

@@ -1,0 +1,49 @@
+.markdown-section h1:before,
+.markdown-section h2:before,
+.markdown-section h3:before,
+.markdown-section h4:before,
+.markdown-section h5:before,
+.markdown-section h6:before {
+  display: inline-block;
+  margin-right: .8rem;
+}
+
+body {
+  counter-reset: h1 h2 h3 h4 h5 h6;
+}
+
+.markdown-section h1 {
+  counter-increment: h1;
+  counter-reset: h2 h3 h4 h5 h6;
+}
+
+.markdown-section h1:before {
+  content: counter(h1) ".";
+}
+
+.markdown-section h2 {
+  counter-increment: h2;
+  counter-reset: h3 h4 h5 h6;
+}
+
+.markdown-section h2:before {
+  content: counter(h1) "." counter(h2) ".";
+}
+
+.markdown-section h3 {
+  counter-increment: h3;
+  counter-reset: h4 h5 h6;
+}
+
+.markdown-section h3:before {
+  content: counter(h1) "." counter(h2) "." counter(h3) ".";
+}
+
+.markdown-section > h2:nth-child(2):before,
+div[data-element=body] > h2:nth-child(2):before {
+  counter-increment: unset!important;
+}
+
+.number-for-pdf {
+  display: none;
+}
