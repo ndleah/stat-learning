@@ -1,10 +1,16 @@
----
-showToc: true
----
-
 # (PART) What is Statistical Learning?
 
 <!-- toc -->
+- [(PART) What is Statistical Learning?](#part-what-is-statistical-learning)
+  - [Why Estimate f?](#why-estimate-f)
+    - [Prediction](#prediction)
+    - [Inference](#inference)
+  - [How Do We Estimate f?](#how-do-we-estimate-f)
+    - [Parametric Methods](#parametric-methods)
+    - [Non-Parametric Methods](#non-parametric-methods)
+  - [The Tradeoff Between Prediction Accuracy and Model Interpretability](#the-tradeoff-between-prediction-accuracy-and-model-interpretability)
+  - [Supervised Vs. Unsupervised Learning](#supervised-vs-unsupervised-learning)
+  - [Regression Vs. Classification](#regression-vs-classification)
 
 There are 2 types of statistical learning: _supervised_ and _unsupervised_.
 
