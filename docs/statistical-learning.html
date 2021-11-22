@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Statistical Learning | Stat Learning</title>
+  <meta name="description" content="Notes and exercise attempts for “An Introduction to Statistical Learning”" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Statistical Learning | Stat Learning" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ndleah.github.io/stat-learning/" />
+  
+  <meta property="og:description" content="Notes and exercise attempts for “An Introduction to Statistical Learning”" />
+  <meta name="github-repo" content="ndleah/stat-learning" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Statistical Learning | Stat Learning" />
+  
+  <meta name="twitter:description" content="Notes and exercise attempts for “An Introduction to Statistical Learning”" />
+  
+
+<meta name="author" content="Leah Nguyen" />
+
+
+<meta name="date" content="2021-11-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="linear-regression.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Stat Learning</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> cover-image: path to the social sharing image like images/cover.jpg</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-learning.html"><a href="statistical-learning.html"><i class="fa fa-check"></i><b>2</b> Statistical Learning</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistical-learning.html"><a href="statistical-learning.html#what-is-statistical-learning"><i class="fa fa-check"></i><b>2.1</b> What is Statistical Learning?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="statistical-learning.html"><a href="statistical-learning.html#why-estimate-f"><i class="fa fa-check"></i><b>2.1.1</b> Why Estimate f?</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistical-learning.html"><a href="statistical-learning.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>2.1.2</b> How Do We Estimate f?</a></li>
+<li class="chapter" data-level="2.1.3" data-path="statistical-learning.html"><a href="statistical-learning.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>2.1.3</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
+<li class="chapter" data-level="2.1.4" data-path="statistical-learning.html"><a href="statistical-learning.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>2.1.4</b> Supervised Vs. Unsupervised Learning</a></li>
+<li class="chapter" data-level="2.1.5" data-path="statistical-learning.html"><a href="statistical-learning.html#regression-vs.-classification"><i class="fa fa-check"></i><b>2.1.5</b> Regression Vs. Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="statistical-learning.html"><a href="statistical-learning.html#assessing-model-accuracy"><i class="fa fa-check"></i><b>2.2</b> Assessing Model Accuracy</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-learning.html"><a href="statistical-learning.html#the-regression-setting"><i class="fa fa-check"></i><b>2.2.1</b> The Regression Setting</a></li>
+<li class="chapter" data-level="2.2.2" data-path="statistical-learning.html"><a href="statistical-learning.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>2.2.2</b> The Bias-Variance Trade-Off</a></li>
+<li class="chapter" data-level="2.2.3" data-path="statistical-learning.html"><a href="statistical-learning.html#the-classification-setting"><i class="fa fa-check"></i><b>2.2.3</b> The Classification Setting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>3</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="linear-regression.html"><a href="linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>3.1</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="linear-regression.html"><a href="linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1.1</b> Estimating the Coefficients</a></li>
+<li class="chapter" data-level="3.1.2" data-path="linear-regression.html"><a href="linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.1.2</b> Assessing the Accuracy of the Coefficient Estimates</a></li>
+<li class="chapter" data-level="3.1.3" data-path="linear-regression.html"><a href="linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.1.3</b> Assessing the Accuracy of the Model</a></li>
+<li class="chapter" data-level="3.1.4" data-path="linear-regression.html"><a href="linear-regression.html#consideration"><i class="fa fa-check"></i><b>3.1.4</b> Consideration</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>3.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="3.3" data-path="linear-regression.html"><a href="linear-regression.html#other-considerations-in-the-regression-model"><i class="fa fa-check"></i><b>3.3</b> Other Considerations in the Regression Model</a></li>
+<li class="chapter" data-level="3.4" data-path="linear-regression.html"><a href="linear-regression.html#case-study---marketing-plan"><i class="fa fa-check"></i><b>3.4</b> Case Study - Marketing Plan</a></li>
+<li class="chapter" data-level="3.5" data-path="linear-regression.html"><a href="linear-regression.html#chapter-3-lab-linear-regression"><i class="fa fa-check"></i><b>3.5</b> Chapter 3 Lab: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="linear-regression.html"><a href="linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>3.5.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="3.5.2" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>3.5.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="3.5.3" data-path="linear-regression.html"><a href="linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>3.5.3</b> Interaction Terms</a></li>
+<li class="chapter" data-level="3.5.4" data-path="linear-regression.html"><a href="linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>3.5.4</b> Non-linear Transformations of the Predictors</a></li>
+<li class="chapter" data-level="3.5.5" data-path="linear-regression.html"><a href="linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>3.5.5</b> Qualitative Predictors</a></li>
+<li class="chapter" data-level="3.5.6" data-path="linear-regression.html"><a href="linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>3.5.6</b> Writing Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="linear-regression.html"><a href="linear-regression.html#exercises-applied"><i class="fa fa-check"></i><b>3.6</b> Exercises (Applied)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/ndleah/stat-learning" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Stat Learning</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistical-learning" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Statistical Learning</h1>
+<div id="what-is-statistical-learning" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> What is Statistical Learning?</h2>
+<p>There are 2 types of statistical learning: <em>supervised</em> and <em>unsupervised</em>:</p>
+<ul>
+<li><p><strong>Supervised learning</strong> is when you have a label for each data point, which mean it involves building a model that can predict an <em>output</em> based on one or more <em>inputs</em>.</p></li>
+<li><p><strong>Unsupervised learning</strong> is when you don’t have a label for each data point, where there are <em>inputs</em> but no supervising <em>output</em>.</p></li>
+</ul>
+<p>In statistical learning, <em><strong>input variables</strong></em> <span class="math inline">\((X_{n})\)</span> are typically denoted by <em>features</em>, <em>predictors</em>, <em>indepedent variables</em> or <em>variables</em> while <em><strong>output variable</strong></em> <span class="math inline">\((Y)\)</span> often called <em>dependent variable</em> or <em>response</em>.</p>
+<p>To assess the relationship between predictors <span class="math inline">\(X_{1}, X_{2}, ...,X_{p}\)</span>, we have the equation as following:</p>
+<p><span class="math display">\[
+Y=f(X) + \epsilon
+\]</span></p>
+<p>Whereas:</p>
+<ul>
+<li><span class="math inline">\(f\)</span> is fixed but unknown function of <span class="math inline">\(X_{1},...,X_{p}\)</span> and <span class="math inline">\(\epsilon\)</span> is a random <em>error term</em>, which is independent of <span class="math inline">\(X\)</span> and has mean zero.</li>
+</ul>
+<p>In essence, statistical learning refers to a set of approaches for estimating <span class="math inline">\(f\)</span>.</p>
+<div id="why-estimate-f" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Why Estimate f?</h3>
+<p>There are 2 main reasons: <em><strong>prediction</strong></em> and <em><strong>inference</strong></em>.</p>
+<div id="prediction" class="section level4" number="2.1.1.1">
+<h4><span class="header-section-number">2.1.1.1</span> Prediction</h4>
+<p>Hypothetically, let’s say we have the <em><strong>error term</strong></em> averages to 0, predicting <span class="math inline">\(Y\)</span> can be assessed using this equation:</p>
+<p><span class="math display">\[
+\hat{Y} = \hat{f}(X)
+\]</span></p>
+<p>Whereas:</p>
+<ul>
+<li><p><span class="math inline">\(\hat{f}\)</span> represents the estimate for <span class="math inline">\(f\)</span></p></li>
+<li><p><span class="math inline">\(\hat{Y}\)</span> represents the resulting prediction for <span class="math inline">\(Y\)</span></p></li>
+</ul>
+<p>The accuracy of <span class="math inline">\(\hat{Y}\)</span> as a prediction for <span class="math inline">\(Y\)</span> depends on 2 quantities: <em><strong>reducible error</strong></em> and <em><strong>irreducible error</strong></em>.</p>
+<ul>
+<li><p><em><strong>reducible error</strong></em>: Reducible error is the error arising from the mismatch between <span class="math inline">\(\hat{f}\)</span> and <span class="math inline">\(f\)</span>. Can be improved by choosing a better model. Usually caused by Variance Error/Bias Error.</p></li>
+<li><p><em><strong>irreducible error</strong></em>: Errors which can’t be removed no matter what algorithm you apply. These errors are caused by unknown variables that are affecting the independent/output variable but are not one of the dependent/input variable while designing the model.</p></li>
+</ul>
+</div>
+<div id="inference" class="section level4" number="2.1.1.2">
+<h4><span class="header-section-number">2.1.1.2</span> Inference</h4>
+<p>Necessary questions need to be asked in order to further understand the relationship between predictors <span class="math inline">\((X_{n})\)</span> and outcome <span class="math inline">\((Y)\)</span>:</p>
+<ul>
+<li><p><em><strong>Which predictors are associated with response?</strong></em> Only a small fraction of the available predictors are associated with the response.</p></li>
+<li><p><em><strong>What is the relationship between predictors and response?</strong></em> The relationship between predictors and response is not always linear.</p></li>
+<li><p><em><strong>Can the relationship between predictors and response be explained by the linear model or it is more complicated?</strong></em> The model can explain the relationship between predictors and response if the model is able to predict the response based on the predictors.</p></li>
+</ul>
+</div>
+</div>
+<div id="how-do-we-estimate-f" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> How Do We Estimate f?</h3>
+<p>In order to estimate <span class="math inline">\(f\)</span>, our goal is to apply a statistical learning method to the training data. Broadly speaking, most statistical learning methods for this task can be characterized as either <em><strong>parametric</strong></em> or <em><strong>non-parametric</strong></em>.</p>
+<div id="parametric-methods" class="section level4" number="2.1.2.1">
+<h4><span class="header-section-number">2.1.2.1</span> Parametric Methods</h4>
+<p>Parametric methods (model-based approach) are those that are able to estimate the parameters of the model based on the training data. It involves a <strong>two-step model-based approach</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><p>First, we make an assumption about the functional form, or shape, of <span class="math inline">\(f\)</span>. In other words, we need to choose the model that best fits the data.</p></li>
+<li><p>After the model has been selected, we need a procedure that uses the training data to <em>fit</em> or <em>train</em> the model.</p></li>
+</ol>
+<p>Potential disadvantages of parametric methods is that the model will not usually match the true <span class="math inline">\(f\)</span>. This can be avoid by choosing a more <em>flexible</em> models that can fit many possible functions for <span class="math inline">\(f\)</span> forms and usually require greater number of parameters.</p>
+<div class="alert alert-info hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+Example fitting models for parametric methods (linear): <strong>Odirnary Least Squares (OLS), Lasso.</strong>
+</div>
+</div>
+</div>
+<div id="non-parametric-methods" class="section level4" number="2.1.2.2">
+<h4><span class="header-section-number">2.1.2.2</span> Non-Parametric Methods</h4>
+<p>Non-parametric methods (model-free approach) seek an estimate of <span class="math inline">\(f\)</span> without make explicit assumptions about the functional form of of <span class="math inline">\(f\)</span>. Major disadvantages of this approach is that a very large number of observations is required in order to obtain an accurate estimate for <span class="math inline">\(f\)</span>.</p>
+<div class="alert alert-info hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+Example fitting models for non-parametric methods: <em><strong>smooth thin-plate spline fit</strong></em> and <em><strong>rough thin-plate spline fit</strong></em><strong>.</strong>
+</div>
+</div>
+</div>
+</div>
+<div id="the-tradeoff-between-prediction-accuracy-and-model-interpretability" class="section level3" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> The Tradeoff Between Prediction Accuracy and Model Interpretability</h3>
+<div class="figure">
+<img src="img/xkcd-interpretability-vs-flexibility.png" alt="" />
+<p class="caption">Figure 1. Tradeoff Between Prediction Accuracy and Model Interpretability</p>
+</div>
+<p>Figure 1 illustrates the tradeoff between flexibility and interpretability of using different statistical learning methods. In general, as the flexibility increase, the interpretability decreases.</p>
+<p><strong>Why would we ever choose to use a more restrictive method instead of a very flexible approach?</strong> </p>
+<p>If we are mainly interested in the interpretability of the model, we would rather use a more flexible model. This is because the flexibility of the model is usually better than the interpretability of the model. </p>
+<p>In contrast, if we are interested in the prediction accuracy of the model, we would rather use a more restrictive model. This is because the flexibility of the model is usually better than the prediction accuracy of the model.</p>
+</div>
+<div id="supervised-vs.-unsupervised-learning" class="section level3" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Supervised Vs. Unsupervised Learning</h3>
+<p>Most statistical learning problems involve both <strong>supervised</strong> and <strong>unsupervised learning</strong>.</p>
+<p><strong>In supervised learning</strong>, we wish to fit a model to the training data and predict the response variable based on the predictors, with the aim of accurately predicting the response variable or better understanding the relationship between predictors and response variable.</p>
+<p>Some of the statistical approaches that apply the supervised learning method are:</p>
+<ul>
+<li><p><strong>Linear Regression</strong></p></li>
+<li><p><strong>Logistic Regression</strong></p></li>
+<li><p><strong>Boosting &amp; Support Vector Machine</strong></p></li>
+<li><p><strong>Generalized Additive Models (GAMs)</strong></p></li>
+</ul>
+<p>In contrast, <strong>unsupervised learning methods </strong>are those that do not require any training data. One statistical learning tool that we may use in this setting is <em>cluster analysis</em> or clustering. The goal of this method is to ascertain, whether observations fall into distinct groups.</p>
+</div>
+<div id="regression-vs.-classification" class="section level3" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> Regression Vs. Classification</h3>
+<p>Variables can be characterized as either <em><strong>quantitative</strong></em> or <em><strong>qualitative</strong></em>. </p>
+<ul>
+<li><p>Quantitative variables are those that can be measured in terms of a number. </p></li>
+<li><p>Qualitative variables are those that can be measured in terms of a set of categories.</p></li>
+</ul>
+<p>We tend to refer to problems with a quantitative response variable as <strong>regression</strong> problems and problems with a qualitative response variable as <strong>classification</strong> problems. However, an important note is that it does not matter much whether the predictors/variables are quantitative or qualitative.</p>
+</div>
+</div>
+<div id="assessing-model-accuracy" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Assessing Model Accuracy</h2>
+<blockquote>
+<p><em>"<strong>There is no free lunch in statistics"</strong></em></p>
+</blockquote>
+<p>No one method dominates all others over all possible data sets. This section introduce some common ways to assess the accuracy of a model to select a statistical learning procedure for a specific data set.</p>
+<div id="the-regression-setting" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> The Regression Setting</h3>
+<div id="measuring-the-quality-of-fit" class="section level4" number="2.2.1.1">
+<h4><span class="header-section-number">2.2.1.1</span> Measuring the Quality of fit</h4>
+<p>In order to evaluate the performance of a model, we need to measure how well its predictions actually match the observed data. In the regression setting, the most commonly used measure is the <strong>mean squared error (MSE)</strong>:</p>
+<p><span class="math display">\[
+MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2
+\]</span></p>
+<p>given by where <span class="math inline">\(\hat{f}(x_{i}\)</span> is the prediction that <span class="math inline">\(\hat{f}\)</span> gives for the ith observations.</p>
+<p>The MSE will be small if the predicted responses are very close to the true response, and will be large if for some observations, the predicted and true responses differ substantially.</p>
+<ul>
+<li><p><em><strong>training MSE</strong></em>: The MSE is computed using the training data that was used to fit the model.</p></li>
+<li><p><em><strong>test MSE</strong></em>: The MSE is computed using the previously unseen test observation not used to train the statistical learning method.</p></li>
+</ul>
+<p>When a given method yields a small training MSE but a large test MSE, we are said to be <em>overfitting</em> the data. When we overfit the training data, the test MSE will be very large because the supposed patterns that the method found in the training data simply don’t exist in the test data.</p>
+</div>
+</div>
+<div id="the-bias-variance-trade-off" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> The Bias-Variance Trade-Off</h3>
+<div id="variance-error" class="section level4" number="2.2.2.1">
+<h4><span class="header-section-number">2.2.2.1</span> <strong>Variance Error</strong></h4>
+<p><strong>Variance</strong> is the amount that the estimate of <span class="math inline">\(\hat{f}\)</span> will change if different training data was used.</p>
+<p>Ideally, it should not change too much from one training dataset to the next, meaning that the algorithm is good at picking out the hidden underlying mapping between the inputs and the output variables.</p>
+<div class="alert alert-info hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+Examples of low-variance machine learning algorithms include: <strong>Linear Regression, Linear Discriminant Analysis and Logistic Regression.</strong>
+</div>
+</div>
+<div class="alert alert-info hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+Examples of high-variance machine learning algorithms include: <strong>Decision Trees, k-Nearest Neighbors</strong> and <strong>Support Vector Machines.</strong>
+</div>
+</div>
+</div>
+<div id="bias-error" class="section level4" number="2.2.2.2">
+<h4><span class="header-section-number">2.2.2.2</span> <strong>Bias Error</strong></h4>
+<p><strong>Bias</strong> are the simplifying assumptions made by a model to make the target function easier to learn.</p>
+<p>Generally, linear algorithms have a high bias making them fast to learn and easier to understand but generally less flexible. In turn, they have lower predictive performance on complex problems that fail to meet the simplifying assumptions of the algorithms bias.</p>
+<ul>
+<li><strong>Low Bias:</strong> Suggests less assumptions about the form of the target function.</li>
+<li><strong>High-Bias:</strong> Suggests more assumptions about the form of the target function.</li>
+</ul>
+<div class="alert alert-info hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+Examples of low-bias machine learning algorithms include: <strong>Decision Trees, k-Nearest Neighbors </strong>and <strong>Support Vector Machines.</strong>
+</div>
+</div>
+<div class="alert alert-info hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+Examples of high-bias machine learning algorithms include: <strong>Linear Regression, Linear Discriminant Analysis</strong> and <strong>Logistic Regression.</strong>
+</div>
+</div>
+</div>
+<div id="bias-variance-trafe-off" class="section level4" number="2.2.2.3">
+<h4><span class="header-section-number">2.2.2.3</span> <strong>Bias-Variance Trafe-Off</strong></h4>
+<p>The goal of any supervised machine learning algorithm is to achieve <em>low bias</em> and <em>low variance</em>. In turn the algorithm should achieve good prediction performance.</p>
+<p>You can see a general trend in the examples above:</p>
+<ul>
+<li><strong>Linear machine learning algorithms</strong> often have a high bias but a low variance.</li>
+<li><strong>Nonlinear machine learning algorithms</strong> often have a low bias but a high variance.</li>
+<li>The parameterization of machine learning algorithms is often a battle to balance out bias and variance.</li>
+</ul>
+</div>
+</div>
+<div id="the-classification-setting" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> The Classification Setting</h3>
+<p>The most common approach for quantifying the accuracy of our estimate <span class="math inline">\(\hat{f}\)</span> is the <em>training error</em>_ rate, the proportion of mistakes that are made if we apply our estimate <span class="math inline">\(\hat{f}\)</span> to the training observations:</p>
+<p><span class="math display">\[
+\frac{1}{n}\sum_{i = 1}^{n} I (y_{i} \neq \hat{y_{i}})
+\]</span></p>
+<p>Whereas:</p>
+<ul>
+<li><p><span class="math inline">\(\hat{y_{i}}\)</span>: the predicted class label for the ith observation using <span class="math inline">\(\hat{f}\)</span></p></li>
+<li><p><span class="math inline">\(I (y_{i} \neq \hat{y_{i}})\)</span>: an <em>indicator variable</em> that equal <strong>1</strong> if <span class="math inline">\(y_{i} \neq \hat{y_{i}}\)</span> and <strong>0</strong> if <span class="math inline">\(y_{i} = \hat{y_{i}}\)</span>. If:</p>
+<ul>
+<li><p><span class="math inline">\(I (y_{i} \neq \hat{y_{i}}) = 0\)</span>: correct classification</p></li>
+<li><p><span class="math inline">\(I (y_{i} \neq \hat{y_{i}}) \neq 0\)</span>: incorrect classification (misclassified)</p></li>
+</ul></li>
+</ul>
+<p>A good classifier is one for which the <em>test error</em> is smallest where the <em>test error</em> rate associated with a set of test observations of the from <span class="math inline">\((x_{0}, y_{0})\)</span>.</p>
+<div id="the-bayes-classifier" class="section level4" number="2.2.3.1">
+<h4><span class="header-section-number">2.2.3.1</span> The Bayes Classifier</h4>
+<p>This algorithm is called Naïve because it works on the naïve assumption that the features are independent. Naïve Bayes Classifier works with principle of Bayes Theorem.</p>
+<blockquote>
+<p>Conditional probability of an event <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>, <span class="math inline">\(P(A|B)\)</span> is the probability of <span class="math inline">\(A\)</span> given that <span class="math inline">\(B\)</span> has already occurred. It is often defined as the ratio of joint probability of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (probability of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occurring together) to the marginal probability of <span class="math inline">\(A\)</span> (probability of event <span class="math inline">\(A\)</span>)</p>
+</blockquote>
+<div class="alert alert-success hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+<p><strong>Pros</strong></p>
+<ul>
+<li>Easy to implement</li>
+<li>Performs reasonably well with noisy data
+</div></li>
+</ul>
+</div>
+<div class="alert alert-danger hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+<p><strong>Cons</strong></p>
+<ul>
+<li>Poor performance with continuous features</li>
+<li>Assumption that features are independent is risky
+</div></li>
+</ul>
+</div>
+</div>
+<div id="k-nearest-neighbors-knn" class="section level4" number="2.2.3.2">
+<h4><span class="header-section-number">2.2.3.2</span> K-Nearest Neighbors (KNN)</h4>
+<p>K-Nearest neighbors algorithm can be used to solve both classification and regression problems. When algorithms such as Naïve Bayes Classifier uses probabilities from training samples for predictions, KNN is Lazy learner that does not create any model in advance. The just find the closest based on feature similarity.</p>
+<div class="alert alert-success hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+<p><strong>Pros</strong></p>
+<ul>
+<li>Easy to implement</li>
+<li>No assumptions involved
+</div></li>
+</ul>
+</div>
+<div class="alert alert-danger hints-alert">
+<div class="hints-icon">
+<i class="fa fa-info"></i>
+</div>
+<div class="hints-container">
+<p><strong>Cons</strong></p>
+<ul>
+<li>Optimal K is always a challenge</li>
+<li>Lazy learner- computationally expensive
+</div></li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ndleah/stat-learning/edit/main/01-statistical-learning.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

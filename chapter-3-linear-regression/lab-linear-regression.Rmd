@@ -1,27 +1,11 @@
----
-output:
-  md_document:
-    variant: markdown_github
----
-
-```{r include=FALSE}
-gitbook(fig_caption = TRUE, number_sections = TRUE,
-  self_contained = FALSE, anchor_sections = TRUE,
-  lib_dir = "libs", global_numbering = !number_sections,
-  pandoc_args = NULL, ..., template = "default",
-  split_by = c("chapter", "chapter+number", "section",
-    "section+number", "rmd", "none"), split_bib = TRUE,
-  config = list(), table_css = TRUE)
-```
-
-# Chapter 3 Lab: Linear Regression
+## Chapter 3 Lab: Linear Regression
 
 ```{r}
 library(MASS)
 library(ISLR)
 ```
 
-# Simple Linear Regression
+## Simple Linear Regression
 
 The Boston data set records `medv` (median house value) for 506 neighborhoods around Boston. We will seek to predict `medv` using 13 predictors such as `rm` (average number of rooms per house), `age` (average age of houses), and `lstat` (percent of households with low socioeconomic status).
 
@@ -111,35 +95,35 @@ The `which.max()` function identifies the index of the largest element of a `whi
 which.max(hatvalues(lm.fit))
 ```
 
+#### Multiple Linear Regression
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+
+
+
+
+
+```{r}
+
+```
+
 ## Multiple Linear Regression
-
-
-```{r}
-```
-
-
-```{r}
-```
-
-
-```{r}
-```
-
-
-```{r}
-```
-
-
-
-
-
-
-
-```{r}
-
-```
-
-# Multiple Linear Regression
 
 lm.fit=lm(medv~lstat+age,data=Boston)
 summary(lm.fit)
@@ -151,11 +135,11 @@ lm.fit1=lm(medv~.-age,data=Boston)
 summary(lm.fit1)
 lm.fit1=update(lm.fit, ~.-age)
 
-# Interaction Terms
+## Interaction Terms
 
 summary(lm(medv~lstat*age,data=Boston))
 
-# Non-linear Transformations of the Predictors
+## Non-linear Transformations of the Predictors
 
 lm.fit2=lm(medv~lstat+I(lstat^2))
 summary(lm.fit2)
@@ -167,7 +151,7 @@ lm.fit5=lm(medv~poly(lstat,5))
 summary(lm.fit5)
 summary(lm(medv~log(rm),data=Boston))
 
-# Qualitative Predictors
+## Qualitative Predictors
 
 fix(Carseats)
 names(Carseats)
@@ -176,7 +160,7 @@ summary(lm.fit)
 attach(Carseats)
 contrasts(ShelveLoc)
 
-# Writing Functions
+## Writing Functions
 
 LoadLibraries
 LoadLibraries()

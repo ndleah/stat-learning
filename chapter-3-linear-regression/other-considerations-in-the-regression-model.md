@@ -1,6 +1,6 @@
-# Other Considerations in the Regression Model
+## Other Considerations in the Regression Model
 
-## Potential Problems
+### Potential Problems
 
 When we fit a linear regression model, many problems can occur, to name a few:
 
@@ -11,9 +11,9 @@ When we fit a linear regression model, many problems can occur, to name a few:
 * *High-leverage points.*
 * *Collinearity.*
 
----
 
-## Non-linearity of the Data
+
+### Non-linearity of the Data
 
 The first assumption of Linear Regression is that relations between the independent and dependent variables must be linear.
 
@@ -28,11 +28,11 @@ In each plot, the red line is a smooth fit to the residuals, intended to make it
 * **Left:** A linear regression of `mpg` on horsepower. A strong pattern in the residuals indicates non-linearity in the data. 
 * **Right:** A linear regression of `mpg` on `horsepower` and `horsepower2`. There is little pattern in the residuals.
 
----
 
-## Correlation of Error Terms
 
-If there is correlation among the error terms $$\epsilon_1, \epsilon_2,...,\epsilon_n, then the estimated standard errors (SE) will tend to underestimate the true SE. As the result, p-value associated with the model will be lower than they should be, which could cause us to erroneously conclude that a parameter is statistically significant.
+### Correlation of Error Terms
+
+If there is correlation among the error terms $\epsilon_1, \epsilon_2,...,\epsilon_n$, then the estimated standard errors (SE) will tend to underestimate the true SE. As the result, p-value associated with the model will be lower than they should be, which could cause us to erroneously conclude that a parameter is statistically significant.
 
 {% hint style="danger" %}
 Such correlations frequently occur in the context of *time series* data, which consist of observations for which measurements are obtained at adjacent time points will have positively correlated errors.
@@ -52,9 +52,9 @@ Finally, **the center panel** illustrates a more moderate case in which the resi
 
 ![Figure 3.10. Plots of residuals from simulated time series data sets generated with differing levels of correlation ρ between error terms for adjacent time points](img/109-Figure3.10-1.png)
 
----
 
-## Non-constant Variance of Error Terms (Heteroscedasticity)
+
+### Non-constant Variance of Error Terms (Heteroscedasticity)
 
 Heteroscedasticity in a model means that the error is constant along the values of the dependent variable. 
 
@@ -76,9 +76,9 @@ Some of the suggested solutions are:
 2. **Do transformations**, like applying concave function such as *logistics* ($$logY$$) or *square root* $$\sqrt{Y}$$.
 3. If this doesn’t change anything, you can also switch to the **weighted least squares model**. *Weighted least squares* is a model that can deal with unconstant variances and heteroscedasticity is therefore not a problem. 
 
----
 
-## Outlier
+
+### Outlier
 
 An **outlier** is a point for which yi is far from the value predicted by model. Outliers can arise for a variety of reasons, such as incorrect recording of an observation during data collection.
 
@@ -93,9 +93,9 @@ regression line after removing the outlier is shown in blue.
 
 If we believe that an outlier has occurred due to an error in data collection or recording, then one solution is to simply remove the observation.
 
----
 
-## High Leverage Points
+
+### High Leverage Points
 
 In contrast to outlier with unusual for response value $$y$$, observations with high leverage high leverage have an unusual value for $$x_i$$.
 
@@ -117,9 +117,9 @@ $$
 
 A large value of this statistic indicates an observation with high leverage.
 
----
 
-## Collinearity
+
+### Collinearity
 
 ***Collinearity*** refers to the situation in which two or more predictor variables are closely related to one another.
 
@@ -127,9 +127,9 @@ Multicollinearity causes problems in using regression models to draw conclusions
 
 In order to check for collinearity, we can either use *Correlation Matrix* or *Variance Inflation Factor (VIF)*.
 
----
 
-### Correlation Matrix
+
+#### Correlation Matrix
 
 A simple way to detect collinearity is to look at the correlation matrix
 of the predictors. An element of this matrix that is large in absolute value indicates a pair of highly correlated variables, and therefore a collinearity problem in the data. 
@@ -138,9 +138,9 @@ of the predictors. An element of this matrix that is large in absolute value ind
 
 Unfortunately, not all collinearity problems can be detected by inspection of the correlation matrix: it is possible for collinearity to exist between three or more variables even if no pair of variables has a particularly high correlation. We call this situation ***multicollinearity***.
 
----
 
-### Variance Inflation Factor (VIF)
+
+#### Variance Inflation Factor (VIF)
 
 Instead of inspecting the correlation matrix, a better way to assess multi- collinearity collinearity is to compute the variance inflation factor (VIF). This can easily be calculated in R using software packages.
 

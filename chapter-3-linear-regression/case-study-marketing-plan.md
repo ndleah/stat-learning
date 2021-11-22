@@ -1,6 +1,6 @@
-# Case Study - Marketing Plan
+## Case Study - Marketing Plan
 
-## Data Overview
+#### Data Overview
 
 The `Advertising` data set consists of the sales of that product in 200 different markets, along with advertising budgets for the product in each of those markets for three different media: `TV`, `radio`, and `newspaper`. The data are displayed in Figure 2.1. 
 
@@ -10,7 +10,7 @@ The plot displays sales, in thousands of units, as a function of `TV`, `radio`, 
 
 ---
 
-## Important Questions
+#### Important Questions
 
 Suppose that in our role as statistical consultants we are asked to suggest, on the basis of this data, a marketing plan for next year that will result in high product sales. Here are a few important questions that we might seek to address:
 
@@ -36,7 +36,7 @@ F-statistic can be used to determine whether or not we should reject this null h
 
 
 First, the RSE estimates the standard deviation of the response from the
-population regression line. For the `Advertising` data, the RSE is $$1,681$$ units while the mean value for the response is $$14,022$$, indicating a percentage error of roughly $$12%$$. Second, the $$R^2$$ statistic records the percentage of variability in the response that is explained by the predictors. The predictors explain almost $$90%$$ of the variance in sales. The RSE and $$R^2$$ statistics are displayed in Table 3.6.
+population regression line. For the `Advertising` data, the RSE is 1,681 units while the mean value for the response is 14,022, indicating a percentage error of roughly 12%. Second, the R^2 statistic records the percentage of variability in the response that is explained by the predictors. The predictors explain almost 90% of the variance in sales. The RSE and R^2 statistics are displayed in Table 3.6.
 
 3. *Which media contribute to sales?*
 
@@ -46,7 +46,7 @@ To answer this question, we can examine the p-values associated with each predic
 
 4. *How large is the effect of each medium on sales?*
 
-The standard error of $$\hat{\beta_j}$$ can be used to construct confidence intervals for $$\beta_j$$. For the `Advertising` data, the 95% confidence intervals are as follows: $$(0.043, 0.049)$$ for `TV`, $$(0.172, 0.206)$$ for `radio`, and $$(−0.013, 0.011)$$ for `newspaper`. 
+The standard error of $\hat{\beta_j}$ can be used to construct confidence intervals for $\beta_j$. For the `Advertising` data, the 95% confidence intervals are as follows: (0.043, 0.049) for `TV`, (0.172, 0.206) for `radio`, and (−0.013, 0.011) for `newspaper`. 
 
 The confidence intervals for `TV` and `radio` are narrow and far from zero, providing evidence that these media are related to sales. But the interval for `newspaper` includes zero, indicating that the variable is not statistically significant given the values of `TV` and `radio`.
 
@@ -55,7 +55,7 @@ We saw in previous section that collinearity can result in very wide standard er
 {% hint style="info" %}
 ***Could collinearity be the reason that the confidence interval associated with newspaper is so wide?*** 
 
-The VIF scores are $$1.005$$, $$1.145$$, and $$1.145$$ for `TV`,`radio`, and `newspaper`, suggesting no evidence of collinearity.
+The VIF scores are 1.005, 1.145, and 1.145 for `TV`,`radio`, and `newspaper`, suggesting no evidence of collinearity.
 {% endhint %}
 
 
@@ -84,7 +84,7 @@ $$
 y = \hat{\beta_0} + \hat{\beta_1}x_1 + \hat{\beta_2}x_2 + · · · + \hat{\beta_0}x_p.
 $$
 
-The accuracy associated with this estimate depends on whether we wish to predict an individual response, $$Y = f(X) + \epsilon$$, or the average response, $$f(X)$$. If the former, we use a prediction interval, and if the latter, we use a confidence interval. Prediction intervals will always be wider than confidence intervals because they account for the uncertainty associated with $$\epsilon$$, the irreducible error.
+The accuracy associated with this estimate depends on whether we wish to predict an individual response, $Y = f(X) + \epsilon$, or the average response, $f(X)$. If the former, we use a prediction interval, and if the latter, we use a confidence interval. Prediction intervals will always be wider than confidence intervals because they account for the uncertainty associated with $\epsilon$, the irreducible error.
 
 6. *Is the relationship linear?*
 
@@ -100,4 +100,4 @@ From the pattern of the residuals, we can see that there is a pronounced non-lin
 The standard linear regression model assumes an additive relationship
 between the predictors and the response. An additive model is easy to interpret because the effect of each predictor on the response is unrelated to the values of the other predictors. However, the additive assumption may be unrealistic for certain data sets. A small p-value associated with the interaction term indicates the presence of such relationships. 
 
-Figure 3.5 suggested that the `Advertising` data may not be additive. Including an interaction term in the model results in a substantial increase in R2, from around $$90%$$ to almost $$97%$$.
+Figure 3.5 suggested that the `Advertising` data may not be additive. Including an interaction term in the model results in a substantial increase in R2, from around 90% to almost 97%.
