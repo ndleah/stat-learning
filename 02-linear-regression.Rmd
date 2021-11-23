@@ -1,8 +1,15 @@
 ---
 output: 
-  html_document: 
-    theme: sandstone
+  html_document:
+    theme: flatly
+    highlight: tango
 ---
+
+```{r setup, include = FALSE}
+
+knitr::opts_chunk$set(comment = "#>",collapse = TRUE)
+```
+
 # Linear Regression
 
 ## Simple Linear Regression
