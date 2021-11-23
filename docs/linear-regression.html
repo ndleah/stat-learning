@@ -24,7 +24,7 @@
 <meta name="author" content="Leah Nguyen" />
 
 
-<meta name="date" content="2021-11-22" />
+<meta name="date" content="2021-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -203,7 +203,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.5" data-path="linear-regression.html"><a href="linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>3.5.5</b> Qualitative Predictors</a></li>
 <li class="chapter" data-level="3.5.6" data-path="linear-regression.html"><a href="linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>3.5.6</b> Writing Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="linear-regression.html"><a href="linear-regression.html#exercises-applied"><i class="fa fa-check"></i><b>3.6</b> Exercises (Applied)</a></li>
+<li class="chapter" data-level="3.6" data-path="linear-regression.html"><a href="linear-regression.html#exercises-applied"><i class="fa fa-check"></i><b>3.6</b> Exercises (Applied)</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression.html"><a href="linear-regression.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="linear-regression.html"><a href="linear-regression.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
 <li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
@@ -266,8 +270,8 @@ represent <span class="math inline">\(n\)</span> observation pairs, each of whic
 <p class="caption"><strong>Figure 3.1</strong>. Regression Line</p>
 </div>
 <p>There are numbers of ways of measuring <em>closeness</em>. However, by far the most common approach involves minimizing the <em>least squares</em> criterion, and we take that approach in this chapter.</p>
-<div id="the-least-square-approach" class="section level4" number="3.1.1.1">
-<h4><span class="header-section-number">3.1.1.1</span> The Least Square Approach</h4>
+<div id="the-least-square-approach" class="section level4 unnumbered">
+<h4>The Least Square Approach</h4>
 <p>Let <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_i\)</span> be the prediction for <span class="math inline">\(Y\)</span> based on the <span class="math inline">\(i\)</span>th value of <span class="math inline">\(X\)</span>. Then <span class="math inline">\(e_i = y_i -\hat{y}+i\)</span> represents the <span class="math inline">\(i\)</span>th <em>residual</em> - this is the difference between the <span class="math inline">\(i\)</span>th value and the <span class="math inline">\(i\)</span>th reponse value that is predicted by our linear model. We define the <strong><em>residual sum of square (RSS)</em></strong> as</p>
 <p><span class="math display">\[
 RSS = e_1^2 + e_2^2 + ... + e_n^2
@@ -281,13 +285,16 @@ RSS = (y_1 - \hat{\beta_0} - \hat{\beta_1}x_2)^2 + (y_2 - \hat{\beta_0} - \hat{\
 </div>
 <div id="assessing-the-accuracy-of-the-coefficient-estimates" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Assessing the Accuracy of the Coefficient Estimates</h3>
-<p><strong>Population Regression Line:</strong></p>
+<div id="population-regression-line" class="section level4 unnumbered">
+<h4><strong>Population Regression Line:</strong></h4>
 <p><span class="math display">\[
 Y=\beta_0 + \beta_1X + \epsilon
 \]</span></p>
 <p>where <span class="math inline">\(\epsilon\)</span> mean zero random error term.</p>
-<p><strong>Least squares line:</strong>
-<span class="math display">\[
+</div>
+<div id="least-squares-line" class="section level4 unnumbered">
+<h4><strong>Least squares line:</strong></h4>
+<p><span class="math display">\[
 \hat{y}=\hat{\beta_0} + \hat{\beta_1}X 
 \]</span></p>
 <p>true relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> takes the form <span class="math inline">\(Y=f(X)+\epsilon\)</span>.</p>
@@ -305,8 +312,9 @@ Y=\beta_0 + \beta_1X + \epsilon
 <li><p><strong>Left:</strong> The red line represents the true relationship, <span class="math inline">\(f(X) = 2+3Xf(X)=2+3X\)</span>, which is known as the population regression line. The blue line is the least squares line; it is the least squares estimate for <span class="math inline">\(f(X)\)</span> based on the observed data, shown in black.</p></li>
 <li><p><strong>Right:</strong> The population regression line is again shown in red, and the least squares line in dark blue. In light blue, ten least squares lines are shown, each computed on the basis of a separate random set of observations. Each least squares line is different, but on average, the least squares lines are quite close to the population regression line.</p></li>
 </ul>
-<div id="how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu" class="section level4" number="3.1.2.1">
-<h4><span class="header-section-number">3.1.2.1</span> <strong>How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span></strong></h4>
+</div>
+<div id="how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu" class="section level4 unnumbered">
+<h4><strong>How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span></strong></h4>
 <p>We answer this question by computing the <strong><em>standard error</em></strong> of<span class="math inline">\(\mu\)</span>, written as SE(<span class="math inline">\(\hat{\mu}\)</span>).</p>
 <p>Standard errors can also be used to perform <strong><em>hypothesis tests</em></strong> on the coefficients. The most common hypothesis test involves testing the <strong><em>null hypothesis</em></strong> of</p>
 <ul>
@@ -324,12 +332,12 @@ H_1: \beta_1 \neq 0
 <p>If <span class="math inline">\(\beta_1 = 0\)</span> then the model reduces to <span class="math inline">\(Y=\beta_0+\epsilon\)</span>, and <span class="math inline">\(X\)</span> is not associated with <span class="math inline">\(Y\)</span>.</p>
 <p>To test the null hypothesis, we need to determine whether <span class="math inline">\(\hat{\beta_1}\)</span>, our estimate for <span class="math inline">\(\beta_1\)</span>, is sufficiently far from zero that we can be confident that <span class="math inline">\(\beta_1\)</span> is non-zero.</p>
 </div>
-<div id="how-far-is-far-enough" class="section level4" number="3.1.2.2">
-<h4><span class="header-section-number">3.1.2.2</span> <strong>How far is far enough?</strong></h4>
+<div id="how-far-is-far-enough" class="section level4 unnumbered">
+<h4><strong>How far is far enough?</strong></h4>
 <p>This is course depends on the accuracy of <span class="math inline">\(\hat{\beta_1}\)</span> -that is, it depends on <span class="math inline">\(SE(\hat{\beta_1})\)</span>. If SE(<span class="math inline">\(\hat{\beta_1}\)</span>) is small, then even relatively small values of <span class="math inline">\(\hat{\beta_1}\)</span> may provide strong evidence that <span class="math inline">\(\beta_1 \neq 0\)</span>​, and hence that there is a relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In contrast, if SE(<span class="math inline">\(\hat{\beta_1}\)</span>) is large, then <span class="math inline">\(\hat{\beta_1}\)</span> must be large in absolute value in order for us to reject the null hypothesis.</p>
 </div>
-<div id="t-distribution" class="section level4" number="3.1.2.3">
-<h4><span class="header-section-number">3.1.2.3</span> <strong>T-distribution</strong></h4>
+<div id="t-distribution" class="section level4 unnumbered">
+<h4><strong>T-distribution</strong></h4>
 <p><strong>The t-distribution</strong> describes the standardized distances of sample means to the population mean when the population standard deviation is not known, and the observations come from a normally distributed population.</p>
 <p>In practice, we compute a <strong><em>t-statistic</em></strong>, given by
 <span class="math display">\[
@@ -406,8 +414,8 @@ R^2 = \frac{TSS}{TSS−RSS}=1−\frac{TSS}{RSS}
 <p><span class="math display">\[
 Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n + \epsilon
 \]</span></p>
-<div id="some-important-questions" class="section level4" number="3.2.0.1">
-<h4><span class="header-section-number">3.2.0.1</span> Some Important Questions:</h4>
+<div id="some-important-questions" class="section level4 unnumbered">
+<h4>Some Important Questions:</h4>
 <p>When we perform multiple linear regression, we usually are interested in answering a few important questions.</p>
 <ol style="list-style-type: decimal">
 <li><em>Is at least one of the predictor <span class="math inline">\(X_1, X_2,...,X_p\)</span> useful in predicting the response?</em></li>
@@ -416,8 +424,8 @@ Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n + \epsilon
 <li><em>Given a set of predictor values, what response value should we predict, and how accurate is our prediction?</em></li>
 </ol>
 </div>
-<div id="response-and-predictors-relationships" class="section level4" number="3.2.0.2">
-<h4><span class="header-section-number">3.2.0.2</span> Response and Predictors Relationships</h4>
+<div id="response-and-predictors-relationships" class="section level4" number="3.2.0.1">
+<h4><span class="header-section-number">3.2.0.1</span> Response and Predictors Relationships</h4>
 <p>In the multiple regression setting with <span class="math inline">\(p\)</span> predictors, we can use a hypothesis test to discover the relationship between predictors and response:</p>
 <p><span class="math display">\[
 H_0 = \beta_1 = \beta_2 = ... = \beta_p = 0
@@ -445,8 +453,8 @@ F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 </div>
 </div>
 </div>
-<div id="dealing-with-large-number-of-variables" class="section level4" number="3.2.0.3">
-<h4><span class="header-section-number">3.2.0.3</span> Dealing With Large Number Of Variables</h4>
+<div id="dealing-with-large-number-of-variables" class="section level4" number="3.2.0.2">
+<h4><span class="header-section-number">3.2.0.2</span> Dealing With Large Number Of Variables</h4>
 <p>The task of determining which predictors are associated with the response is referred to as <em>variable selection</em>.</p>
 <p>There are 3 classical approaches:</p>
 <ul>
@@ -455,15 +463,15 @@ F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 <li><strong><em>Mixed (Stepwise) selection</em></strong>: is the combination of forward selection and backward elimination. Start with no variables in the model, then add variables that is the best fit. However, if at any point the p-value for one of the variables in the model series rises above a certain threshold, then we remove that variable out of the model.</li>
 </ul>
 </div>
-<div id="model-fit" class="section level4" number="3.2.0.4">
-<h4><span class="header-section-number">3.2.0.4</span> Model Fit</h4>
+<div id="model-fit" class="section level4" number="3.2.0.3">
+<h4><span class="header-section-number">3.2.0.3</span> Model Fit</h4>
 <p>Using the same methods: RSE and <span class="math inline">\(R^2\)</span> statistic as simple linear regression.</p>
 </div>
 </div>
 <div id="other-considerations-in-the-regression-model" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Other Considerations in the Regression Model</h2>
-<div id="potential-problems" class="section level4" number="3.3.0.1">
-<h4><span class="header-section-number">3.3.0.1</span> Potential Problems</h4>
+<div id="potential-problems" class="section level4 unnumbered">
+<h4>Potential Problems</h4>
 <p>When we fit a linear regression model, many problems can occur, to name a few:</p>
 <ul>
 <li><em>Non-linearity of the response-predictor relationships.</em></li>
@@ -474,8 +482,8 @@ F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 <li><em>Collinearity.</em></li>
 </ul>
 </div>
-<div id="non-linearity-of-the-data" class="section level4" number="3.3.0.2">
-<h4><span class="header-section-number">3.3.0.2</span> Non-linearity of the Data</h4>
+<div id="non-linearity-of-the-data" class="section level4" number="3.3.0.1">
+<h4><span class="header-section-number">3.3.0.1</span> Non-linearity of the Data</h4>
 <p>The first assumption of Linear Regression is that relations between the independent and dependent variables must be linear.</p>
 <p>Although this assumption is not always cited in the literature, it is logical and important to check for it. After all, if your relationships are not linear, you should not use a linear model, but rather a non-linear model of which plenty exist.</p>
 <p>We can check for linear relationships easily by making a scatter plot for each independent variable with the dependent variable as in Figure 3.9.</p>
@@ -489,8 +497,8 @@ F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 <li><strong>Right:</strong> A linear regression of <code>mpg</code> on <code>horsepower</code> and <code>horsepower2</code>. There is little pattern in the residuals.</li>
 </ul>
 </div>
-<div id="correlation-of-error-terms" class="section level4" number="3.3.0.3">
-<h4><span class="header-section-number">3.3.0.3</span> Correlation of Error Terms</h4>
+<div id="correlation-of-error-terms" class="section level4" number="3.3.0.2">
+<h4><span class="header-section-number">3.3.0.2</span> Correlation of Error Terms</h4>
 <p>If there is correlation among the error terms <span class="math inline">\(\epsilon_1, \epsilon_2,...,\epsilon_n\)</span>, then the estimated standard errors (SE) will tend to underestimate the true SE. As the result, p-value associated with the model will be lower than they should be, which could cause us to erroneously conclude that a parameter is statistically significant.</p>
 <div class="alert alert-danger hints-alert">
 <div class="hints-icon">
@@ -516,8 +524,8 @@ In order to determine if this is the case for a given data set, we can plot the 
 <p class="caption">Figure 3.10. Plots of residuals from simulated time series data sets generated with differing levels of correlation ρ between error terms for adjacent time points</p>
 </div>
 </div>
-<div id="non-constant-variance-of-error-terms-heteroscedasticity" class="section level4" number="3.3.0.4">
-<h4><span class="header-section-number">3.3.0.4</span> Non-constant Variance of Error Terms (Heteroscedasticity)</h4>
+<div id="non-constant-variance-of-error-terms-heteroscedasticity" class="section level4" number="3.3.0.3">
+<h4><span class="header-section-number">3.3.0.3</span> Non-constant Variance of Error Terms (Heteroscedasticity)</h4>
 <p>Heteroscedasticity in a model means that the error is constant along the values of the dependent variable.</p>
 <div class="alert alert-success hints-alert">
 <div class="hints-icon">
@@ -543,8 +551,8 @@ In order to determine if this is the case for a given data set, we can plot the 
 <li><p>If this doesn’t change anything, you can also switch to the <strong><em>weighted least squares model</em></strong>. <em>Weighted least squares</em> is a model that can deal with unconstant variances and heteroscedasticity is therefore not a problem.</p></li>
 </ol>
 </div>
-<div id="outlier" class="section level4" number="3.3.0.5">
-<h4><span class="header-section-number">3.3.0.5</span> Outlier</h4>
+<div id="outlier" class="section level4" number="3.3.0.4">
+<h4><span class="header-section-number">3.3.0.4</span> Outlier</h4>
 <p>An <strong>outlier</strong> is a point for which yi is far from the value predicted by model. Outliers can arise for a variety of reasons, such as incorrect recording of an observation during data collection.</p>
 <p>As illustrated in Figure 3.12:</p>
 <ul>
@@ -558,8 +566,8 @@ In order to determine if this is the case for a given data set, we can plot the 
 </div>
 <p>If we believe that an outlier has occurred due to an error in data collection or recording, then one solution is to simply remove the observation.</p>
 </div>
-<div id="high-leverage-points" class="section level4" number="3.3.0.6">
-<h4><span class="header-section-number">3.3.0.6</span> High Leverage Points</h4>
+<div id="high-leverage-points" class="section level4" number="3.3.0.5">
+<h4><span class="header-section-number">3.3.0.5</span> High Leverage Points</h4>
 <p>In contrast to outlier with unusual for response value <span class="math inline">\(y\)</span>, observations with high leverage high leverage have an unusual value for <span class="math inline">\(x_i\)</span>.</p>
 <p>As illustrated in Figure 3.12:</p>
 <div class="figure">
@@ -578,12 +586,12 @@ h_i = \frac{1}{n} + \frac{(x_i - \overline{x})^2}{\sum_{i&#39;=1}^{n}(x_i&#39; -
 \]</span></p>
 <p>A large value of this statistic indicates an observation with high leverage.</p>
 </div>
-<div id="collinearity" class="section level4" number="3.3.0.7">
-<h4><span class="header-section-number">3.3.0.7</span> Collinearity</h4>
+<div id="collinearity" class="section level4" number="3.3.0.6">
+<h4><span class="header-section-number">3.3.0.6</span> Collinearity</h4>
 <p><strong><em>Collinearity</em></strong> refers to the situation in which two or more predictor variables are closely related to one another.</p>
-<p>In order to check for collinearity, we can either use <em>Correlation Matrix</em> or <em>Variance Inflation Factor (VIF)</em>.</p>
-<div id="correlation-matrix" class="section level6" number="3.3.0.7.0.1">
-<h6><span class="header-section-number">3.3.0.7.0.1</span> Correlation Matrix</h6>
+<p>In order to check for collinearity, we can either use <strong><em>Correlation Matrix</em></strong> or <strong><em>Variance Inflation Factor (VIF)</em></strong>.</p>
+<div id="correlation-matrix" class="section level5 unnumbered">
+<h5>Correlation Matrix</h5>
 <p>A simple way to detect collinearity is to look at the correlation matrix
 of the predictors. An element of this matrix that is large in absolute value indicates a pair of highly correlated variables, and therefore a collinearity problem in the data.</p>
 <div class="figure">
@@ -593,8 +601,8 @@ of the predictors. An element of this matrix that is large in absolute value ind
 <p>Unfortunately, not all collinearity problems can be detected by inspection of the correlation matrix: it is possible for collinearity to exist between three or more variables even if no pair of variables has a particularly high correlation. We call this situation <strong><em>multicollinearity</em></strong>.</p>
 <p>Multicollinearity causes problems in using regression models to draw conclusions about the relationships between predictors and outcome. An individual predictor’s P value may test non-significant even though it is important. Confidence intervals for regression coefficients in a multicollinear model may be so high that tiny changes in individual observations have a large effect on the coefficients, sometimes reversing their signs.</p>
 </div>
-<div id="variance-inflation-factor-vif" class="section level6" number="3.3.0.7.0.2">
-<h6><span class="header-section-number">3.3.0.7.0.2</span> Variance Inflation Factor (VIF)</h6>
+<div id="variance-inflation-factor-vif" class="section level5 unnumbered">
+<h5>Variance Inflation Factor (VIF)</h5>
 <p>Instead of inspecting the correlation matrix, a better way to assess collinearity is to compute the <strong>variance inflation factor (VIF)</strong>. This can easily be calculated in <code>R</code> using software packages.</p>
 <p>When faced with the problem of collinearity, there are two simple solutions:</p>
 <ol style="list-style-type: decimal">
@@ -619,7 +627,7 @@ of the predictors. An element of this matrix that is large in absolute value ind
 <h4><span class="header-section-number">3.4.0.2</span> Important Questions</h4>
 <p>Suppose that in our role as statistical consultants we are asked to suggest, on the basis of this data, a marketing plan for next year that will result in high product sales. Here are a few important questions that we might seek to address:</p>
 <ol style="list-style-type: decimal">
-<li><em>Is there a relationship between advertising sales and budget?</em></li>
+<li><strong><em>Is there a relationship between advertising sales and budget?</em></strong></li>
 </ol>
 <p>This question can be answered by fitting a multiple regression model
 of sales onto <code>TV</code>, <code>radio</code>, and <code>newspaper</code>, as:</p>
@@ -636,12 +644,12 @@ sales = \beta_0 + \beta_1 × TV + \beta_2 × radio + \beta_3 × newspaper + \eps
 <p class="caption">Table 3.6. More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data</p>
 </div>
 <ol start="2" style="list-style-type: decimal">
-<li><em>How strong is the relationship?</em></li>
+<li><strong><em>How strong is the relationship?</em></strong></li>
 </ol>
 <p>First, the RSE estimates the standard deviation of the response from the
 population regression line. For the <code>Advertising</code> data, the RSE is 1,681 units while the mean value for the response is 14,022, indicating a percentage error of roughly 12%. Second, the <span class="math inline">\(R^2\)</span> statistic records the percentage of variability in the response that is explained by the predictors. The predictors explain almost 90% of the variance in sales. The RSE and <span class="math inline">\(R^2\)</span> statistics are displayed in Table 3.6.</p>
 <ol start="3" style="list-style-type: decimal">
-<li><em>Which media contribute to sales?</em></li>
+<li><strong><em>Which media contribute to sales?</em></strong></li>
 </ol>
 <p>To answer this question, we can examine the p-values associated with each predictor’s t-statistic. In the multiple linear regression displayed in Table 3.4, the p-values for <code>TV</code> and <code>radio</code> are low, but the p-value for <code>newspaper</code> is not. This suggests that only <code>TV</code> and <code>radio</code> are related to sales.</p>
 <div class="figure">
@@ -649,7 +657,7 @@ population regression line. For the <code>Advertising</code> data, the RSE is 1,
 <p class="caption">Table 3.4. For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets.</p>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li><em>How large is the effect of each medium on sales?</em></li>
+<li><strong><em>How large is the effect of each medium on sales?</em></strong></li>
 </ol>
 <p>The standard error of <span class="math inline">\(\hat{\beta_j}\)</span> can be used to construct confidence intervals for <span class="math inline">\(\beta_j\)</span>. For the <code>Advertising</code> data, the 95% confidence intervals are as follows: (0.043, 0.049) for <code>TV</code>, (0.172, 0.206) for <code>radio</code>, and (−0.013, 0.011) for <code>newspaper</code>.</p>
 <p>The confidence intervals for <code>TV</code> and <code>radio</code> are narrow and far from zero, providing evidence that these media are related to sales. But the interval for <code>newspaper</code> includes zero, indicating that the variable is not statistically significant given the values of <code>TV</code> and <code>radio</code>.</p>
@@ -681,7 +689,7 @@ The VIF scores are 1.005, 1.145, and 1.145 for <code>TV</code>,<code>radio</code
 <p>A $1,000 increase in spending on <code>radio</code> advertising is associated with an average increase in sales by around 203 units, while the same increase in spending on <code>newspaper</code> advertising is associated with an average increase in sales by around 55 units.</p>
 <p>There is evidence of an extremely strong association between <code>TV</code> and <code>sales</code> and between <code>radio</code> and <code>sales</code>. There is evidence of a mild association between <code>newspaper</code> and <code>sales</code>, when the values of <code>TV</code> and <code>radio</code> are ignored.</p>
 <ol start="5" style="list-style-type: decimal">
-<li><em>How accurately can we predict future sales?</em></li>
+<li><strong><em>How accurately can we predict future sales?</em></strong></li>
 </ol>
 <p>The response can be predicted using:</p>
 <p><span class="math display">\[
@@ -689,7 +697,7 @@ y = \hat{\beta_0} + \hat{\beta_1}x_1 + \hat{\beta_2}x_2 + · · · + \hat{\beta_
 \]</span></p>
 <p>The accuracy associated with this estimate depends on whether we wish to predict an individual response, <span class="math inline">\(Y = f(X) + \epsilon\)</span>, or the average response, <span class="math inline">\(f(X)\)</span>. If the former, we use a prediction interval, and if the latter, we use a confidence interval. Prediction intervals will always be wider than confidence intervals because they account for the uncertainty associated with <span class="math inline">\(\epsilon\)</span>, the irreducible error.</p>
 <ol start="6" style="list-style-type: decimal">
-<li><em>Is the relationship linear?</em></li>
+<li><strong><em>Is the relationship linear?</em></strong></li>
 </ol>
 <p>In previous section, we saw that residual plots can be used in order to
 identify non-linearity. If the relationships are linear, then the residual plots should display no pattern. In the case of the <code>Advertising</code> data, we observe a non-linear effect in Figure 3.5, though this effect could also be observed in a residual plot. We also discussed the inclusion of transformations of the predictors in the linear regression model in order to accommodate non-linear relationships.</p>
@@ -699,7 +707,7 @@ identify non-linearity. If the relationships are linear, then the residual plots
 </div>
 <p>From the pattern of the residuals, we can see that there is a pronounced non-linear relationship in the data. The positive residuals (those visible above the surface), tend to lie along the 45-degree line, where <code>TV</code> and <code>radio</code> budgets are split evenly. The negative residuals (most not visible), tend to lie away from this line, where budgets are more lopsided.</p>
 <ol start="7" style="list-style-type: decimal">
-<li><em>Is there synergy among the advertising media?</em></li>
+<li><strong><em>Is there synergy among the advertising media?</em></strong></li>
 </ol>
 <p>The standard linear regression model assumes an additive relationship
 between the predictors and the response. An additive model is easy to interpret because the effect of each predictor on the response is unrelated to the values of the other predictors. However, the additive assumption may be unrealistic for certain data sets. A small p-value associated with the interaction term indicates the presence of such relationships.</p>
@@ -1113,10 +1121,13 @@ location but lower sales than a good shelving location.</p>
 </div>
 <div id="exercises-applied" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Exercises (Applied)</h2>
+<div id="question-1" class="section level3 unnumbered">
+<h3>Question 1</h3>
 <p>This question involves the use of simple linear regression on the <code>Auto</code> data set.</p>
-<p><strong>Question 1.</strong> Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="linear-regression.html#cb52-1" aria-hidden="true" tabindex="-1"></a>lm.fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data =</span> Auto)</span>
-<span id="cb52-2"><a href="linear-regression.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit)</span></code></pre></div>
+<div id="a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output." class="section level4 unnumbered">
+<h4>(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</h4>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="linear-regression.html#cb52-1" aria-hidden="true" tabindex="-1"></a>mpg.fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data =</span> Auto)</span>
+<span id="cb52-2"><a href="linear-regression.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mpg ~ horsepower, data = Auto)
@@ -1136,15 +1147,257 @@ location but lower sales than a good shelving location.</p>
 ## Multiple R-squared:  0.6059, Adjusted R-squared:  0.6049 
 ## F-statistic: 599.7 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>In order to interpret the result, a set of following questions are set up to better investigate the model:</p>
-<ol style="list-style-type: decimal">
-<li><p><em>Is there a relationship between the predictor and the response?</em></p></li>
-<li><p><em>How strong is the relationship between the predictor and the response?</em></p></li>
-<li><p><em>Is the relationship between the predictor and the response positive or negative?</em></p></li>
-<li><p>*What is the predicted mpg associated with a horsepower of
-98? What are the associated 95% confidence and prediction
-intervals?</p></li>
-</ol>
+<div id="i.-is-there-a-relationship-between-the-predictor-and-the-response" class="section level5 unnumbered">
+<h5>i. <em>Is there a relationship between the predictor and the response?</em></h5>
+<p>This question can be answered by fitting the simple linear regression model of <code>mpg</code> on <code>horsepower</code> and testing the null hypothesis:</p>
+<p><span class="math display">\[
+H_0: \beta_j = 0
+\]</span></p>
+<p>The p-value for the <code>horsepower</code> variable is very small (&lt;&lt;0.05), so there is strong evidence to believe that <code>horsepower</code> is associated with <code>mpg</code>. Therefore, there is a relationship between the predictor and response.</p>
+</div>
+<div id="ii.-how-strong-is-the-relationship-between-the-predictor-and-the-response" class="section level5 unnumbered">
+<h5>ii. <em>How strong is the relationship between the predictor and the response?</em></h5>
+<p>There are 2 measures of model accuracy to evaluate the degree of relationship between the predictor and the response, which are: <strong>RSE</strong> and <span class="math inline">\(R^2\)</span> <strong>statistic</strong>.</p>
+<p>For the <code>Auto</code> data, the RSE is:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="linear-regression.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)<span class="sc">$</span>sigma</span></code></pre></div>
+<pre><code>## [1] 4.905757</code></pre>
+<p>The RSE is different (good or bad) in the sense that it takes on the units of y, but we can divide this by mean y to get the <strong>percentage error</strong>:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="linear-regression.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)<span class="sc">$</span>sigma<span class="sc">/</span><span class="fu">mean</span>(Auto<span class="sc">$</span>mpg)</span></code></pre></div>
+<pre><code>## [1] 0.2092371</code></pre>
+<p>So the percentage error = 20.92%.</p>
+<p>Second, the <span class="math inline">\(R^2\)</span> of the linear model, which can be thought of as “the percentage of variability in the response that is explained by the predictor,” is given by:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="linear-regression.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)<span class="sc">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.6059483</code></pre>
+<p>So the <code>horsepower</code> explains 60.59% of the variance in <code>mpg</code>.</p>
+</div>
+<div id="iii.-is-the-relationship-between-the-predictor-and-the-response-positive-or-negative" class="section level5 unnumbered">
+<h5>iii. <em>Is the relationship between the predictor and the response positive or negative?</em></h5>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="linear-regression.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coefficients</span>(mpg.fit)</span></code></pre></div>
+<pre><code>## (Intercept)  horsepower 
+##  39.9358610  -0.1578447</code></pre>
+<p>The relationship is negative between <code>mpg</code> and <code>horsepower</code> as the coefficient estimate is -0.1578447.</p>
+</div>
+<div id="iv.-what-is-the-predicted-mpg-associated-with-a-horsepower-of-98-what-are-the-associated-95-confidence-and-prediction-intervals" class="section level5 unnumbered">
+<h5>iv. <em>What is the predicted <code>mpg</code> associated with a <code>horsepower</code> of 98? What are the associated 95% confidence and prediction intervals?</em></h5>
+<p>The confidence interval:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="linear-regression.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mpg.fit, <span class="fu">data.frame</span>(<span class="at">horsepower =</span> <span class="dv">98</span>), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 24.46708 23.97308 24.96108</code></pre>
+<p>The prediction interval:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="linear-regression.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mpg.fit, <span class="fu">data.frame</span>(<span class="at">horsepower =</span> <span class="dv">98</span>), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>##        fit     lwr      upr
+## 1 24.46708 14.8094 34.12476</code></pre>
+<p>The prediction interval is wider than the confidence interval as we would expect.</p>
+</div>
+</div>
+<div id="b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line." class="section level4 unnumbered">
+<h4>(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</h4>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="linear-regression.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower,Auto<span class="sc">$</span>mpg,<span class="at">xlab =</span> <span class="st">&quot;horsepower&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>,<span class="at">main =</span> <span class="st">&quot;Scatterplot of mpg vs. horsepower&quot;</span>)</span>
+<span id="cb66-2"><a href="linear-regression.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mpg.fit,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+</div>
+<div id="c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit." class="section level4 unnumbered">
+<h4>(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</h4>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="linear-regression.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb67-2"><a href="linear-regression.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg.fit)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p>The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:</p>
+<div id="i-residuals-vs-fitted" class="section level5 unnumbered">
+<h5><strong>(i) Residuals vs Fitted</strong></h5>
+<p>This plot shows if residuals have non-linear patterns.</p>
+<p>In this case, The plot of residuals versus fitted values indicates the presence of non linearity in the data.</p>
+</div>
+<div id="ii-normal-q-q" class="section level5 unnumbered">
+<h5><strong>(ii) Normal Q-Q</strong></h5>
+<p>This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.</p>
+</div>
+<div id="iii-scale-location" class="section level5 unnumbered">
+<h5><strong>(iii) Scale-Location</strong></h5>
+<p>This plot show how you can check the assumption of equal variance (homoscedasticity).</p>
+<p>In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as <span class="math inline">\(log(y)\)</span> or <span class="math inline">\(\sqrt{y}\)</span> can shrink larger responses by a greater amount and reduce this issue.</p>
+</div>
+<div id="iv-residuals-vs-leverage" class="section level5 unnumbered">
+<h5><strong>(iv) Residuals vs Leverage</strong></h5>
+<p>This plot helps us to find influential cases (i.e., subjects) if any.</p>
+<p>The plot of standardized residuals versus leverage indicates the presence of a few outliers and a few high leverage points.</p>
+</div>
+</div>
+</div>
+<div id="question-2" class="section level3 unnumbered">
+<h3>Question 2</h3>
+<p>This question involves the use of multiple linear regression on the <code>Auto</code> data set.</p>
+<div id="a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set." class="section level4 unnumbered">
+<h4>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</h4>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="linear-regression.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+</div>
+<div id="b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative." class="section level4 unnumbered">
+<h4>(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</h4>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="linear-regression.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Auto)</span></code></pre></div>
+<pre><code>## [1] &quot;mpg&quot;          &quot;cylinders&quot;    &quot;displacement&quot; &quot;horsepower&quot;   &quot;weight&quot;      
+## [6] &quot;acceleration&quot; &quot;year&quot;         &quot;origin&quot;       &quot;name&quot;</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="linear-regression.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Auto[<span class="sc">-</span><span class="dv">9</span>])</span></code></pre></div>
+<pre><code>##                     mpg  cylinders displacement horsepower     weight
+## mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268 -0.8322442
+## cylinders    -0.7776175  1.0000000    0.9508233  0.8429834  0.8975273
+## displacement -0.8051269  0.9508233    1.0000000  0.8972570  0.9329944
+## horsepower   -0.7784268  0.8429834    0.8972570  1.0000000  0.8645377
+## weight       -0.8322442  0.8975273    0.9329944  0.8645377  1.0000000
+## acceleration  0.4233285 -0.5046834   -0.5438005 -0.6891955 -0.4168392
+## year          0.5805410 -0.3456474   -0.3698552 -0.4163615 -0.3091199
+## origin        0.5652088 -0.5689316   -0.6145351 -0.4551715 -0.5850054
+##              acceleration       year     origin
+## mpg             0.4233285  0.5805410  0.5652088
+## cylinders      -0.5046834 -0.3456474 -0.5689316
+## displacement   -0.5438005 -0.3698552 -0.6145351
+## horsepower     -0.6891955 -0.4163615 -0.4551715
+## weight         -0.4168392 -0.3091199 -0.5850054
+## acceleration    1.0000000  0.2903161  0.2127458
+## year            0.2903161  1.0000000  0.1815277
+## origin          0.2127458  0.1815277  1.0000000</code></pre>
+</div>
+<div id="c-use-the-lm-function-to-perform-a-multiple-linear-regression-with-mpg-as-the-response-and-all-other-variables-except-name-as-the-predictors.-use-the-summary-function-to-print-the-results.-comment-on-the-output." class="section level4 unnumbered">
+<h4>(c) Use the <code>lm()</code> function to perform a multiple linear regression with <code>mpg</code> as the response and all other variables except “name” as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output.</h4>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="linear-regression.html#cb73-1" aria-hidden="true" tabindex="-1"></a>mpg.fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span>. <span class="sc">-</span>name, <span class="at">data=</span>Auto)</span>
+<span id="cb73-2"><a href="linear-regression.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ . - name, data = Auto)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -9.5903 -2.1565 -0.1169  1.8690 13.0604 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -17.218435   4.644294  -3.707  0.00024 ***
+## cylinders     -0.493376   0.323282  -1.526  0.12780    
+## displacement   0.019896   0.007515   2.647  0.00844 ** 
+## horsepower    -0.016951   0.013787  -1.230  0.21963    
+## weight        -0.006474   0.000652  -9.929  &lt; 2e-16 ***
+## acceleration   0.080576   0.098845   0.815  0.41548    
+## year           0.750773   0.050973  14.729  &lt; 2e-16 ***
+## origin         1.426141   0.278136   5.127 4.67e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.328 on 384 degrees of freedom
+## Multiple R-squared:  0.8215, Adjusted R-squared:  0.8182 
+## F-statistic: 252.4 on 7 and 384 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div id="i.-is-there-a-relationship-between-the-predictors-and-the-response" class="section level5 unnumbered">
+<h5>i. Is there a relationship between the predictors and the response?</h5>
+<p>We answer this question by performing an F-test, where we test the null hypothesis that all of the regression coefficients are zero:</p>
+<p>$$
+H_0:_1=_2=…=_p=0\</p>
+<p>H_a: at ;least ;one ;_j
+$$</p>
+<p>The p-value is given at the bottom of the model summary (<code>p-value: &lt; 2.2e-16</code>), so it’s clear that the probability of the null hypothesis being true (given our data) is practically zero.</p>
+<p>We reject the null hypothesis (and hence conclude that there is a relationship between the predictors and <code>mpg</code>).</p>
+</div>
+<div id="ii.-which-predictors-appear-to-have-a-statistically-significant-relationship-to-the-response" class="section level5 unnumbered">
+<h5>ii. Which predictors appear to have a statistically significant relationship to the response?</h5>
+<p>We can answer this question by checking the p-values associated with each predictor’s t-statistic. We may conclude that all predictors are statistically significant except <code>cylinders</code>, <code>horsepower</code> and <code>acceleration</code>.</p>
+</div>
+<div id="iii.-what-does-the-coefficient-for-the-year-variable-suggest" class="section level5 unnumbered">
+<h5>iii. What does the coefficient for the <code>year</code> variable suggest?</h5>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="linear-regression.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mpg.fit2)[<span class="dv">7</span>]</span></code></pre></div>
+<pre><code>##      year 
+## 0.7507727</code></pre>
+<p>The coefficient ot the <code>year</code> variable suggests that the average effect of an increase of 1 year is an increase of 0.7507727 in <code>mpg</code> (all other predictors remaining constant). In other words, cars become more fuel efficient every year by almost 1 mpg / year.</p>
+</div>
+</div>
+<div id="d-use-the-plot-function-to-produce-diagnostic-plots-of-the-linear-regression-fit.-comment-on-any-problems-you-see-with-the-fit." class="section level4 unnumbered">
+<h4>(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</h4>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="linear-regression.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb77-2"><a href="linear-regression.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg.fit2)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<div id="i-residuals-vs-fitted-1" class="section level6 unnumbered">
+<h6><strong>(i) Residuals vs Fitted</strong></h6>
+<p>This plot shows if residuals have non-linear patterns.</p>
+<p>In this case, The plot of residuals versus fitted values indicates the presence of mild non linearity in the data.</p>
+</div>
+<div id="ii-normal-q-q-1" class="section level6 unnumbered">
+<h6><strong>(ii) Normal Q-Q</strong></h6>
+<p>This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.</p>
+</div>
+<div id="iii-scale-location-1" class="section level6 unnumbered">
+<h6><strong>(iii) Scale-Location</strong></h6>
+<p>This plot show how you can check the assumption of equal variance (homoscedasticity).</p>
+<p>In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as <span class="math inline">\(log(y)\)</span> or <span class="math inline">\(\sqrt{y}\)</span> can shrink larger responses by a greater amount and reduce this issue.</p>
+</div>
+<div id="iv-residuals-vs-leverage-1" class="section level6 unnumbered">
+<h6><strong>(iv) Residuals vs Leverage</strong></h6>
+<p>This plot helps us to find influential cases (i.e., subjects) if any.</p>
+<p>We can see some evidence of observations (e.g. 14) with both high leverage and high residual statistics, that may be disproportionately influencing the regression predictions.</p>
+</div>
+</div>
+<div id="e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant" class="section level4" number="3.6.0.1">
+<h4><span class="header-section-number">3.6.0.1</span> (e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</h4>
+<p>Since we have relatively few predictors, we can test all interactions with <code>mpg ~ . * .</code> in the call to <code>lm()</code>:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="linear-regression.html#cb78-1" aria-hidden="true" tabindex="-1"></a>mpg.fit3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span>.<span class="sc">*</span> ., <span class="at">data=</span>Auto[,<span class="sc">-</span><span class="dv">9</span>]) </span>
+<span id="cb78-2"><a href="linear-regression.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ . * ., data = Auto[, -9])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.6303 -1.4481  0.0596  1.2739 11.1386 
+## 
+## Coefficients:
+##                             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)                3.548e+01  5.314e+01   0.668  0.50475   
+## cylinders                  6.989e+00  8.248e+00   0.847  0.39738   
+## displacement              -4.785e-01  1.894e-01  -2.527  0.01192 * 
+## horsepower                 5.034e-01  3.470e-01   1.451  0.14769   
+## weight                     4.133e-03  1.759e-02   0.235  0.81442   
+## acceleration              -5.859e+00  2.174e+00  -2.696  0.00735 **
+## year                       6.974e-01  6.097e-01   1.144  0.25340   
+## origin                    -2.090e+01  7.097e+00  -2.944  0.00345 **
+## cylinders:displacement    -3.383e-03  6.455e-03  -0.524  0.60051   
+## cylinders:horsepower       1.161e-02  2.420e-02   0.480  0.63157   
+## cylinders:weight           3.575e-04  8.955e-04   0.399  0.69000   
+## cylinders:acceleration     2.779e-01  1.664e-01   1.670  0.09584 . 
+## cylinders:year            -1.741e-01  9.714e-02  -1.793  0.07389 . 
+## cylinders:origin           4.022e-01  4.926e-01   0.816  0.41482   
+## displacement:horsepower   -8.491e-05  2.885e-04  -0.294  0.76867   
+## displacement:weight        2.472e-05  1.470e-05   1.682  0.09342 . 
+## displacement:acceleration -3.479e-03  3.342e-03  -1.041  0.29853   
+## displacement:year          5.934e-03  2.391e-03   2.482  0.01352 * 
+## displacement:origin        2.398e-02  1.947e-02   1.232  0.21875   
+## horsepower:weight         -1.968e-05  2.924e-05  -0.673  0.50124   
+## horsepower:acceleration   -7.213e-03  3.719e-03  -1.939  0.05325 . 
+## horsepower:year           -5.838e-03  3.938e-03  -1.482  0.13916   
+## horsepower:origin          2.233e-03  2.930e-02   0.076  0.93931   
+## weight:acceleration        2.346e-04  2.289e-04   1.025  0.30596   
+## weight:year               -2.245e-04  2.127e-04  -1.056  0.29182   
+## weight:origin             -5.789e-04  1.591e-03  -0.364  0.71623   
+## acceleration:year          5.562e-02  2.558e-02   2.174  0.03033 * 
+## acceleration:origin        4.583e-01  1.567e-01   2.926  0.00365 **
+## year:origin                1.393e-01  7.399e-02   1.882  0.06062 . 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.695 on 363 degrees of freedom
+## Multiple R-squared:  0.8893, Adjusted R-squared:  0.8808 
+## F-statistic: 104.2 on 28 and 363 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We can see the significant terms (at the 0.05 level) are those with at least one asterisk (*). It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.</p>
+<p>Using the standard threshold of 0.05, the significant interaction terms are given by:
+* <code>displacement:year</code>
+* <code>acceleration:year</code>
+* <code>acceleration:origin</code></p>
+</div>
+<div id="try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings." class="section level4" number="3.6.0.2">
+<h4><span class="header-section-number">3.6.0.2</span> Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</h4>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="linear-regression.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb80-2"><a href="linear-regression.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(Auto<span class="sc">$</span>horsepower), Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;log(horsepower)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;Log Tranformation&quot;</span>)</span>
+<span id="cb80-3"><a href="linear-regression.html#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">sqrt</span>(Auto<span class="sc">$</span>horsepower), Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;sqrt(horsepower)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;Square Root Transformation&quot;</span>)</span>
+<span id="cb80-4"><a href="linear-regression.html#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>((Auto<span class="sc">$</span>horsepower)<span class="sc">^</span><span class="dv">2</span>, Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;horsepower&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;R^2 Statistic&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p>We limit ourselves to examining <code>horsepower</code> as sole predictor. It seems that the log transformation gives the most linear looking plot.</p>
 
+</div>
+</div>
 </div>
 </div>
             </section>

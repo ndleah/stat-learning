@@ -29,7 +29,7 @@ There are numbers of ways of measuring *closeness*. However, by far the most com
 
 
 
-#### The Least Square Approach
+#### The Least Square Approach {-}
 
 Let $Y_i = \beta_0 + \beta_1 X_i$ be the prediction for $Y$ based on the $i$th value of $X$. Then $e_i = y_i -\hat{y}+i$ represents the $i$th *residual* - this is the difference between the $i$th value and the $i$th reponse value that is predicted by our linear model. We define the ***residual sum of square (RSS)*** as
 
@@ -48,15 +48,15 @@ $$
 
 ### Assessing the Accuracy of the Coefficient Estimates
 
-**Population Regression Line:**
-
+#### **Population Regression Line:** {-}
+ 
 $$
 Y=\beta_0 + \beta_1X + \epsilon
 $$
 
 where $\epsilon$ mean zero random error term.
 
-**Least squares line:**
+#### **Least squares line:** {-}
 $$
 \hat{y}=\hat{\beta_0} + \hat{\beta_1}X 
 $$
@@ -82,7 +82,7 @@ In fact, we can see from the right-hand panel of Figure 3.3 that the average of 
 
 * **Right:** The population regression line is again shown in red, and the least squares line in dark blue. In light blue, ten least squares lines are shown, each computed on the basis of a separate random set of observations. Each least squares line is different, but on average, the least squares lines are quite close to the population regression line.
 
-#### **How Accurate Is The Sample Mean $\hat{\mu}$ As An Estimate Of Population Mean $\mu$**
+#### **How Accurate Is The Sample Mean $\hat{\mu}$ As An Estimate Of Population Mean $\mu$** {-}
 
 We answer this question by computing the ***standard error*** of$\mu$, written as SE($\hat{\mu}$).
 
@@ -106,11 +106,11 @@ If $\beta_1 = 0$ then the model reduces to $Y=\beta_0+\epsilon$, and $X$ is not 
 
 To test the null hypothesis, we need to determine whether $\hat{\beta_1}$, our estimate for $\beta_1$, is sufficiently far from zero that we can be confident that $\beta_1$ is non-zero. 
  
-#### **How far is far enough?** 
+#### **How far is far enough?** {-}
 
 This is course depends on the accuracy of $\hat{\beta_1}$ -that is, it depends on $SE(\hat{\beta_1})$. If SE($\hat{\beta_1}$) is small, then even relatively small values of $\hat{\beta_1}$ may provide strong evidence that $\beta_1 \neq 0$​, and hence that there is a relationship between $X$ and $Y$. In contrast, if SE($\hat{\beta_1}$) is large, then $\hat{\beta_1}$ must be large in absolute value in order for us to reject the null hypothesis. 
 
-#### **T-distribution** 
+#### **T-distribution** {-}
 
 **The t-distribution** describes the standardized distances of sample means to the population mean when the population standard deviation is not known, and the observations come from a normally distributed population.
 
@@ -141,7 +141,7 @@ After we have rejected the null hypothesis, t is natural to want to quantify the
 
 The quality of a linear regression fit is typically assessed using 2 related quantities: the *residual standard error* and the $R^2$ statistic.
 
-#### Residual Standard Error
+#### Residual Standard Error 
 The RSE is an estimation of the standard deviation of $\epsilon$. Roughly speaking, it is the average amount that the response will deviate from the true regression line. It is computed using the formula:
 
 $$
@@ -199,7 +199,7 @@ $$
 Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n + \epsilon
 $$
 
-#### Some Important Questions:
+#### Some Important Questions: {-}
 
 When we perform multiple linear regression, we usually are interested in answering a few important questions.
 
@@ -266,7 +266,7 @@ Using the same methods: RSE and $R^2$ statistic as simple linear regression.
 
 ## Other Considerations in the Regression Model
 
-#### Potential Problems
+#### Potential Problems {-}
 
 When we fit a linear regression model, many problems can occur, to name a few:
 
@@ -406,11 +406,11 @@ A large value of this statistic indicates an observation with high leverage.
 
 ***Collinearity*** refers to the situation in which two or more predictor variables are closely related to one another.
 
-In order to check for collinearity, we can either use *Correlation Matrix* or *Variance Inflation Factor (VIF)*.
+In order to check for collinearity, we can either use ***Correlation Matrix*** or ***Variance Inflation Factor (VIF)***.
 
 
 
-###### Correlation Matrix
+##### Correlation Matrix {-}
 
 A simple way to detect collinearity is to look at the correlation matrix
 of the predictors. An element of this matrix that is large in absolute value indicates a pair of highly correlated variables, and therefore a collinearity problem in the data. 
@@ -423,7 +423,7 @@ Multicollinearity causes problems in using regression models to draw conclusions
 
 
 
-###### Variance Inflation Factor (VIF)
+##### Variance Inflation Factor (VIF) {-}
 
 Instead of inspecting the correlation matrix, a better way to assess collinearity is to compute the **variance inflation factor (VIF)**. This can easily be calculated in `R` using software packages.
 
@@ -449,7 +449,7 @@ The plot displays sales, in thousands of units, as a function of `TV`, `radio`, 
 
 Suppose that in our role as statistical consultants we are asked to suggest, on the basis of this data, a marketing plan for next year that will result in high product sales. Here are a few important questions that we might seek to address:
 
-1. *Is there a relationship between advertising sales and budget?*
+1. ***Is there a relationship between advertising sales and budget?***
 
 This question can be answered by fitting a multiple regression model
 of sales onto `TV`, `radio`, and `newspaper`, as:
@@ -467,19 +467,19 @@ F-statistic can be used to determine whether or not we should reject this null h
 
 ![Table 3.6. More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data](img/90-Table3.6-1.png)
 
-2. *How strong is the relationship?*
+2. ***How strong is the relationship?***
 
 
 First, the RSE estimates the standard deviation of the response from the
 population regression line. For the `Advertising` data, the RSE is 1,681 units while the mean value for the response is 14,022, indicating a percentage error of roughly 12%. Second, the $R^2$ statistic records the percentage of variability in the response that is explained by the predictors. The predictors explain almost 90% of the variance in sales. The RSE and $R^2$ statistics are displayed in Table 3.6.
 
-3. *Which media contribute to sales?*
+3. ***Which media contribute to sales?***
 
 To answer this question, we can examine the p-values associated with each predictor’s t-statistic. In the multiple linear regression displayed in Table 3.4, the p-values for `TV` and `radio` are low, but the p-value for `newspaper` is not. This suggests that only `TV` and `radio` are related to sales.
 
 ![Table 3.4. For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets. ](img/88-Table3.4-1.png)
 
-4. *How large is the effect of each medium on sales?*
+4. ***How large is the effect of each medium on sales?***
 
 The standard error of $\hat{\beta_j}$ can be used to construct confidence intervals for $\beta_j$. For the `Advertising` data, the 95% confidence intervals are as follows: (0.043, 0.049) for `TV`, (0.172, 0.206) for `radio`, and (−0.013, 0.011) for `newspaper`. 
 
@@ -490,6 +490,7 @@ We saw in previous section that collinearity can result in very wide standard er
 <div class="alert alert-info hints-alert">
   <div class="hints-icon"><i class="fa fa-info"></i></div>
   <div class="hints-container">
+   
    ***Could collinearity be the reason that the confidence interval associated with newspaper is so wide?*** 
 
 The VIF scores are 1.005, 1.145, and 1.145 for `TV`,`radio`, and `newspaper`, suggesting no evidence of collinearity.
@@ -515,7 +516,7 @@ A $1,000 increase in spending on `radio` advertising is associated with an avera
 
 There is evidence of an extremely strong association between `TV` and `sales` and between `radio` and `sales`. There is evidence of a mild association between `newspaper` and `sales`, when the values of `TV` and `radio` are ignored.
 
-5. *How accurately can we predict future sales?*
+5. ***How accurately can we predict future sales?***
 
 The response can be predicted using:
 
@@ -525,7 +526,7 @@ $$
 
 The accuracy associated with this estimate depends on whether we wish to predict an individual response, $Y = f(X) + \epsilon$, or the average response, $f(X)$. If the former, we use a prediction interval, and if the latter, we use a confidence interval. Prediction intervals will always be wider than confidence intervals because they account for the uncertainty associated with $\epsilon$, the irreducible error.
 
-6. *Is the relationship linear?*
+6. ***Is the relationship linear?***
 
 In previous section, we saw that residual plots can be used in order to
 identify non-linearity. If the relationships are linear, then the residual plots should display no pattern. In the case of the `Advertising` data, we observe a non-linear effect in Figure 3.5, though this effect could also be observed in a residual plot. We also discussed the inclusion of transformations of the predictors in the linear regression model in order to accommodate non-linear relationships.
@@ -534,7 +535,7 @@ identify non-linearity. If the relationships are linear, then the residual plots
 
 From the pattern of the residuals, we can see that there is a pronounced non-linear relationship in the data. The positive residuals (those visible above the surface), tend to lie along the 45-degree line, where `TV` and `radio` budgets are split evenly. The negative residuals (most not visible), tend to lie away from this line, where budgets are more lopsided.
 
-7. *Is there synergy among the advertising media?*
+7. ***Is there synergy among the advertising media?***
 
 The standard linear regression model assumes an additive relationship
 between the predictors and the response. An additive model is easy to interpret because the effect of each predictor on the response is unrelated to the values of the other predictors. However, the additive assumption may be unrealistic for certain data sets. A small p-value associated with the interaction term indicates the presence of such relationships. 
@@ -759,25 +760,220 @@ LoadLibraries()
 
 ## Exercises (Applied)
 
+### Question 1 {-}
+
 This question involves the use of simple linear regression on the `Auto` data set.
 
-**Question 1.** Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output.
+#### (a) Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output. {-}
 
 ```{r}
-lm.fit <- lm(mpg ~ horsepower, data = Auto)
-summary(lm.fit)
+mpg.fit <- lm(mpg ~ horsepower, data = Auto)
+summary(mpg.fit)
 ```
 
 In order to interpret the result, a set of following questions are set up to better investigate the model:
 
-1. *Is there a relationship between the predictor and the response?*
+##### i. *Is there a relationship between the predictor and the response?* {-}
+
+This question can be answered by fitting the simple linear regression model of `mpg` on `horsepower` and testing the null hypothesis:
+
+$$
+H_0: \beta_j = 0
+$$ 
+
+The p-value for the `horsepower` variable is very small (<<0.05), so there is strong evidence to believe that `horsepower` is associated with `mpg`. Therefore, there is a relationship between the predictor and response.
+
+##### ii. *How strong is the relationship between the predictor and the response?* {-}
+
+There are 2 measures of model accuracy to evaluate the degree of relationship between the predictor and the response, which are: **RSE** and $R^2$ **statistic**.
+
+For the `Auto` data, the RSE is:
+
+```{r}
+summary(mpg.fit)$sigma
+```
+The RSE is different (good or bad) in the sense that it takes on the units of y, but we can divide this by mean y to get the **percentage error**:
+
+```{r}
+summary(mpg.fit)$sigma/mean(Auto$mpg)
+```
+So the percentage error = 20.92%.
+
+Second, the $R^2$ of the linear model, which can be thought of as “the percentage of variability in the response that is explained by the predictor”, is given by:
+
+```{r}
+summary(mpg.fit)$r.squared
+```
+So the `horsepower` explains 60.59% of the variance in `mpg`.
+
+##### iii. *Is the relationship between the predictor and the response positive or negative?* {-}
+
+```{r}
+coefficients(mpg.fit)
+```
+
+The relationship is negative between `mpg` and `horsepower` as the coefficient estimate is -0.1578447.
+
+##### iv. *What is the predicted `mpg` associated with a `horsepower` of 98? What are the associated 95% confidence and prediction intervals?* {-}
+
+The confidence interval:
+```{r}
+predict(mpg.fit, data.frame(horsepower = 98), interval = "confidence", level = 0.95)
+```
+The prediction interval:
+```{r}
+predict(mpg.fit, data.frame(horsepower = 98), interval = "prediction", level = 0.95)
+```
+The prediction interval is wider than the confidence interval as we would expect.
+
+#### (b) Plot the response and the predictor. Use the `abline()` function to display the least squares regression line. {-}
+
+```{r}
+plot(Auto$horsepower,Auto$mpg,xlab = "horsepower", ylab = "mpg",main = "Scatterplot of mpg vs. horsepower")
+abline(mpg.fit,col="red")
+```
+
+#### (c) Use the `plot()` function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit. {-}
+
+```{r}
+par(mfrow=c(2,2))
+plot(mpg.fit)
+```
+
+The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:
+
+#####  **(i) Residuals vs Fitted** {-}
+
+This plot shows if residuals have non-linear patterns.
+
+In this case, The plot of residuals versus fitted values indicates the presence of non linearity in the data.
+
+##### **(ii) Normal Q-Q** {-}
+
+This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.
 
 
-2. *How strong is the relationship between the predictor and the response?*
+##### **(iii) Scale-Location** {-}
+
+This plot show how you can check the assumption of equal variance (homoscedasticity).
+
+In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as $log(y)$ or $\sqrt{y}$ can shrink larger responses by a greater amount and reduce this issue.
+
+##### **(iv) Residuals vs Leverage** {-}
+
+This plot helps us to find influential cases (i.e., subjects) if any. 
+
+The plot of standardized residuals versus leverage indicates the presence of a few outliers and a few high leverage points.
 
 
-3. *Is the relationship between the predictor and the response positive or negative?*
+### Question 2 {-}
 
-4. *What is the predicted mpg associated with a horsepower of 
-98? What are the associated 95% confidence and prediction
-intervals?
+This question involves the use of multiple linear regression on the `Auto` data set.
+
+#### (a) Produce a scatterplot matrix which includes all of the variables in the data set. {-}
+
+```{r}
+pairs(Auto)
+```
+
+#### (b) Compute the matrix of correlations between the variables using the function `cor()`. You will need to exclude the “name” variable, which is qualitative. {-}
+
+```{r}
+names(Auto)
+```
+
+```{r}
+cor(Auto[-9])
+```
+
+#### (c) Use the `lm()` function to perform a multiple linear regression with `mpg` as the response and all other variables except “name” as the predictors. Use the `summary()` function to print the results. Comment on the output. {-}
+
+```{r}
+mpg.fit2 <- lm(mpg ~. -name, data=Auto)
+summary(mpg.fit2)
+```
+
+##### i. Is there a relationship between the predictors and the response? {-}
+
+ We answer this question by performing an F-test, where we test the null hypothesis that all of the regression coefficients are zero:
+ 
+$$
+H_0:\beta_1=\beta_2=...=\beta_p=0\\
+
+H_a: at \;least \;one \;\beta_j\neq0
+$$
+
+The p-value is given at the bottom of the model summary (`p-value: < 2.2e-16`), so it’s clear that the probability of the null hypothesis being true (given our data) is practically zero.
+
+We reject the null hypothesis (and hence conclude that there is a relationship between the predictors and `mpg`).
+
+##### ii. Which predictors appear to have a statistically significant relationship to the response? {-}
+
+We can answer this question by checking the p-values associated with each predictor’s t-statistic. We may conclude that all predictors are statistically significant except `cylinders`, `horsepower` and `acceleration`.
+
+
+##### iii. What does the coefficient for the `year` variable suggest? {-}
+
+```{r}
+coef(mpg.fit2)[7]
+```
+
+
+The coefficient ot the `year` variable suggests that the average effect of an increase of 1 year is an increase of 0.7507727 in `mpg` (all other predictors remaining constant). In other words, cars become more fuel efficient every year by almost 1 mpg / year.
+
+#### (d) Use the `plot()` function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit. {-}
+
+```{r}
+par(mfrow=c(2,2))
+plot(mpg.fit2)
+```
+
+###### **(i) Residuals vs Fitted** {-}
+
+This plot shows if residuals have non-linear patterns.
+
+In this case, The plot of residuals versus fitted values indicates the presence of mild non linearity in the data.
+
+###### **(ii) Normal Q-Q** {-}
+
+This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.
+
+
+###### **(iii) Scale-Location** {-}
+
+This plot show how you can check the assumption of equal variance (homoscedasticity).
+
+In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as $log(y)$ or $\sqrt{y}$ can shrink larger responses by a greater amount and reduce this issue.
+
+###### **(iv) Residuals vs Leverage** {-}
+
+This plot helps us to find influential cases (i.e., subjects) if any. 
+
+We can see some evidence of observations (e.g. 14) with both high leverage and high residual statistics, that may be disproportionately influencing the regression predictions.
+
+#### (e) Use the `*` and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?
+
+Since we have relatively few predictors, we can test all interactions with `mpg ~ . * .` in the call to `lm()`:
+
+```{r}
+mpg.fit3 <- lm(mpg ~.* ., data=Auto[,-9]) 
+summary(mpg.fit3)
+```
+We can see the significant terms (at the 0.05 level) are those with at least one asterisk (*). It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.
+
+Using the standard threshold of 0.05, the significant interaction terms are given by:
+* `displacement:year`
+* `acceleration:year`
+* `acceleration:origin`
+
+#### Try a few different transformations of the variables, such as $log(X)$, $\sqrt{X}$, $X^2$. Comment on your findings. {-}
+
+```{r}
+par(mfrow = c(2, 2))
+plot(log(Auto$horsepower), Auto$mpg, xlab= "log(horsepower)", ylab = "mpg", main="Log Tranformation")
+plot(sqrt(Auto$horsepower), Auto$mpg, xlab= "sqrt(horsepower)", ylab = "mpg", main="Square Root Transformation")
+plot((Auto$horsepower)^2, Auto$mpg, xlab= "horsepower", ylab = "mpg", main="X^2 Transformation")
+```
+
+We limit ourselves to examining `horsepower` as sole predictor. It seems that the log transformation gives the most linear looking plot.
+
