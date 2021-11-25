@@ -73,12 +73,9 @@ Parametric methods (model-based approach) are those that are able to estimate th
 
 Potential disadvantages of parametric methods is that the model will not usually match the true $f$. This can be avoid by choosing a more _flexible_ models that can fit many possible functions for $f$ forms and usually require greater number of parameters.
 
-<div class="alert alert-info hints-alert">
-  <div class="hints-icon"><i class="fa fa-info"></i></div>
-  <div class="hints-container">
-  Example fitting models for parametric methods (linear): **Odirnary Least Squares (OLS), Lasso.**
-  </div>
-</div>
+:::tip
+Example fitting models for parametric methods (linear): **Ordinary Least Squares (OLS), Lasso.**
+:::
 
 #### Non-Parametric Methods
 
