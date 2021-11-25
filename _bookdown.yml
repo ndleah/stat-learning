@@ -3,19 +3,17 @@ output_dir: "docs"
 language:
   ui:
     chapter_name: "Section "
-new_session: yes # Each chapter is knitted as its own Rmd file
-#rmd_subdir: ["", "",""]
 
 rmd_files: [
   "index.Rmd", 
             
-  "statistical-learning.Rmd",
-  "statistical-learning-model-accuracy.Rmd",
+  "chapters/01-statistical-learning/statistical-learning.Rmd",
+  "chapters/01-statistical-learning/statistical-learning-model-accuracy.Rmd",
   
-  "linear-regression-simple.Rmd",
-  "linear-regression-multiple.Rmd",
-  "linear-regression-considerations.Rmd",
-  "linear-regression-marketing-cs.Rmd",
-  "linear-regression-lab.Rmd",
-  "linear-regression-exercises.Rmd"
+  "chapters/02-linear-regression/linear-regression-simple.Rmd",
+  "chapters/02-linear-regression/linear-regression-multiple.Rmd",
+  "chapters/02-linear-regression/linear-regression-considerations.Rmd",
+  "chapters/02-linear-regression/linear-regression-marketing-cs.Rmd",
+  "chapters/02-linear-regression/linear-regression-lab.Rmd",
+  "chapters/02-linear-regression/linear-regression-exercises.Rmd"
   ]

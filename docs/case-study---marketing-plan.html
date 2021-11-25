@@ -53,6 +53,69 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -209,7 +272,7 @@
 <h2><span class="header-section-number">6.1</span> Data Overview</h2>
 <p>The <code>Advertising</code> data set consists of the sales of that product in 200 different markets, along with advertising budgets for the product in each of those markets for three different media: <code>TV</code>, <code>radio</code>, and <code>newspaper</code>. The data are displayed in Figure 6.1.</p>
 <p>The plot displays sales, in thousands of units, as a function of <code>TV</code>, <code>radio</code>, and <code>newspaper</code> budgets, in thousands of dollars, for 200 different markets. In each plot we show the simple least squares fit of sales to that variable, as described in previous section. In other words, each blue line represents a simple model that can be used to predict sales using <code>TV</code>, <code>radio</code>, and newspaper`, respectively.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-24"></span>
 <img src="img/30-Figure2.1-1.png" alt="he Advertising data set" width="85%" />
 <p class="caption">
 Figure 6.1: he Advertising data set
@@ -232,7 +295,7 @@ of sales onto <code>TV</code>, <code>radio</code>, and <code>newspaper</code>, a
 \Large H_0: \beta_{TV} = \beta_{radio} = \beta_{newspaper} = 0
 \]</span></p>
 <p>F-statistic can be used to determine whether or not we should reject this null hypothesis. In this case, the p-value corresponding to the F-statistic in Figure 6.1 is very low, indicating clear evidence of a relationship between advertising and sales.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-25"></span>
 <img src="img/90-Table3.6-1.png" alt="More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data" width="50%" />
 <p class="caption">
 Figure 6.2: More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data
@@ -247,7 +310,7 @@ population regression line. For the <code>Advertising</code> data, the RSE is 1,
 <li><strong><em>Which media contribute to sales?</em></strong></li>
 </ol>
 <p>To answer this question, we can examine the p-values associated with each predictor’s t-statistic. In the multiple linear regression displayed in Figure 6.3, the p-values for <code>TV</code> and <code>radio</code> are low, but the p-value for <code>newspaper</code> is not. This suggests that only <code>TV</code> and <code>radio</code> are related to sales.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-26"></span>
 <img src="img/88-Table3.4-1.png" alt="For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets." width="65%" />
 <p class="caption">
 Figure 6.3: For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets.
@@ -262,14 +325,14 @@ Figure 6.3: For the Advertising data, least squares coefficient estimates of the
 <p><strong><em>Could collinearity be the reason that the confidence interval associated with newspaper is so wide?</em></strong></p>
 <p>The VIF scores are 1.005, 1.145, and 1.145 for <code>TV</code>,<code>radio</code>, and <code>newspaper</code>, suggesting no evidence of collinearity.</p>
 <p>In order to assess the association of each medium individually on sales, we can perform three separate simple linear regressions. Results are shown in Figure 6.4 and 6.5.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-27"></span>
 <img src="img/82-Table3.1-1.png" alt="More simple linear regression models for the Advertising data" width="60%" />
 <p class="caption">
 Figure 6.4: More simple linear regression models for the Advertising data
 </p>
 </div>
 <p>Coefficients of the least squares model for the regression of number of units sold on <code>TV</code> advertising budget. An increase of $1,000 in the <code>TV</code> advertising budget is associated with an increase in sales by around 50 units.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-28"></span>
 <img src="img/86-Table3.3-1.png" alt="More simple linear regression models for the Advertising data" width="65%" />
 <p class="caption">
 Figure 6.5: More simple linear regression models for the Advertising data
@@ -297,7 +360,7 @@ Figure 6.5: More simple linear regression models for the Advertising data
 </ol>
 <p>In previous section, we saw that residual plots can be used in order to
 identify non-linearity. If the relationships are linear, then the residual plots should display no pattern. In the case of the <code>Advertising</code> data, we observe a non-linear effect in Figure 3.5, though this effect could also be observed in a residual plot. We also discussed the inclusion of transformations of the predictors in the linear regression model in order to accommodate non-linear relationships.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-29"></span>
 <img src="img/95-Figure3.5-1.png" alt="A linear regression fit to sales using TV and radio as predictors" width="65%" />
 <p class="caption">
 Figure 6.6: A linear regression fit to sales using TV and radio as predictors
@@ -350,7 +413,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ndleah/stat-learning/edit/main/linear-regression-marketing-cs.Rmd",
+"link": "https://github.com/ndleah/stat-learning/edit/main/chapters/02-linear-regression/linear-regression-marketing-cs.Rmd",
 "text": "Edit"
 },
 "history": {
