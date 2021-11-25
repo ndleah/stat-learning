@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 8 Exercises (Applied) | _main</title>
+  <meta name="description" content="A work-in-progress" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 8 Exercises (Applied) | _main" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
+  <meta property="og:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/logo.png" />
+  <meta property="og:description" content="A work-in-progress" />
+  <meta name="github-repo" content="ndleah/stat-learning" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 8 Exercises (Applied) | _main" />
+  
+  <meta name="twitter:description" content="A work-in-progress" />
+  <meta name="twitter:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab-linear-regression.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>INTRODUCTION</a></li>
+<li class="part"><span><b>I STATISTICAL LEARNING</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html"><i class="fa fa-check"></i><b>1</b> What is Statistical Learning?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#why-estimate-f"><i class="fa fa-check"></i><b>1.1</b> Why Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>1.1.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>1.2</b> How Do We Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#parametric-methods"><i class="fa fa-check"></i><b>1.2.1</b> Parametric Methods</a></li>
+<li class="chapter" data-level="1.2.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#non-parametric-methods"><i class="fa fa-check"></i><b>1.2.2</b> Non-Parametric Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>1.3</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
+<li class="chapter" data-level="1.4" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>1.4</b> Supervised Vs. Unsupervised Learning</a></li>
+<li class="chapter" data-level="1.5" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#regression-vs.-classification"><i class="fa fa-check"></i><b>1.5</b> Regression Vs. Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html"><i class="fa fa-check"></i><b>2</b> Assessing Model Accuracy</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-regression-setting"><i class="fa fa-check"></i><b>2.1</b> The Regression Setting</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#measuring-the-quality-of-fit"><i class="fa fa-check"></i><b>2.1.1</b> Measuring the Quality of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>2.2</b> The Bias-Variance Trade-Off</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#variance-error"><i class="fa fa-check"></i><b>2.2.1</b> Variance Error</a></li>
+<li class="chapter" data-level="2.2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-error"><i class="fa fa-check"></i><b>2.2.2</b> Bias Error</a></li>
+<li class="chapter" data-level="2.2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-variance-trafe-off"><i class="fa fa-check"></i><b>2.2.3</b> <strong>Bias-Variance Trafe-Off</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-classification-setting"><i class="fa fa-check"></i><b>2.3</b> The Classification Setting</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bayes-classifier"><i class="fa fa-check"></i><b>2.3.1</b> The Bayes Classifier</a></li>
+<li class="chapter" data-level="2.3.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#k-nearest-neighbors-knn"><i class="fa fa-check"></i><b>2.3.2</b> K-Nearest Neighbors (KNN)</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II LINEAR REGRESSION</b></span></li>
+<li class="chapter" data-level="3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>3</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1</b> Estimating the Coefficients</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.2</b> Assessing the Accuracy of the Coefficient Estimates</a>
+<ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#population-regression-line"><i class="fa fa-check"></i>Population Regression Line</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#least-squares-line"><i class="fa fa-check"></i>Least Squares Line</a></li>
+<li><a href="simple-linear-regression.html#how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu">How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#how-far-is-far-enough"><i class="fa fa-check"></i>How far is far enough?</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#t-distribution"><i class="fa fa-check"></i>T-distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.3</b> Assessing the Accuracy of the Model</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#residual-standard-error"><i class="fa fa-check"></i><b>3.4</b> Residual Standard Error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#r2-standard-error"><i class="fa fa-check"></i><b>3.4.1</b> <span class="math inline">\(R^2\)</span> Standard Error</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#consideration"><i class="fa fa-check"></i><b>3.5</b> Consideration</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>4</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#some-important-questions"><i class="fa fa-check"></i>Some Important Questions:</a></li>
+<li class="chapter" data-level="4.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#response-and-predictors-relationships"><i class="fa fa-check"></i><b>4.1</b> Response and Predictors Relationships</a></li>
+<li class="chapter" data-level="4.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#dealing-with-large-number-of-variables"><i class="fa fa-check"></i><b>4.2</b> Dealing With Large Number Of Variables</a></li>
+<li class="chapter" data-level="4.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#model-fit"><i class="fa fa-check"></i><b>4.3</b> Model Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html"><i class="fa fa-check"></i><b>5</b> Other Considerations in the Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#potential-problems"><i class="fa fa-check"></i>Potential Problems</a></li>
+<li class="chapter" data-level="5.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-linearity-of-the-data"><i class="fa fa-check"></i><b>5.1</b> Non-linearity of the Data</a></li>
+<li class="chapter" data-level="5.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-of-error-terms"><i class="fa fa-check"></i><b>5.2</b> Correlation of Error Terms</a></li>
+<li class="chapter" data-level="5.3" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-constant-variance-of-error-terms-heteroscedasticity"><i class="fa fa-check"></i><b>5.3</b> Non-constant Variance of Error Terms (Heteroscedasticity)</a></li>
+<li class="chapter" data-level="5.4" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#outlier"><i class="fa fa-check"></i><b>5.4</b> Outlier</a></li>
+<li class="chapter" data-level="5.5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#high-leverage-points"><i class="fa fa-check"></i><b>5.5</b> High Leverage Points</a></li>
+<li class="chapter" data-level="5.6" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#collinearity"><i class="fa fa-check"></i><b>5.6</b> Collinearity</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-matrix"><i class="fa fa-check"></i><b>5.6.1</b> Correlation Matrix</a></li>
+<li class="chapter" data-level="5.6.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#variance-inflation-factor-vif"><i class="fa fa-check"></i><b>5.6.2</b> Variance Inflation Factor (VIF)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html"><i class="fa fa-check"></i><b>6</b> Case Study - Marketing Plan</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#data-overview"><i class="fa fa-check"></i><b>6.1</b> Data Overview</a></li>
+<li class="chapter" data-level="6.2" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#important-questions"><i class="fa fa-check"></i><b>6.2</b> Important Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Lab: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>7.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.2" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>7.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="7.3" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>7.3</b> Interaction Terms</a></li>
+<li class="chapter" data-level="7.4" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>7.4</b> Non-linear Transformations of the Predictors</a></li>
+<li class="chapter" data-level="7.5" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>7.5</b> Qualitative Predictors</a></li>
+<li class="chapter" data-level="7.6" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>7.6</b> Writing Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises-applied.html"><a href="exercises-applied.html"><i class="fa fa-check"></i><b>8</b> Exercises (Applied)</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
+<ul>
+<li><a href="exercises-applied.html#a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
+<li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-2"><i class="fa fa-check"></i>Question 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set."><i class="fa fa-check"></i>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</a></li>
+<li><a href="exercises-applied.html#b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative.">(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</a></li>
+<li><a href="exercises-applied.html#c-use-the-lm-function-to-perform-a-multiple-linear-regression-with-mpg-as-the-response-and-all-other-variables-except-name-as-the-predictors.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(c) Use the <code>lm()</code> function to perform a multiple linear regression with <code>mpg</code> as the response and all other variables except “name” as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#d-use-the-plot-function-to-produce-diagnostic-plots-of-the-linear-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</a></li>
+<li><a href="exercises-applied.html#e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant">(e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</a></li>
+<li><a href="exercises-applied.html#f-try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings.">(f) Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<link href="style.css" rel="stylesheet">
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="img/illos/cover.png">
+</div>
+<div id="exercises-applied" class="section level1" number="8">
+<h1><span class="header-section-number">Section 8</span> Exercises (Applied)</h1>
+<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
+<div id="question-1" class="section level2 unnumbered">
+<h2>Question 1</h2>
+<p>This question involves the use of simple linear regression on the <code>Auto</code> data set.</p>
+<div id="a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output." class="section level3 unnumbered">
+<h3>(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</h3>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="exercises-applied.html#cb52-1" aria-hidden="true" tabindex="-1"></a>mpg.fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data =</span> Auto)</span>
+<span id="cb52-2"><a href="exercises-applied.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ horsepower, data = Auto)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -13.5710  -3.2592  -0.3435   2.7630  16.9240 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 39.935861   0.717499   55.66   &lt;2e-16 ***
+## horsepower  -0.157845   0.006446  -24.49   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.906 on 390 degrees of freedom
+## Multiple R-squared:  0.6059, Adjusted R-squared:  0.6049 
+## F-statistic: 599.7 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>In order to interpret the result, a set of following questions are set up to better investigate the model:</p>
+<div id="i.-is-there-a-relationship-between-the-predictor-and-the-response" class="section level4 unnumbered">
+<h4>i. <em>Is there a relationship between the predictor and the response?</em></h4>
+<p>This question can be answered by fitting the simple linear regression model of <code>mpg</code> on <code>horsepower</code> and testing the null hypothesis:</p>
+<div class="formula">
+<p><span class="math display">\[
+H_0: \beta_j = 0
+\]</span></p>
+</div>
+<p>The p-value for the <code>horsepower</code> variable is very small (&lt;&lt;0.05), so there is strong evidence to believe that <code>horsepower</code> is associated with <code>mpg</code>. Therefore, there is a relationship between the predictor and response.</p>
+</div>
+<div id="ii.-how-strong-is-the-relationship-between-the-predictor-and-the-response" class="section level4 unnumbered">
+<h4>ii. <em>How strong is the relationship between the predictor and the response?</em></h4>
+<p>There are 2 measures of model accuracy to evaluate the degree of relationship between the predictor and the response, which are: <strong>RSE</strong> and <span class="math inline">\(R^2\)</span> <strong>statistic</strong>.</p>
+<p>For the <code>Auto</code> data, the RSE is:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="exercises-applied.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)<span class="sc">$</span>sigma</span></code></pre></div>
+<pre><code>## [1] 4.905757</code></pre>
+<p>The RSE is different (good or bad) in the sense that it takes on the units of y, but we can divide this by mean y to get the <strong>percentage error</strong>:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="exercises-applied.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)<span class="sc">$</span>sigma<span class="sc">/</span><span class="fu">mean</span>(Auto<span class="sc">$</span>mpg)</span></code></pre></div>
+<pre><code>## [1] 0.2092371</code></pre>
+<p>So the percentage error = 20.92%.</p>
+<p>Second, the <span class="math inline">\(R^2\)</span> of the linear model, which can be thought of as “the percentage of variability in the response that is explained by the predictor”, is given by:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="exercises-applied.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)<span class="sc">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.6059483</code></pre>
+<p>So the <code>horsepower</code> explains 60.59% of the variance in <code>mpg</code>.</p>
+</div>
+<div id="iii.-is-the-relationship-between-the-predictor-and-the-response-positive-or-negative" class="section level4 unnumbered">
+<h4>iii. <em>Is the relationship between the predictor and the response positive or negative?</em></h4>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="exercises-applied.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coefficients</span>(mpg.fit)</span></code></pre></div>
+<pre><code>## (Intercept)  horsepower 
+##  39.9358610  -0.1578447</code></pre>
+<p>The relationship is negative between <code>mpg</code> and <code>horsepower</code> as the coefficient estimate is -0.1578447.</p>
+</div>
+<div id="iv.-what-is-the-predicted-mpg-associated-with-a-horsepower-of-98-what-are-the-associated-95-confidence-and-prediction-intervals" class="section level4 unnumbered">
+<h4>iv. <em>What is the predicted <code>mpg</code> associated with a <code>horsepower</code> of 98? What are the associated 95% confidence and prediction intervals?</em></h4>
+<p>The confidence interval:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="exercises-applied.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mpg.fit, <span class="fu">data.frame</span>(<span class="at">horsepower =</span> <span class="dv">98</span>), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 24.46708 23.97308 24.96108</code></pre>
+<p>The prediction interval:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="exercises-applied.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mpg.fit, <span class="fu">data.frame</span>(<span class="at">horsepower =</span> <span class="dv">98</span>), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>##        fit     lwr      upr
+## 1 24.46708 14.8094 34.12476</code></pre>
+<p>The prediction interval is wider than the confidence interval as we would expect.</p>
+</div>
+</div>
+<div id="b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line." class="section level3 unnumbered">
+<h3>(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</h3>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="exercises-applied.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower,Auto<span class="sc">$</span>mpg,<span class="at">xlab =</span> <span class="st">&quot;horsepower&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>,<span class="at">main =</span> <span class="st">&quot;Scatterplot of mpg vs. horsepower&quot;</span>)</span>
+<span id="cb66-2"><a href="exercises-applied.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mpg.fit,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="linear-regression-exercises_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit." class="section level3 unnumbered">
+<h3>(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</h3>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="exercises-applied.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb67-2"><a href="exercises-applied.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg.fit)</span></code></pre></div>
+<p><img src="linear-regression-exercises_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:</p>
+<div id="i-residuals-vs-fitted" class="section level4 unnumbered">
+<h4><strong>(i) Residuals vs Fitted</strong></h4>
+<p>This plot shows if residuals have non-linear patterns.</p>
+<p>In this case, The plot of residuals versus fitted values indicates the presence of non linearity in the data.</p>
+</div>
+<div id="ii-normal-q-q" class="section level4 unnumbered">
+<h4><strong>(ii) Normal Q-Q</strong></h4>
+<p>This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.</p>
+</div>
+<div id="iii-scale-location" class="section level4 unnumbered">
+<h4><strong>(iii) Scale-Location</strong></h4>
+<p>This plot show how you can check the assumption of equal variance (homoscedasticity).</p>
+<p>In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as <span class="math inline">\(log(y)\)</span> or <span class="math inline">\(\sqrt{y}\)</span> can shrink larger responses by a greater amount and reduce this issue.</p>
+</div>
+<div id="iv-residuals-vs-leverage" class="section level4 unnumbered">
+<h4><strong>(iv) Residuals vs Leverage</strong></h4>
+<p>This plot helps us to find influential cases (i.e., subjects) if any.</p>
+<p>The plot of standardized residuals versus leverage indicates the presence of a few outliers and a few high leverage points.</p>
+</div>
+</div>
+</div>
+<div id="question-2" class="section level2 unnumbered">
+<h2>Question 2</h2>
+<p>This question involves the use of multiple linear regression on the <code>Auto</code> data set.</p>
+<div id="a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set." class="section level3 unnumbered">
+<h3>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</h3>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="exercises-applied.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto)</span></code></pre></div>
+<p><img src="linear-regression-exercises_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative." class="section level3 unnumbered">
+<h3>(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</h3>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="exercises-applied.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Auto)</span></code></pre></div>
+<pre><code>## [1] &quot;mpg&quot;          &quot;cylinders&quot;    &quot;displacement&quot; &quot;horsepower&quot;   &quot;weight&quot;      
+## [6] &quot;acceleration&quot; &quot;year&quot;         &quot;origin&quot;       &quot;name&quot;</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="exercises-applied.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Auto[<span class="sc">-</span><span class="dv">9</span>])</span></code></pre></div>
+<pre><code>##                     mpg  cylinders displacement horsepower     weight
+## mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268 -0.8322442
+## cylinders    -0.7776175  1.0000000    0.9508233  0.8429834  0.8975273
+## displacement -0.8051269  0.9508233    1.0000000  0.8972570  0.9329944
+## horsepower   -0.7784268  0.8429834    0.8972570  1.0000000  0.8645377
+## weight       -0.8322442  0.8975273    0.9329944  0.8645377  1.0000000
+## acceleration  0.4233285 -0.5046834   -0.5438005 -0.6891955 -0.4168392
+## year          0.5805410 -0.3456474   -0.3698552 -0.4163615 -0.3091199
+## origin        0.5652088 -0.5689316   -0.6145351 -0.4551715 -0.5850054
+##              acceleration       year     origin
+## mpg             0.4233285  0.5805410  0.5652088
+## cylinders      -0.5046834 -0.3456474 -0.5689316
+## displacement   -0.5438005 -0.3698552 -0.6145351
+## horsepower     -0.6891955 -0.4163615 -0.4551715
+## weight         -0.4168392 -0.3091199 -0.5850054
+## acceleration    1.0000000  0.2903161  0.2127458
+## year            0.2903161  1.0000000  0.1815277
+## origin          0.2127458  0.1815277  1.0000000</code></pre>
+</div>
+<div id="c-use-the-lm-function-to-perform-a-multiple-linear-regression-with-mpg-as-the-response-and-all-other-variables-except-name-as-the-predictors.-use-the-summary-function-to-print-the-results.-comment-on-the-output." class="section level3 unnumbered">
+<h3>(c) Use the <code>lm()</code> function to perform a multiple linear regression with <code>mpg</code> as the response and all other variables except “name” as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output.</h3>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="exercises-applied.html#cb73-1" aria-hidden="true" tabindex="-1"></a>mpg.fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span>. <span class="sc">-</span>name, <span class="at">data=</span>Auto)</span>
+<span id="cb73-2"><a href="exercises-applied.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ . - name, data = Auto)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -9.5903 -2.1565 -0.1169  1.8690 13.0604 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -17.218435   4.644294  -3.707  0.00024 ***
+## cylinders     -0.493376   0.323282  -1.526  0.12780    
+## displacement   0.019896   0.007515   2.647  0.00844 ** 
+## horsepower    -0.016951   0.013787  -1.230  0.21963    
+## weight        -0.006474   0.000652  -9.929  &lt; 2e-16 ***
+## acceleration   0.080576   0.098845   0.815  0.41548    
+## year           0.750773   0.050973  14.729  &lt; 2e-16 ***
+## origin         1.426141   0.278136   5.127 4.67e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.328 on 384 degrees of freedom
+## Multiple R-squared:  0.8215, Adjusted R-squared:  0.8182 
+## F-statistic: 252.4 on 7 and 384 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div id="i.-is-there-a-relationship-between-the-predictors-and-the-response" class="section level4 unnumbered">
+<h4>i. Is there a relationship between the predictors and the response?</h4>
+<p>We answer this question by performing an F-test, where we test the null hypothesis that all of the regression coefficients are zero:</p>
+<p>$$
+H_0:_1=_2=…=_p=0\</p>
+<p>H_a: at ;least ;one ;_j
+$$</p>
+<p>The p-value is given at the bottom of the model summary (<code>p-value: &lt; 2.2e-16</code>), so it’s clear that the probability of the null hypothesis being true (given our data) is practically zero.</p>
+<p>We reject the null hypothesis (and hence conclude that there is a relationship between the predictors and <code>mpg</code>).</p>
+</div>
+<div id="ii.-which-predictors-appear-to-have-a-statistically-significant-relationship-to-the-response" class="section level4 unnumbered">
+<h4>ii. Which predictors appear to have a statistically significant relationship to the response?</h4>
+<p>We can answer this question by checking the p-values associated with each predictor’s t-statistic. We may conclude that all predictors are statistically significant except <code>cylinders</code>, <code>horsepower</code> and <code>acceleration</code>.</p>
+</div>
+<div id="iii.-what-does-the-coefficient-for-the-year-variable-suggest" class="section level4 unnumbered">
+<h4>iii. What does the coefficient for the <code>year</code> variable suggest?</h4>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="exercises-applied.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mpg.fit2)[<span class="dv">7</span>]</span></code></pre></div>
+<pre><code>##      year 
+## 0.7507727</code></pre>
+<p>The coefficient ot the <code>year</code> variable suggests that the average effect of an increase of 1 year is an increase of 0.7507727 in <code>mpg</code> (all other predictors remaining constant). In other words, cars become more fuel efficient every year by almost 1 mpg / year.</p>
+</div>
+</div>
+<div id="d-use-the-plot-function-to-produce-diagnostic-plots-of-the-linear-regression-fit.-comment-on-any-problems-you-see-with-the-fit." class="section level3 unnumbered">
+<h3>(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</h3>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="exercises-applied.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb77-2"><a href="exercises-applied.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg.fit2)</span></code></pre></div>
+<p><img src="linear-regression-exercises_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="i-residuals-vs-fitted-1" class="section level4 unnumbered">
+<h4><strong>(i) Residuals vs Fitted</strong></h4>
+<p>This plot shows if residuals have non-linear patterns.</p>
+<p>In this case, The plot of residuals versus fitted values indicates the presence of mild non linearity in the data.</p>
+</div>
+<div id="ii-normal-q-q-1" class="section level4 unnumbered">
+<h4><strong>(ii) Normal Q-Q</strong></h4>
+<p>This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.</p>
+</div>
+<div id="iii-scale-location-1" class="section level4 unnumbered">
+<h4><strong>(iii) Scale-Location</strong></h4>
+<p>This plot show how you can check the assumption of equal variance (homoscedasticity).</p>
+<p>In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as <span class="math inline">\(log(y)\)</span> or <span class="math inline">\(\sqrt{y}\)</span> can shrink larger responses by a greater amount and reduce this issue.</p>
+</div>
+<div id="iv-residuals-vs-leverage-1" class="section level4 unnumbered">
+<h4><strong>(iv) Residuals vs Leverage</strong></h4>
+<p>This plot helps us to find influential cases (i.e., subjects) if any.</p>
+<p>We can see some evidence of observations (e.g. 14) with both high leverage and high residual statistics, that may be disproportionately influencing the regression predictions.</p>
+</div>
+</div>
+<div id="e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant" class="section level3 unnumbered">
+<h3>(e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</h3>
+<p>Since we have relatively few predictors, we can test all interactions with <code>mpg ~ . * .</code> in the call to <code>lm()</code>:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="exercises-applied.html#cb78-1" aria-hidden="true" tabindex="-1"></a>mpg.fit3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span>.<span class="sc">*</span> ., <span class="at">data=</span>Auto[,<span class="sc">-</span><span class="dv">9</span>]) </span>
+<span id="cb78-2"><a href="exercises-applied.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ . * ., data = Auto[, -9])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.6303 -1.4481  0.0596  1.2739 11.1386 
+## 
+## Coefficients:
+##                             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)                3.548e+01  5.314e+01   0.668  0.50475   
+## cylinders                  6.989e+00  8.248e+00   0.847  0.39738   
+## displacement              -4.785e-01  1.894e-01  -2.527  0.01192 * 
+## horsepower                 5.034e-01  3.470e-01   1.451  0.14769   
+## weight                     4.133e-03  1.759e-02   0.235  0.81442   
+## acceleration              -5.859e+00  2.174e+00  -2.696  0.00735 **
+## year                       6.974e-01  6.097e-01   1.144  0.25340   
+## origin                    -2.090e+01  7.097e+00  -2.944  0.00345 **
+## cylinders:displacement    -3.383e-03  6.455e-03  -0.524  0.60051   
+## cylinders:horsepower       1.161e-02  2.420e-02   0.480  0.63157   
+## cylinders:weight           3.575e-04  8.955e-04   0.399  0.69000   
+## cylinders:acceleration     2.779e-01  1.664e-01   1.670  0.09584 . 
+## cylinders:year            -1.741e-01  9.714e-02  -1.793  0.07389 . 
+## cylinders:origin           4.022e-01  4.926e-01   0.816  0.41482   
+## displacement:horsepower   -8.491e-05  2.885e-04  -0.294  0.76867   
+## displacement:weight        2.472e-05  1.470e-05   1.682  0.09342 . 
+## displacement:acceleration -3.479e-03  3.342e-03  -1.041  0.29853   
+## displacement:year          5.934e-03  2.391e-03   2.482  0.01352 * 
+## displacement:origin        2.398e-02  1.947e-02   1.232  0.21875   
+## horsepower:weight         -1.968e-05  2.924e-05  -0.673  0.50124   
+## horsepower:acceleration   -7.213e-03  3.719e-03  -1.939  0.05325 . 
+## horsepower:year           -5.838e-03  3.938e-03  -1.482  0.13916   
+## horsepower:origin          2.233e-03  2.930e-02   0.076  0.93931   
+## weight:acceleration        2.346e-04  2.289e-04   1.025  0.30596   
+## weight:year               -2.245e-04  2.127e-04  -1.056  0.29182   
+## weight:origin             -5.789e-04  1.591e-03  -0.364  0.71623   
+## acceleration:year          5.562e-02  2.558e-02   2.174  0.03033 * 
+## acceleration:origin        4.583e-01  1.567e-01   2.926  0.00365 **
+## year:origin                1.393e-01  7.399e-02   1.882  0.06062 . 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.695 on 363 degrees of freedom
+## Multiple R-squared:  0.8893, Adjusted R-squared:  0.8808 
+## F-statistic: 104.2 on 28 and 363 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We can see the significant terms (at the 0.05 level) are those with at least one asterisk (*). It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.</p>
+<p>Using the standard threshold of 0.05, the significant interaction terms are given by:
+* <code>displacement:year</code>
+* <code>acceleration:year</code>
+* <code>acceleration:origin</code></p>
+</div>
+<div id="f-try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings." class="section level3 unnumbered">
+<h3>(f) Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</h3>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="exercises-applied.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb80-2"><a href="exercises-applied.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(Auto<span class="sc">$</span>horsepower), Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;log(horsepower)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;Log Tranformation&quot;</span>)</span>
+<span id="cb80-3"><a href="exercises-applied.html#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">sqrt</span>(Auto<span class="sc">$</span>horsepower), Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;sqrt(horsepower)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;Square Root Transformation&quot;</span>)</span>
+<span id="cb80-4"><a href="exercises-applied.html#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>((Auto<span class="sc">$</span>horsepower)<span class="sc">^</span><span class="dv">2</span>, Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;horsepower&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;X^2 Transformation&quot;</span>)</span></code></pre></div>
+<p><img src="linear-regression-exercises_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We limit ourselves to examining <code>horsepower</code> as sole predictor. It seems that the log transformation gives the most linear looking plot.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab-linear-regression.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ndleah/stat-learning/edit/main/linear-regression-exercises.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

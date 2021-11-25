@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 7 Chapter 3 Lab: Linear Regression | _main</title>
+  <meta name="description" content="A work-in-progress" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 7 Chapter 3 Lab: Linear Regression | _main" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
+  
+  <meta property="og:description" content="A work-in-progress" />
+  <meta name="github-repo" content="ndleah/stat-learning" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 7 Chapter 3 Lab: Linear Regression | _main" />
+  
+  <meta name="twitter:description" content="A work-in-progress" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="case-study---marketing-plan.html"/>
+<link rel="next" href="exercises-applied.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="img/illos/logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>INTRODUCTION</a></li>
+<li class="part"><span><b>I STATISTICAL LEARNING</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html"><i class="fa fa-check"></i><b>1</b> What is Statistical Learning?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#why-estimate-f"><i class="fa fa-check"></i><b>1.1</b> Why Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>1.1.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>1.2</b> How Do We Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#parametric-methods"><i class="fa fa-check"></i><b>1.2.1</b> Parametric Methods</a></li>
+<li class="chapter" data-level="1.2.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#non-parametric-methods"><i class="fa fa-check"></i><b>1.2.2</b> Non-Parametric Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>1.3</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
+<li class="chapter" data-level="1.4" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>1.4</b> Supervised Vs. Unsupervised Learning</a></li>
+<li class="chapter" data-level="1.5" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#regression-vs.-classification"><i class="fa fa-check"></i><b>1.5</b> Regression Vs. Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html"><i class="fa fa-check"></i><b>2</b> Assessing Model Accuracy</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-regression-setting"><i class="fa fa-check"></i><b>2.1</b> The Regression Setting</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#measuring-the-quality-of-fit"><i class="fa fa-check"></i><b>2.1.1</b> Measuring the Quality of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>2.2</b> The Bias-Variance Trade-Off</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#variance-error"><i class="fa fa-check"></i><b>2.2.1</b> Variance Error</a></li>
+<li class="chapter" data-level="2.2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-error"><i class="fa fa-check"></i><b>2.2.2</b> Bias Error</a></li>
+<li class="chapter" data-level="2.2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-variance-trafe-off"><i class="fa fa-check"></i><b>2.2.3</b> <strong>Bias-Variance Trafe-Off</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-classification-setting"><i class="fa fa-check"></i><b>2.3</b> The Classification Setting</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bayes-classifier"><i class="fa fa-check"></i><b>2.3.1</b> The Bayes Classifier</a></li>
+<li class="chapter" data-level="2.3.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#k-nearest-neighbors-knn"><i class="fa fa-check"></i><b>2.3.2</b> K-Nearest Neighbors (KNN)</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II LINEAR REGRESSION</b></span></li>
+<li class="chapter" data-level="3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>3</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1</b> Estimating the Coefficients</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.2</b> Assessing the Accuracy of the Coefficient Estimates</a>
+<ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#population-regression-line"><i class="fa fa-check"></i>Population Regression Line</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#least-squares-line"><i class="fa fa-check"></i>Least Squares Line</a></li>
+<li><a href="simple-linear-regression.html#how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu">How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#how-far-is-far-enough"><i class="fa fa-check"></i>How far is far enough?</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#t-distribution"><i class="fa fa-check"></i>T-distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.3</b> Assessing the Accuracy of the Model</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#residual-standard-error"><i class="fa fa-check"></i><b>3.4</b> Residual Standard Error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#r2-standard-error"><i class="fa fa-check"></i><b>3.4.1</b> <span class="math inline">\(R^2\)</span> Standard Error</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#consideration"><i class="fa fa-check"></i><b>3.5</b> Consideration</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>4</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#some-important-questions"><i class="fa fa-check"></i>Some Important Questions:</a></li>
+<li class="chapter" data-level="4.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#response-and-predictors-relationships"><i class="fa fa-check"></i><b>4.1</b> Response and Predictors Relationships</a></li>
+<li class="chapter" data-level="4.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#dealing-with-large-number-of-variables"><i class="fa fa-check"></i><b>4.2</b> Dealing With Large Number Of Variables</a></li>
+<li class="chapter" data-level="4.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#model-fit"><i class="fa fa-check"></i><b>4.3</b> Model Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html"><i class="fa fa-check"></i><b>5</b> Other Considerations in the Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#potential-problems"><i class="fa fa-check"></i>Potential Problems</a></li>
+<li class="chapter" data-level="5.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-linearity-of-the-data"><i class="fa fa-check"></i><b>5.1</b> Non-linearity of the Data</a></li>
+<li class="chapter" data-level="5.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-of-error-terms"><i class="fa fa-check"></i><b>5.2</b> Correlation of Error Terms</a></li>
+<li class="chapter" data-level="5.3" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-constant-variance-of-error-terms-heteroscedasticity"><i class="fa fa-check"></i><b>5.3</b> Non-constant Variance of Error Terms (Heteroscedasticity)</a></li>
+<li class="chapter" data-level="5.4" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#outlier"><i class="fa fa-check"></i><b>5.4</b> Outlier</a></li>
+<li class="chapter" data-level="5.5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#high-leverage-points"><i class="fa fa-check"></i><b>5.5</b> High Leverage Points</a></li>
+<li class="chapter" data-level="5.6" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#collinearity"><i class="fa fa-check"></i><b>5.6</b> Collinearity</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-matrix"><i class="fa fa-check"></i><b>5.6.1</b> Correlation Matrix</a></li>
+<li class="chapter" data-level="5.6.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#variance-inflation-factor-vif"><i class="fa fa-check"></i><b>5.6.2</b> Variance Inflation Factor (VIF)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html"><i class="fa fa-check"></i><b>6</b> Case Study - Marketing Plan</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#data-overview"><i class="fa fa-check"></i><b>6.1</b> Data Overview</a></li>
+<li class="chapter" data-level="6.2" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#important-questions"><i class="fa fa-check"></i><b>6.2</b> Important Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chapter-3-lab-linear-regression.html"><a href="chapter-3-lab-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Chapter 3 Lab: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chapter-3-lab-linear-regression.html"><a href="chapter-3-lab-linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>7.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.2" data-path="chapter-3-lab-linear-regression.html"><a href="chapter-3-lab-linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>7.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="7.3" data-path="chapter-3-lab-linear-regression.html"><a href="chapter-3-lab-linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>7.3</b> Interaction Terms</a></li>
+<li class="chapter" data-level="7.4" data-path="chapter-3-lab-linear-regression.html"><a href="chapter-3-lab-linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>7.4</b> Non-linear Transformations of the Predictors</a></li>
+<li class="chapter" data-level="7.5" data-path="chapter-3-lab-linear-regression.html"><a href="chapter-3-lab-linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>7.5</b> Qualitative Predictors</a></li>
+<li class="chapter" data-level="7.6" data-path="chapter-3-lab-linear-regression.html"><a href="chapter-3-lab-linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>7.6</b> Writing Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises-applied.html"><a href="exercises-applied.html"><i class="fa fa-check"></i><b>8</b> Exercises (Applied)</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
+<ul>
+<li><a href="exercises-applied.html#a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
+<li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-2"><i class="fa fa-check"></i>Question 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set."><i class="fa fa-check"></i>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</a></li>
+<li><a href="exercises-applied.html#b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative.">(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</a></li>
+<li><a href="exercises-applied.html#c-use-the-lm-function-to-perform-a-multiple-linear-regression-with-mpg-as-the-response-and-all-other-variables-except-name-as-the-predictors.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(c) Use the <code>lm()</code> function to perform a multiple linear regression with <code>mpg</code> as the response and all other variables except “name” as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#d-use-the-plot-function-to-produce-diagnostic-plots-of-the-linear-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</a></li>
+<li><a href="exercises-applied.html#e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant">(e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</a></li>
+<li><a href="exercises-applied.html#f-try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings.">(f) Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<link href="style.css" rel="stylesheet">
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="img/illos/cover.png">
+</div>
+<div id="chapter-3-lab-linear-regression" class="section level1" number="7">
+<h1><span class="header-section-number">Section 7</span> Chapter 3 Lab: Linear Regression</h1>
+<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chapter-3-lab-linear-regression.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the library</span></span>
+<span id="cb1-2"><a href="chapter-3-lab-linear-regression.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-3"><a href="chapter-3-lab-linear-regression.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span></code></pre></div>
+<div id="simple-linear-regression-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Simple Linear Regression</h2>
+<p>The Boston data set records <code>medv</code> (median house value) for 506 neighborhoods around Boston. We will seek to predict <code>medv</code> using 13 predictors such as <code>rm</code> (average number of rooms per house), <code>age</code> (average age of houses), and <code>lstat</code> (percent of households with low socioeconomic status).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="chapter-3-lab-linear-regression.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fix</span>(Boston)</span>
+<span id="cb2-2"><a href="chapter-3-lab-linear-regression.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Boston)</span></code></pre></div>
+<pre><code>##  [1] &quot;crim&quot;    &quot;zn&quot;      &quot;indus&quot;   &quot;chas&quot;    &quot;nox&quot;     &quot;rm&quot;      &quot;age&quot;    
+##  [8] &quot;dis&quot;     &quot;rad&quot;     &quot;tax&quot;     &quot;ptratio&quot; &quot;black&quot;   &quot;lstat&quot;   &quot;medv&quot;</code></pre>
+<p>We will start by using the <code>lm()</code> function to fit a simple linear regression <code>lm()</code> model, with <code>medv</code> as the response and <code>lstat</code> as the predictor.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="chapter-3-lab-linear-regression.html#cb4-1" aria-hidden="true" tabindex="-1"></a>lm.fit<span class="ot">=</span><span class="fu">lm</span>(medv<span class="sc">~</span>lstat,Boston)</span>
+<span id="cb4-2"><a href="chapter-3-lab-linear-regression.html#cb4-2" aria-hidden="true" tabindex="-1"></a>lm.fit</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ lstat, data = Boston)
+## 
+## Coefficients:
+## (Intercept)        lstat  
+##       34.55        -0.95</code></pre>
+<p>For more detailed information, we use <code>summary(lm.fit)</code>. This gives us p-values and standard errors for the coefficients, as well as the <span class="math inline">\(R^2\)</span> statistic and F-statistic for the model.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="chapter-3-lab-linear-regression.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ lstat, data = Boston)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.168  -3.990  -1.318   2.034  24.500 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 34.55384    0.56263   61.41   &lt;2e-16 ***
+## lstat       -0.95005    0.03873  -24.53   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.216 on 504 degrees of freedom
+## Multiple R-squared:  0.5441, Adjusted R-squared:  0.5432 
+## F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We can use <code>names()</code> function in order to find out what other pieces of information are store in <code>lm.fit</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="chapter-3-lab-linear-regression.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lm.fit)</span></code></pre></div>
+<pre><code>##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;</code></pre>
+<p>Assessing the coefficient of the model:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="chapter-3-lab-linear-regression.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm.fit)</span></code></pre></div>
+<pre><code>## (Intercept)       lstat 
+##  34.5538409  -0.9500494</code></pre>
+<p>Assessing the confidence interval for the coefficient estimates:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chapter-3-lab-linear-regression.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(lm.fit)</span></code></pre></div>
+<pre><code>##                 2.5 %     97.5 %
+## (Intercept) 33.448457 35.6592247
+## lstat       -1.026148 -0.8739505</code></pre>
+<p>To produce confidence interval an prediction intervals for the prediction of <code>medv</code> for a given value of <code>lstat</code>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="chapter-3-lab-linear-regression.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lm.fit,<span class="fu">data.frame</span>(<span class="at">lstat=</span>(<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>))), <span class="at">interval=</span><span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 29.80359 29.00741 30.59978
+## 2 25.05335 24.47413 25.63256
+## 3 20.30310 19.73159 20.87461</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chapter-3-lab-linear-regression.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lm.fit,<span class="fu">data.frame</span>(<span class="at">lstat=</span>(<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>))), <span class="at">interval=</span><span class="st">&quot;prediction&quot;</span>)</span></code></pre></div>
+<pre><code>##        fit       lwr      upr
+## 1 29.80359 17.565675 42.04151
+## 2 25.05335 12.827626 37.27907
+## 3 20.30310  8.077742 32.52846</code></pre>
+<p>We will now plot <code>medv</code> and <code>lstat</code> along with the least squares regression line using the <code>plot()</code> and <code>abline()</code> functions.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="chapter-3-lab-linear-regression.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Boston)</span>
+<span id="cb18-2"><a href="chapter-3-lab-linear-regression.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lstat,medv)</span>
+<span id="cb18-3"><a href="chapter-3-lab-linear-regression.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lm.fit)</span></code></pre></div>
+<p><img src="linear-regression-lab_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" />
+Next we examine some diagnostic plots, several of which were discussed. Four diagnostic plots are automatically produced by applying the <code>plot()</code> function directly to the output from <code>lm()</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chapter-3-lab-linear-regression.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb19-2"><a href="chapter-3-lab-linear-regression.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm.fit)</span></code></pre></div>
+<p><img src="linear-regression-lab_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="chapter-3-lab-linear-regression.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(lm.fit), <span class="fu">residuals</span>(lm.fit))</span></code></pre></div>
+<p><img src="linear-regression-lab_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" />
+Alternatively, we can compute the residuals from a linear regression fit using the <code>residuals()</code> function. The function <code>rstudent()</code> will return the studentized residuals, and we can use this function to plot the residuals against the fitted values.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chapter-3-lab-linear-regression.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(lm.fit), <span class="fu">rstudent</span>(lm.fit))</span></code></pre></div>
+<p><img src="linear-regression-lab_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>On the basis of the residual plots, there is some evidence of non-linearity. Leverage statistics can be computed for any number of predictors using the <code>hatvalues()</code> function.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="chapter-3-lab-linear-regression.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">hatvalues</span>(lm.fit))</span></code></pre></div>
+<p><img src="linear-regression-lab_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The <code>which.max()</code> function identifies the index of the largest element of a <code>which.max()</code> vector. In this case, it tells us which observation has the largest leverage statistic.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chapter-3-lab-linear-regression.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">hatvalues</span>(lm.fit))</span></code></pre></div>
+<pre><code>## 375 
+## 375</code></pre>
+</div>
+<div id="multiple-linear-regression-1" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Multiple Linear Regression</h2>
+<p>In order to fit a multiple linear regression model using least squares, we again use the <code>lm()</code> function. The syntax <code>lm(y ∼ x1 + x2 + x3)</code> is used to fit a model with three predictors, <code>x1</code>, <code>x2</code>, and <code>x3.</code> The <code>summary()</code> function now outputs the regression coefficients for all the predictors.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chapter-3-lab-linear-regression.html#cb25-1" aria-hidden="true" tabindex="-1"></a>lm.fit<span class="ot">=</span><span class="fu">lm</span>(medv<span class="sc">~</span>lstat<span class="sc">+</span>age,<span class="at">data=</span>Boston)</span>
+<span id="cb25-2"><a href="chapter-3-lab-linear-regression.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ lstat + age, data = Boston)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.981  -3.978  -1.283   1.968  23.158 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 33.22276    0.73085  45.458  &lt; 2e-16 ***
+## lstat       -1.03207    0.04819 -21.416  &lt; 2e-16 ***
+## age          0.03454    0.01223   2.826  0.00491 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.173 on 503 degrees of freedom
+## Multiple R-squared:  0.5513, Adjusted R-squared:  0.5495 
+## F-statistic:   309 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>To perform a regression using all of the predictors, we can use:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chapter-3-lab-linear-regression.html#cb27-1" aria-hidden="true" tabindex="-1"></a>lm.fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span>., <span class="at">data =</span> Boston)</span>
+<span id="cb27-2"><a href="chapter-3-lab-linear-regression.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ ., data = Boston)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.595  -2.730  -0.518   1.777  26.199 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  3.646e+01  5.103e+00   7.144 3.28e-12 ***
+## crim        -1.080e-01  3.286e-02  -3.287 0.001087 ** 
+## zn           4.642e-02  1.373e-02   3.382 0.000778 ***
+## indus        2.056e-02  6.150e-02   0.334 0.738288    
+## chas         2.687e+00  8.616e-01   3.118 0.001925 ** 
+## nox         -1.777e+01  3.820e+00  -4.651 4.25e-06 ***
+## rm           3.810e+00  4.179e-01   9.116  &lt; 2e-16 ***
+## age          6.922e-04  1.321e-02   0.052 0.958229    
+## dis         -1.476e+00  1.995e-01  -7.398 6.01e-13 ***
+## rad          3.060e-01  6.635e-02   4.613 5.07e-06 ***
+## tax         -1.233e-02  3.760e-03  -3.280 0.001112 ** 
+## ptratio     -9.527e-01  1.308e-01  -7.283 1.31e-12 ***
+## black        9.312e-03  2.686e-03   3.467 0.000573 ***
+## lstat       -5.248e-01  5.072e-02 -10.347  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.745 on 492 degrees of freedom
+## Multiple R-squared:  0.7406, Adjusted R-squared:  0.7338 
+## F-statistic: 108.1 on 13 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>To perform a regression using all of the variables but one, we can use:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chapter-3-lab-linear-regression.html#cb29-1" aria-hidden="true" tabindex="-1"></a>lm.fit1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span>. <span class="sc">-</span>age, <span class="at">data =</span> Boston)</span>
+<span id="cb29-2"><a href="chapter-3-lab-linear-regression.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ . - age, data = Boston)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15.6054  -2.7313  -0.5188   1.7601  26.2243 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  36.436927   5.080119   7.172 2.72e-12 ***
+## crim         -0.108006   0.032832  -3.290 0.001075 ** 
+## zn            0.046334   0.013613   3.404 0.000719 ***
+## indus         0.020562   0.061433   0.335 0.737989    
+## chas          2.689026   0.859598   3.128 0.001863 ** 
+## nox         -17.713540   3.679308  -4.814 1.97e-06 ***
+## rm            3.814394   0.408480   9.338  &lt; 2e-16 ***
+## dis          -1.478612   0.190611  -7.757 5.03e-14 ***
+## rad           0.305786   0.066089   4.627 4.75e-06 ***
+## tax          -0.012329   0.003755  -3.283 0.001099 ** 
+## ptratio      -0.952211   0.130294  -7.308 1.10e-12 ***
+## black         0.009321   0.002678   3.481 0.000544 ***
+## lstat        -0.523852   0.047625 -10.999  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.74 on 493 degrees of freedom
+## Multiple R-squared:  0.7406, Adjusted R-squared:  0.7343 
+## F-statistic: 117.3 on 12 and 493 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>or Alternatively, the <code>update()</code> function can be used:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chapter-3-lab-linear-regression.html#cb31-1" aria-hidden="true" tabindex="-1"></a>lm.fit1 <span class="ot">&lt;-</span> <span class="fu">update</span>(lm.fit,<span class="sc">~</span>. <span class="sc">-</span>age)</span>
+<span id="cb31-2"><a href="chapter-3-lab-linear-regression.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ crim + zn + indus + chas + nox + rm + dis + 
+##     rad + tax + ptratio + black + lstat, data = Boston)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15.6054  -2.7313  -0.5188   1.7601  26.2243 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  36.436927   5.080119   7.172 2.72e-12 ***
+## crim         -0.108006   0.032832  -3.290 0.001075 ** 
+## zn            0.046334   0.013613   3.404 0.000719 ***
+## indus         0.020562   0.061433   0.335 0.737989    
+## chas          2.689026   0.859598   3.128 0.001863 ** 
+## nox         -17.713540   3.679308  -4.814 1.97e-06 ***
+## rm            3.814394   0.408480   9.338  &lt; 2e-16 ***
+## dis          -1.478612   0.190611  -7.757 5.03e-14 ***
+## rad           0.305786   0.066089   4.627 4.75e-06 ***
+## tax          -0.012329   0.003755  -3.283 0.001099 ** 
+## ptratio      -0.952211   0.130294  -7.308 1.10e-12 ***
+## black         0.009321   0.002678   3.481 0.000544 ***
+## lstat        -0.523852   0.047625 -10.999  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.74 on 493 degrees of freedom
+## Multiple R-squared:  0.7406, Adjusted R-squared:  0.7343 
+## F-statistic: 117.3 on 12 and 493 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="interaction-terms" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Interaction Terms</h2>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chapter-3-lab-linear-regression.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(medv<span class="sc">~</span>lstat<span class="sc">*</span>age,<span class="at">data=</span>Boston))</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ lstat * age, data = Boston)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.806  -4.045  -1.333   2.085  27.552 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 36.0885359  1.4698355  24.553  &lt; 2e-16 ***
+## lstat       -1.3921168  0.1674555  -8.313 8.78e-16 ***
+## age         -0.0007209  0.0198792  -0.036   0.9711    
+## lstat:age    0.0041560  0.0018518   2.244   0.0252 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.149 on 502 degrees of freedom
+## Multiple R-squared:  0.5557, Adjusted R-squared:  0.5531 
+## F-statistic: 209.3 on 3 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="non-linear-transformations-of-the-predictors" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Non-linear Transformations of the Predictors</h2>
+<p>The <code>lm()</code> function can also accommodate non-linear transformations of the predictors. For instance, given a predictor <span class="math inline">\(X\)</span>, we can create a predictor <span class="math inline">\(X^2\)</span> using <code>I(X^2)</code>. We now perform a regression of <code>medv</code> onto <code>lstat</code> and <code>lstat2</code>.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="chapter-3-lab-linear-regression.html#cb35-1" aria-hidden="true" tabindex="-1"></a>lm.fit2<span class="ot">=</span><span class="fu">lm</span>(medv<span class="sc">~</span>lstat<span class="sc">+</span><span class="fu">I</span>(lstat<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb35-2"><a href="chapter-3-lab-linear-regression.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ lstat + I(lstat^2))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15.2834  -3.8313  -0.5295   2.3095  25.4148 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 42.862007   0.872084   49.15   &lt;2e-16 ***
+## lstat       -2.332821   0.123803  -18.84   &lt;2e-16 ***
+## I(lstat^2)   0.043547   0.003745   11.63   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.524 on 503 degrees of freedom
+## Multiple R-squared:  0.6407, Adjusted R-squared:  0.6393 
+## F-statistic: 448.5 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We use the <code>anova()</code> function to further quantify the extent to which the quadratic fit is superior to the linear fit.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="chapter-3-lab-linear-regression.html#cb37-1" aria-hidden="true" tabindex="-1"></a>lm.fit<span class="ot">=</span><span class="fu">lm</span>(medv<span class="sc">~</span>lstat)</span>
+<span id="cb37-2"><a href="chapter-3-lab-linear-regression.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm.fit,lm.fit2)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: medv ~ lstat
+## Model 2: medv ~ lstat + I(lstat^2)
+##   Res.Df   RSS Df Sum of Sq     F    Pr(&gt;F)    
+## 1    504 19472                                 
+## 2    503 15347  1    4125.1 135.2 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Here <strong>Model 1</strong> represents the linear submodel containing only one predictor, <code>lstat</code>, while <strong>Model 2</strong> corresponds to the larger quadratic model that has two predictors, <code>lstat</code> and <code>lstat2</code>.</p>
+<p>The <code>anova()</code> function performs a hypothesis test comparing the two models. The null hypothesis is that the two models fit the data equally well, and the alternative hypothesis is that the full model is superior. Here the F-statistic is 135 and the associated p-value is virtually zero. This provides very clear evidence that the model containing the predictors <code>lstat</code> and <code>lstat2</code> is far superior to the model that only contains the predictor <code>lstat</code>. This is not surprising, since earlier we saw evidence for non-linearity in the relationship between <code>medv</code> and <code>lstat</code>. If we type</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="chapter-3-lab-linear-regression.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb39-2"><a href="chapter-3-lab-linear-regression.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm.fit2)</span></code></pre></div>
+<p><img src="linear-regression-lab_files/figure-html/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>then we see that when the <code>lstat2</code> term is included in the model, there is little discernible pattern in the residuals.</p>
+<p>A better approach involves using the <code>poly()</code> function to create the polynomial within <code>lm()</code>. For example, the following command produces a fifth-order polynomial fit:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="chapter-3-lab-linear-regression.html#cb40-1" aria-hidden="true" tabindex="-1"></a>lm.fit5<span class="ot">=</span><span class="fu">lm</span>(medv<span class="sc">~</span><span class="fu">poly</span>(lstat,<span class="dv">5</span>))</span>
+<span id="cb40-2"><a href="chapter-3-lab-linear-regression.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit5)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ poly(lstat, 5))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -13.5433  -3.1039  -0.7052   2.0844  27.1153 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)       22.5328     0.2318  97.197  &lt; 2e-16 ***
+## poly(lstat, 5)1 -152.4595     5.2148 -29.236  &lt; 2e-16 ***
+## poly(lstat, 5)2   64.2272     5.2148  12.316  &lt; 2e-16 ***
+## poly(lstat, 5)3  -27.0511     5.2148  -5.187 3.10e-07 ***
+## poly(lstat, 5)4   25.4517     5.2148   4.881 1.42e-06 ***
+## poly(lstat, 5)5  -19.2524     5.2148  -3.692 0.000247 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.215 on 500 degrees of freedom
+## Multiple R-squared:  0.6817, Adjusted R-squared:  0.6785 
+## F-statistic: 214.2 on 5 and 500 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>This suggests that including additional polynomial terms, up to fifth order, leads to an improvement in the model fit! However, further investigation of the data reveals that no polynomial terms beyond fifth order have significant p-values in a regression fit.</p>
+<p>Of course, we are in no way restricted to using polynomial transformations of the predictors. Here we try a log transformation.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="chapter-3-lab-linear-regression.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(medv<span class="sc">~</span><span class="fu">log</span>(rm),<span class="at">data=</span>Boston))</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = medv ~ log(rm), data = Boston)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -19.487  -2.875  -0.104   2.837  39.816 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -76.488      5.028  -15.21   &lt;2e-16 ***
+## log(rm)       54.055      2.739   19.73   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.915 on 504 degrees of freedom
+## Multiple R-squared:  0.4358, Adjusted R-squared:  0.4347 
+## F-statistic: 389.3 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="qualitative-predictors" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Qualitative Predictors</h2>
+<p>We will now examine the <code>Carseats</code> data, which is part of the <code>ISLR2</code> library. We will attempt to predict Sales (child car seat sales) in 400 locations based on a number of predictors.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="chapter-3-lab-linear-regression.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Carseats)</span></code></pre></div>
+<pre><code>##   Sales CompPrice Income Advertising Population Price ShelveLoc Age Education
+## 1  9.50       138     73          11        276   120       Bad  42        17
+## 2 11.22       111     48          16        260    83      Good  65        10
+## 3 10.06       113     35          10        269    80    Medium  59        12
+## 4  7.40       117    100           4        466    97    Medium  55        14
+## 5  4.15       141     64           3        340   128       Bad  38        13
+## 6 10.81       124    113          13        501    72       Bad  78        16
+##   Urban  US
+## 1   Yes Yes
+## 2   Yes Yes
+## 3   Yes Yes
+## 4   Yes Yes
+## 5   Yes  No
+## 6    No Yes</code></pre>
+<p>The <code>Carseats</code> data includes qualitative predictors such as <code>Shelveloc</code>, an indicator
+of the quality of the shelving location—that is, the space within a store in which the car seat is displayed—at each location.</p>
+<p>The predictor Shelveloc takes on three possible values: <em>Bad</em>, <em>Medium</em>, and <em>Good</em>. Given a qualitative variable such as <code>Shelveloc</code>, R generates dummy variables automatically. Below we fit a multiple regression model that includes some interaction terms.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="chapter-3-lab-linear-regression.html#cb46-1" aria-hidden="true" tabindex="-1"></a>lm.fit<span class="ot">=</span><span class="fu">lm</span>(Sales<span class="sc">~</span>.<span class="sc">+</span>Income<span class="sc">:</span>Advertising<span class="sc">+</span>Price<span class="sc">:</span>Age,<span class="at">data=</span>Carseats)</span>
+<span id="cb46-2"><a href="chapter-3-lab-linear-regression.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Sales ~ . + Income:Advertising + Price:Age, data = Carseats)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.9208 -0.7503  0.0177  0.6754  3.3413 
+## 
+## Coefficients:
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         6.5755654  1.0087470   6.519 2.22e-10 ***
+## CompPrice           0.0929371  0.0041183  22.567  &lt; 2e-16 ***
+## Income              0.0108940  0.0026044   4.183 3.57e-05 ***
+## Advertising         0.0702462  0.0226091   3.107 0.002030 ** 
+## Population          0.0001592  0.0003679   0.433 0.665330    
+## Price              -0.1008064  0.0074399 -13.549  &lt; 2e-16 ***
+## ShelveLocGood       4.8486762  0.1528378  31.724  &lt; 2e-16 ***
+## ShelveLocMedium     1.9532620  0.1257682  15.531  &lt; 2e-16 ***
+## Age                -0.0579466  0.0159506  -3.633 0.000318 ***
+## Education          -0.0208525  0.0196131  -1.063 0.288361    
+## UrbanYes            0.1401597  0.1124019   1.247 0.213171    
+## USYes              -0.1575571  0.1489234  -1.058 0.290729    
+## Income:Advertising  0.0007510  0.0002784   2.698 0.007290 ** 
+## Price:Age           0.0001068  0.0001333   0.801 0.423812    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.011 on 386 degrees of freedom
+## Multiple R-squared:  0.8761, Adjusted R-squared:  0.8719 
+## F-statistic:   210 on 13 and 386 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>The contrasts() function returns the coding that R uses for the dummy <code>contrasts()</code> variables.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="chapter-3-lab-linear-regression.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Carseats)</span>
+<span id="cb48-2"><a href="chapter-3-lab-linear-regression.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(ShelveLoc)</span></code></pre></div>
+<pre><code>##        Good Medium
+## Bad       0      0
+## Good      1      0
+## Medium    0      1</code></pre>
+<p>R has created a <code>ShelveLocGood</code> dummy variable that takes on a value of 1 if the shelving location is good, and 0 otherwise. It has also created a <code>ShelveLocMedium</code> dummy variable that equals 1 if the shelving location is medium, and 0 otherwise. A bad shelving location corresponds to a zero for each of the two dummy variables.</p>
+<p>The fact that the coefficient for <code>ShelveLocGood</code> in the regression output is positive indicates that a good shelving location is associated with high sales (relative to a bad location). And <code>ShelveLocMedium</code> has a smaller positive coefficient, indicating that a
+medium shelving location is associated with higher sales than a bad shelving
+location but lower sales than a good shelving location.</p>
+</div>
+<div id="writing-functions" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Writing Functions</h2>
+<p>In order to write our own function, for instance, below we provide a simple function that reads in the <code>ISLR2</code> and <code>MASS</code> libraries, called
+<code>LoadLibraries()</code>.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="chapter-3-lab-linear-regression.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create the function</span></span>
+<span id="cb50-2"><a href="chapter-3-lab-linear-regression.html#cb50-2" aria-hidden="true" tabindex="-1"></a>LoadLibraries<span class="ot">=</span><span class="cf">function</span>(){</span>
+<span id="cb50-3"><a href="chapter-3-lab-linear-regression.html#cb50-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">library</span>(ISLR)</span>
+<span id="cb50-4"><a href="chapter-3-lab-linear-regression.html#cb50-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">library</span>(MASS)</span>
+<span id="cb50-5"><a href="chapter-3-lab-linear-regression.html#cb50-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(<span class="st">&quot;The libraries have been loaded.&quot;</span>)</span>
+<span id="cb50-6"><a href="chapter-3-lab-linear-regression.html#cb50-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-7"><a href="chapter-3-lab-linear-regression.html#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="chapter-3-lab-linear-regression.html#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co"># execute the function</span></span>
+<span id="cb50-9"><a href="chapter-3-lab-linear-regression.html#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="fu">LoadLibraries</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;The libraries have been loaded.&quot;</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="case-study---marketing-plan.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises-applied.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ndleah/stat-learning/edit/main/linear-regression-lab.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

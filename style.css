@@ -13,7 +13,6 @@ pre code {
   white-space: inherit;
 }
 
-
 /* The next two rules make the horizontal line go straight across in top navbar */
 
 .summary > li:first-child {
@@ -60,7 +59,7 @@ pre code {
 /* Sidebar formating --------------------------------------------*/
 /* from r-pkgs.org*/
 
-div.rstudio-tip, div.tip, div.gotcha, div.design, div.hat{
+div.rstudio-tip, div.tip, div.gotcha, div.design, div.hat, div.formula{
   border: 4px #aed6d963;
   border-style: dashed solid;
   padding: 1em;
@@ -76,28 +75,32 @@ div.rstudio-tip, div.tip, div.gotcha, div.design, div.hat{
 
 
 div.rstudio-tip {
-  background-image: url("../img/divs/rstudio.png");
+  background-image: url("./img/divs/rstudio.png");
 }
 
 div.tip {
-  background-image: url("../img/divs/lightbulb.png");
+  background-image: url("./img/divs/lightbulb.png");
 }
 
 div.gotcha {
-  background-image: url("../img/divs/gotcha_2.png");
+  background-image: url("./img/divs/gotcha_2.jpg");
 }
 
 div.design {
-  background-image: url("../img/divs/design.png");
+  background-image: url("./img/divs/design.png");
 }
 
 div.hat {
-  background-image: url("../img/divs/hat.png");
+  background-image: url("./img/divs/hat.png");
 }
+
+
 
 /* for fancy bookdown cookbook */
 
-div.puzzle, div.fyi, div.demo, div.note {
+div.formula {
+  border: 2px #22BC22;
+  border-style: dashed solid;
   padding: 1em;
   margin: 1em 0;
   padding-left: 100px;
@@ -105,23 +108,11 @@ div.puzzle, div.fyi, div.demo, div.note {
   background-repeat: no-repeat;
   background-position: 15px center;
   min-height: 120px;
-  color: #1f5386;
-  background-color: #bed3ec;
-  border: solid 5px #dfedff;
+  color: #4c9a2a;
+  background-color: #fcfcfc;
+  
 }
 
-div.puzzle {
-  background-image: url("../img/illos/Your-turn.png");
-}
-
-div.fyi {
-  background-image: url("../img/illos/fyi.png");
-}
-
-div.demo {
-  background-image: url("../img/illos/Live-code.png");
-}
-
-div.note {
-  background-image: url("../img/illos/lightbulb2.png");
+div.formula {
+  background-image: url("./img/divs/gotcha.jpg");
 }

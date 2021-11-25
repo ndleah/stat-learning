@@ -1,5 +1,10 @@
 # Statistical Learning
 
+
+
+
+<img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" />
+
 ## What is Statistical Learning?
 
 There are 2 types of statistical learning: _supervised_ and _unsupervised_:
@@ -13,7 +18,7 @@ In statistical learning, _**input variables**_ $(X_{n})$ are typically denoted b
 To assess the relationship between predictors $X_{1}, X_{2}, ...,X_{p}$, we have the equation as following:
 
 $$
-Y=f(X) + \epsilon
+\Large Y=f(X) + \epsilon
 $$
 
 Whereas:
@@ -81,18 +86,21 @@ Example fitting models for parametric methods (linear): **Ordinary Least Squares
 
 Non-parametric methods (model-free approach) seek an estimate of $f$ without make explicit assumptions about the functional form of of $f$. Major disadvantages of this approach is that a very large number of observations is required in order to obtain an accurate estimate for $f$.
 
-<div class="alert alert-info hints-alert">
-  <div class="hints-icon"><i class="fa fa-info"></i></div>
-  <div class="hints-container">
-  Example fitting models for non-parametric methods: _**smooth thin-plate spline fit**_ and _**rough thin-plate spline fit**_**.**
-  </div>
-</div>
+:::puzzle
+Example fitting models for non-parametric methods: _**smooth thin-plate spline fit**_ and _**rough thin-plate spline fit**_**.**
+:::
 
 ### The Tradeoff Between Prediction Accuracy and Model Interpretability
 
-![Figure 1. Tradeoff Between Prediction Accuracy and Model Interpretability](img/xkcd-interpretability-vs-flexibility.png)
+<div class="figure" style="text-align: center">
+<img src="img/xkcd-interpretability-vs-flexibility.png" alt="Tradeoff Between Prediction Accuracy and Model Interpretability" width="1264" />
+<p class="caption">(\#fig:unnamed-chunk-3)Tradeoff Between Prediction Accuracy and Model Interpretability</p>
+</div>
 
-Figure 1 illustrates the tradeoff between flexibility and interpretability of using different statistical learning methods. In general, as the flexibility increase, the interpretability decreases.
+\begin{center}
+**Figure 1.** 
+\end{center}
+
 
 **Why would we ever choose to use a more restrictive method instead of a very flexible approach?**&#x20;
 

@@ -1,13 +1,20 @@
---- 
+---
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
-url: https://ndleah.github.io/stat-learning/
-description: Notes and exercise attempts for "An Introduction to Statistical Learning"
 link-citations: yes
-favicon: images/favicon.ico
-cover-image: images/logo-black.png
-github-repo: ndleah/stat_learning
+cover-image: img/illos/logo.png
+github-repo: "ndleah/stat-learning"
+description: "A work-in-progress"
+always_allow_html: yes
+url: 'https//:www.ndleah.github.io/stat-learning/'
 ---
 
-# About
+# INTRODUCTION {-}
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(fig.align="center")
+library(ymlthis)
+```
+
+```{r echo = FALSE, out.width="65%"}
+knitr::include_graphics("img/illos/index-hi.jpg")

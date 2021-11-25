@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Linear Regression | _main.knit</title>
+  <title>Chapter 4 Linear Regression | _main</title>
   <meta name="description" content="Notes and exercise attempts for “An Introduction to Statistical Learning”" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Linear Regression | _main.knit" />
+  <meta property="og:title" content="Chapter 4 Linear Regression | _main" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ndleah.github.io/stat-learning/" />
   <meta property="og:image" content="https://ndleah.github.io/stat-learning/images/logo-black.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ndleah/stat_learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Linear Regression | _main.knit" />
+  <meta name="twitter:title" content="Chapter 4 Linear Regression | _main" />
   
   <meta name="twitter:description" content="Notes and exercise attempts for “An Introduction to Statistical Learning”" />
   <meta name="twitter:image" content="https://ndleah.github.io/stat-learning/images/logo-black.png" />
@@ -29,9 +29,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="statistical-learning.html"/>
-<link rel="next" href="parts.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<link rel="prev" href="assessing-model-accuracy.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -117,28 +117,6 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -157,69 +135,67 @@ div.csl-indent {
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
-<li class="chapter" data-level="2" data-path="statistical-learning.html"><a href="statistical-learning.html"><i class="fa fa-check"></i><b>2</b> Statistical Learning</a>
+<li class="part"><span><b>I Statistical Learning</b></span></li>
+<li class="chapter" data-level="2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html"><i class="fa fa-check"></i><b>2</b> What is Statistical Learning?</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="statistical-learning.html"><a href="statistical-learning.html#what-is-statistical-learning"><i class="fa fa-check"></i><b>2.1</b> What is Statistical Learning?</a>
+<li class="chapter" data-level="2.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#why-estimate-f"><i class="fa fa-check"></i><b>2.1</b> Why Estimate f?</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="statistical-learning.html"><a href="statistical-learning.html#why-estimate-f"><i class="fa fa-check"></i><b>2.1.1</b> Why Estimate f?</a></li>
-<li class="chapter" data-level="2.1.2" data-path="statistical-learning.html"><a href="statistical-learning.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>2.1.2</b> How Do We Estimate f?</a></li>
-<li class="chapter" data-level="2.1.3" data-path="statistical-learning.html"><a href="statistical-learning.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>2.1.3</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
-<li class="chapter" data-level="2.1.4" data-path="statistical-learning.html"><a href="statistical-learning.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>2.1.4</b> Supervised Vs. Unsupervised Learning</a></li>
-<li class="chapter" data-level="2.1.5" data-path="statistical-learning.html"><a href="statistical-learning.html#regression-vs.-classification"><i class="fa fa-check"></i><b>2.1.5</b> Regression Vs. Classification</a></li>
+<li class="chapter" data-level="2.1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.1.1</b> Prediction</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="statistical-learning.html"><a href="statistical-learning.html#assessing-model-accuracy"><i class="fa fa-check"></i><b>2.2</b> Assessing Model Accuracy</a>
+<li class="chapter" data-level="2.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>2.2</b> How Do We Estimate f?</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="statistical-learning.html"><a href="statistical-learning.html#the-regression-setting"><i class="fa fa-check"></i><b>2.2.1</b> The Regression Setting</a></li>
-<li class="chapter" data-level="2.2.2" data-path="statistical-learning.html"><a href="statistical-learning.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>2.2.2</b> The Bias-Variance Trade-Off</a></li>
-<li class="chapter" data-level="2.2.3" data-path="statistical-learning.html"><a href="statistical-learning.html#the-classification-setting"><i class="fa fa-check"></i><b>2.2.3</b> The Classification Setting</a></li>
+<li class="chapter" data-level="2.2.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#parametric-methods"><i class="fa fa-check"></i><b>2.2.1</b> Parametric Methods</a></li>
+<li class="chapter" data-level="2.2.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#non-parametric-methods"><i class="fa fa-check"></i><b>2.2.2</b> Non-Parametric Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>2.3</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
+<li class="chapter" data-level="2.4" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>2.4</b> Supervised Vs. Unsupervised Learning</a></li>
+<li class="chapter" data-level="2.5" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#regression-vs.-classification"><i class="fa fa-check"></i><b>2.5</b> Regression Vs. Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html"><i class="fa fa-check"></i><b>3</b> Assessing Model Accuracy</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-regression-setting"><i class="fa fa-check"></i><b>3.1</b> The Regression Setting</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#measuring-the-quality-of-fit"><i class="fa fa-check"></i><b>3.1.1</b> Measuring the Quality of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>3.2</b> The Bias-Variance Trade-Off</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#variance-error"><i class="fa fa-check"></i><b>3.2.1</b> <strong>Variance Error</strong></a></li>
+<li class="chapter" data-level="3.2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-error"><i class="fa fa-check"></i><b>3.2.2</b> <strong>Bias Error</strong></a></li>
+<li class="chapter" data-level="3.2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-variance-trafe-off"><i class="fa fa-check"></i><b>3.2.3</b> <strong>Bias-Variance Trafe-Off</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-classification-setting"><i class="fa fa-check"></i><b>3.3</b> The Classification Setting</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bayes-classifier"><i class="fa fa-check"></i><b>3.3.1</b> The Bayes Classifier</a></li>
+<li class="chapter" data-level="3.3.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#k-nearest-neighbors-knn"><i class="fa fa-check"></i><b>3.3.2</b> K-Nearest Neighbors (KNN)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>3</b> Linear Regression</a>
+<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear Regression</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="linear-regression.html"><a href="linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>3.1</b> Simple Linear Regression</a>
+<li class="chapter" data-level="4.1" data-path="linear-regression.html"><a href="linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>4.1</b> Simple Linear Regression</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="linear-regression.html"><a href="linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1.1</b> Estimating the Coefficients</a></li>
-<li class="chapter" data-level="3.1.2" data-path="linear-regression.html"><a href="linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.1.2</b> Assessing the Accuracy of the Coefficient Estimates</a></li>
-<li class="chapter" data-level="3.1.3" data-path="linear-regression.html"><a href="linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.1.3</b> Assessing the Accuracy of the Model</a></li>
-<li class="chapter" data-level="3.1.4" data-path="linear-regression.html"><a href="linear-regression.html#consideration"><i class="fa fa-check"></i><b>3.1.4</b> Consideration</a></li>
+<li class="chapter" data-level="4.1.1" data-path="linear-regression.html"><a href="linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>4.1.1</b> Estimating the Coefficients</a></li>
+<li class="chapter" data-level="4.1.2" data-path="linear-regression.html"><a href="linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>4.1.2</b> Assessing the Accuracy of the Coefficient Estimates</a></li>
+<li class="chapter" data-level="4.1.3" data-path="linear-regression.html"><a href="linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>4.1.3</b> Assessing the Accuracy of the Model</a></li>
+<li class="chapter" data-level="4.1.4" data-path="linear-regression.html"><a href="linear-regression.html#consideration"><i class="fa fa-check"></i><b>4.1.4</b> Consideration</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>3.2</b> Multiple Linear Regression</a></li>
-<li class="chapter" data-level="3.3" data-path="linear-regression.html"><a href="linear-regression.html#other-considerations-in-the-regression-model"><i class="fa fa-check"></i><b>3.3</b> Other Considerations in the Regression Model</a></li>
-<li class="chapter" data-level="3.4" data-path="linear-regression.html"><a href="linear-regression.html#case-study---marketing-plan"><i class="fa fa-check"></i><b>3.4</b> Case Study - Marketing Plan</a></li>
-<li class="chapter" data-level="3.5" data-path="linear-regression.html"><a href="linear-regression.html#chapter-3-lab-linear-regression"><i class="fa fa-check"></i><b>3.5</b> Chapter 3 Lab: Linear Regression</a>
+<li class="chapter" data-level="4.2" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>4.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="4.3" data-path="linear-regression.html"><a href="linear-regression.html#other-considerations-in-the-regression-model"><i class="fa fa-check"></i><b>4.3</b> Other Considerations in the Regression Model</a></li>
+<li class="chapter" data-level="4.4" data-path="linear-regression.html"><a href="linear-regression.html#case-study---marketing-plan"><i class="fa fa-check"></i><b>4.4</b> Case Study - Marketing Plan</a></li>
+<li class="chapter" data-level="4.5" data-path="linear-regression.html"><a href="linear-regression.html#chapter-3-lab-linear-regression"><i class="fa fa-check"></i><b>4.5</b> Chapter 3 Lab: Linear Regression</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="linear-regression.html"><a href="linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>3.5.1</b> Simple Linear Regression</a></li>
-<li class="chapter" data-level="3.5.2" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>3.5.2</b> Multiple Linear Regression</a></li>
-<li class="chapter" data-level="3.5.3" data-path="linear-regression.html"><a href="linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>3.5.3</b> Interaction Terms</a></li>
-<li class="chapter" data-level="3.5.4" data-path="linear-regression.html"><a href="linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>3.5.4</b> Non-linear Transformations of the Predictors</a></li>
-<li class="chapter" data-level="3.5.5" data-path="linear-regression.html"><a href="linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>3.5.5</b> Qualitative Predictors</a></li>
-<li class="chapter" data-level="3.5.6" data-path="linear-regression.html"><a href="linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>3.5.6</b> Writing Functions</a></li>
+<li class="chapter" data-level="4.5.1" data-path="linear-regression.html"><a href="linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>4.5.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="4.5.2" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>4.5.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="4.5.3" data-path="linear-regression.html"><a href="linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>4.5.3</b> Interaction Terms</a></li>
+<li class="chapter" data-level="4.5.4" data-path="linear-regression.html"><a href="linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>4.5.4</b> Non-linear Transformations of the Predictors</a></li>
+<li class="chapter" data-level="4.5.5" data-path="linear-regression.html"><a href="linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>4.5.5</b> Qualitative Predictors</a></li>
+<li class="chapter" data-level="4.5.6" data-path="linear-regression.html"><a href="linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>4.5.6</b> Writing Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="linear-regression.html"><a href="linear-regression.html#exercises-applied"><i class="fa fa-check"></i><b>3.6</b> Exercises (Applied)</a>
+<li class="chapter" data-level="4.6" data-path="linear-regression.html"><a href="linear-regression.html#exercises-applied"><i class="fa fa-check"></i><b>4.6</b> Exercises (Applied)</a>
 <ul>
 <li class="chapter" data-level="" data-path="linear-regression.html"><a href="linear-regression.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
 <li class="chapter" data-level="" data-path="linear-regression.html"><a href="linear-regression.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
-<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
-<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
-<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/ndleah/stat-learning" target="blank">Published with bookdown</a></li>
 
@@ -240,10 +216,10 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="linear-regression" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Linear Regression</h1>
-<div id="simple-linear-regression" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Simple Linear Regression</h2>
+<div id="linear-regression" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Linear Regression</h1>
+<div id="simple-linear-regression" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Simple Linear Regression</h2>
 <p><strong><em>Simple linear regression</em></strong> is a very straightforward approach for predicting a qualitative response <span class="math inline">\(Y\)</span> on the basis of a single predictor <span class="math inline">\(X\)</span>. Mathematically, we can write this linear relationship as</p>
 <p><span class="math display">\[
 Y \approx \beta_0 + \beta_1 X
@@ -253,8 +229,8 @@ Y \approx \beta_0 + \beta_1 X
 <li><span class="math inline">\(\beta_0\)</span>: intercept</li>
 <li><span class="math inline">\(\beta_1\)</span>: slope</li>
 </ul>
-<div id="estimating-the-coefficients" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Estimating the Coefficients</h3>
+<div id="estimating-the-coefficients" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Estimating the Coefficients</h3>
 <p>In practice, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are unknown. So before make predictions, we must use data to estimate the coefficients. Let <span class="math inline">\((x_1, Y_1), (x_2, Y_2),...,(x_n, Y_n)\)</span>
 represent <span class="math inline">\(n\)</span> observation pairs, each of which consists of a measurement of <span class="math inline">\(X\)</span> and a measurement of <span class="math inline">\(Y\)</span>. Our goal is to obtain coefficient estimates <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> such that the linear model fits the available data well. In other words, we want to find an intercept <span class="math inline">\(\beta_0\)</span> and a slope <span class="math inline">\(\beta_1\)</span> such that the resulting line is as close as possible to the <span class="math inline">\(n\)</span> data points.</p>
 <div class="figure">
@@ -275,8 +251,8 @@ RSS = (y_1 - \hat{\beta_0} - \hat{\beta_1}x_2)^2 + (y_2 - \hat{\beta_0} - \hat{\
 <p><strong><em>The least square approach</em></strong> chooses <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> to minimize the RSS.</p>
 </div>
 </div>
-<div id="assessing-the-accuracy-of-the-coefficient-estimates" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Assessing the Accuracy of the Coefficient Estimates</h3>
+<div id="assessing-the-accuracy-of-the-coefficient-estimates" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Assessing the Accuracy of the Coefficient Estimates</h3>
 <div id="population-regression-line" class="section level4 unnumbered">
 <h4><strong>Population Regression Line:</strong></h4>
 <p><span class="math display">\[
@@ -349,12 +325,12 @@ P(|T| &gt; t) = p
 <p>Typical p-value cutoffs for rejecting the null hypothesis are 5 or 1 %. When n = 30, these corresponds to t-statistics of around 2 and 2.75, respectively.</p>
 </div>
 </div>
-<div id="assessing-the-accuracy-of-the-model" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Assessing the Accuracy of the Model</h3>
+<div id="assessing-the-accuracy-of-the-model" class="section level3" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Assessing the Accuracy of the Model</h3>
 <p>After we have rejected the null hypothesis, t is natural to want to quantify the <em>extend of the model fits the data</em>.</p>
 <p>The quality of a linear regression fit is typically assessed using 2 related quantities: the <em>residual standard error</em> and the <span class="math inline">\(R^2\)</span> statistic.</p>
-<div id="residual-standard-error" class="section level4" number="3.1.3.1">
-<h4><span class="header-section-number">3.1.3.1</span> Residual Standard Error</h4>
+<div id="residual-standard-error" class="section level4" number="4.1.3.1">
+<h4><span class="header-section-number">4.1.3.1</span> Residual Standard Error</h4>
 <p>The RSE is an estimation of the standard deviation of <span class="math inline">\(\epsilon\)</span>. Roughly speaking, it is the average amount that the response will deviate from the true regression line. It is computed using the formula:</p>
 <p><span class="math display">\[
 RSE=\sqrt{\frac{1}{n-2}} RSS= \sqrt{\frac{1}{n-2} {\sum_{i=1}^n (y_{i} - \hat{y_1})^{2}}}
@@ -376,8 +352,8 @@ One consideration of RSE is it is the measure in the units of <span class="math 
 <p>hello halle</p>
 </div>
 </div>
-<div id="r2-standard-error" class="section level4" number="3.1.3.2">
-<h4><span class="header-section-number">3.1.3.2</span> <strong><span class="math inline">\(R^2\)</span> Standard Error</strong></h4>
+<div id="r2-standard-error" class="section level4" number="4.1.3.2">
+<h4><span class="header-section-number">4.1.3.2</span> <strong><span class="math inline">\(R^2\)</span> Standard Error</strong></h4>
 <p>The <span class="math inline">\(R^2\)</span> statistic takes the form of a <em>proportion</em>-the proportion of variance explained-and so it always takes on a value between 0 and 1, and is independent of the scale of <span class="math inline">\(Y\)</span>. To calculate <span class="math inline">\(R^2\)</span>, we use the formula:</p>
 <p><span class="math display">\[
 R^2 = \frac{TSS}{TSS−RSS}=1−\frac{TSS}{RSS}
@@ -394,14 +370,14 @@ R^2 = \frac{TSS}{TSS−RSS}=1−\frac{TSS}{RSS}
 </ul>
 </div>
 </div>
-<div id="consideration" class="section level3" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Consideration</h3>
+<div id="consideration" class="section level3" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Consideration</h3>
 <p><strong>Simple linear regression</strong> is a useful approach for predicting a response on the basis of a single predictor variable. However, in practice we often have more than one predictor.</p>
 <p>The solution for this is to use another linear regression named as <strong>Multiple Linear Regression</strong>, which will be discussed in the next section.</p>
 </div>
 </div>
-<div id="multiple-linear-regression" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Multiple Linear Regression</h2>
+<div id="multiple-linear-regression" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Multiple Linear Regression</h2>
 <p>In general, the multiple linear regression model takes the form</p>
 <p><span class="math display">\[
 Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n + \epsilon
@@ -416,8 +392,8 @@ Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n + \epsilon
 <li><em>Given a set of predictor values, what response value should we predict, and how accurate is our prediction?</em></li>
 </ol>
 </div>
-<div id="response-and-predictors-relationships" class="section level4" number="3.2.0.1">
-<h4><span class="header-section-number">3.2.0.1</span> Response and Predictors Relationships</h4>
+<div id="response-and-predictors-relationships" class="section level4" number="4.2.0.1">
+<h4><span class="header-section-number">4.2.0.1</span> Response and Predictors Relationships</h4>
 <p>In the multiple regression setting with <span class="math inline">\(p\)</span> predictors, we can use a hypothesis test to discover the relationship between predictors and response:</p>
 <p><span class="math display">\[
 H_0 = \beta_1 = \beta_2 = ... = \beta_p = 0
@@ -445,8 +421,8 @@ F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 </div>
 </div>
 </div>
-<div id="dealing-with-large-number-of-variables" class="section level4" number="3.2.0.2">
-<h4><span class="header-section-number">3.2.0.2</span> Dealing With Large Number Of Variables</h4>
+<div id="dealing-with-large-number-of-variables" class="section level4" number="4.2.0.2">
+<h4><span class="header-section-number">4.2.0.2</span> Dealing With Large Number Of Variables</h4>
 <p>The task of determining which predictors are associated with the response is referred to as <em>variable selection</em>.</p>
 <p>There are 3 classical approaches:</p>
 <ul>
@@ -455,13 +431,13 @@ F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 <li><strong><em>Mixed (Stepwise) selection</em></strong>: is the combination of forward selection and backward elimination. Start with no variables in the model, then add variables that is the best fit. However, if at any point the p-value for one of the variables in the model series rises above a certain threshold, then we remove that variable out of the model.</li>
 </ul>
 </div>
-<div id="model-fit" class="section level4" number="3.2.0.3">
-<h4><span class="header-section-number">3.2.0.3</span> Model Fit</h4>
+<div id="model-fit" class="section level4" number="4.2.0.3">
+<h4><span class="header-section-number">4.2.0.3</span> Model Fit</h4>
 <p>Using the same methods: RSE and <span class="math inline">\(R^2\)</span> statistic as simple linear regression.</p>
 </div>
 </div>
-<div id="other-considerations-in-the-regression-model" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Other Considerations in the Regression Model</h2>
+<div id="other-considerations-in-the-regression-model" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Other Considerations in the Regression Model</h2>
 <div id="potential-problems" class="section level4 unnumbered">
 <h4>Potential Problems</h4>
 <p>When we fit a linear regression model, many problems can occur, to name a few:</p>
@@ -474,8 +450,8 @@ F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 <li><em>Collinearity.</em></li>
 </ul>
 </div>
-<div id="non-linearity-of-the-data" class="section level4" number="3.3.0.1">
-<h4><span class="header-section-number">3.3.0.1</span> Non-linearity of the Data</h4>
+<div id="non-linearity-of-the-data" class="section level4" number="4.3.0.1">
+<h4><span class="header-section-number">4.3.0.1</span> Non-linearity of the Data</h4>
 <p>The first assumption of Linear Regression is that relations between the independent and dependent variables must be linear.</p>
 <p>Although this assumption is not always cited in the literature, it is logical and important to check for it. After all, if your relationships are not linear, you should not use a linear model, but rather a non-linear model of which plenty exist.</p>
 <p>We can check for linear relationships easily by making a scatter plot for each independent variable with the dependent variable as in Figure 3.9.</p>
@@ -489,8 +465,8 @@ F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 <li><strong>Right:</strong> A linear regression of <code>mpg</code> on <code>horsepower</code> and <code>horsepower2</code>. There is little pattern in the residuals.</li>
 </ul>
 </div>
-<div id="correlation-of-error-terms" class="section level4" number="3.3.0.2">
-<h4><span class="header-section-number">3.3.0.2</span> Correlation of Error Terms</h4>
+<div id="correlation-of-error-terms" class="section level4" number="4.3.0.2">
+<h4><span class="header-section-number">4.3.0.2</span> Correlation of Error Terms</h4>
 <p>If there is correlation among the error terms <span class="math inline">\(\epsilon_1, \epsilon_2,...,\epsilon_n\)</span>, then the estimated standard errors (SE) will tend to underestimate the true SE. As the result, p-value associated with the model will be lower than they should be, which could cause us to erroneously conclude that a parameter is statistically significant.</p>
 <div class="alert alert-danger hints-alert">
 <div class="hints-icon">
@@ -516,8 +492,8 @@ In order to determine if this is the case for a given data set, we can plot the 
 <p class="caption">Figure 3.10. Plots of residuals from simulated time series data sets generated with differing levels of correlation ρ between error terms for adjacent time points</p>
 </div>
 </div>
-<div id="non-constant-variance-of-error-terms-heteroscedasticity" class="section level4" number="3.3.0.3">
-<h4><span class="header-section-number">3.3.0.3</span> Non-constant Variance of Error Terms (Heteroscedasticity)</h4>
+<div id="non-constant-variance-of-error-terms-heteroscedasticity" class="section level4" number="4.3.0.3">
+<h4><span class="header-section-number">4.3.0.3</span> Non-constant Variance of Error Terms (Heteroscedasticity)</h4>
 <p>Heteroscedasticity in a model means that the error is constant along the values of the dependent variable.</p>
 <div class="alert alert-success hints-alert">
 <div class="hints-icon">
@@ -543,8 +519,8 @@ In order to determine if this is the case for a given data set, we can plot the 
 <li><p>If this doesn’t change anything, you can also switch to the <strong><em>weighted least squares model</em></strong>. <em>Weighted least squares</em> is a model that can deal with unconstant variances and heteroscedasticity is therefore not a problem.</p></li>
 </ol>
 </div>
-<div id="outlier" class="section level4" number="3.3.0.4">
-<h4><span class="header-section-number">3.3.0.4</span> Outlier</h4>
+<div id="outlier" class="section level4" number="4.3.0.4">
+<h4><span class="header-section-number">4.3.0.4</span> Outlier</h4>
 <p>An <strong>outlier</strong> is a point for which yi is far from the value predicted by model. Outliers can arise for a variety of reasons, such as incorrect recording of an observation during data collection.</p>
 <p>As illustrated in Figure 3.12:</p>
 <ul>
@@ -558,8 +534,8 @@ In order to determine if this is the case for a given data set, we can plot the 
 </div>
 <p>If we believe that an outlier has occurred due to an error in data collection or recording, then one solution is to simply remove the observation.</p>
 </div>
-<div id="high-leverage-points" class="section level4" number="3.3.0.5">
-<h4><span class="header-section-number">3.3.0.5</span> High Leverage Points</h4>
+<div id="high-leverage-points" class="section level4" number="4.3.0.5">
+<h4><span class="header-section-number">4.3.0.5</span> High Leverage Points</h4>
 <p>In contrast to outlier with unusual for response value <span class="math inline">\(y\)</span>, observations with high leverage high leverage have an unusual value for <span class="math inline">\(x_i\)</span>.</p>
 <p>As illustrated in Figure 3.12:</p>
 <div class="figure">
@@ -578,8 +554,8 @@ h_i = \frac{1}{n} + \frac{(x_i - \overline{x})^2}{\sum_{i&#39;=1}^{n}(x_i&#39; -
 \]</span></p>
 <p>A large value of this statistic indicates an observation with high leverage.</p>
 </div>
-<div id="collinearity" class="section level4" number="3.3.0.6">
-<h4><span class="header-section-number">3.3.0.6</span> Collinearity</h4>
+<div id="collinearity" class="section level4" number="4.3.0.6">
+<h4><span class="header-section-number">4.3.0.6</span> Collinearity</h4>
 <p><strong><em>Collinearity</em></strong> refers to the situation in which two or more predictor variables are closely related to one another.</p>
 <p>In order to check for collinearity, we can either use <strong><em>Correlation Matrix</em></strong> or <strong><em>Variance Inflation Factor (VIF)</em></strong>.</p>
 <div id="correlation-matrix" class="section level5 unnumbered">
@@ -604,10 +580,10 @@ of the predictors. An element of this matrix that is large in absolute value ind
 </div>
 </div>
 </div>
-<div id="case-study---marketing-plan" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Case Study - Marketing Plan</h2>
-<div id="data-overview" class="section level4" number="3.4.0.1">
-<h4><span class="header-section-number">3.4.0.1</span> Data Overview</h4>
+<div id="case-study---marketing-plan" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Case Study - Marketing Plan</h2>
+<div id="data-overview" class="section level4" number="4.4.0.1">
+<h4><span class="header-section-number">4.4.0.1</span> Data Overview</h4>
 <p>The <code>Advertising</code> data set consists of the sales of that product in 200 different markets, along with advertising budgets for the product in each of those markets for three different media: <code>TV</code>, <code>radio</code>, and <code>newspaper</code>. The data are displayed in Figure 2.1.</p>
 <p>The plot displays sales, in thousands of units, as a function of <code>TV</code>, <code>radio</code>, and <code>newspaper</code> budgets, in thousands of dollars, for 200 different markets. In each plot we show the simple least squares fit of sales to that variable, as described in Chapter 3. In other words, each blue line represents a simple model that can be used to predict sales using <code>TV</code>, <code>radio</code>, and newspaper`, respectively.</p>
 <div class="figure">
@@ -615,8 +591,8 @@ of the predictors. An element of this matrix that is large in absolute value ind
 <p class="caption">Figure 2.1. The Advertising data set</p>
 </div>
 </div>
-<div id="important-questions" class="section level4" number="3.4.0.2">
-<h4><span class="header-section-number">3.4.0.2</span> Important Questions</h4>
+<div id="important-questions" class="section level4" number="4.4.0.2">
+<h4><span class="header-section-number">4.4.0.2</span> Important Questions</h4>
 <p>Suppose that in our role as statistical consultants we are asked to suggest, on the basis of this data, a marketing plan for next year that will result in high product sales. Here are a few important questions that we might seek to address:</p>
 <ol style="list-style-type: decimal">
 <li><strong><em>Is there a relationship between advertising sales and budget?</em></strong></li>
@@ -706,17 +682,12 @@ between the predictors and the response. An additive model is easy to interpret 
 <p>Figure 3.5 suggested that the <code>Advertising</code> data may not be additive. Including an interaction term in the model results in a substantial increase in R2, from around 90% to almost 97%.</p>
 </div>
 </div>
-<div id="chapter-3-lab-linear-regression" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Chapter 3 Lab: Linear Regression</h2>
+<div id="chapter-3-lab-linear-regression" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Chapter 3 Lab: Linear Regression</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="linear-regression.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb1-2"><a href="linear-regression.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-3"><a href="linear-regression.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;MASS&#39;</span></span>
-<span id="cb1-4"><a href="linear-regression.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked _by_ &#39;.GlobalEnv&#39;:</span></span>
-<span id="cb1-5"><a href="linear-regression.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-6"><a href="linear-regression.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Boston</span></span>
-<span id="cb1-7"><a href="linear-regression.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span></code></pre></div>
-<div id="simple-linear-regression-1" class="section level3" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Simple Linear Regression</h3>
+<span id="cb1-2"><a href="linear-regression.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span></code></pre></div>
+<div id="simple-linear-regression-1" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Simple Linear Regression</h3>
 <p>The Boston data set records <code>medv</code> (median house value) for 506 neighborhoods around Boston. We will seek to predict <code>medv</code> using 13 predictors such as <code>rm</code> (average number of rooms per house), <code>age</code> (average age of houses), and <code>lstat</code> (percent of households with low socioeconomic status).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="linear-regression.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fix</span>(Boston)</span>
 <span id="cb2-2"><a href="linear-regression.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Boston)</span>
@@ -781,26 +752,26 @@ between the predictors and the response. An additive model is easy to interpret 
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="linear-regression.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Boston)</span>
 <span id="cb10-2"><a href="linear-regression.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lstat,medv)</span>
 <span id="cb10-3"><a href="linear-regression.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lm.fit)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 Next we examine some diagnostic plots, several of which were discussed. Four diagnostic plots are automatically produced by applying the <code>plot()</code> function directly to the output from <code>lm()</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="linear-regression.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb11-2"><a href="linear-regression.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm.fit)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="linear-regression.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(lm.fit), <span class="fu">residuals</span>(lm.fit))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 Alternatively, we can compute the residuals from a linear regression fit using the <code>residuals()</code> function. The function <code>rstudent()</code> will return the studentized residuals, and we can use this function to plot the residuals against the fitted values.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-regression.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(lm.fit), <span class="fu">rstudent</span>(lm.fit))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>On the basis of the residual plots, there is some evidence of non-linearity. Leverage statistics can be computed for any number of predictors using the <code>hatvalues()</code> function.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-regression.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">hatvalues</span>(lm.fit))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>The <code>which.max()</code> function identifies the index of the largest element of a <code>which.max()</code> vector. In this case, it tells us which observation has the largest leverage statistic.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="linear-regression.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">hatvalues</span>(lm.fit))</span>
 <span id="cb15-2"><a href="linear-regression.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 375 </span></span>
 <span id="cb15-3"><a href="linear-regression.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 375</span></span></code></pre></div>
 </div>
-<div id="multiple-linear-regression-1" class="section level3" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Multiple Linear Regression</h3>
+<div id="multiple-linear-regression-1" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Multiple Linear Regression</h3>
 <p>In order to fit a multiple linear regression model using least squares, we again use the <code>lm()</code> function. The syntax <code>lm(y ∼ x1 + x2 + x3)</code> is used to fit a model with three predictors, <code>x1</code>, <code>x2</code>, and <code>x3.</code> The <code>summary()</code> function now outputs the regression coefficients for all the predictors.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="linear-regression.html#cb16-1" aria-hidden="true" tabindex="-1"></a>lm.fit<span class="ot">=</span><span class="fu">lm</span>(medv<span class="sc">~</span>lstat<span class="sc">+</span>age,<span class="at">data=</span>Boston)</span>
 <span id="cb16-2"><a href="linear-regression.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit)</span>
@@ -922,8 +893,8 @@ Alternatively, we can compute the residuals from a linear regression fit using t
 <span id="cb19-31"><a href="linear-regression.html#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.7406, Adjusted R-squared:  0.7343 </span></span>
 <span id="cb19-32"><a href="linear-regression.html#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 117.3 on 12 and 493 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
 </div>
-<div id="interaction-terms" class="section level3" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Interaction Terms</h3>
+<div id="interaction-terms" class="section level3" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> Interaction Terms</h3>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="linear-regression.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(medv<span class="sc">~</span>lstat<span class="sc">*</span>age,<span class="at">data=</span>Boston))</span>
 <span id="cb20-2"><a href="linear-regression.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb20-3"><a href="linear-regression.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
@@ -946,8 +917,8 @@ Alternatively, we can compute the residuals from a linear regression fit using t
 <span id="cb20-20"><a href="linear-regression.html#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.5557, Adjusted R-squared:  0.5531 </span></span>
 <span id="cb20-21"><a href="linear-regression.html#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 209.3 on 3 and 502 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
 </div>
-<div id="non-linear-transformations-of-the-predictors" class="section level3" number="3.5.4">
-<h3><span class="header-section-number">3.5.4</span> Non-linear Transformations of the Predictors</h3>
+<div id="non-linear-transformations-of-the-predictors" class="section level3" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> Non-linear Transformations of the Predictors</h3>
 <p>The <code>lm()</code> function can also accommodate non-linear transformations of the predictors. For instance, given a predictor <span class="math inline">\(X\)</span>, we can create a predictor <span class="math inline">\(X^2\)</span> using <code>I(X^2)</code>. We now perform a regression of <code>medv</code> onto <code>lstat</code> and <code>lstat2</code>.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="linear-regression.html#cb21-1" aria-hidden="true" tabindex="-1"></a>lm.fit2<span class="ot">=</span><span class="fu">lm</span>(medv<span class="sc">~</span>lstat<span class="sc">+</span><span class="fu">I</span>(lstat<span class="sc">^</span><span class="dv">2</span>))</span>
 <span id="cb21-2"><a href="linear-regression.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm.fit2)</span>
@@ -986,7 +957,7 @@ Alternatively, we can compute the residuals from a linear regression fit using t
 <p>The <code>anova()</code> function performs a hypothesis test comparing the two models. The null hypothesis is that the two models fit the data equally well, and the alternative hypothesis is that the full model is superior. Here the F-statistic is 135 and the associated p-value is virtually zero. This provides very clear evidence that the model containing the predictors <code>lstat</code> and <code>lstat2</code> is far superior to the model that only contains the predictor <code>lstat</code>. This is not surprising, since earlier we saw evidence for non-linearity in the relationship between <code>medv</code> and <code>lstat</code>. If we type</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="linear-regression.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb23-2"><a href="linear-regression.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm.fit2)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>then we see that when the <code>lstat2</code> term is included in the model, there is little discernible pattern in the residuals.</p>
 <p>A better approach involves using the <code>poly()</code> function to create the polynomial within <code>lm()</code>. For example, the following command produces a fifth-order polynomial fit:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="linear-regression.html#cb24-1" aria-hidden="true" tabindex="-1"></a>lm.fit5<span class="ot">=</span><span class="fu">lm</span>(medv<span class="sc">~</span><span class="fu">poly</span>(lstat,<span class="dv">5</span>))</span>
@@ -1035,8 +1006,8 @@ Alternatively, we can compute the residuals from a linear regression fit using t
 <span id="cb25-18"><a href="linear-regression.html#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.4358, Adjusted R-squared:  0.4347 </span></span>
 <span id="cb25-19"><a href="linear-regression.html#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 389.3 on 1 and 504 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
 </div>
-<div id="qualitative-predictors" class="section level3" number="3.5.5">
-<h3><span class="header-section-number">3.5.5</span> Qualitative Predictors</h3>
+<div id="qualitative-predictors" class="section level3" number="4.5.5">
+<h3><span class="header-section-number">4.5.5</span> Qualitative Predictors</h3>
 <p>We will now examine the <code>Carseats</code> data, which is part of the <code>ISLR2</code> library. We will attempt to predict Sales (child car seat sales) in 400 locations based on a number of predictors.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="linear-regression.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Carseats)</span>
 <span id="cb26-2"><a href="linear-regression.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sales CompPrice Income Advertising Population Price ShelveLoc Age Education</span></span>
@@ -1100,8 +1071,8 @@ of the quality of the shelving location—that is, the space within a store in w
 medium shelving location is associated with higher sales than a bad shelving
 location but lower sales than a good shelving location.</p>
 </div>
-<div id="writing-functions" class="section level3" number="3.5.6">
-<h3><span class="header-section-number">3.5.6</span> Writing Functions</h3>
+<div id="writing-functions" class="section level3" number="4.5.6">
+<h3><span class="header-section-number">4.5.6</span> Writing Functions</h3>
 <p>In order to write our own function, for instance, below we provide a simple function that reads in the <code>ISLR2</code> and <code>MASS</code> libraries, called
 <code>LoadLibraries()</code>.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="linear-regression.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create the function</span></span>
@@ -1116,8 +1087,8 @@ location but lower sales than a good shelving location.</p>
 <span id="cb29-10"><a href="linear-regression.html#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The libraries have been loaded.&quot;</span></span></code></pre></div>
 </div>
 </div>
-<div id="exercises-applied" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Exercises (Applied)</h2>
+<div id="exercises-applied" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Exercises (Applied)</h2>
 <div id="question-1" class="section level3 unnumbered">
 <h3>Question 1</h3>
 <p>This question involves the use of simple linear regression on the <code>Auto</code> data set.</p>
@@ -1191,13 +1162,13 @@ H_0: \beta_j = 0
 <h4>(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</h4>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="linear-regression.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower,Auto<span class="sc">$</span>mpg,<span class="at">xlab =</span> <span class="st">&quot;horsepower&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>,<span class="at">main =</span> <span class="st">&quot;Scatterplot of mpg vs. horsepower&quot;</span>)</span>
 <span id="cb37-2"><a href="linear-regression.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mpg.fit,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 </div>
 <div id="c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit." class="section level4 unnumbered">
 <h4>(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</h4>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="linear-regression.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb38-2"><a href="linear-regression.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg.fit)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <p>The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:</p>
 <div id="i-residuals-vs-fitted" class="section level5 unnumbered">
 <h5><strong>(i) Residuals vs Fitted</strong></h5>
@@ -1226,7 +1197,7 @@ H_0: \beta_j = 0
 <div id="a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set." class="section level4 unnumbered">
 <h4>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</h4>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="linear-regression.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 </div>
 <div id="b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative." class="section level4 unnumbered">
 <h4>(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</h4>
@@ -1307,7 +1278,7 @@ $$</p>
 <h4>(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</h4>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="linear-regression.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb44-2"><a href="linear-regression.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg.fit2)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <div id="i-residuals-vs-fitted-1" class="section level6 unnumbered">
 <h6><strong>(i) Residuals vs Fitted</strong></h6>
 <p>This plot shows if residuals have non-linear patterns.</p>
@@ -1328,8 +1299,8 @@ $$</p>
 <p>We can see some evidence of observations (e.g. 14) with both high leverage and high residual statistics, that may be disproportionately influencing the regression predictions.</p>
 </div>
 </div>
-<div id="e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant" class="section level4" number="3.6.0.1">
-<h4><span class="header-section-number">3.6.0.1</span> (e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</h4>
+<div id="e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant" class="section level4" number="4.6.0.1">
+<h4><span class="header-section-number">4.6.0.1</span> (e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</h4>
 <p>Since we have relatively few predictors, we can test all interactions with <code>mpg ~ . * .</code> in the call to <code>lm()</code>:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="linear-regression.html#cb45-1" aria-hidden="true" tabindex="-1"></a>mpg.fit3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span>.<span class="sc">*</span> ., <span class="at">data=</span>Auto[,<span class="sc">-</span><span class="dv">9</span>]) </span>
 <span id="cb45-2"><a href="linear-regression.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit3)</span>
@@ -1390,7 +1361,7 @@ $$</p>
 <span id="cb46-2"><a href="linear-regression.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(Auto<span class="sc">$</span>horsepower), Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;log(horsepower)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;Log Tranformation&quot;</span>)</span>
 <span id="cb46-3"><a href="linear-regression.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">sqrt</span>(Auto<span class="sc">$</span>horsepower), Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;sqrt(horsepower)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;Square Root Transformation&quot;</span>)</span>
 <span id="cb46-4"><a href="linear-regression.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>((Auto<span class="sc">$</span>horsepower)<span class="sc">^</span><span class="dv">2</span>, Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;horsepower&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;X^2 Transformation&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="02-linear-regression_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <p>We limit ourselves to examining <code>horsepower</code> as sole predictor. It seems that the log transformation gives the most linear looking plot.</p>
 
 </div>
@@ -1402,8 +1373,8 @@ $$</p>
           </div>
         </div>
       </div>
-<a href="statistical-learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="parts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="assessing-model-accuracy.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

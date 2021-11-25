@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 6 Case Study - Marketing Plan | _main</title>
+  <meta name="description" content="A work-in-progress" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 6 Case Study - Marketing Plan | _main" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
+  <meta property="og:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/logo.png" />
+  <meta property="og:description" content="A work-in-progress" />
+  <meta name="github-repo" content="ndleah/stat-learning" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 6 Case Study - Marketing Plan | _main" />
+  
+  <meta name="twitter:description" content="A work-in-progress" />
+  <meta name="twitter:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="other-considerations-in-the-regression-model.html"/>
+<link rel="next" href="lab-linear-regression.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>INTRODUCTION</a></li>
+<li class="part"><span><b>I STATISTICAL LEARNING</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html"><i class="fa fa-check"></i><b>1</b> What is Statistical Learning?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#why-estimate-f"><i class="fa fa-check"></i><b>1.1</b> Why Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>1.1.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>1.2</b> How Do We Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#parametric-methods"><i class="fa fa-check"></i><b>1.2.1</b> Parametric Methods</a></li>
+<li class="chapter" data-level="1.2.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#non-parametric-methods"><i class="fa fa-check"></i><b>1.2.2</b> Non-Parametric Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>1.3</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
+<li class="chapter" data-level="1.4" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>1.4</b> Supervised Vs. Unsupervised Learning</a></li>
+<li class="chapter" data-level="1.5" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#regression-vs.-classification"><i class="fa fa-check"></i><b>1.5</b> Regression Vs. Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html"><i class="fa fa-check"></i><b>2</b> Assessing Model Accuracy</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-regression-setting"><i class="fa fa-check"></i><b>2.1</b> The Regression Setting</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#measuring-the-quality-of-fit"><i class="fa fa-check"></i><b>2.1.1</b> Measuring the Quality of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>2.2</b> The Bias-Variance Trade-Off</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#variance-error"><i class="fa fa-check"></i><b>2.2.1</b> Variance Error</a></li>
+<li class="chapter" data-level="2.2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-error"><i class="fa fa-check"></i><b>2.2.2</b> Bias Error</a></li>
+<li class="chapter" data-level="2.2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-variance-trafe-off"><i class="fa fa-check"></i><b>2.2.3</b> <strong>Bias-Variance Trafe-Off</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-classification-setting"><i class="fa fa-check"></i><b>2.3</b> The Classification Setting</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bayes-classifier"><i class="fa fa-check"></i><b>2.3.1</b> The Bayes Classifier</a></li>
+<li class="chapter" data-level="2.3.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#k-nearest-neighbors-knn"><i class="fa fa-check"></i><b>2.3.2</b> K-Nearest Neighbors (KNN)</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II LINEAR REGRESSION</b></span></li>
+<li class="chapter" data-level="3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>3</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1</b> Estimating the Coefficients</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.2</b> Assessing the Accuracy of the Coefficient Estimates</a>
+<ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#population-regression-line"><i class="fa fa-check"></i>Population Regression Line</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#least-squares-line"><i class="fa fa-check"></i>Least Squares Line</a></li>
+<li><a href="simple-linear-regression.html#how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu">How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#how-far-is-far-enough"><i class="fa fa-check"></i>How far is far enough?</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#t-distribution"><i class="fa fa-check"></i>T-distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.3</b> Assessing the Accuracy of the Model</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#residual-standard-error"><i class="fa fa-check"></i><b>3.4</b> Residual Standard Error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#r2-standard-error"><i class="fa fa-check"></i><b>3.4.1</b> <span class="math inline">\(R^2\)</span> Standard Error</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#consideration"><i class="fa fa-check"></i><b>3.5</b> Consideration</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>4</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#some-important-questions"><i class="fa fa-check"></i>Some Important Questions:</a></li>
+<li class="chapter" data-level="4.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#response-and-predictors-relationships"><i class="fa fa-check"></i><b>4.1</b> Response and Predictors Relationships</a></li>
+<li class="chapter" data-level="4.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#dealing-with-large-number-of-variables"><i class="fa fa-check"></i><b>4.2</b> Dealing With Large Number Of Variables</a></li>
+<li class="chapter" data-level="4.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#model-fit"><i class="fa fa-check"></i><b>4.3</b> Model Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html"><i class="fa fa-check"></i><b>5</b> Other Considerations in the Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#potential-problems"><i class="fa fa-check"></i>Potential Problems</a></li>
+<li class="chapter" data-level="5.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-linearity-of-the-data"><i class="fa fa-check"></i><b>5.1</b> Non-linearity of the Data</a></li>
+<li class="chapter" data-level="5.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-of-error-terms"><i class="fa fa-check"></i><b>5.2</b> Correlation of Error Terms</a></li>
+<li class="chapter" data-level="5.3" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-constant-variance-of-error-terms-heteroscedasticity"><i class="fa fa-check"></i><b>5.3</b> Non-constant Variance of Error Terms (Heteroscedasticity)</a></li>
+<li class="chapter" data-level="5.4" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#outlier"><i class="fa fa-check"></i><b>5.4</b> Outlier</a></li>
+<li class="chapter" data-level="5.5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#high-leverage-points"><i class="fa fa-check"></i><b>5.5</b> High Leverage Points</a></li>
+<li class="chapter" data-level="5.6" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#collinearity"><i class="fa fa-check"></i><b>5.6</b> Collinearity</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-matrix"><i class="fa fa-check"></i><b>5.6.1</b> Correlation Matrix</a></li>
+<li class="chapter" data-level="5.6.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#variance-inflation-factor-vif"><i class="fa fa-check"></i><b>5.6.2</b> Variance Inflation Factor (VIF)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html"><i class="fa fa-check"></i><b>6</b> Case Study - Marketing Plan</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#data-overview"><i class="fa fa-check"></i><b>6.1</b> Data Overview</a></li>
+<li class="chapter" data-level="6.2" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#important-questions"><i class="fa fa-check"></i><b>6.2</b> Important Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Lab: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>7.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.2" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>7.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="7.3" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>7.3</b> Interaction Terms</a></li>
+<li class="chapter" data-level="7.4" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>7.4</b> Non-linear Transformations of the Predictors</a></li>
+<li class="chapter" data-level="7.5" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>7.5</b> Qualitative Predictors</a></li>
+<li class="chapter" data-level="7.6" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>7.6</b> Writing Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises-applied.html"><a href="exercises-applied.html"><i class="fa fa-check"></i><b>8</b> Exercises (Applied)</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
+<ul>
+<li><a href="exercises-applied.html#a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
+<li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-2"><i class="fa fa-check"></i>Question 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set."><i class="fa fa-check"></i>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</a></li>
+<li><a href="exercises-applied.html#b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative.">(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</a></li>
+<li><a href="exercises-applied.html#c-use-the-lm-function-to-perform-a-multiple-linear-regression-with-mpg-as-the-response-and-all-other-variables-except-name-as-the-predictors.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(c) Use the <code>lm()</code> function to perform a multiple linear regression with <code>mpg</code> as the response and all other variables except “name” as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#d-use-the-plot-function-to-produce-diagnostic-plots-of-the-linear-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</a></li>
+<li><a href="exercises-applied.html#e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant">(e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</a></li>
+<li><a href="exercises-applied.html#f-try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings.">(f) Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<link href="style.css" rel="stylesheet">
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="img/illos/cover.png">
+</div>
+<div id="case-study---marketing-plan" class="section level1" number="6">
+<h1><span class="header-section-number">Section 6</span> Case Study - Marketing Plan</h1>
+<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
+<div id="data-overview" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Data Overview</h2>
+<p>The <code>Advertising</code> data set consists of the sales of that product in 200 different markets, along with advertising budgets for the product in each of those markets for three different media: <code>TV</code>, <code>radio</code>, and <code>newspaper</code>. The data are displayed in Figure 2.1.</p>
+<p>The plot displays sales, in thousands of units, as a function of <code>TV</code>, <code>radio</code>, and <code>newspaper</code> budgets, in thousands of dollars, for 200 different markets. In each plot we show the simple least squares fit of sales to that variable, as described in Chapter 3. In other words, each blue line represents a simple model that can be used to predict sales using <code>TV</code>, <code>radio</code>, and newspaper`, respectively.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="img/30-Figure2.1-1.png" alt="he Advertising data set" width="65%" />
+<p class="caption">
+Figure 1.1: he Advertising data set
+</p>
+</div>
+</div>
+<div id="important-questions" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Important Questions</h2>
+<p>Suppose that in our role as statistical consultants we are asked to suggest, on the basis of this data, a marketing plan for next year that will result in high product sales. Here are a few important questions that we might seek to address:</p>
+<ol style="list-style-type: decimal">
+<li><strong><em>Is there a relationship between advertising sales and budget?</em></strong></li>
+</ol>
+<p>This question can be answered by fitting a multiple regression model
+of sales onto <code>TV</code>, <code>radio</code>, and <code>newspaper</code>, as:</p>
+<p><span class="math display">\[
+\Large sales = \beta_0 + \beta_1 × TV + \beta_2 × radio + \beta_3 × newspaper + \epsilon.
+\]</span></p>
+<p>and testing the hypothesis
+<span class="math display">\[
+\Large H_0: \beta_{TV} = \beta_{radio} = \beta_{newspaper} = 0
+\]</span></p>
+<p>F-statistic can be used to determine whether or not we should reject this null hypothesis. In this case, the p-value corresponding to the F-statistic in Table 3.6 is very low, indicating clear evidence of a relationship between advertising and sales.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="img/90-Table3.6-1.png" alt="More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data" width="65%" />
+<p class="caption">
+Figure 3.1: More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><strong><em>How strong is the relationship?</em></strong></li>
+</ol>
+<p>First, the RSE estimates the standard deviation of the response from the
+population regression line. For the <code>Advertising</code> data, the RSE is 1,681 units while the mean value for the response is 14,022, indicating a percentage error of roughly 12%. Second, the <span class="math inline">\(R^2\)</span> statistic records the percentage of variability in the response that is explained by the predictors. The predictors explain almost 90% of the variance in sales. The RSE and <span class="math inline">\(R^2\)</span> statistics are displayed in Table 3.6.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong><em>Which media contribute to sales?</em></strong></li>
+</ol>
+<p>To answer this question, we can examine the p-values associated with each predictor’s t-statistic. In the multiple linear regression displayed in Table 3.4, the p-values for <code>TV</code> and <code>radio</code> are low, but the p-value for <code>newspaper</code> is not. This suggests that only <code>TV</code> and <code>radio</code> are related to sales.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="img/88-Table3.4-1.png" alt="For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets." width="65%" />
+<p class="caption">
+Figure 3.2: For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets.
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><strong><em>How large is the effect of each medium on sales?</em></strong></li>
+</ol>
+<p>The standard error of <span class="math inline">\(\hat{\beta_j}\)</span> can be used to construct confidence intervals for <span class="math inline">\(\beta_j\)</span>. For the <code>Advertising</code> data, the 95% confidence intervals are as follows: (0.043, 0.049) for <code>TV</code>, (0.172, 0.206) for <code>radio</code>, and (−0.013, 0.011) for <code>newspaper</code>.</p>
+<p>The confidence intervals for <code>TV</code> and <code>radio</code> are narrow and far from zero, providing evidence that these media are related to sales. But the interval for <code>newspaper</code> includes zero, indicating that the variable is not statistically significant given the values of <code>TV</code> and <code>radio</code>.</p>
+<p>We saw in previous section that collinearity can result in very wide standard errors.</p>
+<p><strong><em>Could collinearity be the reason that the confidence interval associated with newspaper is so wide?</em></strong></p>
+<p>The VIF scores are 1.005, 1.145, and 1.145 for <code>TV</code>,<code>radio</code>, and <code>newspaper</code>, suggesting no evidence of collinearity.</p>
+<p>In order to assess the association of each medium individually on sales, we can perform three separate simple linear regressions. Results are shown in Tables 3.1 and 3.3.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="img/82-Table3.1-1.png" alt="More simple linear regression models for the Advertising data" width="65%" />
+<p class="caption">
+Figure 5.1: More simple linear regression models for the Advertising data
+</p>
+</div>
+<p>Coefficients of the least squares model for the regression of number of units sold on <code>TV</code> advertising budget. An increase of $1,000 in the <code>TV</code> advertising budget is associated with an increase in sales by around 50 units.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="img/86-Table3.3-1.png" alt="More simple linear regression models for the Advertising data" width="65%" />
+<p class="caption">
+Figure 5.2: More simple linear regression models for the Advertising data
+</p>
+</div>
+<p>Coefficients of the simple linear regression model for number of units sold on:</p>
+<ul>
+<li><p><strong>Top:</strong> <code>radio</code> advertising budget.</p></li>
+<li><p><strong>Bottom:</strong> <code>newspaper</code> advertising budget.</p></li>
+</ul>
+<p>A $1,000 increase in spending on <code>radio</code> advertising is associated with an average increase in sales by around 203 units, while the same increase in spending on <code>newspaper</code> advertising is associated with an average increase in sales by around 55 units.</p>
+<p>There is evidence of an extremely strong association between <code>TV</code> and <code>sales</code> and between <code>radio</code> and <code>sales</code>. There is evidence of a mild association between <code>newspaper</code> and <code>sales</code>, when the values of <code>TV</code> and <code>radio</code> are ignored.</p>
+<ol start="5" style="list-style-type: decimal">
+<li><strong><em>How accurately can we predict future sales?</em></strong></li>
+</ol>
+<p>The response can be predicted using:</p>
+<div class="formula">
+<p><span class="math display">\[
+\Large y = \hat{\beta_0} + \hat{\beta_1}x_1 + \hat{\beta_2}x_2 + · · · + \hat{\beta_0}x_p.
+\]</span></p>
+</div>
+<p>The accuracy associated with this estimate depends on whether we wish to predict an individual response, <span class="math inline">\(Y = f(X) + \epsilon\)</span>, or the average response, <span class="math inline">\(f(X)\)</span>. If the former, we use a prediction interval, and if the latter, we use a confidence interval. Prediction intervals will always be wider than confidence intervals because they account for the uncertainty associated with <span class="math inline">\(\epsilon\)</span>, the irreducible error.</p>
+<ol start="6" style="list-style-type: decimal">
+<li><strong><em>Is the relationship linear?</em></strong></li>
+</ol>
+<p>In previous section, we saw that residual plots can be used in order to
+identify non-linearity. If the relationships are linear, then the residual plots should display no pattern. In the case of the <code>Advertising</code> data, we observe a non-linear effect in Figure 3.5, though this effect could also be observed in a residual plot. We also discussed the inclusion of transformations of the predictors in the linear regression model in order to accommodate non-linear relationships.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="img/95-Figure3.5-1.png" alt="A linear regression fit to sales using TV and radio as predictors" width="65%" />
+<p class="caption">
+Figure 5.3: A linear regression fit to sales using TV and radio as predictors
+</p>
+</div>
+<p>From the pattern of the residuals, we can see that there is a pronounced non-linear relationship in the data. The positive residuals (those visible above the surface), tend to lie along the 45-degree line, where <code>TV</code> and <code>radio</code> budgets are split evenly. The negative residuals (most not visible), tend to lie away from this line, where budgets are more lopsided.</p>
+<ol start="7" style="list-style-type: decimal">
+<li><strong><em>Is there synergy among the advertising media?</em></strong></li>
+</ol>
+<p>The standard linear regression model assumes an additive relationship
+between the predictors and the response. An additive model is easy to interpret because the effect of each predictor on the response is unrelated to the values of the other predictors. However, the additive assumption may be unrealistic for certain data sets. A small p-value associated with the interaction term indicates the presence of such relationships.</p>
+<p>Figure 3.5 suggested that the <code>Advertising</code> data may not be additive. Including an interaction term in the model results in a substantial increase in R2, from around 90% to almost 97%.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="other-considerations-in-the-regression-model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ndleah/stat-learning/edit/main/linear-regression-marketing-cs.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

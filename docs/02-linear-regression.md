@@ -5,10 +5,7 @@ output:
     highlight: tango
 ---
 
-```{r setup, include = FALSE}
 
-knitr::opts_chunk$set(comment = "#>",collapse = TRUE)
-```
 
 # Linear Regression
 
@@ -552,7 +549,8 @@ Figure 3.5 suggested that the `Advertising` data may not be additive. Including 
 
 ## Chapter 3 Lab: Linear Regression
 
-```{r}
+
+```r
 library(MASS)
 library(ISLR)
 ```
@@ -561,90 +559,159 @@ library(ISLR)
 
 The Boston data set records `medv` (median house value) for 506 neighborhoods around Boston. We will seek to predict `medv` using 13 predictors such as `rm` (average number of rooms per house), `age` (average age of houses), and `lstat` (percent of households with low socioeconomic status).
 
-```{r}
+
+```r
 fix(Boston)
 names(Boston)
+#>  [1] "crim"    "zn"      "indus"   "chas"    "nox"     "rm"      "age"    
+#>  [8] "dis"     "rad"     "tax"     "ptratio" "black"   "lstat"   "medv"
 ```
 
 We will start by using the `lm()` function to fit a simple linear regression `lm()` model, with `medv` as the response and `lstat` as the predictor.
 
 
-```{r}
+
+```r
 lm.fit=lm(medv~lstat,Boston)
 lm.fit
+#> 
+#> Call:
+#> lm(formula = medv ~ lstat, data = Boston)
+#> 
+#> Coefficients:
+#> (Intercept)        lstat  
+#>       34.55        -0.95
 ```
 
 For more detailed information, we use `summary(lm.fit)`. This gives us p-values and standard errors for the coefficients, as well as the $R^2$ statistic and F-statistic for the model.
 
-```{r}
+
+```r
 summary(lm.fit)
+#> 
+#> Call:
+#> lm(formula = medv ~ lstat, data = Boston)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -15.168  -3.990  -1.318   2.034  24.500 
+#> 
+#> Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept) 34.55384    0.56263   61.41   <2e-16 ***
+#> lstat       -0.95005    0.03873  -24.53   <2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 6.216 on 504 degrees of freedom
+#> Multiple R-squared:  0.5441,	Adjusted R-squared:  0.5432 
+#> F-statistic: 601.6 on 1 and 504 DF,  p-value: < 2.2e-16
 ```
 
 We can use `names()` function in order to find out what other pieces of information are store in `lm.fit`.
 
-```{r}
+
+```r
 names(lm.fit)
+#>  [1] "coefficients"  "residuals"     "effects"       "rank"         
+#>  [5] "fitted.values" "assign"        "qr"            "df.residual"  
+#>  [9] "xlevels"       "call"          "terms"         "model"
 ```
 
 Assessing the coefficient of the model:
 
-```{r}
+
+```r
 coef(lm.fit)
+#> (Intercept)       lstat 
+#>  34.5538409  -0.9500494
 ```
 
 Assessing the confidence interval for the coefficient estimates:
 
-```{r}
+
+```r
 confint(lm.fit)
+#>                 2.5 %     97.5 %
+#> (Intercept) 33.448457 35.6592247
+#> lstat       -1.026148 -0.8739505
 ```
 
 To produce confidence interval an prediction intervals for the prediction of `medv` for a given value of `lstat`.
 
-```{r}
+
+```r
 predict(lm.fit,data.frame(lstat=(c(5,10,15))), interval="confidence")
+#>        fit      lwr      upr
+#> 1 29.80359 29.00741 30.59978
+#> 2 25.05335 24.47413 25.63256
+#> 3 20.30310 19.73159 20.87461
 ```
 
-```{r}
+
+```r
 predict(lm.fit,data.frame(lstat=(c(5,10,15))), interval="prediction")
+#>        fit       lwr      upr
+#> 1 29.80359 17.565675 42.04151
+#> 2 25.05335 12.827626 37.27907
+#> 3 20.30310  8.077742 32.52846
 ```
 
 
 We will now plot `medv` and `lstat` along with the least squares regression line using the `plot()` and `abline()` functions.
 
-```{r}
+
+```r
 attach(Boston)
 plot(lstat,medv)
 abline(lm.fit)
 ```
+
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 Next we examine some diagnostic plots, several of which were discussed. Four diagnostic plots are automatically produced by applying the `plot()` function directly to the output from `lm()`.
 
-```{r}
+
+```r
 par(mfrow=c(2,2))
 plot(lm.fit)
 ```
 
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
-```{r}
+
+
+```r
 plot(predict(lm.fit), residuals(lm.fit))
 ```
+
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 Alternatively, we can compute the residuals from a linear regression fit using the `residuals()` function. The function `rstudent()` will return the studentized residuals, and we can use this function to plot the residuals against the fitted values.
 
-```{r}
+
+```r
 plot(predict(lm.fit), rstudent(lm.fit))
 ```
+
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 On the basis of the residual plots, there is some evidence of non-linearity. Leverage statistics can be computed for any number of predictors using the `hatvalues()` function.
 
 
-```{r}
+
+```r
 plot(hatvalues(lm.fit))
 ```
+
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 
 The `which.max()` function identifies the index of the largest element of a `which.max()` vector. In this case, it tells us which observation has the largest leverage statistic.
 
-```{r}
+
+```r
 which.max(hatvalues(lm.fit))
+#> 375 
+#> 375
 ```
 
 
@@ -652,71 +719,279 @@ which.max(hatvalues(lm.fit))
 
 In order to fit a multiple linear regression model using least squares, we again use the `lm()` function. The syntax `lm(y ∼ x1 + x2 + x3)` is used to fit a model with three predictors, `x1`, `x2`, and `x3.` The `summary()` function now outputs the regression coefficients for all the predictors.
 
-```{r}
+
+```r
 lm.fit=lm(medv~lstat+age,data=Boston)
 summary(lm.fit)
+#> 
+#> Call:
+#> lm(formula = medv ~ lstat + age, data = Boston)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -15.981  -3.978  -1.283   1.968  23.158 
+#> 
+#> Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept) 33.22276    0.73085  45.458  < 2e-16 ***
+#> lstat       -1.03207    0.04819 -21.416  < 2e-16 ***
+#> age          0.03454    0.01223   2.826  0.00491 ** 
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 6.173 on 503 degrees of freedom
+#> Multiple R-squared:  0.5513,	Adjusted R-squared:  0.5495 
+#> F-statistic:   309 on 2 and 503 DF,  p-value: < 2.2e-16
 ```
 
 To perform a regression using all of the predictors, we can use:
-```{r}
+
+```r
 lm.fit <- lm(medv ~., data = Boston)
 summary(lm.fit)
+#> 
+#> Call:
+#> lm(formula = medv ~ ., data = Boston)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -15.595  -2.730  -0.518   1.777  26.199 
+#> 
+#> Coefficients:
+#>               Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)  3.646e+01  5.103e+00   7.144 3.28e-12 ***
+#> crim        -1.080e-01  3.286e-02  -3.287 0.001087 ** 
+#> zn           4.642e-02  1.373e-02   3.382 0.000778 ***
+#> indus        2.056e-02  6.150e-02   0.334 0.738288    
+#> chas         2.687e+00  8.616e-01   3.118 0.001925 ** 
+#> nox         -1.777e+01  3.820e+00  -4.651 4.25e-06 ***
+#> rm           3.810e+00  4.179e-01   9.116  < 2e-16 ***
+#> age          6.922e-04  1.321e-02   0.052 0.958229    
+#> dis         -1.476e+00  1.995e-01  -7.398 6.01e-13 ***
+#> rad          3.060e-01  6.635e-02   4.613 5.07e-06 ***
+#> tax         -1.233e-02  3.760e-03  -3.280 0.001112 ** 
+#> ptratio     -9.527e-01  1.308e-01  -7.283 1.31e-12 ***
+#> black        9.312e-03  2.686e-03   3.467 0.000573 ***
+#> lstat       -5.248e-01  5.072e-02 -10.347  < 2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 4.745 on 492 degrees of freedom
+#> Multiple R-squared:  0.7406,	Adjusted R-squared:  0.7338 
+#> F-statistic: 108.1 on 13 and 492 DF,  p-value: < 2.2e-16
 ```
 
 To perform a regression using all of the variables but one, we can use:
-```{r}
+
+```r
 lm.fit1 <- lm(medv ~. -age, data = Boston)
 summary(lm.fit1)
+#> 
+#> Call:
+#> lm(formula = medv ~ . - age, data = Boston)
+#> 
+#> Residuals:
+#>      Min       1Q   Median       3Q      Max 
+#> -15.6054  -2.7313  -0.5188   1.7601  26.2243 
+#> 
+#> Coefficients:
+#>               Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)  36.436927   5.080119   7.172 2.72e-12 ***
+#> crim         -0.108006   0.032832  -3.290 0.001075 ** 
+#> zn            0.046334   0.013613   3.404 0.000719 ***
+#> indus         0.020562   0.061433   0.335 0.737989    
+#> chas          2.689026   0.859598   3.128 0.001863 ** 
+#> nox         -17.713540   3.679308  -4.814 1.97e-06 ***
+#> rm            3.814394   0.408480   9.338  < 2e-16 ***
+#> dis          -1.478612   0.190611  -7.757 5.03e-14 ***
+#> rad           0.305786   0.066089   4.627 4.75e-06 ***
+#> tax          -0.012329   0.003755  -3.283 0.001099 ** 
+#> ptratio      -0.952211   0.130294  -7.308 1.10e-12 ***
+#> black         0.009321   0.002678   3.481 0.000544 ***
+#> lstat        -0.523852   0.047625 -10.999  < 2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 4.74 on 493 degrees of freedom
+#> Multiple R-squared:  0.7406,	Adjusted R-squared:  0.7343 
+#> F-statistic: 117.3 on 12 and 493 DF,  p-value: < 2.2e-16
 ```
 or Alternatively, the `update()` function can be used:
-```{r}
+
+```r
 lm.fit1 <- update(lm.fit,~. -age)
 summary(lm.fit1)
+#> 
+#> Call:
+#> lm(formula = medv ~ crim + zn + indus + chas + nox + rm + dis + 
+#>     rad + tax + ptratio + black + lstat, data = Boston)
+#> 
+#> Residuals:
+#>      Min       1Q   Median       3Q      Max 
+#> -15.6054  -2.7313  -0.5188   1.7601  26.2243 
+#> 
+#> Coefficients:
+#>               Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)  36.436927   5.080119   7.172 2.72e-12 ***
+#> crim         -0.108006   0.032832  -3.290 0.001075 ** 
+#> zn            0.046334   0.013613   3.404 0.000719 ***
+#> indus         0.020562   0.061433   0.335 0.737989    
+#> chas          2.689026   0.859598   3.128 0.001863 ** 
+#> nox         -17.713540   3.679308  -4.814 1.97e-06 ***
+#> rm            3.814394   0.408480   9.338  < 2e-16 ***
+#> dis          -1.478612   0.190611  -7.757 5.03e-14 ***
+#> rad           0.305786   0.066089   4.627 4.75e-06 ***
+#> tax          -0.012329   0.003755  -3.283 0.001099 ** 
+#> ptratio      -0.952211   0.130294  -7.308 1.10e-12 ***
+#> black         0.009321   0.002678   3.481 0.000544 ***
+#> lstat        -0.523852   0.047625 -10.999  < 2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 4.74 on 493 degrees of freedom
+#> Multiple R-squared:  0.7406,	Adjusted R-squared:  0.7343 
+#> F-statistic: 117.3 on 12 and 493 DF,  p-value: < 2.2e-16
 ```
 
 ### Interaction Terms
 
-```{r}
+
+```r
 summary(lm(medv~lstat*age,data=Boston))
+#> 
+#> Call:
+#> lm(formula = medv ~ lstat * age, data = Boston)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -15.806  -4.045  -1.333   2.085  27.552 
+#> 
+#> Coefficients:
+#>               Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept) 36.0885359  1.4698355  24.553  < 2e-16 ***
+#> lstat       -1.3921168  0.1674555  -8.313 8.78e-16 ***
+#> age         -0.0007209  0.0198792  -0.036   0.9711    
+#> lstat:age    0.0041560  0.0018518   2.244   0.0252 *  
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 6.149 on 502 degrees of freedom
+#> Multiple R-squared:  0.5557,	Adjusted R-squared:  0.5531 
+#> F-statistic: 209.3 on 3 and 502 DF,  p-value: < 2.2e-16
 ```
 
 
 ### Non-linear Transformations of the Predictors
 
 The `lm()` function can also accommodate non-linear transformations of the predictors. For instance, given a predictor $X$, we can create a predictor $X^2$ using `I(X^2)`. We now perform a regression of `medv` onto `lstat` and `lstat2`.
-```{r}
+
+```r
 lm.fit2=lm(medv~lstat+I(lstat^2))
 summary(lm.fit2)
+#> 
+#> Call:
+#> lm(formula = medv ~ lstat + I(lstat^2))
+#> 
+#> Residuals:
+#>      Min       1Q   Median       3Q      Max 
+#> -15.2834  -3.8313  -0.5295   2.3095  25.4148 
+#> 
+#> Coefficients:
+#>              Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept) 42.862007   0.872084   49.15   <2e-16 ***
+#> lstat       -2.332821   0.123803  -18.84   <2e-16 ***
+#> I(lstat^2)   0.043547   0.003745   11.63   <2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 5.524 on 503 degrees of freedom
+#> Multiple R-squared:  0.6407,	Adjusted R-squared:  0.6393 
+#> F-statistic: 448.5 on 2 and 503 DF,  p-value: < 2.2e-16
 ```
 
 We use the `anova()` function to further quantify the extent to which the quadratic fit is superior to the linear fit. 
-```{r}
+
+```r
 lm.fit=lm(medv~lstat)
 anova(lm.fit,lm.fit2)
+#> Analysis of Variance Table
+#> 
+#> Model 1: medv ~ lstat
+#> Model 2: medv ~ lstat + I(lstat^2)
+#>   Res.Df   RSS Df Sum of Sq     F    Pr(>F)    
+#> 1    504 19472                                 
+#> 2    503 15347  1    4125.1 135.2 < 2.2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 Here **Model 1** represents the linear submodel containing only one predictor, `lstat`, while **Model 2** corresponds to the larger quadratic model that has two predictors, `lstat` and `lstat2`. 
 
 The `anova()` function performs a hypothesis test comparing the two models. The null hypothesis is that the two models fit the data equally well, and the alternative hypothesis is that the full model is superior. Here the F-statistic is 135 and the associated p-value is virtually zero. This provides very clear evidence that the model containing the predictors `lstat` and `lstat2` is far superior to the model that only contains the predictor `lstat`. This is not surprising, since earlier we saw evidence for non-linearity in the relationship between `medv` and `lstat`. If we type
 
-```{r}
+
+```r
 par(mfrow=c(2,2))
 plot(lm.fit2)
 ```
+
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
 then we see that when the `lstat2` term is included in the model, there is little discernible pattern in the residuals.
 
 A better approach involves using the `poly()` function to create the polynomial within `lm()`. For example, the following command produces a fifth-order polynomial fit:
 
-```{r}
+
+```r
 lm.fit5=lm(medv~poly(lstat,5))
 summary(lm.fit5)
+#> 
+#> Call:
+#> lm(formula = medv ~ poly(lstat, 5))
+#> 
+#> Residuals:
+#>      Min       1Q   Median       3Q      Max 
+#> -13.5433  -3.1039  -0.7052   2.0844  27.1153 
+#> 
+#> Coefficients:
+#>                  Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)       22.5328     0.2318  97.197  < 2e-16 ***
+#> poly(lstat, 5)1 -152.4595     5.2148 -29.236  < 2e-16 ***
+#> poly(lstat, 5)2   64.2272     5.2148  12.316  < 2e-16 ***
+#> poly(lstat, 5)3  -27.0511     5.2148  -5.187 3.10e-07 ***
+#> poly(lstat, 5)4   25.4517     5.2148   4.881 1.42e-06 ***
+#> poly(lstat, 5)5  -19.2524     5.2148  -3.692 0.000247 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 5.215 on 500 degrees of freedom
+#> Multiple R-squared:  0.6817,	Adjusted R-squared:  0.6785 
+#> F-statistic: 214.2 on 5 and 500 DF,  p-value: < 2.2e-16
 ```
 This suggests that including additional polynomial terms, up to fifth order, leads to an improvement in the model fit! However, further investigation of the data reveals that no polynomial terms beyond fifth order have significant p-values in a regression fit.
 
 Of course, we are in no way restricted to using polynomial transformations of the predictors. Here we try a log transformation.
 
-```{r}
+
+```r
 summary(lm(medv~log(rm),data=Boston))
+#> 
+#> Call:
+#> lm(formula = medv ~ log(rm), data = Boston)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -19.487  -2.875  -0.104   2.837  39.816 
+#> 
+#> Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)  -76.488      5.028  -15.21   <2e-16 ***
+#> log(rm)       54.055      2.739   19.73   <2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 6.915 on 504 degrees of freedom
+#> Multiple R-squared:  0.4358,	Adjusted R-squared:  0.4347 
+#> F-statistic: 389.3 on 1 and 504 DF,  p-value: < 2.2e-16
 ```
 
 
@@ -724,8 +999,23 @@ summary(lm(medv~log(rm),data=Boston))
 
 We will now examine the `Carseats` data, which is part of the `ISLR2` library. We will attempt to predict Sales (child car seat sales) in 400 locations based on a number of predictors.
 
-```{r}
+
+```r
 head(Carseats)
+#>   Sales CompPrice Income Advertising Population Price ShelveLoc Age Education
+#> 1  9.50       138     73          11        276   120       Bad  42        17
+#> 2 11.22       111     48          16        260    83      Good  65        10
+#> 3 10.06       113     35          10        269    80    Medium  59        12
+#> 4  7.40       117    100           4        466    97    Medium  55        14
+#> 5  4.15       141     64           3        340   128       Bad  38        13
+#> 6 10.81       124    113          13        501    72       Bad  78        16
+#>   Urban  US
+#> 1   Yes Yes
+#> 2   Yes Yes
+#> 3   Yes Yes
+#> 4   Yes Yes
+#> 5   Yes  No
+#> 6    No Yes
 ```
 
 The `Carseats` data includes qualitative predictors such as `Shelveloc`, an indicator
@@ -733,15 +1023,51 @@ of the quality of the shelving location—that is, the space within a store in w
 
 The predictor Shelveloc takes on three possible values: *Bad*, *Medium*, and *Good*. Given a qualitative variable such as `Shelveloc`, R generates dummy variables automatically. Below we fit a multiple regression model that includes some interaction terms.
 
-```{r}
+
+```r
 lm.fit=lm(Sales~.+Income:Advertising+Price:Age,data=Carseats)
 summary(lm.fit)
+#> 
+#> Call:
+#> lm(formula = Sales ~ . + Income:Advertising + Price:Age, data = Carseats)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -2.9208 -0.7503  0.0177  0.6754  3.3413 
+#> 
+#> Coefficients:
+#>                      Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)         6.5755654  1.0087470   6.519 2.22e-10 ***
+#> CompPrice           0.0929371  0.0041183  22.567  < 2e-16 ***
+#> Income              0.0108940  0.0026044   4.183 3.57e-05 ***
+#> Advertising         0.0702462  0.0226091   3.107 0.002030 ** 
+#> Population          0.0001592  0.0003679   0.433 0.665330    
+#> Price              -0.1008064  0.0074399 -13.549  < 2e-16 ***
+#> ShelveLocGood       4.8486762  0.1528378  31.724  < 2e-16 ***
+#> ShelveLocMedium     1.9532620  0.1257682  15.531  < 2e-16 ***
+#> Age                -0.0579466  0.0159506  -3.633 0.000318 ***
+#> Education          -0.0208525  0.0196131  -1.063 0.288361    
+#> UrbanYes            0.1401597  0.1124019   1.247 0.213171    
+#> USYes              -0.1575571  0.1489234  -1.058 0.290729    
+#> Income:Advertising  0.0007510  0.0002784   2.698 0.007290 ** 
+#> Price:Age           0.0001068  0.0001333   0.801 0.423812    
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 1.011 on 386 degrees of freedom
+#> Multiple R-squared:  0.8761,	Adjusted R-squared:  0.8719 
+#> F-statistic:   210 on 13 and 386 DF,  p-value: < 2.2e-16
 ```
 
 The contrasts() function returns the coding that R uses for the dummy `contrasts()` variables.
-```{r}
+
+```r
 attach(Carseats)
 contrasts(ShelveLoc)
+#>        Good Medium
+#> Bad       0      0
+#> Good      1      0
+#> Medium    0      1
 ```
 R has created a `ShelveLocGood` dummy variable that takes on a value of 1 if the shelving location is good, and 0 otherwise. It has also created a `ShelveLocMedium` dummy variable that equals 1 if the shelving location is medium, and 0 otherwise. A bad shelving location corresponds to a zero for each of the two dummy variables. 
 
@@ -753,7 +1079,8 @@ location but lower sales than a good shelving location.
 
 In order to write our own function, for instance, below we provide a simple function that reads in the `ISLR2` and `MASS` libraries, called
 `LoadLibraries()`. 
-```{r}
+
+```r
 #create the function
 LoadLibraries=function(){
  library(ISLR)
@@ -763,6 +1090,7 @@ LoadLibraries=function(){
 
 # execute the function
 LoadLibraries()
+#> [1] "The libraries have been loaded."
 ```
 
 ## Exercises (Applied)
@@ -773,9 +1101,28 @@ This question involves the use of simple linear regression on the `Auto` data se
 
 #### (a) Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output. {-}
 
-```{r}
+
+```r
 mpg.fit <- lm(mpg ~ horsepower, data = Auto)
 summary(mpg.fit)
+#> 
+#> Call:
+#> lm(formula = mpg ~ horsepower, data = Auto)
+#> 
+#> Residuals:
+#>      Min       1Q   Median       3Q      Max 
+#> -13.5710  -3.2592  -0.3435   2.7630  16.9240 
+#> 
+#> Coefficients:
+#>              Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept) 39.935861   0.717499   55.66   <2e-16 ***
+#> horsepower  -0.157845   0.006446  -24.49   <2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 4.906 on 390 degrees of freedom
+#> Multiple R-squared:  0.6059,	Adjusted R-squared:  0.6049 
+#> F-statistic: 599.7 on 1 and 390 DF,  p-value: < 2.2e-16
 ```
 
 In order to interpret the result, a set of following questions are set up to better investigate the model:
@@ -796,27 +1143,36 @@ There are 2 measures of model accuracy to evaluate the degree of relationship be
 
 For the `Auto` data, the RSE is:
 
-```{r}
+
+```r
 summary(mpg.fit)$sigma
+#> [1] 4.905757
 ```
 The RSE is different (good or bad) in the sense that it takes on the units of y, but we can divide this by mean y to get the **percentage error**:
 
-```{r}
+
+```r
 summary(mpg.fit)$sigma/mean(Auto$mpg)
+#> [1] 0.2092371
 ```
 So the percentage error = 20.92%.
 
 Second, the $R^2$ of the linear model, which can be thought of as “the percentage of variability in the response that is explained by the predictor”, is given by:
 
-```{r}
+
+```r
 summary(mpg.fit)$r.squared
+#> [1] 0.6059483
 ```
 So the `horsepower` explains 60.59% of the variance in `mpg`.
 
 ##### iii. *Is the relationship between the predictor and the response positive or negative?* {-}
 
-```{r}
+
+```r
 coefficients(mpg.fit)
+#> (Intercept)  horsepower 
+#>  39.9358610  -0.1578447
 ```
 
 The relationship is negative between `mpg` and `horsepower` as the coefficient estimate is -0.1578447.
@@ -824,28 +1180,40 @@ The relationship is negative between `mpg` and `horsepower` as the coefficient e
 ##### iv. *What is the predicted `mpg` associated with a `horsepower` of 98? What are the associated 95% confidence and prediction intervals?* {-}
 
 The confidence interval:
-```{r}
+
+```r
 predict(mpg.fit, data.frame(horsepower = 98), interval = "confidence", level = 0.95)
+#>        fit      lwr      upr
+#> 1 24.46708 23.97308 24.96108
 ```
 The prediction interval:
-```{r}
+
+```r
 predict(mpg.fit, data.frame(horsepower = 98), interval = "prediction", level = 0.95)
+#>        fit     lwr      upr
+#> 1 24.46708 14.8094 34.12476
 ```
 The prediction interval is wider than the confidence interval as we would expect.
 
 #### (b) Plot the response and the predictor. Use the `abline()` function to display the least squares regression line. {-}
 
-```{r}
+
+```r
 plot(Auto$horsepower,Auto$mpg,xlab = "horsepower", ylab = "mpg",main = "Scatterplot of mpg vs. horsepower")
 abline(mpg.fit,col="red")
 ```
 
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-37-1.png" width="672" />
+
 #### (c) Use the `plot()` function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit. {-}
 
-```{r}
+
+```r
 par(mfrow=c(2,2))
 plot(mpg.fit)
 ```
+
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-38-1.png" width="672" />
 
 The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:
 
@@ -879,25 +1247,75 @@ This question involves the use of multiple linear regression on the `Auto` data 
 
 #### (a) Produce a scatterplot matrix which includes all of the variables in the data set. {-}
 
-```{r}
+
+```r
 pairs(Auto)
 ```
 
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-39-1.png" width="672" />
+
 #### (b) Compute the matrix of correlations between the variables using the function `cor()`. You will need to exclude the “name” variable, which is qualitative. {-}
 
-```{r}
+
+```r
 names(Auto)
+#> [1] "mpg"          "cylinders"    "displacement" "horsepower"   "weight"      
+#> [6] "acceleration" "year"         "origin"       "name"
 ```
 
-```{r}
+
+```r
 cor(Auto[-9])
+#>                     mpg  cylinders displacement horsepower     weight
+#> mpg           1.0000000 -0.7776175   -0.8051269 -0.7784268 -0.8322442
+#> cylinders    -0.7776175  1.0000000    0.9508233  0.8429834  0.8975273
+#> displacement -0.8051269  0.9508233    1.0000000  0.8972570  0.9329944
+#> horsepower   -0.7784268  0.8429834    0.8972570  1.0000000  0.8645377
+#> weight       -0.8322442  0.8975273    0.9329944  0.8645377  1.0000000
+#> acceleration  0.4233285 -0.5046834   -0.5438005 -0.6891955 -0.4168392
+#> year          0.5805410 -0.3456474   -0.3698552 -0.4163615 -0.3091199
+#> origin        0.5652088 -0.5689316   -0.6145351 -0.4551715 -0.5850054
+#>              acceleration       year     origin
+#> mpg             0.4233285  0.5805410  0.5652088
+#> cylinders      -0.5046834 -0.3456474 -0.5689316
+#> displacement   -0.5438005 -0.3698552 -0.6145351
+#> horsepower     -0.6891955 -0.4163615 -0.4551715
+#> weight         -0.4168392 -0.3091199 -0.5850054
+#> acceleration    1.0000000  0.2903161  0.2127458
+#> year            0.2903161  1.0000000  0.1815277
+#> origin          0.2127458  0.1815277  1.0000000
 ```
 
 #### (c) Use the `lm()` function to perform a multiple linear regression with `mpg` as the response and all other variables except “name” as the predictors. Use the `summary()` function to print the results. Comment on the output. {-}
 
-```{r}
+
+```r
 mpg.fit2 <- lm(mpg ~. -name, data=Auto)
 summary(mpg.fit2)
+#> 
+#> Call:
+#> lm(formula = mpg ~ . - name, data = Auto)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -9.5903 -2.1565 -0.1169  1.8690 13.0604 
+#> 
+#> Coefficients:
+#>                Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)  -17.218435   4.644294  -3.707  0.00024 ***
+#> cylinders     -0.493376   0.323282  -1.526  0.12780    
+#> displacement   0.019896   0.007515   2.647  0.00844 ** 
+#> horsepower    -0.016951   0.013787  -1.230  0.21963    
+#> weight        -0.006474   0.000652  -9.929  < 2e-16 ***
+#> acceleration   0.080576   0.098845   0.815  0.41548    
+#> year           0.750773   0.050973  14.729  < 2e-16 ***
+#> origin         1.426141   0.278136   5.127 4.67e-07 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 3.328 on 384 degrees of freedom
+#> Multiple R-squared:  0.8215,	Adjusted R-squared:  0.8182 
+#> F-statistic: 252.4 on 7 and 384 DF,  p-value: < 2.2e-16
 ```
 
 ##### i. Is there a relationship between the predictors and the response? {-}
@@ -921,8 +1339,11 @@ We can answer this question by checking the p-values associated with each predic
 
 ##### iii. What does the coefficient for the `year` variable suggest? {-}
 
-```{r}
+
+```r
 coef(mpg.fit2)[7]
+#>      year 
+#> 0.7507727
 ```
 
 
@@ -930,10 +1351,13 @@ The coefficient ot the `year` variable suggests that the average effect of an in
 
 #### (d) Use the `plot()` function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit. {-}
 
-```{r}
+
+```r
 par(mfrow=c(2,2))
 plot(mpg.fit2)
 ```
+
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-44-1.png" width="672" />
 
 ###### **(i) Residuals vs Fitted** {-}
 
@@ -962,9 +1386,55 @@ We can see some evidence of observations (e.g. 14) with both high leverage and h
 
 Since we have relatively few predictors, we can test all interactions with `mpg ~ . * .` in the call to `lm()`:
 
-```{r}
+
+```r
 mpg.fit3 <- lm(mpg ~.* ., data=Auto[,-9]) 
 summary(mpg.fit3)
+#> 
+#> Call:
+#> lm(formula = mpg ~ . * ., data = Auto[, -9])
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -7.6303 -1.4481  0.0596  1.2739 11.1386 
+#> 
+#> Coefficients:
+#>                             Estimate Std. Error t value Pr(>|t|)   
+#> (Intercept)                3.548e+01  5.314e+01   0.668  0.50475   
+#> cylinders                  6.989e+00  8.248e+00   0.847  0.39738   
+#> displacement              -4.785e-01  1.894e-01  -2.527  0.01192 * 
+#> horsepower                 5.034e-01  3.470e-01   1.451  0.14769   
+#> weight                     4.133e-03  1.759e-02   0.235  0.81442   
+#> acceleration              -5.859e+00  2.174e+00  -2.696  0.00735 **
+#> year                       6.974e-01  6.097e-01   1.144  0.25340   
+#> origin                    -2.090e+01  7.097e+00  -2.944  0.00345 **
+#> cylinders:displacement    -3.383e-03  6.455e-03  -0.524  0.60051   
+#> cylinders:horsepower       1.161e-02  2.420e-02   0.480  0.63157   
+#> cylinders:weight           3.575e-04  8.955e-04   0.399  0.69000   
+#> cylinders:acceleration     2.779e-01  1.664e-01   1.670  0.09584 . 
+#> cylinders:year            -1.741e-01  9.714e-02  -1.793  0.07389 . 
+#> cylinders:origin           4.022e-01  4.926e-01   0.816  0.41482   
+#> displacement:horsepower   -8.491e-05  2.885e-04  -0.294  0.76867   
+#> displacement:weight        2.472e-05  1.470e-05   1.682  0.09342 . 
+#> displacement:acceleration -3.479e-03  3.342e-03  -1.041  0.29853   
+#> displacement:year          5.934e-03  2.391e-03   2.482  0.01352 * 
+#> displacement:origin        2.398e-02  1.947e-02   1.232  0.21875   
+#> horsepower:weight         -1.968e-05  2.924e-05  -0.673  0.50124   
+#> horsepower:acceleration   -7.213e-03  3.719e-03  -1.939  0.05325 . 
+#> horsepower:year           -5.838e-03  3.938e-03  -1.482  0.13916   
+#> horsepower:origin          2.233e-03  2.930e-02   0.076  0.93931   
+#> weight:acceleration        2.346e-04  2.289e-04   1.025  0.30596   
+#> weight:year               -2.245e-04  2.127e-04  -1.056  0.29182   
+#> weight:origin             -5.789e-04  1.591e-03  -0.364  0.71623   
+#> acceleration:year          5.562e-02  2.558e-02   2.174  0.03033 * 
+#> acceleration:origin        4.583e-01  1.567e-01   2.926  0.00365 **
+#> year:origin                1.393e-01  7.399e-02   1.882  0.06062 . 
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 2.695 on 363 degrees of freedom
+#> Multiple R-squared:  0.8893,	Adjusted R-squared:  0.8808 
+#> F-statistic: 104.2 on 28 and 363 DF,  p-value: < 2.2e-16
 ```
 We can see the significant terms (at the 0.05 level) are those with at least one asterisk (*). It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.
 
@@ -975,12 +1445,15 @@ Using the standard threshold of 0.05, the significant interaction terms are give
 
 #### Try a few different transformations of the variables, such as $log(X)$, $\sqrt{X}$, $X^2$. Comment on your findings. {-}
 
-```{r}
+
+```r
 par(mfrow = c(2, 2))
 plot(log(Auto$horsepower), Auto$mpg, xlab= "log(horsepower)", ylab = "mpg", main="Log Tranformation")
 plot(sqrt(Auto$horsepower), Auto$mpg, xlab= "sqrt(horsepower)", ylab = "mpg", main="Square Root Transformation")
 plot((Auto$horsepower)^2, Auto$mpg, xlab= "horsepower", ylab = "mpg", main="X^2 Transformation")
 ```
+
+<img src="02-linear-regression_files/figure-html/unnamed-chunk-46-1.png" width="672" />
 
 We limit ourselves to examining `horsepower` as sole predictor. It seems that the log transformation gives the most linear looking plot.
 

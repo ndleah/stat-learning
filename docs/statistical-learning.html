@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Statistical Learning | _main.knit</title>
+  <title>Chapter 2 Statistical Learning | _main</title>
   <meta name="description" content="Notes and exercise attempts for “An Introduction to Statistical Learning”" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Statistical Learning | _main.knit" />
+  <meta property="og:title" content="Chapter 2 Statistical Learning | _main" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ndleah.github.io/stat-learning/" />
   <meta property="og:image" content="https://ndleah.github.io/stat-learning/images/logo-black.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ndleah/stat_learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Statistical Learning | _main.knit" />
+  <meta name="twitter:title" content="Chapter 2 Statistical Learning | _main" />
   
   <meta name="twitter:description" content="Notes and exercise attempts for “An Introduction to Statistical Learning”" />
   <meta name="twitter:image" content="https://ndleah.github.io/stat-learning/images/logo-black.png" />
@@ -31,7 +31,7 @@
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="index.html"/>
 <link rel="next" href="linear-regression.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -117,28 +117,6 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -201,25 +179,6 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="linear-regression.html"><a href="linear-regression.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
-<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
-<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
-<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/ndleah/stat-learning" target="blank">Published with bookdown</a></li>
 
@@ -242,6 +201,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="statistical-learning" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Statistical Learning</h1>
+<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
 <div id="what-is-statistical-learning" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> What is Statistical Learning?</h2>
 <p>There are 2 types of statistical learning: <em>supervised</em> and <em>unsupervised</em>:</p>
@@ -252,7 +212,7 @@ div.csl-indent {
 <p>In statistical learning, <em><strong>input variables</strong></em> <span class="math inline">\((X_{n})\)</span> are typically denoted by <em>features</em>, <em>predictors</em>, <em>indepedent variables</em> or <em>variables</em> while <em><strong>output variable</strong></em> <span class="math inline">\((Y)\)</span> often called <em>dependent variable</em> or <em>response</em>.</p>
 <p>To assess the relationship between predictors <span class="math inline">\(X_{1}, X_{2}, ...,X_{p}\)</span>, we have the equation as following:</p>
 <p><span class="math display">\[
-Y=f(X) + \epsilon
+\Large Y=f(X) + \epsilon
 \]</span></p>
 <p>Whereas:</p>
 <ul>
@@ -301,29 +261,25 @@ Y=f(X) + \epsilon
 </ol>
 <p>Potential disadvantages of parametric methods is that the model will not usually match the true <span class="math inline">\(f\)</span>. This can be avoid by choosing a more <em>flexible</em> models that can fit many possible functions for <span class="math inline">\(f\)</span> forms and usually require greater number of parameters.</p>
 <div class="tip">
-<p>Example fitting models for parametric methods (linear): <strong>Odirnary Least Squares (OLS), Lasso.</strong></p>
+<p>Example fitting models for parametric methods (linear): <strong>Ordinary Least Squares (OLS), Lasso.</strong></p>
 </div>
 </div>
 <div id="non-parametric-methods" class="section level4" number="2.1.2.2">
 <h4><span class="header-section-number">2.1.2.2</span> Non-Parametric Methods</h4>
 <p>Non-parametric methods (model-free approach) seek an estimate of <span class="math inline">\(f\)</span> without make explicit assumptions about the functional form of of <span class="math inline">\(f\)</span>. Major disadvantages of this approach is that a very large number of observations is required in order to obtain an accurate estimate for <span class="math inline">\(f\)</span>.</p>
-<div class="alert alert-info hints-alert">
-<div class="hints-icon">
-<i class="fa fa-info"></i>
-</div>
-<div class="hints-container">
-Example fitting models for non-parametric methods: <em><strong>smooth thin-plate spline fit</strong></em> and <em><strong>rough thin-plate spline fit</strong></em><strong>.</strong>
-</div>
+<div class="puzzle">
+<p>Example fitting models for non-parametric methods: <em><strong>smooth thin-plate spline fit</strong></em> and <em><strong>rough thin-plate spline fit</strong></em><strong>.</strong></p>
 </div>
 </div>
 </div>
 <div id="the-tradeoff-between-prediction-accuracy-and-model-interpretability" class="section level3" number="2.1.3">
 <h3><span class="header-section-number">2.1.3</span> The Tradeoff Between Prediction Accuracy and Model Interpretability</h3>
-<div class="figure">
-<img src="img/xkcd-interpretability-vs-flexibility.png" alt="" />
-<p class="caption">Figure 1. Tradeoff Between Prediction Accuracy and Model Interpretability</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="img/xkcd-interpretability-vs-flexibility.png" alt="Tradeoff Between Prediction Accuracy and Model Interpretability" width="1264" />
+<p class="caption">
+Figure 2.1: Tradeoff Between Prediction Accuracy and Model Interpretability
+</p>
 </div>
-<p>Figure 1 illustrates the tradeoff between flexibility and interpretability of using different statistical learning methods. In general, as the flexibility increase, the interpretability decreases.</p>
 <p><strong>Why would we ever choose to use a more restrictive method instead of a very flexible approach?</strong> </p>
 <p>If we are mainly interested in the interpretability of the model, we would rather use a more flexible model. This is because the flexibility of the model is usually better than the interpretability of the model. </p>
 <p>In contrast, if we are interested in the prediction accuracy of the model, we would rather use a more restrictive model. This is because the flexibility of the model is usually better than the prediction accuracy of the model.</p>

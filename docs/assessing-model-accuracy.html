@@ -4,42 +4,34 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Assessing Model Accuracy | A Minimal Book Example</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <title>Section 2 Assessing Model Accuracy | _main</title>
+  <meta name="description" content="A work-in-progress" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Assessing Model Accuracy | A Minimal Book Example" />
+  <meta property="og:title" content="Section 2 Assessing Model Accuracy | _main" />
   <meta property="og:type" content="book" />
-  
-  
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
+  <meta property="og:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/logo.png" />
+  <meta property="og:description" content="A work-in-progress" />
+  <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Assessing Model Accuracy | A Minimal Book Example" />
+  <meta name="twitter:title" content="Section 2 Assessing Model Accuracy | _main" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
-  
-
-<meta name="author" content="John Doe" />
+  <meta name="twitter:description" content="A work-in-progress" />
+  <meta name="twitter:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/logo.png" />
 
 
-<meta name="date" content="2021-11-22" />
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="cross.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<link rel="prev" href="what-is-statistical-learning.html"/>
+<link rel="next" href="simple-linear-regression.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -61,29 +53,70 @@ set in the _output.yml file.</p>" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-
 <style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -98,56 +131,115 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like <span>https://bookdown.org/yihui/bookdown</span></a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>INTRODUCTION</a></li>
+<li class="part"><span><b>I STATISTICAL LEARNING</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html"><i class="fa fa-check"></i><b>1</b> What is Statistical Learning?</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#what-is-statistical-learning"><i class="fa fa-check"></i><b>1.4</b> What is Statistical Learning?</a>
+<li class="chapter" data-level="1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#why-estimate-f"><i class="fa fa-check"></i><b>1.1</b> Why Estimate f?</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#why-estimate-f"><i class="fa fa-check"></i><b>1.4.1</b> Why Estimate f?</a></li>
-<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#inference"><i class="fa fa-check"></i><b>1.4.2</b> Inference</a></li>
-<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>1.4.3</b> How Do We Estimate f?</a></li>
-<li class="chapter" data-level="1.4.4" data-path="index.html"><a href="index.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>1.4.4</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
-<li class="chapter" data-level="1.4.5" data-path="index.html"><a href="index.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>1.4.5</b> Supervised Vs. Unsupervised Learning</a></li>
-<li class="chapter" data-level="1.4.6" data-path="index.html"><a href="index.html#regression-vs.-classification"><i class="fa fa-check"></i><b>1.4.6</b> Regression Vs. Classification</a></li>
+<li class="chapter" data-level="1.1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>1.1.1</b> Prediction</a></li>
 </ul></li>
+<li class="chapter" data-level="1.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>1.2</b> How Do We Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#parametric-methods"><i class="fa fa-check"></i><b>1.2.1</b> Parametric Methods</a></li>
+<li class="chapter" data-level="1.2.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#non-parametric-methods"><i class="fa fa-check"></i><b>1.2.2</b> Non-Parametric Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>1.3</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
+<li class="chapter" data-level="1.4" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>1.4</b> Supervised Vs. Unsupervised Learning</a></li>
+<li class="chapter" data-level="1.5" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#regression-vs.-classification"><i class="fa fa-check"></i><b>1.5</b> Regression Vs. Classification</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html"><i class="fa fa-check"></i><b>2</b> Assessing Model Accuracy</a>
 <ul>
-<li class="chapter" data-level="2.0.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-regression-setting"><i class="fa fa-check"></i><b>2.0.1</b> The Regression Setting</a></li>
-<li class="chapter" data-level="2.0.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>2.0.2</b> The Bias-Variance Trade-Off</a></li>
-<li class="chapter" data-level="2.0.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-classification-setting"><i class="fa fa-check"></i><b>2.0.3</b> The Classification Setting</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Cross-references</a>
+<li class="chapter" data-level="2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-regression-setting"><i class="fa fa-check"></i><b>2.1</b> The Regression Setting</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>3.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>3.2</b> Captioned figures and tables</a></li>
+<li class="chapter" data-level="2.1.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#measuring-the-quality-of-fit"><i class="fa fa-check"></i><b>2.1.1</b> Measuring the Quality of fit</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
-<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<li class="chapter" data-level="2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>2.2</b> The Bias-Variance Trade-Off</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
-<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+<li class="chapter" data-level="2.2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#variance-error"><i class="fa fa-check"></i><b>2.2.1</b> Variance Error</a></li>
+<li class="chapter" data-level="2.2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-error"><i class="fa fa-check"></i><b>2.2.2</b> Bias Error</a></li>
+<li class="chapter" data-level="2.2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-variance-trafe-off"><i class="fa fa-check"></i><b>2.2.3</b> <strong>Bias-Variance Trafe-Off</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<li class="chapter" data-level="2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-classification-setting"><i class="fa fa-check"></i><b>2.3</b> The Classification Setting</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
-<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+<li class="chapter" data-level="2.3.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bayes-classifier"><i class="fa fa-check"></i><b>2.3.1</b> The Bayes Classifier</a></li>
+<li class="chapter" data-level="2.3.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#k-nearest-neighbors-knn"><i class="fa fa-check"></i><b>2.3.2</b> K-Nearest Neighbors (KNN)</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+</ul></li>
+<li class="part"><span><b>II LINEAR REGRESSION</b></span></li>
+<li class="chapter" data-level="3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>3</b> Simple Linear Regression</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+<li class="chapter" data-level="3.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1</b> Estimating the Coefficients</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.2</b> Assessing the Accuracy of the Coefficient Estimates</a>
+<ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#population-regression-line"><i class="fa fa-check"></i>Population Regression Line</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#least-squares-line"><i class="fa fa-check"></i>Least Squares Line</a></li>
+<li><a href="simple-linear-regression.html#how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu">How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#how-far-is-far-enough"><i class="fa fa-check"></i>How far is far enough?</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#t-distribution"><i class="fa fa-check"></i>T-distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="3.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.3</b> Assessing the Accuracy of the Model</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#residual-standard-error"><i class="fa fa-check"></i><b>3.4</b> Residual Standard Error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#r2-standard-error"><i class="fa fa-check"></i><b>3.4.1</b> <span class="math inline">\(R^2\)</span> Standard Error</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#consideration"><i class="fa fa-check"></i><b>3.5</b> Consideration</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>4</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#some-important-questions"><i class="fa fa-check"></i>Some Important Questions:</a></li>
+<li class="chapter" data-level="4.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#response-and-predictors-relationships"><i class="fa fa-check"></i><b>4.1</b> Response and Predictors Relationships</a></li>
+<li class="chapter" data-level="4.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#dealing-with-large-number-of-variables"><i class="fa fa-check"></i><b>4.2</b> Dealing With Large Number Of Variables</a></li>
+<li class="chapter" data-level="4.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#model-fit"><i class="fa fa-check"></i><b>4.3</b> Model Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html"><i class="fa fa-check"></i><b>5</b> Other Considerations in the Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#potential-problems"><i class="fa fa-check"></i>Potential Problems</a></li>
+<li class="chapter" data-level="5.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-linearity-of-the-data"><i class="fa fa-check"></i><b>5.1</b> Non-linearity of the Data</a></li>
+<li class="chapter" data-level="5.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-of-error-terms"><i class="fa fa-check"></i><b>5.2</b> Correlation of Error Terms</a></li>
+<li class="chapter" data-level="5.3" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-constant-variance-of-error-terms-heteroscedasticity"><i class="fa fa-check"></i><b>5.3</b> Non-constant Variance of Error Terms (Heteroscedasticity)</a></li>
+<li class="chapter" data-level="5.4" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#outlier"><i class="fa fa-check"></i><b>5.4</b> Outlier</a></li>
+<li class="chapter" data-level="5.5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#high-leverage-points"><i class="fa fa-check"></i><b>5.5</b> High Leverage Points</a></li>
+<li class="chapter" data-level="5.6" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#collinearity"><i class="fa fa-check"></i><b>5.6</b> Collinearity</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-matrix"><i class="fa fa-check"></i><b>5.6.1</b> Correlation Matrix</a></li>
+<li class="chapter" data-level="5.6.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#variance-inflation-factor-vif"><i class="fa fa-check"></i><b>5.6.2</b> Variance Inflation Factor (VIF)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html"><i class="fa fa-check"></i><b>6</b> Case Study - Marketing Plan</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#data-overview"><i class="fa fa-check"></i><b>6.1</b> Data Overview</a></li>
+<li class="chapter" data-level="6.2" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#important-questions"><i class="fa fa-check"></i><b>6.2</b> Important Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Lab: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>7.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.2" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>7.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="7.3" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>7.3</b> Interaction Terms</a></li>
+<li class="chapter" data-level="7.4" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>7.4</b> Non-linear Transformations of the Predictors</a></li>
+<li class="chapter" data-level="7.5" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>7.5</b> Qualitative Predictors</a></li>
+<li class="chapter" data-level="7.6" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>7.6</b> Writing Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises-applied.html"><a href="exercises-applied.html"><i class="fa fa-check"></i><b>8</b> Exercises (Applied)</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
+<ul>
+<li><a href="exercises-applied.html#a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
+<li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-2"><i class="fa fa-check"></i>Question 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set."><i class="fa fa-check"></i>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</a></li>
+<li><a href="exercises-applied.html#b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative.">(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</a></li>
+<li><a href="exercises-applied.html#c-use-the-lm-function-to-perform-a-multiple-linear-regression-with-mpg-as-the-response-and-all-other-variables-except-name-as-the-predictors.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(c) Use the <code>lm()</code> function to perform a multiple linear regression with <code>mpg</code> as the response and all other variables except “name” as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#d-use-the-plot-function-to-produce-diagnostic-plots-of-the-linear-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</a></li>
+<li><a href="exercises-applied.html#e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant">(e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</a></li>
+<li><a href="exercises-applied.html#f-try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings.">(f) Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
 
 </ul>
 
@@ -158,7 +250,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -166,93 +258,97 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<link href="style.css" rel="stylesheet">
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="img/illos/cover.png">
+</div>
 <div id="assessing-model-accuracy" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Assessing Model Accuracy</h1>
+<h1><span class="header-section-number">Section 2</span> Assessing Model Accuracy</h1>
+<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
 <blockquote>
 <p><em>"<strong>There is no free lunch in statistics"</strong></em></p>
 </blockquote>
 <p>No one method dominates all others over all possible data sets. This section introduce some common ways to assess the accuracy of a model to select a statistical learning procedure for a specific data set.</p>
-<div id="the-regression-setting" class="section level3" number="2.0.1">
-<h3><span class="header-section-number">2.0.1</span> The Regression Setting</h3>
-<div id="measuring-the-quality-of-fit" class="section level4" number="2.0.1.1">
-<h4><span class="header-section-number">2.0.1.1</span> Measuring the Quality of fit</h4>
+<div id="the-regression-setting" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> The Regression Setting</h2>
+<div id="measuring-the-quality-of-fit" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Measuring the Quality of fit</h3>
 <p>In order to evaluate the performance of a model, we need to measure how well its predictions actually match the observed data. In the regression setting, the most commonly used measure is the <strong>mean squared error (MSE)</strong>:</p>
+<div class="formula">
 <p><span class="math display">\[
-MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2
+\Large MSE = \frac{1}{n}\sum_{i = 1}^{n} (y_{n} - \hat{f}(x_{i})^2
 \]</span></p>
-<p>given by where <span class="math display">\[\hat{f}(x_{i}\]</span> is the prediction that <span class="math display">\[\hat{f}\]</span> gives for the ith observations.</p>
+</div>
+<p>given by where <span class="math inline">\(\hat{f}(x_{i}\)</span> is the prediction that <span class="math inline">\(\hat{f}\)</span> gives for the <span class="math inline">\(i\)</span>th observations.</p>
 <p>The MSE will be small if the predicted responses are very close to the true response, and will be large if for some observations, the predicted and true responses differ substantially.</p>
 <ul>
-<li><em><strong>training MSE</strong></em>: The MSE is computed using the training data that was used to fit the model.</li>
-<li><em><strong>test MSE</strong></em>: The MSE is computed using the previously unseen test observation not used to train the statistical learning method.</li>
+<li><p><em><strong>training MSE</strong></em>: The MSE is computed using the training data that was used to fit the model.</p></li>
+<li><p><em><strong>test MSE</strong></em>: The MSE is computed using the previously unseen test observation not used to train the statistical learning method.</p></li>
 </ul>
 <p>When a given method yields a small training MSE but a large test MSE, we are said to be <em>overfitting</em> the data. When we overfit the training data, the test MSE will be very large because the supposed patterns that the method found in the training data simply don’t exist in the test data.</p>
 </div>
 </div>
-<div id="the-bias-variance-trade-off" class="section level3" number="2.0.2">
-<h3><span class="header-section-number">2.0.2</span> The Bias-Variance Trade-Off</h3>
-<div id="variance-error" class="section level4" number="2.0.2.1">
-<h4><span class="header-section-number">2.0.2.1</span> <strong>Variance Error</strong></h4>
-<blockquote>
-<p><strong>Variance</strong> is the amount that the estimate of <span class="math display">\[\hat{f}\]</span> will change if different training data was used.</p>
-</blockquote>
+<div id="the-bias-variance-trade-off" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> The Bias-Variance Trade-Off</h2>
+<div id="variance-error" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Variance Error</h3>
+<p><strong>Variance</strong> is the amount that the estimate of <span class="math inline">\(\hat{f}\)</span> will change if different training data was used.</p>
 <p>Ideally, it should not change too much from one training dataset to the next, meaning that the algorithm is good at picking out the hidden underlying mapping between the inputs and the output variables.</p>
-<p>{% hint style=“info” %}
-Examples of low-variance machine learning algorithms include: <strong>Linear Regression, Linear Discriminant Analysis and Logistic Regression.</strong>
-{% endhint %}</p>
-<p>{% hint style=“info” %}
-Examples of high-variance machine learning algorithms include: <strong>Decision Trees, k-Nearest Neighbors</strong> and <strong>Support Vector Machines.</strong>
-{% endhint %}</p>
+<div class="tip">
+<p>Examples of low-variance machine learning algorithms include: <strong>Linear Regression, Linear Discriminant Analysis and Logistic Regression.</strong></p>
+<p>Examples of high-variance machine learning algorithms include: <strong>Decision Trees, k-Nearest Neighbors</strong> and <strong>Support Vector Machines.</strong></p>
 </div>
-<div id="bias-error" class="section level4" number="2.0.2.2">
-<h4><span class="header-section-number">2.0.2.2</span> <strong>Bias Error</strong></h4>
+</div>
+<div id="bias-error" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Bias Error</h3>
 <p><strong>Bias</strong> are the simplifying assumptions made by a model to make the target function easier to learn.</p>
 <p>Generally, linear algorithms have a high bias making them fast to learn and easier to understand but generally less flexible. In turn, they have lower predictive performance on complex problems that fail to meet the simplifying assumptions of the algorithms bias.</p>
 <ul>
 <li><strong>Low Bias:</strong> Suggests less assumptions about the form of the target function.</li>
 <li><strong>High-Bias:</strong> Suggests more assumptions about the form of the target function.</li>
 </ul>
-<p>{% hint style=“info” %}
-Examples of low-bias machine learning algorithms include: <strong>Decision Trees, k-Nearest Neighbors </strong>and <strong>Support Vector Machines.</strong>
-{% endhint %}</p>
-<p>{% hint style=“info” %}
-Examples of high-bias machine learning algorithms include: <strong>Linear Regression, Linear Discriminant Analysis</strong> and <strong>Logistic Regression.</strong>
-{% endhint %}</p>
+<div class="tip">
+<p>Examples of low-bias machine learning algorithms include: <strong>Decision Trees, k-Nearest Neighbors </strong>and <strong>Support Vector Machines.</strong></p>
+<p>Examples of high-bias machine learning algorithms include: <strong>Linear Regression, Linear Discriminant Analysis</strong> and <strong>Logistic Regression.</strong></p>
 </div>
-<div id="bias-variance-trafe-off" class="section level4" number="2.0.2.3">
-<h4><span class="header-section-number">2.0.2.3</span> <strong>Bias-Variance Trafe-Off</strong></h4>
+</div>
+<div id="bias-variance-trafe-off" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> <strong>Bias-Variance Trafe-Off</strong></h3>
 <p>The goal of any supervised machine learning algorithm is to achieve <em>low bias</em> and <em>low variance</em>. In turn the algorithm should achieve good prediction performance.</p>
-<p>You can see a general trend in the examples above:</p>
+<div class="hat">
 <ul>
 <li><strong>Linear machine learning algorithms</strong> often have a high bias but a low variance.</li>
 <li><strong>Nonlinear machine learning algorithms</strong> often have a low bias but a high variance.</li>
 <li>The parameterization of machine learning algorithms is often a battle to balance out bias and variance.</li>
 </ul>
-<hr />
 </div>
 </div>
-<div id="the-classification-setting" class="section level3" number="2.0.3">
-<h3><span class="header-section-number">2.0.3</span> The Classification Setting</h3>
-<p>The most common approach for quantifying the accuracy of our estimate <span class="math display">\[\hat{f}\]</span> is the <em>training error</em>_ rate, the proportion of mistakes that are made if we apply our estimate <span class="math display">\[\hat{f}\]</span> to the training observations:</p>
+</div>
+<div id="the-classification-setting" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> The Classification Setting</h2>
+<p>The most common approach for quantifying the accuracy of our estimate <span class="math inline">\(\hat{f}\)</span> is the <em>training error</em>_ rate, the proportion of mistakes that are made if we apply our estimate <span class="math inline">\(\hat{f}\)</span> to the training observations:</p>
+<div class="formula">
 <p><span class="math display">\[
 \frac{1}{n}\sum_{i = 1}^{n} I (y_{i} \neq \hat{y_{i}})
 \]</span></p>
+</div>
 <p>Whereas:</p>
 <ul>
-<li><span class="math display">\[\hat{y_{i}}\]</span>: the predicted class label for the ith observation using <span class="math display">\[\hat{f}\]</span></li>
-<li><span class="math display">\[I (y_{i} \neq \hat{y_{i}})\]</span>: an <em>indicator variable</em> that equal <strong>1</strong> if <span class="math display">\[y_{i} \neq \hat{y_{i}}\]</span> and <strong>0</strong> if <span class="math display">\[y_{i} = \hat{y_{i}}\]</span>. If:
+<li><p><span class="math inline">\(\hat{y_{i}}\)</span>: the predicted class label for the ith observation using <span class="math inline">\(\hat{f}\)</span></p></li>
+<li><p><span class="math inline">\(I (y_{i} \neq \hat{y_{i}})\)</span>: an <em>indicator variable</em> that equal <strong>1</strong> if <span class="math inline">\(y_{i} \neq \hat{y_{i}}\)</span> and <strong>0</strong> if <span class="math inline">\(y_{i} = \hat{y_{i}}\)</span>. If:</p>
 <ul>
-<li><span class="math display">\[I (y_{i} \neq \hat{y_{i}}) = 0\]</span>: correct classification</li>
-<li><span class="math display">\[I (y_{i} \neq \hat{y_{i}}) \neq 0\]</span>: incorrect classification (misclassified)</li>
+<li><p><span class="math inline">\(I (y_{i} \neq \hat{y_{i}}) = 0\)</span>: correct classification</p></li>
+<li><p><span class="math inline">\(I (y_{i} \neq \hat{y_{i}}) \neq 0\)</span>: incorrect classification (misclassified)</p></li>
 </ul></li>
 </ul>
-<p>A good classifier is one for which the <em>test error</em> is smallest where the <em>test error</em> rate associated with a set of test observations of the from <span class="math display">\[(x_{0}, y_{0})\]</span>.</p>
-<div id="the-bayes-classifier" class="section level4" number="2.0.3.1">
-<h4><span class="header-section-number">2.0.3.1</span> The Bayes Classifier</h4>
+<p>A good classifier is one for which the <em>test error</em> is smallest where the <em>test error</em> rate associated with a set of test observations of the from <span class="math inline">\((x_{0}, y_{0})\)</span>.</p>
+<div id="the-bayes-classifier" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> The Bayes Classifier</h3>
 <p>This algorithm is called Naïve because it works on the naïve assumption that the features are independent. Naïve Bayes Classifier works with principle of Bayes Theorem.</p>
 <blockquote>
-<p>Conditional probability of an event <span class="math display">\[A\]</span> given <span class="math display">\[B\]</span>, <span class="math display">\[P(A|B)\]</span> is the probability of <span class="math display">\[A\]</span> given that <span class="math display">\[B\]</span> has already occurred. It is often defined as the ratio of joint probability of <span class="math display">\[A\]</span> and <span class="math display">\[B\]</span> (probability of <span class="math display">\[A\]</span> and <span class="math display">\[B\]</span> occurring together) to the marginal probability of <span class="math display">\[A\]</span> (probability of event <span class="math display">\[A\]</span>)</p>
+<p>Conditional probability of an event <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>, <span class="math inline">\(P(A|B)\)</span> is the probability of <span class="math inline">\(A\)</span> given that <span class="math inline">\(B\)</span> has already occurred. It is often defined as the ratio of joint probability of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (probability of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occurring together) to the marginal probability of <span class="math inline">\(A\)</span> (probability of event <span class="math inline">\(A\)</span>)</p>
 </blockquote>
+<div class="gotcha">
 <p><strong>Pros</strong></p>
 <ul>
 <li>Easy to implement</li>
@@ -264,9 +360,11 @@ Examples of high-bias machine learning algorithms include: <strong>Linear Regres
 <li>Assumption that features are independent is risky</li>
 </ul>
 </div>
-<div id="k-nearest-neighbors-knn" class="section level4" number="2.0.3.2">
-<h4><span class="header-section-number">2.0.3.2</span> K-Nearest Neighbors (KNN)</h4>
+</div>
+<div id="k-nearest-neighbors-knn" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> K-Nearest Neighbors (KNN)</h3>
 <p>K-Nearest neighbors algorithm can be used to solve both classification and regression problems. When algorithms such as Naïve Bayes Classifier uses probabilities from training samples for predictions, KNN is Lazy learner that does not create any model in advance. The just find the closest based on feature similarity.</p>
+<div class="gotcha">
 <p><strong>Pros</strong></p>
 <ul>
 <li>Easy to implement</li>
@@ -277,17 +375,21 @@ Examples of high-bias machine learning algorithms include: <strong>Linear Regres
 <li>Optimal K is always a challenge</li>
 <li>Lazy learner- computationally expensive</li>
 </ul>
+</div>
 
 </div>
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="what-is-statistical-learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="simple-linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -302,7 +404,7 @@ Examples of high-bias machine learning algorithms include: <strong>Linear Regres
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
+"github": true,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -310,7 +412,7 @@ gitbook.start({
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": false
 },
 "fontsettings": {
 "theme": "white",
@@ -318,7 +420,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ndleah/stat-learning/edit/main/01-intro.Rmd",
+"link": "https://github.com/ndleah/stat-learning/edit/main/statistical-learning-model-accuracy.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -335,7 +437,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
