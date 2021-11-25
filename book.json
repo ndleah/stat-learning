@@ -1,8 +1,0 @@
-{
-    "plugins": ["hints", "mathjax","github","chapter-numbering"],
-    "pluginsConfig": {
-        "theme-default": {
-            "showLevel": true
-        }
-    }
-}
