@@ -111,7 +111,8 @@ $$
 
 versus
 $$
-H_1: \beta_1 \neq 0
+
+\Large H_1: \beta_1 \neq 0
 $$
 
 If $\beta_1 = 0$ then the model reduces to $Y=\beta_0+\epsilon$, and $X$ is not associated with $Y$.
