@@ -28,7 +28,7 @@ Whereas:
 In practice, $\beta_0$ and $\beta_1$ are unknown. So before make predictions, we must use data to estimate the coefficients. Let $(x_1, Y_1), (x_2, Y_2),...,(x_n, Y_n)$
 represent $n$ observation pairs, each of which consists of a measurement of $X$ and a measurement of $Y$. Our goal is to obtain coefficient estimates $\beta_0$ and $\beta_1$ such that the linear model fits the available data well. In other words, we want to find an intercept $\beta_0$ and a slope $\beta_1$ such that the resulting line is as close as possible to the $n$ data points.
 
-```{r echo=FALSE, out.width='65%', fig.cap='Regression Line'}
+```{r echo=FALSE, out.width='80%', fig.cap='Regression Line'}
 knitr::include_graphics("img/regression.png")
 ```
 
@@ -89,7 +89,7 @@ In other words, if we estimate $\beta_0$ and $\beta_1$ on the basis of a particu
 
 In fact, we can see from the right-hand panel of Figure 3.2 that the average of many least squares lines, each estimated from a separate data set, is pretty close to the true population regression line.
 
-```{r echo=FALSE, out.width='65%', fig.cap='A simulated data set'}
+```{r echo=FALSE, out.width='80%', fig.cap='A simulated data set'}
 knitr::include_graphics("img/fig3.3.png")
 ```
 

@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 3 Simple Linear Regression | _main</title>
-  <meta name="description" content="A work-in-progress" />
+  <title>Section 3 Simple Linear Regression | Stat Learning</title>
+  <meta name="description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 3 Simple Linear Regression | _main" />
+  <meta property="og:title" content="Section 3 Simple Linear Regression | Stat Learning" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
   
-  <meta property="og:description" content="A work-in-progress" />
+  <meta property="og:description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 3 Simple Linear Regression | _main" />
+  <meta name="twitter:title" content="Section 3 Simple Linear Regression | Stat Learning" />
   
-  <meta name="twitter:description" content="A work-in-progress" />
+  <meta name="twitter:description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   
 
 
@@ -53,69 +53,6 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -253,7 +190,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Stat Learning</a>
           </h1>
         </div>
 
@@ -284,9 +221,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>In practice, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are unknown. So before make predictions, we must use data to estimate the coefficients. Let <span class="math inline">\((x_1, Y_1), (x_2, Y_2),...,(x_n, Y_n)\)</span>
 represent <span class="math inline">\(n\)</span> observation pairs, each of which consists of a measurement of <span class="math inline">\(X\)</span> and a measurement of <span class="math inline">\(Y\)</span>. Our goal is to obtain coefficient estimates <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> such that the linear model fits the available data well. In other words, we want to find an intercept <span class="math inline">\(\beta_0\)</span> and a slope <span class="math inline">\(\beta_1\)</span> such that the resulting line is as close as possible to the <span class="math inline">\(n\)</span> data points.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="img/regression.png" alt="Regression Line" width="65%" />
+<img src="img/regression.png" alt="Regression Line" width="80%" />
 <p class="caption">
-Figure 1.1: Regression Line
+Figure 3.1: Regression Line
 </p>
 </div>
 <p>There are numbers of ways of measuring <em>closeness</em>. However, by far the most common approach involves minimizing the <em>least squares</em> criterion, and we take that approach in this chapter.</p>
@@ -330,9 +267,9 @@ RSS = (y_1 - \hat{\beta_0} - \hat{\beta_1}x_2)^2 + (y_2 - \hat{\beta_0} - \hat{\
 <p>In other words, if we estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> on the basis of a particular data set, then our estimates won’t be exactly equal to <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. But if we could average the estimates obtained over a huge number of data sets, then the average of these estimates would be spot on!</p>
 <p>In fact, we can see from the right-hand panel of Figure 3.2 that the average of many least squares lines, each estimated from a separate data set, is pretty close to the true population regression line.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="img/fig3.3.png" alt="A simulated data set" width="65%" />
+<img src="img/fig3.3.png" alt="A simulated data set" width="80%" />
 <p class="caption">
-Figure 3.1: A simulated data set
+Figure 3.2: A simulated data set
 </p>
 </div>
 <ul>
@@ -376,7 +313,7 @@ H_1: \beta_1 \neq 0
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="img/tstat.png" alt="Sampling Distribution of Test Statistic" width="65%" />
 <p class="caption">
-Figure 3.2: Sampling Distribution of Test Statistic
+Figure 3.3: Sampling Distribution of Test Statistic
 </p>
 </div>
 <p>The t-distribution has a bell shape and for values of n greater than approximately 30 it is quite similar to the normal distribution. Consequently, it is a simple matter to compute probability of observing any value equal to <span class="math inline">\(|t|\)</span> or larger, assuming <span class="math inline">\(\beta_1 =0\)</span>. We call this probability the <strong><em>p-value</em></strong>.</p>

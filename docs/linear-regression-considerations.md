@@ -23,10 +23,10 @@ The first assumption of Linear Regression is that relations between the independ
 
 Although this assumption is not always cited in the literature, it is logical and important to check for it. After all, if your relationships are not linear, you should not use a linear model, but rather a non-linear model of which plenty exist.
 
-We can check for linear relationships easily by making a scatter plot for each independent variable with the dependent variable as in Figure 3.9.
+We can check for linear relationships easily by making a scatter plot for each independent variable with the dependent variable as in Figure 5.1
 
 <div class="figure" style="text-align: center">
-<img src="img/107-Figure3.9-1.png" alt="Plots of residuals versus predicted (or fitted) values for the Auto data set" width="426" />
+<img src="img/107-Figure3.9-1.png" alt="Plots of residuals versus predicted (or fitted) values for the Auto data set" width="85%" />
 <p class="caption">(\#fig:unnamed-chunk-3)Plots of residuals versus predicted (or fitted) values for the Auto data set</p>
 </div>
 
@@ -48,15 +48,15 @@ In order to determine if this is the case for a given data set, we can plot the 
 :::
 
 
-Figure 3.10 provides an illustration. **In the top panel**, we see the residuals from a linear regression fit to data generated with uncorrelated errors. There is no evidence of a time-related trend in the residuals.
+Figure 5.2 provides an illustration. **In the top panel**, we see the residuals from a linear regression fit to data generated with uncorrelated errors. There is no evidence of a time-related trend in the residuals.
 
 In contrast, **the residuals in the bottom panel** are from a data set in which adjacent errors had a correlation of 0.9. Now there is a clear pattern in the residuals—adjacent residuals tend to take on similar values. 
 
 Finally, **the center panel** illustrates a more moderate case in which the residuals had a correlation of 0.5. There is still evidence of tracking, but the pattern is less clear.
 
 <div class="figure" style="text-align: center">
-<img src="img/109-Figure3.10-1.png" alt="Plots of residuals from simulated time series data sets generated with differing levels of correlation &lt;U+03C1&gt; between error terms for adjacent time" width="440" />
-<p class="caption">(\#fig:unnamed-chunk-4)Plots of residuals from simulated time series data sets generated with differing levels of correlation <U+03C1> between error terms for adjacent time</p>
+<img src="img/109-Figure3.10-1.png" alt="Plots of residuals from simulated time series data sets generated with differing levels of correlation p between error terms for adjacent time" width="85%" />
+<p class="caption">(\#fig:unnamed-chunk-4)Plots of residuals from simulated time series data sets generated with differing levels of correlation p between error terms for adjacent time</p>
 </div>
 
 
@@ -68,14 +68,14 @@ Heteroscedasticity in a model means that the error is constant along the values 
    One can identify non-constant variances in the errors, or heteroscedasticity, from the presence of a funnel shape in heteroscedathe residual plot.
 :::
 
-An example is shown in the left-hand panel of Figure 3.11, sticity in which the magnitude of the residuals tends to increase with the fitted values. In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend. The blue lines track the outer quantiles of the residuals, and emphasize patterns: 
+An example is shown in the left-hand panel of Figure 5.3, sticity in which the magnitude of the residuals tends to increase with the fitted values. In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend. The blue lines track the outer quantiles of the residuals, and emphasize patterns: 
 
 * **Left:** The *funnel shape* indicates heteroscedasticity. 
 
 * **Right:** The response has been log transformed, and there is now no evidence of heteroscedasticity.
 
 <div class="figure" style="text-align: center">
-<img src="img/110-Figure3.11-1.png" alt=" Residual plots" width="426" />
+<img src="img/110-Figure3.11-1.png" alt=" Residual plots" width="85%" />
 <p class="caption">(\#fig:unnamed-chunk-5) Residual plots</p>
 </div>
 
@@ -93,7 +93,7 @@ Some of the suggested solutions are:
 
 An **outlier** is a point for which yi is far from the value predicted by model. Outliers can arise for a variety of reasons, such as incorrect recording of an observation during data collection.
 
-As illustrated in Figure 3.12:
+As illustrated in Figure 5.4:
 
 * **Left:** The least squares regression line is shown in red, and the regression line after removing the outlier is shown in blue. 
 
@@ -102,7 +102,7 @@ As illustrated in Figure 3.12:
 * **Right:** The outlier has a ***studentized residual*** of 6; typically we expect values between −3 and 3.
 
 <div class="figure" style="text-align: center">
-<img src="img/111-Figure3.12-1.png" alt="Outlier plots" width="448" />
+<img src="img/111-Figure3.12-1.png" alt="Outlier plots" width="85%" />
 <p class="caption">(\#fig:unnamed-chunk-6)Outlier plots</p>
 </div>
 
@@ -114,10 +114,10 @@ If we believe that an outlier has occurred due to an error in data collection or
 
 In contrast to outlier with unusual for response value $y$, observations with high leverage high leverage have an unusual value for $x_i$.
 
-As illustrated in Figure 3.12:
+As illustrated in Figure 5.5:
 
 <div class="figure" style="text-align: center">
-<img src="img/112-Figure3.13-1.png" alt="Leveraging Observations Plots" width="448" />
+<img src="img/112-Figure3.13-1.png" alt="Leveraging Observations Plots" width="85%" />
 <p class="caption">(\#fig:unnamed-chunk-7)Leveraging Observations Plots</p>
 </div>
 
@@ -155,7 +155,7 @@ A simple way to detect collinearity is to look at the correlation matrix
 of the predictors. An element of this matrix that is large in absolute value indicates a pair of highly correlated variables, and therefore a collinearity problem in the data. 
 
 <div class="figure" style="text-align: center">
-<img src="img/unnamed.png" alt="Sample Correlation Matrix using R" width="256" />
+<img src="img/unnamed.png" alt="Sample Correlation Matrix using R" width="65%" />
 <p class="caption">(\#fig:unnamed-chunk-8)Sample Correlation Matrix using R</p>
 </div>
 

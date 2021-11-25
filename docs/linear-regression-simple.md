@@ -24,7 +24,7 @@ In practice, $\beta_0$ and $\beta_1$ are unknown. So before make predictions, we
 represent $n$ observation pairs, each of which consists of a measurement of $X$ and a measurement of $Y$. Our goal is to obtain coefficient estimates $\beta_0$ and $\beta_1$ such that the linear model fits the available data well. In other words, we want to find an intercept $\beta_0$ and a slope $\beta_1$ such that the resulting line is as close as possible to the $n$ data points.
 
 <div class="figure" style="text-align: center">
-<img src="img/regression.png" alt="Regression Line" width="65%" />
+<img src="img/regression.png" alt="Regression Line" width="80%" />
 <p class="caption">(\#fig:unnamed-chunk-3)Regression Line</p>
 </div>
 
@@ -86,7 +86,7 @@ In other words, if we estimate $\beta_0$ and $\beta_1$ on the basis of a particu
 In fact, we can see from the right-hand panel of Figure 3.2 that the average of many least squares lines, each estimated from a separate data set, is pretty close to the true population regression line.
 
 <div class="figure" style="text-align: center">
-<img src="img/fig3.3.png" alt="A simulated data set" width="65%" />
+<img src="img/fig3.3.png" alt="A simulated data set" width="80%" />
 <p class="caption">(\#fig:unnamed-chunk-4)A simulated data set</p>
 </div>
 

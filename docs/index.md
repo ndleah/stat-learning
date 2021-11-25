@@ -1,9 +1,10 @@
 ---
+title: "Stat Learning"
+description: "My note for learning statistics concepts in the **Introduction to Statistical Learning** book"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
 github-repo: "ndleah/stat-learning"
-description: "A work-in-progress"
 always_allow_html: yes
 url: 'https//:www.ndleah.github.io/stat-learning/'
 ---
@@ -12,4 +13,7 @@ url: 'https//:www.ndleah.github.io/stat-learning/'
 
 
 
-<img src="img/illos/index-hi.jpg" width="65%" style="display: block; margin: auto;" />
+<center>![](img/illos/index-hi.jpg){width=60%}</center>
+
+
+Welcome!

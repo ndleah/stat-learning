@@ -1,9 +1,10 @@
 ---
+title: "Stat Learning"
+description: "My note for learning statistics concepts in the **Introduction to Statistical Learning** book"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
 github-repo: "ndleah/stat-learning"
-description: "A work-in-progress"
 always_allow_html: yes
 url: 'https//:www.ndleah.github.io/stat-learning/'
 ---
@@ -11,9 +12,10 @@ url: 'https//:www.ndleah.github.io/stat-learning/'
 # INTRODUCTION {-}
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(fig.align="center")
-library(ymlthis)
+source("common.R")
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/index-hi.jpg")
+<center>![](img/illos/index-hi.jpg){width=60%}</center>
+
+
+Welcome!

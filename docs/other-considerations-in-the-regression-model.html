@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 5 Other Considerations in the Regression Model | _main</title>
-  <meta name="description" content="A work-in-progress" />
+  <title>Section 5 Other Considerations in the Regression Model | Stat Learning</title>
+  <meta name="description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 5 Other Considerations in the Regression Model | _main" />
+  <meta property="og:title" content="Section 5 Other Considerations in the Regression Model | Stat Learning" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
   
-  <meta property="og:description" content="A work-in-progress" />
+  <meta property="og:description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 5 Other Considerations in the Regression Model | _main" />
+  <meta name="twitter:title" content="Section 5 Other Considerations in the Regression Model | Stat Learning" />
   
-  <meta name="twitter:description" content="A work-in-progress" />
+  <meta name="twitter:description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   
 
 
@@ -53,69 +53,6 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -253,7 +190,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Stat Learning</a>
           </h1>
         </div>
 
@@ -284,11 +221,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> Non-linearity of the Data</h2>
 <p>The first assumption of Linear Regression is that relations between the independent and dependent variables must be linear.</p>
 <p>Although this assumption is not always cited in the literature, it is logical and important to check for it. After all, if your relationships are not linear, you should not use a linear model, but rather a non-linear model of which plenty exist.</p>
-<p>We can check for linear relationships easily by making a scatter plot for each independent variable with the dependent variable as in Figure 3.9.</p>
+<p>We can check for linear relationships easily by making a scatter plot for each independent variable with the dependent variable as in Figure 5.1</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="img/107-Figure3.9-1.png" alt="Plots of residuals versus predicted (or fitted) values for the Auto data set" width="426" />
+<img src="img/107-Figure3.9-1.png" alt="Plots of residuals versus predicted (or fitted) values for the Auto data set" width="85%" />
 <p class="caption">
-Figure 1.1: Plots of residuals versus predicted (or fitted) values for the Auto data set
+Figure 5.1: Plots of residuals versus predicted (or fitted) values for the Auto data set
 </p>
 </div>
 <p>In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend.</p>
@@ -304,13 +241,13 @@ Figure 1.1: Plots of residuals versus predicted (or fitted) values for the Auto 
 <p>Such correlations frequently occur in the context of <em>time series</em> data, which consist of observations for which measurements are obtained at adjacent time points will have positively correlated errors.</p>
 <p>In order to determine if this is the case for a given data set, we can plot the residuals from our model as a function of time.</p>
 </div>
-<p>Figure 3.10 provides an illustration. <strong>In the top panel</strong>, we see the residuals from a linear regression fit to data generated with uncorrelated errors. There is no evidence of a time-related trend in the residuals.</p>
+<p>Figure 5.2 provides an illustration. <strong>In the top panel</strong>, we see the residuals from a linear regression fit to data generated with uncorrelated errors. There is no evidence of a time-related trend in the residuals.</p>
 <p>In contrast, <strong>the residuals in the bottom panel</strong> are from a data set in which adjacent errors had a correlation of 0.9. Now there is a clear pattern in the residuals—adjacent residuals tend to take on similar values.</p>
 <p>Finally, <strong>the center panel</strong> illustrates a more moderate case in which the residuals had a correlation of 0.5. There is still evidence of tracking, but the pattern is less clear.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="img/109-Figure3.10-1.png" alt="Plots of residuals from simulated time series data sets generated with differing levels of correlation &lt;U+03C1&gt; between error terms for adjacent time" width="440" />
+<img src="img/109-Figure3.10-1.png" alt="Plots of residuals from simulated time series data sets generated with differing levels of correlation p between error terms for adjacent time" width="85%" />
 <p class="caption">
-Figure 3.1: Plots of residuals from simulated time series data sets generated with differing levels of correlation &lt;U+03C1&gt; between error terms for adjacent time
+Figure 5.2: Plots of residuals from simulated time series data sets generated with differing levels of correlation p between error terms for adjacent time
 </p>
 </div>
 </div>
@@ -320,15 +257,15 @@ Figure 3.1: Plots of residuals from simulated time series data sets generated wi
 <div class="tip">
 <p>One can identify non-constant variances in the errors, or heteroscedasticity, from the presence of a funnel shape in heteroscedathe residual plot.</p>
 </div>
-<p>An example is shown in the left-hand panel of Figure 3.11, sticity in which the magnitude of the residuals tends to increase with the fitted values. In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend. The blue lines track the outer quantiles of the residuals, and emphasize patterns:</p>
+<p>An example is shown in the left-hand panel of Figure 5.3, sticity in which the magnitude of the residuals tends to increase with the fitted values. In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend. The blue lines track the outer quantiles of the residuals, and emphasize patterns:</p>
 <ul>
 <li><p><strong>Left:</strong> The <em>funnel shape</em> indicates heteroscedasticity.</p></li>
 <li><p><strong>Right:</strong> The response has been log transformed, and there is now no evidence of heteroscedasticity.</p></li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="img/110-Figure3.11-1.png" alt=" Residual plots" width="426" />
+<img src="img/110-Figure3.11-1.png" alt=" Residual plots" width="85%" />
 <p class="caption">
-Figure 3.2:  Residual plots
+Figure 5.3:  Residual plots
 </p>
 </div>
 <p>Some of the suggested solutions are:</p>
@@ -341,16 +278,16 @@ Figure 3.2:  Residual plots
 <div id="outlier" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Outlier</h2>
 <p>An <strong>outlier</strong> is a point for which yi is far from the value predicted by model. Outliers can arise for a variety of reasons, such as incorrect recording of an observation during data collection.</p>
-<p>As illustrated in Figure 3.12:</p>
+<p>As illustrated in Figure 5.4:</p>
 <ul>
 <li><p><strong>Left:</strong> The least squares regression line is shown in red, and the regression line after removing the outlier is shown in blue.</p></li>
 <li><p><strong>Center:</strong> The residual plot clearly identifies the outlier.</p></li>
 <li><p><strong>Right:</strong> The outlier has a <strong><em>studentized residual</em></strong> of 6; typically we expect values between −3 and 3.</p></li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
-<img src="img/111-Figure3.12-1.png" alt="Outlier plots" width="448" />
+<img src="img/111-Figure3.12-1.png" alt="Outlier plots" width="85%" />
 <p class="caption">
-Figure 5.1: Outlier plots
+Figure 5.4: Outlier plots
 </p>
 </div>
 <p>If we believe that an outlier has occurred due to an error in data collection or recording, then one solution is to simply remove the observation.</p>
@@ -358,11 +295,11 @@ Figure 5.1: Outlier plots
 <div id="high-leverage-points" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> High Leverage Points</h2>
 <p>In contrast to outlier with unusual for response value <span class="math inline">\(y\)</span>, observations with high leverage high leverage have an unusual value for <span class="math inline">\(x_i\)</span>.</p>
-<p>As illustrated in Figure 3.12:</p>
+<p>As illustrated in Figure 5.5:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<img src="img/112-Figure3.13-1.png" alt="Leveraging Observations Plots" width="448" />
+<img src="img/112-Figure3.13-1.png" alt="Leveraging Observations Plots" width="85%" />
 <p class="caption">
-Figure 5.2: Leveraging Observations Plots
+Figure 5.5: Leveraging Observations Plots
 </p>
 </div>
 <ul>
@@ -388,9 +325,9 @@ statistic</em></strong>.</p>
 <p>A simple way to detect collinearity is to look at the correlation matrix
 of the predictors. An element of this matrix that is large in absolute value indicates a pair of highly correlated variables, and therefore a collinearity problem in the data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
-<img src="img/unnamed.png" alt="Sample Correlation Matrix using R" width="256" />
+<img src="img/unnamed.png" alt="Sample Correlation Matrix using R" width="65%" />
 <p class="caption">
-Figure 5.3: Sample Correlation Matrix using R
+Figure 5.6: Sample Correlation Matrix using R
 </p>
 </div>
 <p>Unfortunately, not all collinearity problems can be detected by inspection of the correlation matrix: it is possible for collinearity to exist between three or more variables even if no pair of variables has a particularly high correlation. We call this situation <strong><em>multicollinearity</em></strong>.</p>
