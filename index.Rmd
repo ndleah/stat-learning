@@ -2,7 +2,6 @@
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
-cover-image: img/illos/logo.png
 github-repo: "ndleah/stat-learning"
 description: "A work-in-progress"
 always_allow_html: yes
