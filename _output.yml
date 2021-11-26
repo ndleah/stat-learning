@@ -11,8 +11,6 @@ bookdown::gitbook:
         <li class="toc-logo"><a href="./"><img src="img/illos/logo.png"></a></li>
       after: |
         <li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
-    edit: https://github.com/ndleah/stat-learning/edit/main/%s
-    download: ["pdf", "epub"]
     sharing:
       github: yes
       facebook: yes

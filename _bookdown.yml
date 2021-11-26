@@ -15,5 +15,10 @@ rmd_files: [
   "chapters/02-linear-regression/linear-regression-considerations.Rmd",
   "chapters/02-linear-regression/linear-regression-marketing-cs.Rmd",
   "chapters/02-linear-regression/linear-regression-lab.Rmd",
-  "chapters/02-linear-regression/linear-regression-exercises.Rmd"
+  "chapters/02-linear-regression/linear-regression-exercises.Rmd",
+  
+  "chapters/03-classification/classification-overview.Rmd",
+  "chapters/03-classification/classification-logistics-regression.Rmd",
+  "chapters/03-classification/classification-generative-models.Rmd",
+  "chapters/03-classification/classification-comparison.Rmd"
   ]

@@ -12,7 +12,7 @@ library(ymlthis)
 knitr::include_graphics("img/illos/yours-book.jpg")
 ```
 
-There are 2 types of statistical learning: _supervised_ and _unsupervised_:
+***Statistical learning*** refers to a vast set of tools for understanding data..There are 2 types of statistical learning: _supervised_ and _unsupervised_:
 
 * **Supervised learning** is when you have a label for each data point, which mean it involves building a model that can predict an _output_ based on one or more _inputs_.
 

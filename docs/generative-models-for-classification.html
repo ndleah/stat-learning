@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 5 Other Considerations in the Regression Model | Stat Learning</title>
+  <title>Section 11 Generative Models for Classification | Stat Learning</title>
   <meta name="description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 5 Other Considerations in the Regression Model | Stat Learning" />
+  <meta property="og:title" content="Section 11 Generative Models for Classification | Stat Learning" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 5 Other Considerations in the Regression Model | Stat Learning" />
+  <meta name="twitter:title" content="Section 11 Generative Models for Classification | Stat Learning" />
   
   <meta name="twitter:description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="multiple-linear-regression.html"/>
-<link rel="next" href="case-study---marketing-plan.html"/>
+<link rel="prev" href="logistic-regression.html"/>
+<link rel="next" href="a-comparison-of-classification-methods.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -300,145 +300,129 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="img/illos/cover.png">
 </div>
-<div id="other-considerations-in-the-regression-model" class="section level1" number="5">
-<h1><span class="header-section-number">Section 5</span> Other Considerations in the Regression Model</h1>
-<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
-<div id="potential-problems" class="section level2 unnumbered">
-<h2>Potential Problems</h2>
-<p>When we fit a linear regression model, many problems can occur, to name a few:</p>
+<div id="generative-models-for-classification" class="section level1" number="11">
+<h1><span class="header-section-number">Section 11</span> Generative Models for Classification</h1>
+<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" />
+Why do we need another method, when we have logistic regression? There are several reasons:</p>
 <ul>
-<li><em>Non-linearity of the response-predictor relationships.</em></li>
-<li><em>Correlation of error terms.</em></li>
-<li><em>Non-constant variance of error terms.</em></li>
-<li><em>Outlines.</em></li>
-<li><em>High-leverage points.</em></li>
-<li><em>Collinearity.</em></li>
+<li><p>When there is substantial separation between the two classes, the parameter estimates for the logistic regression model are surprisingly unstable. The methods that we consider in this section do not suffer from this problem.</p></li>
+<li><p>If the distribution of the predictors X is approximately normal in each of the classes and the sample size is small, then the approaches in this section may be more accurate than logistic regression.</p></li>
+<li><p>The methods in this section can be naturally extended to the case of more than two response classes. (In the case of more than two response classes, we can also use multinomial logistic regression.)</p></li>
 </ul>
-</div>
-<div id="non-linearity-of-the-data" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Non-linearity of the Data</h2>
-<p>The first assumption of Linear Regression is that relations between the independent and dependent variables must be linear.</p>
-<p>Although this assumption is not always cited in the literature, it is logical and important to check for it. After all, if your relationships are not linear, you should not use a linear model, but rather a non-linear model of which plenty exist.</p>
-<p>We can check for linear relationships easily by making a scatter plot for each independent variable with the dependent variable as in Figure 5.1</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
-<img src="img/107-Figure3.9-1.png" alt="Plots of residuals versus predicted (or fitted) values for the Auto data set" width="85%" />
-<p class="caption">
-Figure 5.1: Plots of residuals versus predicted (or fitted) values for the Auto data set
-</p>
-</div>
-<p>In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend.</p>
-<ul>
-<li><strong>Left:</strong> A linear regression of <code>mpg</code> on horsepower. A strong pattern in the residuals indicates non-linearity in the data.</li>
-<li><strong>Right:</strong> A linear regression of <code>mpg</code> on <code>horsepower</code> and <code>horsepower2</code>. There is little pattern in the residuals.</li>
-</ul>
-</div>
-<div id="correlation-of-error-terms" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Correlation of Error Terms</h2>
-<p>If there is correlation among the error terms <span class="math inline">\(\epsilon_1, \epsilon_2,...,\epsilon_n\)</span>, then the estimated standard errors (SE) will tend to underestimate the true SE. As the result, p-value associated with the model will be lower than they should be, which could cause us to erroneously conclude that a parameter is statistically significant.</p>
-<div class="tip">
-<p>Such correlations frequently occur in the context of <em>time series</em> data, which consist of observations for which measurements are obtained at adjacent time points will have positively correlated errors.</p>
-<p>In order to determine if this is the case for a given data set, we can plot the residuals from our model as a function of time.</p>
-</div>
-<p>Figure 5.2 provides an illustration. <strong>In the top panel</strong>, we see the residuals from a linear regression fit to data generated with uncorrelated errors. There is no evidence of a time-related trend in the residuals.</p>
-<p>In contrast, <strong>the residuals in the bottom panel</strong> are from a data set in which adjacent errors had a correlation of 0.9. Now there is a clear pattern in the residuals—adjacent residuals tend to take on similar values.</p>
-<p>Finally, <strong>the center panel</strong> illustrates a more moderate case in which the residuals had a correlation of 0.5. There is still evidence of tracking, but the pattern is less clear.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
-<img src="img/109-Figure3.10-1.png" alt="Plots of residuals from simulated time series data sets generated with differing levels of correlation p between error terms for adjacent time" width="85%" />
-<p class="caption">
-Figure 5.2: Plots of residuals from simulated time series data sets generated with differing levels of correlation p between error terms for adjacent time
-</p>
-</div>
-</div>
-<div id="non-constant-variance-of-error-terms-heteroscedasticity" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Non-constant Variance of Error Terms (Heteroscedasticity)</h2>
-<p>Heteroscedasticity in a model means that the error is constant along the values of the dependent variable.</p>
-<div class="tip">
-<p>One can identify non-constant variances in the errors, or heteroscedasticity, from the presence of a funnel shape in heteroscedathe residual plot.</p>
-</div>
-<p>An example is shown in the left-hand panel of Figure 5.3, sticity in which the magnitude of the residuals tends to increase with the fitted values. In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend. The blue lines track the outer quantiles of the residuals, and emphasize patterns:</p>
-<ul>
-<li><p><strong>Left:</strong> The <em>funnel shape</em> indicates heteroscedasticity.</p></li>
-<li><p><strong>Right:</strong> The response has been log transformed, and there is now no evidence of heteroscedasticity.</p></li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
-<img src="img/110-Figure3.11-1.png" alt=" Residual plots" width="85%" />
-<p class="caption">
-Figure 5.3:  Residual plots
-</p>
-</div>
-<p>Some of the suggested solutions are:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong><em>Do some work on your input data</em></strong> like having some variables to add or remove.</p></li>
-<li><p><strong><em>Do transformations</em></strong>, like applying concave function such as <em>logistics</em> (<span class="math inline">\(logY\)</span>) or <em>square root</em> <span class="math inline">\(\sqrt{Y}\)</span>.</p></li>
-<li><p>If this doesn’t change anything, you can also switch to the <strong><em>weighted least squares model</em></strong>. <em>Weighted least squares</em> is a model that can deal with unconstant variances and heteroscedasticity is therefore not a problem.</p></li>
-</ol>
-</div>
-<div id="outlier" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Outlier</h2>
-<p>An <strong>outlier</strong> is a point for which yi is far from the value predicted by model. Outliers can arise for a variety of reasons, such as incorrect recording of an observation during data collection.</p>
-<p>As illustrated in Figure 5.4:</p>
-<ul>
-<li><p><strong>Left:</strong> The least squares regression line is shown in red, and the regression line after removing the outlier is shown in blue.</p></li>
-<li><p><strong>Center:</strong> The residual plot clearly identifies the outlier.</p></li>
-<li><p><strong>Right:</strong> The outlier has a <strong><em>studentized residual</em></strong> of 6; typically we expect values between −3 and 3.</p></li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-19"></span>
-<img src="img/111-Figure3.12-1.png" alt="Outlier plots" width="85%" />
-<p class="caption">
-Figure 5.4: Outlier plots
-</p>
-</div>
-<p>If we believe that an outlier has occurred due to an error in data collection or recording, then one solution is to simply remove the observation.</p>
-</div>
-<div id="high-leverage-points" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> High Leverage Points</h2>
-<p>In contrast to outlier with unusual for response value <span class="math inline">\(y\)</span>, observations with high leverage high leverage have an unusual value for <span class="math inline">\(x_i\)</span>.</p>
-<p>As illustrated in Figure 5.5:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
-<img src="img/112-Figure3.13-1.png" alt="Leveraging Observations Plots" width="85%" />
-<p class="caption">
-Figure 5.5: Leveraging Observations Plots
-</p>
-</div>
-<ul>
-<li><p><strong>Left:</strong> Observation 41 is a high leverage point, while 20 is not. The red line is the fit to all the data, and the blue line is the fit with observation 41 removed.</p></li>
-<li><p><strong>Center:</strong> The red observation is not unusual in terms of its X1 value or its X2 value, but still falls outside the bulk of the data, and hence has high leverage.</p></li>
-<li><p><strong>Right:</strong> Observation 41 has a high leverage and a high residual.</p></li>
-</ul>
-<p>In order to quantify an observation’s leverage, we compute the <strong><em>leverage
-statistic</em></strong>.</p>
+<p>Suppose that we wish to classify an observation into one of <span class="math inline">\(K\)</span> classes, where <span class="math inline">\(K ≥ 2\)</span>. Then Bayes’ theorem states that:</p>
 <div class="formula">
 <p><span class="math display">\[
-\Large h_i = \frac{1}{n} + \frac{(x_i - \overline{x})^2}{\sum_{i&#39;=1}^{n}(x_i&#39; - \overline x)^2}
+\Pr(A|B)=\frac{\Pr(B|A)\Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)}
 \]</span></p>
 </div>
-<p>A large value of this statistic indicates an observation with high leverage.</p>
+<p>In the following sections, we discuss three classifiers that use different estimates of <span class="math inline">\(f_k(x)\)</span> to approximate the Bayes classifier:
+1. <em>linear discriminant analysis</em>
+2. <em>quadratic discriminant analysis</em>
+3. <em>naive Bayes</em></p>
+<div id="linear-discriminant-analysis" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Linear Discriminant Analysis</h2>
+<div id="a.-when-p-1" class="section level3 unnumbered">
+<h3>a. When <span class="math inline">\(p\)</span> = 1</h3>
+<p>For now, assume that <span class="math inline">\(p\)</span> = 1—that is, we have only one predictor. We will then classify an observation to the class for which pk(x) is greatest. To estimate <span class="math inline">\(f_k(x)\)</span>, we will first <strong>make some assumptions about its form</strong>: In particular, we assume that <span class="math inline">\(f_k(x)\)</span> is <em>normal</em> or <em>Gaussian</em>.</p>
+<p>In practice, even if we are quite certain of our assumption that <span class="math inline">\(X\)</span> is drawn from a Gaussian distribution within each class, to apply the Bayes classifier we still have to estimate the parameters <span class="math inline">\(\mu_1, . . . ,\mu_K\)</span>, <span class="math inline">\(\pi_1, . . . ,\pi_K\)</span>, and <span class="math inline">\(\sigma^2\)</span>. The <em><strong>linear discriminant analysis (LDA)</strong></em> method approximates the Bayes classifier by plugging estimates for <span class="math inline">\(\pi_k, \mu_k\)</span>, and <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>To reiterate, the LDA classifier results from assuming that the observations within each class come from a normal distribution with a class-specific mean and a common variance <span class="math inline">\(\sigma^2\)</span>, and plugging estimates for these parameters into the Bayes classifier.</p>
 </div>
-<div id="collinearity" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Collinearity</h2>
-<p><strong><em>Collinearity</em></strong> refers to the situation in which two or more predictor variables are closely related to one another.</p>
-<p>In order to check for collinearity, we can either use <strong><em>Correlation Matrix</em></strong> or <strong><em>Variance Inflation Factor (VIF)</em></strong>.</p>
-<div id="correlation-matrix" class="section level3" number="5.6.1">
-<h3><span class="header-section-number">5.6.1</span> Correlation Matrix</h3>
-<p>A simple way to detect collinearity is to look at the correlation matrix
-of the predictors. An element of this matrix that is large in absolute value indicates a pair of highly correlated variables, and therefore a collinearity problem in the data.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
-<img src="img/unnamed.png" alt="Sample Correlation Matrix using R" width="65%" />
+<div id="a.-when-p-1-1" class="section level3 unnumbered">
+<h3>a. When <span class="math inline">\(p\)</span> &gt; 1</h3>
+<p>We now extend the LDA classifier to the case of multiple predictors. To do this, we will assume that <span class="math inline">\(X = (X_1,X_2, . . . ,X_p)\)</span> is drawn from a multivariate Gaussian (or multivariate normal) distribution, with a class-specific mean vector and a common covariance matrix.</p>
+<p>The <em><strong>multivariate Gaussian distribution</strong></em> assumes that each individual predictor follows a one-dimensional normal distribution.</p>
+</div>
+<div id="c.-problems-with-lda" class="section level3 unnumbered">
+<h3>c. Problems with LDA</h3>
+</div>
+<div id="d.-confusion-matrix" class="section level3 unnumbered">
+<h3>d. Confusion Matrix</h3>
+<p>A <strong><em>confusion matrix</em></strong> is a summarized table of the number of correct and incorrect predictions (or actual and predicted values) yielded by a classifier (or classification model) for binary classification tasks.</p>
+<div class="tip">
+<p>In simple words, “ A confusion matrix is a performance measurement for machine learning algorithm”.</p>
+</div>
+<p>By visualizing the confusion matrix, an individual could determine the accuracy of the model by observing the diagonal values for measuring the number of accurate classification.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-87"></span>
+<img src="img/cm.png" alt="A sample 2x2 confusion matrix" width="50%" />
 <p class="caption">
-Figure 5.6: Sample Correlation Matrix using R
+Figure 11.1: A sample 2x2 confusion matrix
 </p>
 </div>
-<p>Unfortunately, not all collinearity problems can be detected by inspection of the correlation matrix: it is possible for collinearity to exist between three or more variables even if no pair of variables has a particularly high correlation. We call this situation <strong><em>multicollinearity</em></strong>.</p>
-<p>Multicollinearity causes problems in using regression models to draw conclusions about the relationships between predictors and outcome. An individual predictor’s P value may test non-significant even though it is important. Confidence intervals for regression coefficients in a multicollinear model may be so high that tiny changes in individual observations have a large effect on the coefficients, sometimes reversing their signs.</p>
+<div id="i.-true-positive-true-negative-false-positive-and-false-negative" class="section level4 unnumbered">
+<h4>i. True Positive, True Negative, False Positive and False Negative</h4>
+<ul>
+<li><p>A <strong>true positive</strong> is an outcome where the model correctly predicts the positive class,</p></li>
+<li><p>A <strong>true negative</strong> is an outcome where the model correctly predicts the negative class.</p></li>
+<li><p>A <strong>false positive</strong> (<em>Type I Error</em>) is an outcome where the model incorrectly predicts the positive class when the actual class is negative.</p></li>
+<li><p>A <strong>false negative</strong> (<em>Type II Error</em>) is an outcome where the model incorrectly predicts the negative class when the actual class is positive.</p></li>
+</ul>
 </div>
-<div id="variance-inflation-factor-vif" class="section level3" number="5.6.2">
-<h3><span class="header-section-number">5.6.2</span> Variance Inflation Factor (VIF)</h3>
-<p>Instead of inspecting the correlation matrix, a better way to assess collinearity is to compute the <strong>variance inflation factor (VIF)</strong>. This can easily be calculated in <code>R</code> using software packages.</p>
-<p>When faced with the problem of collinearity, there are two simple solutions:</p>
-<ol style="list-style-type: decimal">
-<li><p>The first is to drop one of the problematic variables from the regression.</p></li>
-<li><p>The second solution is to combine the collinear variables together into a single predictor.</p></li>
-</ol>
+<div id="ii.-precision" class="section level4 unnumbered">
+<h4>ii. Precision</h4>
+<p><strong><em>Precision</em></strong> explains how many correctly predicted values came out to be positive actually. Or simply it gives the number of correct outputs given by the model out of all the correctly predicted positive values by the model.</p>
+<p>It determines whether a model is reliable or not. It is useful for the conditions where false positive is a higher concern as compared to a false negative. For calculating the precision, the formula is:</p>
+<div class="formula">
+<p><span class="math display">\[
+Precision = \frac{TP}{TP+FP}
+\]</span></p>
+</div>
+</div>
+<div id="iii.-recall" class="section level4 unnumbered">
+<h4>iii. Recall</h4>
+<p><strong><em>Recall</em></strong> describes how many of the actual positive values to be predicted correctly out of the model. It is useful when false-negative dominates false positives. The formula for calculating the recall is</p>
+<div class="formula">
+<p><span class="math display">\[
+Recall = \frac{TP}{TP+FN}
+\]</span></p>
+</div>
+<div class="hat">
+<p>Increasing precision decreases recall and vice versa, this is known as the <strong>precision/recall tradeoff</strong>.</p>
+</div>
+</div>
+<div id="iv.-accuracy" class="section level4 unnumbered">
+<h4>iv. Accuracy</h4>
+<p>One of the significant parameters in determining the <strong><em>accuracy</em></strong> of the classification problems, it explains how regularly the model predicts the correct outputs and can be measured as the ratio of the number of correct predictions made by the classifier over the total number of predictions made by the classifiers. The formula is</p>
+<div class="formula">
+<p><span class="math display">\[
+Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
+\]</span></p>
+</div>
+</div>
+<div id="iv.-f-measure" class="section level4 unnumbered">
+<h4>iv. F-Measure</h4>
+<p>For the condition when two models have low precision and high recall or vice versa, it becomes hard to compare those models, therefore to solve this issue we can deploy <strong><em>F-score</em></strong>.</p>
+<p>::tip
+“F-score is a harmonic mean of Precision and Recall”.
+:::</p>
+<p>By calculating F-score, we can evaluate the recall and precision at the same time. Also, if the recall is equal to precision, The F-score is maximum and can be calculated using the below formula</p>
+<div class="formula">
+<p><span class="math display">\[
+F-measure = \frac{2 \times Recall \times precision}{Recall + Precision}
+\]</span></p>
+</div>
+</div>
+<div id="v.-roc-curve" class="section level4 unnumbered">
+<h4>v. ROC curve</h4>
+<p>The <strong><em>ROC curve</em></strong> is a popular graphic for simultaneously displaying the two types of errors for all possible thresholds.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-88"></span>
+<img src="img/162-Figure4.8-1.png" alt="A ROC curve for the LDA classifier on the Default data" width="65%" />
+<p class="caption">
+Figure 11.2: A ROC curve for the LDA classifier on the Default data
+</p>
+</div>
+<p>Figure above displays the ROC curve for the LDA classifier on the training data. The overall performance of a classifier, summarized over all possible thresholds, is given by the area under the (ROC) curve (AUC). An ideal ROC curve will hug the top left corner, so the large area under the (ROC) curve
+the AUC the better the classifier. For this data the AUC is 0.95, which is close to the maximum of one so would be considered very good.</p>
+</div>
+</div>
+</div>
+<div id="quadratic-discriminant-analysis" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Quadratic Discriminant Analysis</h2>
+<p><strong><em>Quadratic discriminant analysis (QDA)</em></strong> provides an alternative approach. Like LDA, the QDA classifier assumes that the observations from each class of Y are drawn from a Gaussian distribution. However, unlike LDA, QDA assumes that each class has its own covariance matrix.</p>
+<p>In other words, the predictor variables are not assumed to have common variance across each of the <span class="math inline">\(k\)</span> levels in <span class="math inline">\(Y\)</span>. Mathematically, it assumes that an observation from the <span class="math inline">\(k\)</span>th class is of the form, where is a covariance matrix for the <span class="math inline">\(k\)</span>th class. Under this assumption, the classifier assigns an observation to the class for which is largest.</p>
+<div id="why-is-this-important" class="section level3 unnumbered">
+<h3>Why is this important?</h3>
+<p>Consider the image below. In trying to classify the observations into the three (color-coded) classes, LDA (left plot) provides linear decision boundaries that are based on the assumption that the observations vary consistently across all classes. However, when looking at the data it becomes apparent that the variability of the observations within each class differ. Consequently, QDA (right plot) is able to capture the differing covariances and provide more accurate non-linear classification decision boundaries.</p>
+<p><img src="img/QDA.png" width="65%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -448,8 +432,8 @@ Figure 5.6: Sample Correlation Matrix using R
           </div>
         </div>
       </div>
-<a href="multiple-linear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="case-study---marketing-plan.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="logistic-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="a-comparison-of-classification-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

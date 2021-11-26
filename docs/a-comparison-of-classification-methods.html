@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 5 Other Considerations in the Regression Model | Stat Learning</title>
+  <title>Section 12 A Comparison of Classification Methods | Stat Learning</title>
   <meta name="description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 5 Other Considerations in the Regression Model | Stat Learning" />
+  <meta property="og:title" content="Section 12 A Comparison of Classification Methods | Stat Learning" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 5 Other Considerations in the Regression Model | Stat Learning" />
+  <meta name="twitter:title" content="Section 12 A Comparison of Classification Methods | Stat Learning" />
   
   <meta name="twitter:description" content="My note for learning statistics concepts in the Introduction to Statistical Learning book" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="multiple-linear-regression.html"/>
-<link rel="next" href="case-study---marketing-plan.html"/>
+<link rel="prev" href="generative-models-for-classification.html"/>
+
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -300,147 +300,110 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="img/illos/cover.png">
 </div>
-<div id="other-considerations-in-the-regression-model" class="section level1" number="5">
-<h1><span class="header-section-number">Section 5</span> Other Considerations in the Regression Model</h1>
-<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
-<div id="potential-problems" class="section level2 unnumbered">
-<h2>Potential Problems</h2>
-<p>When we fit a linear regression model, many problems can occur, to name a few:</p>
+<div id="a-comparison-of-classification-methods" class="section level1" number="12">
+<h1><span class="header-section-number">Section 12</span> A Comparison of Classification Methods</h1>
+<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" />
+We now compare the empirical (practical) performance of logistic regression, LDA, QDA, naive Bayes, and KNN. We generated data from six different scenarios, each of which involves a binary (two-class) classification problem.</p>
+<p>In each of the six scenarios, there were p = 2 quantitative predictors. The scenarios were as follows:</p>
+<div id="figure-for-scenarios-1-2-3" class="section level2 unnumbered">
+<h2>Figure for Scenarios 1, 2, 3</h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-92"></span>
+<img src="img/166-Figure4.10-1.png" alt="Boxplots of the test error rates for each of the linear scenarios described in the main text" width="65%" />
+<p class="caption">
+Figure 12.1: Boxplots of the test error rates for each of the linear scenarios described in the main text
+</p>
+</div>
+</div>
+<div id="scenario-1" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Scenario 1</h2>
+<p>There were 20 training observations in each of two classes. The observations within each class were uncorrelated random normal variables with a different mean in each class.</p>
+<div class="hat">
+<p>The left-hand panel of Figure 12.1 shows that:</p>
 <ul>
-<li><em>Non-linearity of the response-predictor relationships.</em></li>
-<li><em>Correlation of error terms.</em></li>
-<li><em>Non-constant variance of error terms.</em></li>
-<li><em>Outlines.</em></li>
-<li><em>High-leverage points.</em></li>
-<li><em>Collinearity.</em></li>
+<li><p><strong>LDA</strong> performed well in this setting, as one would expect since this is the model assumed by LDA.</p></li>
+<li><p><strong>Logistic regression</strong> also performed quite well, since it assumes a linear decision boundary.</p></li>
+<li><p><strong>KNN</strong> performed poorly because it paid a price in terms of variance that was not offset by a reduction in bias.</p></li>
+<li><p><strong>QDA</strong> also performed worse than LDA, since it fit a more flexible classifier than necessary.</p></li>
 </ul>
 </div>
-<div id="non-linearity-of-the-data" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Non-linearity of the Data</h2>
-<p>The first assumption of Linear Regression is that relations between the independent and dependent variables must be linear.</p>
-<p>Although this assumption is not always cited in the literature, it is logical and important to check for it. After all, if your relationships are not linear, you should not use a linear model, but rather a non-linear model of which plenty exist.</p>
-<p>We can check for linear relationships easily by making a scatter plot for each independent variable with the dependent variable as in Figure 5.1</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
-<img src="img/107-Figure3.9-1.png" alt="Plots of residuals versus predicted (or fitted) values for the Auto data set" width="85%" />
+</div>
+<div id="scenario-2" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Scenario 2</h2>
+<p>Details are as in Scenario 1, except that within each class, the two predictors had a correlation of −0.5.</p>
+<div class="hat">
+<p>The center panel of Figure 12.1 indicates that the performance of most methods is similar to the previous scenario.</p>
+</div>
+</div>
+<div id="scenario-3" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Scenario 3</h2>
+<p>As in the previous scenario, there is substantial negative correlation between the predictors within each class. However, this time we generated <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> from the <em>t-distribution</em>, with 50 observations per class. The <em>t-distribution</em> has a similar shape to the normal distribution, but it has a tendency to yield more extreme points—that is, more points that are far from the mean.</p>
+<div class="gotcha">
+<p>In this setting, the decision boundary was still linear, and so fit into the logistic regression framework. The set-up violated the assumptions of LDA, since the observations were not drawn from a normal distribution.</p>
+</div>
+<p>:::hat
+The right-hand panel of Figure 12.1 shows that:
+* Logistic regression outperformed LDA, though both methods were superior to the other approaches.
+* In particular, the QDA results deteriorated considerably as a consequence of non-normality.</p>
+</div>
+<div id="figure-for-scenarios-4-5-6" class="section level2 unnumbered">
+<h2>Figure for Scenarios 4, 5, 6</h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-93"></span>
+<img src="img/166-Figure4.11-1.png" alt="Boxplots of the test error rates for each of the linear scenarios described in the main text" width="65%" />
 <p class="caption">
-Figure 5.1: Plots of residuals versus predicted (or fitted) values for the Auto data set
+Figure 12.2: Boxplots of the test error rates for each of the linear scenarios described in the main text
 </p>
 </div>
-<p>In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend.</p>
+</div>
+<div id="scenario-4" class="section level2" number="12.4">
+<h2><span class="header-section-number">12.4</span> Scenario 4</h2>
+<p>The data were generated from a normal distribution, with a correlation of 0.5 between the predictors in the first class, and correlation of −0.5 between the predictors in the second class.</p>
+<div class="gotcha">
+<p>This setup corresponded to the QDA assumption, and resulted in quadratic decision boundaries.</p>
+</div>
+<div class="hat">
+<p>The left-hand panel of Figure 12.2 shows that QDA outperformed all of the other approaches.</p>
+</div>
+</div>
+<div id="scenario-5" class="section level2" number="12.5">
+<h2><span class="header-section-number">12.5</span> Scenario 5</h2>
+<p>The data were generated from a normal distribution with uncorrelated predictors. Then the responses were sampled from the logistic function applied to a complicated non-linear function of the predictors.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-94"></span>
+<img src="img/166-Figure4.11-1.png" alt="Boxplots of the test error rates for each of the linear scenarios described in the main text" width="65%" />
+<p class="caption">
+Figure 12.3: Boxplots of the test error rates for each of the linear scenarios described in the main text
+</p>
+</div>
+<p>Consequently, there is a quadratic decision boundary.</p>
+<p>:::hat
+The center panel or Figure 12.2 shows that the QDA once again outperformed best, followed closely by KNN-CV. The linear method had poor performance.</p>
+</div>
+<div id="scenario-6" class="section level2" number="12.6">
+<h2><span class="header-section-number">12.6</span> Scenario 6</h2>
+<p>The observations were generated from a normal distribution with a different diagonal covariance matrix for each class. However, the sample size was very small: just <span class="math inline">\(n = 6\)</span> in each class.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-95"></span>
+<img src="img/166-Figure4.11-1.png" alt="Boxplots of the test error rates for each of the linear scenarios described in the main text" width="65%" />
+<p class="caption">
+Figure 12.4: Boxplots of the test error rates for each of the linear scenarios described in the main text
+</p>
+</div>
+<p>As the result, even the quaratic decision boundary was not a good fit.</p>
+<p>:::hat
+The right hand panel of Figure 12.2 shows that:</p>
 <ul>
-<li><strong>Left:</strong> A linear regression of <code>mpg</code> on horsepower. A strong pattern in the residuals indicates non-linearity in the data.</li>
-<li><strong>Right:</strong> A linear regression of <code>mpg</code> on <code>horsepower</code> and <code>horsepower2</code>. There is little pattern in the residuals.</li>
+<li><p>QDA gave slightly better results than the linear methods.</p></li>
+<li><p>Much more flexible KNN-CV method gave the best performance.</p></li>
+<li><p>However, <span class="math inline">\(K\)</span> = 1 gave the worst performance out of all methods. This highlight the fact that even when the data exhibit a complex non-linear relationship, a non-parametric method such as KNN can still give poor results if the level of smoothness is not chosen correctly.</p></li>
 </ul>
 </div>
-<div id="correlation-of-error-terms" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Correlation of Error Terms</h2>
-<p>If there is correlation among the error terms <span class="math inline">\(\epsilon_1, \epsilon_2,...,\epsilon_n\)</span>, then the estimated standard errors (SE) will tend to underestimate the true SE. As the result, p-value associated with the model will be lower than they should be, which could cause us to erroneously conclude that a parameter is statistically significant.</p>
-<div class="tip">
-<p>Such correlations frequently occur in the context of <em>time series</em> data, which consist of observations for which measurements are obtained at adjacent time points will have positively correlated errors.</p>
-<p>In order to determine if this is the case for a given data set, we can plot the residuals from our model as a function of time.</p>
-</div>
-<p>Figure 5.2 provides an illustration. <strong>In the top panel</strong>, we see the residuals from a linear regression fit to data generated with uncorrelated errors. There is no evidence of a time-related trend in the residuals.</p>
-<p>In contrast, <strong>the residuals in the bottom panel</strong> are from a data set in which adjacent errors had a correlation of 0.9. Now there is a clear pattern in the residuals—adjacent residuals tend to take on similar values.</p>
-<p>Finally, <strong>the center panel</strong> illustrates a more moderate case in which the residuals had a correlation of 0.5. There is still evidence of tracking, but the pattern is less clear.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
-<img src="img/109-Figure3.10-1.png" alt="Plots of residuals from simulated time series data sets generated with differing levels of correlation p between error terms for adjacent time" width="85%" />
-<p class="caption">
-Figure 5.2: Plots of residuals from simulated time series data sets generated with differing levels of correlation p between error terms for adjacent time
-</p>
-</div>
-</div>
-<div id="non-constant-variance-of-error-terms-heteroscedasticity" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Non-constant Variance of Error Terms (Heteroscedasticity)</h2>
-<p>Heteroscedasticity in a model means that the error is constant along the values of the dependent variable.</p>
-<div class="tip">
-<p>One can identify non-constant variances in the errors, or heteroscedasticity, from the presence of a funnel shape in heteroscedathe residual plot.</p>
-</div>
-<p>An example is shown in the left-hand panel of Figure 5.3, sticity in which the magnitude of the residuals tends to increase with the fitted values. In each plot, the red line is a smooth fit to the residuals, intended to make it easier to identify a trend. The blue lines track the outer quantiles of the residuals, and emphasize patterns:</p>
+<div id="conclusion" class="section level2 unnumbered">
+<h2>Conclusion</h2>
+<p>These six examples illustrate that no one method will dominate the others in every situation:</p>
 <ul>
-<li><p><strong>Left:</strong> The <em>funnel shape</em> indicates heteroscedasticity.</p></li>
-<li><p><strong>Right:</strong> The response has been log transformed, and there is now no evidence of heteroscedasticity.</p></li>
+<li><p>When the true decision boundaries are linear, then the LDA and logistic regression approaches will tend to perform well.</p></li>
+<li><p>When the boundaries are moderately non-linear, QDA may give better results.</p></li>
+<li><p>Finally, for much more complicated decision boundaries, a non-parametric approach such as KNN can be superior. But the level of smoothness for a non-parametric approach must be chosen carefully.</p></li>
 </ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
-<img src="img/110-Figure3.11-1.png" alt=" Residual plots" width="85%" />
-<p class="caption">
-Figure 5.3:  Residual plots
-</p>
-</div>
-<p>Some of the suggested solutions are:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong><em>Do some work on your input data</em></strong> like having some variables to add or remove.</p></li>
-<li><p><strong><em>Do transformations</em></strong>, like applying concave function such as <em>logistics</em> (<span class="math inline">\(logY\)</span>) or <em>square root</em> <span class="math inline">\(\sqrt{Y}\)</span>.</p></li>
-<li><p>If this doesn’t change anything, you can also switch to the <strong><em>weighted least squares model</em></strong>. <em>Weighted least squares</em> is a model that can deal with unconstant variances and heteroscedasticity is therefore not a problem.</p></li>
-</ol>
-</div>
-<div id="outlier" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Outlier</h2>
-<p>An <strong>outlier</strong> is a point for which yi is far from the value predicted by model. Outliers can arise for a variety of reasons, such as incorrect recording of an observation during data collection.</p>
-<p>As illustrated in Figure 5.4:</p>
-<ul>
-<li><p><strong>Left:</strong> The least squares regression line is shown in red, and the regression line after removing the outlier is shown in blue.</p></li>
-<li><p><strong>Center:</strong> The residual plot clearly identifies the outlier.</p></li>
-<li><p><strong>Right:</strong> The outlier has a <strong><em>studentized residual</em></strong> of 6; typically we expect values between −3 and 3.</p></li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-19"></span>
-<img src="img/111-Figure3.12-1.png" alt="Outlier plots" width="85%" />
-<p class="caption">
-Figure 5.4: Outlier plots
-</p>
-</div>
-<p>If we believe that an outlier has occurred due to an error in data collection or recording, then one solution is to simply remove the observation.</p>
-</div>
-<div id="high-leverage-points" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> High Leverage Points</h2>
-<p>In contrast to outlier with unusual for response value <span class="math inline">\(y\)</span>, observations with high leverage high leverage have an unusual value for <span class="math inline">\(x_i\)</span>.</p>
-<p>As illustrated in Figure 5.5:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
-<img src="img/112-Figure3.13-1.png" alt="Leveraging Observations Plots" width="85%" />
-<p class="caption">
-Figure 5.5: Leveraging Observations Plots
-</p>
-</div>
-<ul>
-<li><p><strong>Left:</strong> Observation 41 is a high leverage point, while 20 is not. The red line is the fit to all the data, and the blue line is the fit with observation 41 removed.</p></li>
-<li><p><strong>Center:</strong> The red observation is not unusual in terms of its X1 value or its X2 value, but still falls outside the bulk of the data, and hence has high leverage.</p></li>
-<li><p><strong>Right:</strong> Observation 41 has a high leverage and a high residual.</p></li>
-</ul>
-<p>In order to quantify an observation’s leverage, we compute the <strong><em>leverage
-statistic</em></strong>.</p>
-<div class="formula">
-<p><span class="math display">\[
-\Large h_i = \frac{1}{n} + \frac{(x_i - \overline{x})^2}{\sum_{i&#39;=1}^{n}(x_i&#39; - \overline x)^2}
-\]</span></p>
-</div>
-<p>A large value of this statistic indicates an observation with high leverage.</p>
-</div>
-<div id="collinearity" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Collinearity</h2>
-<p><strong><em>Collinearity</em></strong> refers to the situation in which two or more predictor variables are closely related to one another.</p>
-<p>In order to check for collinearity, we can either use <strong><em>Correlation Matrix</em></strong> or <strong><em>Variance Inflation Factor (VIF)</em></strong>.</p>
-<div id="correlation-matrix" class="section level3" number="5.6.1">
-<h3><span class="header-section-number">5.6.1</span> Correlation Matrix</h3>
-<p>A simple way to detect collinearity is to look at the correlation matrix
-of the predictors. An element of this matrix that is large in absolute value indicates a pair of highly correlated variables, and therefore a collinearity problem in the data.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
-<img src="img/unnamed.png" alt="Sample Correlation Matrix using R" width="65%" />
-<p class="caption">
-Figure 5.6: Sample Correlation Matrix using R
-</p>
-</div>
-<p>Unfortunately, not all collinearity problems can be detected by inspection of the correlation matrix: it is possible for collinearity to exist between three or more variables even if no pair of variables has a particularly high correlation. We call this situation <strong><em>multicollinearity</em></strong>.</p>
-<p>Multicollinearity causes problems in using regression models to draw conclusions about the relationships between predictors and outcome. An individual predictor’s P value may test non-significant even though it is important. Confidence intervals for regression coefficients in a multicollinear model may be so high that tiny changes in individual observations have a large effect on the coefficients, sometimes reversing their signs.</p>
-</div>
-<div id="variance-inflation-factor-vif" class="section level3" number="5.6.2">
-<h3><span class="header-section-number">5.6.2</span> Variance Inflation Factor (VIF)</h3>
-<p>Instead of inspecting the correlation matrix, a better way to assess collinearity is to compute the <strong>variance inflation factor (VIF)</strong>. This can easily be calculated in <code>R</code> using software packages.</p>
-<p>When faced with the problem of collinearity, there are two simple solutions:</p>
-<ol style="list-style-type: decimal">
-<li><p>The first is to drop one of the problematic variables from the regression.</p></li>
-<li><p>The second solution is to combine the collinear variables together into a single predictor.</p></li>
-</ol>
 
-</div>
 </div>
 </div>
             </section>
@@ -448,8 +411,8 @@ Figure 5.6: Sample Correlation Matrix using R
           </div>
         </div>
       </div>
-<a href="multiple-linear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="case-study---marketing-plan.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="generative-models-for-classification.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
