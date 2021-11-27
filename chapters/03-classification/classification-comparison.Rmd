@@ -58,7 +58,7 @@ In this setting, the decision boundary was still linear, and so fit into the log
 The right-hand panel of Figure 12.1 shows that: 
 * Logistic regression outperformed LDA, though both methods were superior to the other approaches. 
 * In particular, the QDA results deteriorated considerably as a consequence of non-normality.
-
+:::
 
 ## Figure for Scenarios 4, 5, 6 {-}
 
@@ -93,6 +93,7 @@ Consequently, there is a quadratic decision boundary.
 
 :::hat
 The center panel or Figure 12.2 shows that the QDA once again outperformed best, followed closely by KNN-CV. The linear method had poor performance.
+:::
 
 ## Scenario 6
 
@@ -112,6 +113,7 @@ The right hand panel of Figure 12.2 shows that:
 * Much more flexible KNN-CV method gave the best performance.
 
 * However, $K$ = 1 gave the worst performance out of all methods. This highlight the fact that even when the data exhibit a complex non-linear relationship, a non-parametric method such as KNN can still give poor results if the level of smoothness is not chosen correctly.
+:::
 
 ## Conclusion {-}
 

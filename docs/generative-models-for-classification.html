@@ -225,7 +225,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
 <ul>
-<li><a href="exercises-applied.html#a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
 <li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
 <li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
 </ul></li>
@@ -253,7 +252,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>11.1</b> Linear Discriminant Analysis</a>
 <ul>
 <li><a href="generative-models-for-classification.html#a.-when-p-1">a. When <span class="math inline">\(p\)</span> = 1</a></li>
-<li><a href="generative-models-for-classification.html#a.-when-p-1-1">a. When <span class="math inline">\(p\)</span> &gt; 1</a></li>
+<li><a href="generative-models-for-classification.html#b.-when-p-1">b. When <span class="math inline">\(p\)</span> &gt; 1</a></li>
 <li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#c.-problems-with-lda"><i class="fa fa-check"></i>c. Problems with LDA</a></li>
 <li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#d.-confusion-matrix"><i class="fa fa-check"></i>d. Confusion Matrix</a></li>
 </ul></li>
@@ -325,8 +324,8 @@ Why do we need another method, when we have logistic regression? There are sever
 <p>In practice, even if we are quite certain of our assumption that <span class="math inline">\(X\)</span> is drawn from a Gaussian distribution within each class, to apply the Bayes classifier we still have to estimate the parameters <span class="math inline">\(\mu_1, . . . ,\mu_K\)</span>, <span class="math inline">\(\pi_1, . . . ,\pi_K\)</span>, and <span class="math inline">\(\sigma^2\)</span>. The <em><strong>linear discriminant analysis (LDA)</strong></em> method approximates the Bayes classifier by plugging estimates for <span class="math inline">\(\pi_k, \mu_k\)</span>, and <span class="math inline">\(\sigma^2\)</span>.</p>
 <p>To reiterate, the LDA classifier results from assuming that the observations within each class come from a normal distribution with a class-specific mean and a common variance <span class="math inline">\(\sigma^2\)</span>, and plugging estimates for these parameters into the Bayes classifier.</p>
 </div>
-<div id="a.-when-p-1-1" class="section level3 unnumbered">
-<h3>a. When <span class="math inline">\(p\)</span> &gt; 1</h3>
+<div id="b.-when-p-1" class="section level3 unnumbered">
+<h3>b. When <span class="math inline">\(p\)</span> &gt; 1</h3>
 <p>We now extend the LDA classifier to the case of multiple predictors. To do this, we will assume that <span class="math inline">\(X = (X_1,X_2, . . . ,X_p)\)</span> is drawn from a multivariate Gaussian (or multivariate normal) distribution, with a class-specific mean vector and a common covariance matrix.</p>
 <p>The <em><strong>multivariate Gaussian distribution</strong></em> assumes that each individual predictor follows a one-dimensional normal distribution.</p>
 </div>
@@ -340,7 +339,7 @@ Why do we need another method, when we have logistic regression? There are sever
 <p>In simple words, “ A confusion matrix is a performance measurement for machine learning algorithm”.</p>
 </div>
 <p>By visualizing the confusion matrix, an individual could determine the accuracy of the model by observing the diagonal values for measuring the number of accurate classification.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-77"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-75"></span>
 <img src="img/cm.png" alt="A sample 2x2 confusion matrix" width="50%" />
 <p class="caption">
 Figure 11.1: A sample 2x2 confusion matrix
@@ -386,8 +385,8 @@ Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
 \]</span></p>
 </div>
 </div>
-<div id="iv.-f-measure" class="section level4 unnumbered">
-<h4>iv. F-Measure</h4>
+<div id="v.-f-measure" class="section level4 unnumbered">
+<h4>v. F-Measure</h4>
 <p>For the condition when two models have low precision and high recall or vice versa, it becomes hard to compare those models, therefore to solve this issue we can deploy <strong><em>F-score</em></strong>.</p>
 <p>::tip
 “F-score is a harmonic mean of Precision and Recall”.
@@ -399,10 +398,10 @@ F-measure = \frac{2 \times Recall \times precision}{Recall + Precision}
 \]</span></p>
 </div>
 </div>
-<div id="v.-roc-curve" class="section level4 unnumbered">
-<h4>v. ROC curve</h4>
+<div id="vi.-roc-curve" class="section level4 unnumbered">
+<h4>vi. ROC curve</h4>
 <p>The <strong><em>ROC curve</em></strong> is a popular graphic for simultaneously displaying the two types of errors for all possible thresholds.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-78"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-76"></span>
 <img src="img/162-Figure4.8-1.png" alt="A ROC curve for the LDA classifier on the Default data" width="65%" />
 <p class="caption">
 Figure 11.2: A ROC curve for the LDA classifier on the Default data

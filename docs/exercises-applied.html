@@ -225,7 +225,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
 <ul>
-<li><a href="exercises-applied.html#a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
 <li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
 <li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
 </ul></li>
@@ -253,7 +252,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>11.1</b> Linear Discriminant Analysis</a>
 <ul>
 <li><a href="generative-models-for-classification.html#a.-when-p-1">a. When <span class="math inline">\(p\)</span> = 1</a></li>
-<li><a href="generative-models-for-classification.html#a.-when-p-1-1">a. When <span class="math inline">\(p\)</span> &gt; 1</a></li>
+<li><a href="generative-models-for-classification.html#b.-when-p-1">b. When <span class="math inline">\(p\)</span> &gt; 1</a></li>
 <li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#c.-problems-with-lda"><i class="fa fa-check"></i>c. Problems with LDA</a></li>
 <li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#d.-confusion-matrix"><i class="fa fa-check"></i>d. Confusion Matrix</a></li>
 </ul></li>
@@ -300,12 +299,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="exercises-applied" class="section level1" number="8">
 <h1><span class="header-section-number">Section 8</span> Exercises (Applied)</h1>
-<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
+<center>
+<img src="img/illos/02-exercise.png" />
+</center>
 <div id="question-1" class="section level2 unnumbered">
 <h2>Question 1</h2>
 <p>This question involves the use of simple linear regression on the <code>Auto</code> data set.</p>
-<div id="a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output." class="section level3 unnumbered">
-<h3>(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</h3>
+<div id="a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output." class="section level6 unnumbered">
+<h6>(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</h6>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="exercises-applied.html#cb52-1" aria-hidden="true" tabindex="-1"></a>mpg.fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data =</span> Auto)</span>
 <span id="cb52-2"><a href="exercises-applied.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)</span></code></pre></div>
 <pre><code>## 
@@ -327,8 +328,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Multiple R-squared:  0.6059, Adjusted R-squared:  0.6049 
 ## F-statistic: 599.7 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>In order to interpret the result, a set of following questions are set up to better investigate the model:</p>
-<div id="i.-is-there-a-relationship-between-the-predictor-and-the-response" class="section level4 unnumbered">
-<h4>i. <em>Is there a relationship between the predictor and the response?</em></h4>
+</div>
+<div id="i.-is-there-a-relationship-between-the-predictor-and-the-response" class="section level6 unnumbered">
+<h6>i. <em>Is there a relationship between the predictor and the response?</em></h6>
 <p>This question can be answered by fitting the simple linear regression model of <code>mpg</code> on <code>horsepower</code> and testing the null hypothesis:</p>
 <div class="formula">
 <p><span class="math display">\[
@@ -337,8 +339,8 @@ H_0: \beta_j = 0
 </div>
 <p>The p-value for the <code>horsepower</code> variable is very small (&lt;&lt;0.05), so there is strong evidence to believe that <code>horsepower</code> is associated with <code>mpg</code>. Therefore, there is a relationship between the predictor and response.</p>
 </div>
-<div id="ii.-how-strong-is-the-relationship-between-the-predictor-and-the-response" class="section level4 unnumbered">
-<h4>ii. <em>How strong is the relationship between the predictor and the response?</em></h4>
+<div id="ii.-how-strong-is-the-relationship-between-the-predictor-and-the-response" class="section level6 unnumbered">
+<h6>ii. <em>How strong is the relationship between the predictor and the response?</em></h6>
 <p>There are 2 measures of model accuracy to evaluate the degree of relationship between the predictor and the response, which are: <strong>RSE</strong> and <span class="math inline">\(R^2\)</span> <strong>statistic</strong>.</p>
 <p>For the <code>Auto</code> data, the RSE is:</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="exercises-applied.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg.fit)<span class="sc">$</span>sigma</span></code></pre></div>
@@ -352,15 +354,15 @@ H_0: \beta_j = 0
 <pre><code>## [1] 0.6059483</code></pre>
 <p>So the <code>horsepower</code> explains 60.59% of the variance in <code>mpg</code>.</p>
 </div>
-<div id="iii.-is-the-relationship-between-the-predictor-and-the-response-positive-or-negative" class="section level4 unnumbered">
-<h4>iii. <em>Is the relationship between the predictor and the response positive or negative?</em></h4>
+<div id="iii.-is-the-relationship-between-the-predictor-and-the-response-positive-or-negative" class="section level6 unnumbered">
+<h6>iii. <em>Is the relationship between the predictor and the response positive or negative?</em></h6>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="exercises-applied.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coefficients</span>(mpg.fit)</span></code></pre></div>
 <pre><code>## (Intercept)  horsepower 
 ##  39.9358610  -0.1578447</code></pre>
 <p>The relationship is negative between <code>mpg</code> and <code>horsepower</code> as the coefficient estimate is -0.1578447.</p>
 </div>
-<div id="iv.-what-is-the-predicted-mpg-associated-with-a-horsepower-of-98-what-are-the-associated-95-confidence-and-prediction-intervals" class="section level4 unnumbered">
-<h4>iv. <em>What is the predicted <code>mpg</code> associated with a <code>horsepower</code> of 98? What are the associated 95% confidence and prediction intervals?</em></h4>
+<div id="iv.-what-is-the-predicted-mpg-associated-with-a-horsepower-of-98-what-are-the-associated-95-confidence-and-prediction-intervals" class="section level6 unnumbered">
+<h6>iv. <em>What is the predicted <code>mpg</code> associated with a <code>horsepower</code> of 98? What are the associated 95% confidence and prediction intervals?</em></h6>
 <p>The confidence interval:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="exercises-applied.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mpg.fit, <span class="fu">data.frame</span>(<span class="at">horsepower =</span> <span class="dv">98</span>), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##        fit      lwr      upr
@@ -371,35 +373,34 @@ H_0: \beta_j = 0
 ## 1 24.46708 14.8094 34.12476</code></pre>
 <p>The prediction interval is wider than the confidence interval as we would expect.</p>
 </div>
-</div>
 <div id="b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line." class="section level3 unnumbered">
 <h3>(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</h3>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="exercises-applied.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower,Auto<span class="sc">$</span>mpg,<span class="at">xlab =</span> <span class="st">&quot;horsepower&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>,<span class="at">main =</span> <span class="st">&quot;Scatterplot of mpg vs. horsepower&quot;</span>)</span>
 <span id="cb66-2"><a href="exercises-applied.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(mpg.fit,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit." class="section level3 unnumbered">
 <h3>(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</h3>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="exercises-applied.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb67-2"><a href="exercises-applied.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg.fit)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-62-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-60-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:</p>
-<div id="i-residuals-vs-fitted" class="section level4 unnumbered">
-<h4><strong>(i) Residuals vs Fitted</strong></h4>
+<div id="i-residuals-vs-fitted" class="section level6 unnumbered">
+<h6><strong>(i) Residuals vs Fitted</strong></h6>
 <p>This plot shows if residuals have non-linear patterns.</p>
 <p>In this case, The plot of residuals versus fitted values indicates the presence of non linearity in the data.</p>
 </div>
-<div id="ii-normal-q-q" class="section level4 unnumbered">
-<h4><strong>(ii) Normal Q-Q</strong></h4>
+<div id="ii-normal-q-q" class="section level6 unnumbered">
+<h6><strong>(ii) Normal Q-Q</strong></h6>
 <p>This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.</p>
 </div>
-<div id="iii-scale-location" class="section level4 unnumbered">
-<h4><strong>(iii) Scale-Location</strong></h4>
+<div id="iii-scale-location" class="section level6 unnumbered">
+<h6><strong>(iii) Scale-Location</strong></h6>
 <p>This plot show how you can check the assumption of equal variance (homoscedasticity).</p>
 <p>In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as <span class="math inline">\(log(y)\)</span> or <span class="math inline">\(\sqrt{y}\)</span> can shrink larger responses by a greater amount and reduce this issue.</p>
 </div>
-<div id="iv-residuals-vs-leverage" class="section level4 unnumbered">
-<h4><strong>(iv) Residuals vs Leverage</strong></h4>
+<div id="iv-residuals-vs-leverage" class="section level6 unnumbered">
+<h6><strong>(iv) Residuals vs Leverage</strong></h6>
 <p>This plot helps us to find influential cases (i.e., subjects) if any.</p>
 <p>The plot of standardized residuals versus leverage indicates the presence of a few outliers and a few high leverage points.</p>
 </div>
@@ -411,7 +412,7 @@ H_0: \beta_j = 0
 <div id="a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set." class="section level3 unnumbered">
 <h3>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</h3>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="exercises-applied.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-63-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative." class="section level3 unnumbered">
 <h3>(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</h3>
@@ -466,8 +467,8 @@ H_0: \beta_j = 0
 ## Residual standard error: 3.328 on 384 degrees of freedom
 ## Multiple R-squared:  0.8215, Adjusted R-squared:  0.8182 
 ## F-statistic: 252.4 on 7 and 384 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div id="i.-is-there-a-relationship-between-the-predictors-and-the-response" class="section level4 unnumbered">
-<h4>i. Is there a relationship between the predictors and the response?</h4>
+<div id="i.-is-there-a-relationship-between-the-predictors-and-the-response" class="section level6 unnumbered">
+<h6>i. Is there a relationship between the predictors and the response?</h6>
 <p>We answer this question by performing an F-test, where we test the null hypothesis that all of the regression coefficients are zero:</p>
 <p>$$
 H_0:_1=_2=…=_p=0\</p>
@@ -476,12 +477,12 @@ $$</p>
 <p>The p-value is given at the bottom of the model summary (<code>p-value: &lt; 2.2e-16</code>), so it’s clear that the probability of the null hypothesis being true (given our data) is practically zero.</p>
 <p>We reject the null hypothesis (and hence conclude that there is a relationship between the predictors and <code>mpg</code>).</p>
 </div>
-<div id="ii.-which-predictors-appear-to-have-a-statistically-significant-relationship-to-the-response" class="section level4 unnumbered">
-<h4>ii. Which predictors appear to have a statistically significant relationship to the response?</h4>
+<div id="ii.-which-predictors-appear-to-have-a-statistically-significant-relationship-to-the-response" class="section level6 unnumbered">
+<h6>ii. Which predictors appear to have a statistically significant relationship to the response?</h6>
 <p>We can answer this question by checking the p-values associated with each predictor’s t-statistic. We may conclude that all predictors are statistically significant except <code>cylinders</code>, <code>horsepower</code> and <code>acceleration</code>.</p>
 </div>
-<div id="iii.-what-does-the-coefficient-for-the-year-variable-suggest" class="section level4 unnumbered">
-<h4>iii. What does the coefficient for the <code>year</code> variable suggest?</h4>
+<div id="iii.-what-does-the-coefficient-for-the-year-variable-suggest" class="section level6 unnumbered">
+<h6>iii. What does the coefficient for the <code>year</code> variable suggest?</h6>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="exercises-applied.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mpg.fit2)[<span class="dv">7</span>]</span></code></pre></div>
 <pre><code>##      year 
 ## 0.7507727</code></pre>
@@ -492,23 +493,23 @@ $$</p>
 <h3>(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</h3>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="exercises-applied.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb77-2"><a href="exercises-applied.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg.fit2)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div id="i-residuals-vs-fitted-1" class="section level4 unnumbered">
-<h4><strong>(i) Residuals vs Fitted</strong></h4>
+<p><img src="_main_files/figure-html/unnamed-chunk-66-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="i-residuals-vs-fitted-1" class="section level6 unnumbered">
+<h6><strong>(i) Residuals vs Fitted</strong></h6>
 <p>This plot shows if residuals have non-linear patterns.</p>
 <p>In this case, The plot of residuals versus fitted values indicates the presence of mild non linearity in the data.</p>
 </div>
-<div id="ii-normal-q-q-1" class="section level4 unnumbered">
-<h4><strong>(ii) Normal Q-Q</strong></h4>
+<div id="ii-normal-q-q-1" class="section level6 unnumbered">
+<h6><strong>(ii) Normal Q-Q</strong></h6>
 <p>This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.</p>
 </div>
-<div id="iii-scale-location-1" class="section level4 unnumbered">
-<h4><strong>(iii) Scale-Location</strong></h4>
+<div id="iii-scale-location-1" class="section level6 unnumbered">
+<h6><strong>(iii) Scale-Location</strong></h6>
 <p>This plot show how you can check the assumption of equal variance (homoscedasticity).</p>
 <p>In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as <span class="math inline">\(log(y)\)</span> or <span class="math inline">\(\sqrt{y}\)</span> can shrink larger responses by a greater amount and reduce this issue.</p>
 </div>
-<div id="iv-residuals-vs-leverage-1" class="section level4 unnumbered">
-<h4><strong>(iv) Residuals vs Leverage</strong></h4>
+<div id="iv-residuals-vs-leverage-1" class="section level6 unnumbered">
+<h6><strong>(iv) Residuals vs Leverage</strong></h6>
 <p>This plot helps us to find influential cases (i.e., subjects) if any.</p>
 <p>We can see some evidence of observations (e.g. 14) with both high leverage and high residual statistics, that may be disproportionately influencing the regression predictions.</p>
 </div>
@@ -575,7 +576,7 @@ $$</p>
 <span id="cb80-2"><a href="exercises-applied.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(Auto<span class="sc">$</span>horsepower), Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;log(horsepower)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;Log Tranformation&quot;</span>)</span>
 <span id="cb80-3"><a href="exercises-applied.html#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">sqrt</span>(Auto<span class="sc">$</span>horsepower), Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;sqrt(horsepower)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;Square Root Transformation&quot;</span>)</span>
 <span id="cb80-4"><a href="exercises-applied.html#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>((Auto<span class="sc">$</span>horsepower)<span class="sc">^</span><span class="dv">2</span>, Auto<span class="sc">$</span>mpg, <span class="at">xlab=</span> <span class="st">&quot;horsepower&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">main=</span><span class="st">&quot;X^2 Transformation&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We limit ourselves to examining <code>horsepower</code> as sole predictor. It seems that the log transformation gives the most linear looking plot.</p>
 
 </div>

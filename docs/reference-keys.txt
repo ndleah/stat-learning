@@ -10,12 +10,12 @@ fig:unnamed-chunk-15
 fig:unnamed-chunk-16
 fig:unnamed-chunk-18
 fig:unnamed-chunk-19
-fig:unnamed-chunk-77
-fig:unnamed-chunk-78
+fig:unnamed-chunk-75
+fig:unnamed-chunk-76
+fig:unnamed-chunk-80
+fig:unnamed-chunk-81
 fig:unnamed-chunk-82
 fig:unnamed-chunk-83
-fig:unnamed-chunk-84
-fig:unnamed-chunk-85
 what-is-statistical-learning
 why-estimate-f
 prediction

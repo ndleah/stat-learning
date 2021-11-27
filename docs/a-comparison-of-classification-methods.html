@@ -225,7 +225,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
 <ul>
-<li><a href="exercises-applied.html#a-use-the-lm-function-to-perform-a-simple-linear-regression-with-mpg-as-the-response-and-horsepower-as-the-predictor.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(a) Use the <code>lm()</code> function to perform a simple linear regression with <code>mpg</code> as the response and <code>horsepower</code> as the predictor. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
 <li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
 <li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
 </ul></li>
@@ -253,7 +252,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>11.1</b> Linear Discriminant Analysis</a>
 <ul>
 <li><a href="generative-models-for-classification.html#a.-when-p-1">a. When <span class="math inline">\(p\)</span> = 1</a></li>
-<li><a href="generative-models-for-classification.html#a.-when-p-1-1">a. When <span class="math inline">\(p\)</span> &gt; 1</a></li>
+<li><a href="generative-models-for-classification.html#b.-when-p-1">b. When <span class="math inline">\(p\)</span> &gt; 1</a></li>
 <li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#c.-problems-with-lda"><i class="fa fa-check"></i>c. Problems with LDA</a></li>
 <li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#d.-confusion-matrix"><i class="fa fa-check"></i>d. Confusion Matrix</a></li>
 </ul></li>
@@ -305,7 +304,7 @@ We now compare the empirical (practical) performance of logistic regression, LDA
 <p>In each of the six scenarios, there were p = 2 quantitative predictors. The scenarios were as follows:</p>
 <div id="figure-for-scenarios-1-2-3" class="section level2 unnumbered">
 <h2>Figure for Scenarios 1, 2, 3</h2>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-82"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-80"></span>
 <img src="img/166-Figure4.10-1.png" alt="Boxplots of the test error rates for each of the linear scenarios described in the main text" width="65%" />
 <p class="caption">
 Figure 12.1: Boxplots of the test error rates for each of the linear scenarios described in the main text
@@ -338,14 +337,15 @@ Figure 12.1: Boxplots of the test error rates for each of the linear scenarios d
 <div class="gotcha">
 <p>In this setting, the decision boundary was still linear, and so fit into the logistic regression framework. The set-up violated the assumptions of LDA, since the observations were not drawn from a normal distribution.</p>
 </div>
-<p>:::hat
-The right-hand panel of Figure 12.1 shows that:
+<div class="hat">
+<p>The right-hand panel of Figure 12.1 shows that:
 * Logistic regression outperformed LDA, though both methods were superior to the other approaches.
 * In particular, the QDA results deteriorated considerably as a consequence of non-normality.</p>
 </div>
+</div>
 <div id="figure-for-scenarios-4-5-6" class="section level2 unnumbered">
 <h2>Figure for Scenarios 4, 5, 6</h2>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-83"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-81"></span>
 <img src="img/166-Figure4.11-1.png" alt="Boxplots of the test error rates for each of the linear scenarios described in the main text" width="65%" />
 <p class="caption">
 Figure 12.2: Boxplots of the test error rates for each of the linear scenarios described in the main text
@@ -365,33 +365,35 @@ Figure 12.2: Boxplots of the test error rates for each of the linear scenarios d
 <div id="scenario-5" class="section level2" number="12.5">
 <h2><span class="header-section-number">12.5</span> Scenario 5</h2>
 <p>The data were generated from a normal distribution with uncorrelated predictors. Then the responses were sampled from the logistic function applied to a complicated non-linear function of the predictors.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-84"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-82"></span>
 <img src="img/166-Figure4.11-1.png" alt="Boxplots of the test error rates for each of the linear scenarios described in the main text" width="65%" />
 <p class="caption">
 Figure 12.3: Boxplots of the test error rates for each of the linear scenarios described in the main text
 </p>
 </div>
 <p>Consequently, there is a quadratic decision boundary.</p>
-<p>:::hat
-The center panel or Figure 12.2 shows that the QDA once again outperformed best, followed closely by KNN-CV. The linear method had poor performance.</p>
+<div class="hat">
+<p>The center panel or Figure 12.2 shows that the QDA once again outperformed best, followed closely by KNN-CV. The linear method had poor performance.</p>
+</div>
 </div>
 <div id="scenario-6" class="section level2" number="12.6">
 <h2><span class="header-section-number">12.6</span> Scenario 6</h2>
 <p>The observations were generated from a normal distribution with a different diagonal covariance matrix for each class. However, the sample size was very small: just <span class="math inline">\(n = 6\)</span> in each class.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-85"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-83"></span>
 <img src="img/166-Figure4.11-1.png" alt="Boxplots of the test error rates for each of the linear scenarios described in the main text" width="65%" />
 <p class="caption">
 Figure 12.4: Boxplots of the test error rates for each of the linear scenarios described in the main text
 </p>
 </div>
 <p>As the result, even the quaratic decision boundary was not a good fit.</p>
-<p>:::hat
-The right hand panel of Figure 12.2 shows that:</p>
+<div class="hat">
+<p>The right hand panel of Figure 12.2 shows that:</p>
 <ul>
 <li><p>QDA gave slightly better results than the linear methods.</p></li>
 <li><p>Much more flexible KNN-CV method gave the best performance.</p></li>
 <li><p>However, <span class="math inline">\(K\)</span> = 1 gave the worst performance out of all methods. This highlight the fact that even when the data exhibit a complex non-linear relationship, a non-parametric method such as KNN can still give poor results if the level of smoothness is not chosen correctly.</p></li>
 </ul>
+</div>
 </div>
 <div id="conclusion" class="section level2 unnumbered">
 <h2>Conclusion</h2>

@@ -5,9 +5,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
-```
+<center>![](img/illos/02-lab.png)</center>
 
 ```{r message=FALSE, warning=FALSE}
 # Load the library

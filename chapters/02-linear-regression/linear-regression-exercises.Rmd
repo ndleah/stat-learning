@@ -5,9 +5,8 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
-```
+<center>![](img/illos/02-exercise.png)</center>
+
 
 ```{r include=FALSE}
 library(MASS)
@@ -18,7 +17,7 @@ library(ISLR)
 
 This question involves the use of simple linear regression on the `Auto` data set.
 
-### (a) Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output. {-}
+###### (a) Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output. {-}
 
 ```{r}
 mpg.fit <- lm(mpg ~ horsepower, data = Auto)
@@ -27,7 +26,7 @@ summary(mpg.fit)
 
 In order to interpret the result, a set of following questions are set up to better investigate the model:
 
-#### i. *Is there a relationship between the predictor and the response?* {-}
+###### i. *Is there a relationship between the predictor and the response?* {-}
 
 This question can be answered by fitting the simple linear regression model of `mpg` on `horsepower` and testing the null hypothesis:
 
@@ -40,7 +39,7 @@ $$
 
 The p-value for the `horsepower` variable is very small (<<0.05), so there is strong evidence to believe that `horsepower` is associated with `mpg`. Therefore, there is a relationship between the predictor and response.
 
-#### ii. *How strong is the relationship between the predictor and the response?* {-}
+###### ii. *How strong is the relationship between the predictor and the response?* {-}
 
 There are 2 measures of model accuracy to evaluate the degree of relationship between the predictor and the response, which are: **RSE** and $R^2$ **statistic**.
 
@@ -63,7 +62,7 @@ summary(mpg.fit)$r.squared
 ```
 So the `horsepower` explains 60.59% of the variance in `mpg`.
 
-#### iii. *Is the relationship between the predictor and the response positive or negative?* {-}
+###### iii. *Is the relationship between the predictor and the response positive or negative?* {-}
 
 ```{r}
 coefficients(mpg.fit)
@@ -71,7 +70,7 @@ coefficients(mpg.fit)
 
 The relationship is negative between `mpg` and `horsepower` as the coefficient estimate is -0.1578447.
 
-#### iv. *What is the predicted `mpg` associated with a `horsepower` of 98? What are the associated 95% confidence and prediction intervals?* {-}
+###### iv. *What is the predicted `mpg` associated with a `horsepower` of 98? What are the associated 95% confidence and prediction intervals?* {-}
 
 The confidence interval:
 ```{r}
@@ -99,24 +98,24 @@ plot(mpg.fit)
 
 The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:
 
-####  **(i) Residuals vs Fitted** {-}
+######  **(i) Residuals vs Fitted** {-}
 
 This plot shows if residuals have non-linear patterns.
 
 In this case, The plot of residuals versus fitted values indicates the presence of non linearity in the data.
 
-#### **(ii) Normal Q-Q** {-}
+###### **(ii) Normal Q-Q** {-}
 
 This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.
 
 
-#### **(iii) Scale-Location** {-}
+###### **(iii) Scale-Location** {-}
 
 This plot show how you can check the assumption of equal variance (homoscedasticity).
 
 In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as $log(y)$ or $\sqrt{y}$ can shrink larger responses by a greater amount and reduce this issue.
 
-#### **(iv) Residuals vs Leverage** {-}
+###### **(iv) Residuals vs Leverage** {-}
 
 This plot helps us to find influential cases (i.e., subjects) if any. 
 
@@ -150,7 +149,7 @@ mpg.fit2 <- lm(mpg ~. -name, data=Auto)
 summary(mpg.fit2)
 ```
 
-#### i. Is there a relationship between the predictors and the response? {-}
+###### i. Is there a relationship between the predictors and the response? {-}
 
  We answer this question by performing an F-test, where we test the null hypothesis that all of the regression coefficients are zero:
  
@@ -164,12 +163,12 @@ The p-value is given at the bottom of the model summary (`p-value: < 2.2e-16`), 
 
 We reject the null hypothesis (and hence conclude that there is a relationship between the predictors and `mpg`).
 
-#### ii. Which predictors appear to have a statistically significant relationship to the response? {-}
+###### ii. Which predictors appear to have a statistically significant relationship to the response? {-}
 
 We can answer this question by checking the p-values associated with each predictor’s t-statistic. We may conclude that all predictors are statistically significant except `cylinders`, `horsepower` and `acceleration`.
 
 
-#### iii. What does the coefficient for the `year` variable suggest? {-}
+###### iii. What does the coefficient for the `year` variable suggest? {-}
 
 ```{r}
 coef(mpg.fit2)[7]
@@ -185,24 +184,24 @@ par(mfrow=c(2,2))
 plot(mpg.fit2)
 ```
 
-#### **(i) Residuals vs Fitted** {-}
+###### **(i) Residuals vs Fitted** {-}
 
 This plot shows if residuals have non-linear patterns.
 
 In this case, The plot of residuals versus fitted values indicates the presence of mild non linearity in the data.
 
-#### **(ii) Normal Q-Q** {-}
+###### **(ii) Normal Q-Q** {-}
 
 This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.
 
 
-#### **(iii) Scale-Location** {-}
+###### **(iii) Scale-Location** {-}
 
 This plot show how you can check the assumption of equal variance (homoscedasticity).
 
 In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as $log(y)$ or $\sqrt{y}$ can shrink larger responses by a greater amount and reduce this issue.
 
-#### **(iv) Residuals vs Leverage** {-}
+###### **(iv) Residuals vs Leverage** {-}
 
 This plot helps us to find influential cases (i.e., subjects) if any. 
 

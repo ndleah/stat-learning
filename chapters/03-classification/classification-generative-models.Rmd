@@ -39,7 +39,7 @@ In practice, even if we are quite certain of our assumption that $X$ is drawn fr
 
 To reiterate, the LDA classifier results from assuming that the observations within each class come from a normal distribution with a class-specific mean and a common variance $\sigma^2$, and plugging estimates for these parameters into the Bayes classifier.
 
-### a. When $p$ > 1 {-}
+### b. When $p$ > 1 {-}
 
 We now extend the LDA classifier to the case of multiple predictors. To do this, we will assume that $X = (X_1,X_2, . . . ,X_p)$ is drawn from a multivariate Gaussian (or multivariate normal) distribution, with a class-specific mean vector and a common covariance matrix.
 
@@ -110,7 +110,7 @@ Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
 $$
 :::
 
-#### iv. F-Measure {-}
+#### v. F-Measure {-}
 
 For the condition when two models have low precision and high recall or vice versa, it becomes hard to compare those models, therefore to solve this issue we can deploy ***F-score***. 
 
@@ -128,7 +128,7 @@ F-measure = \frac{2 \times Recall \times precision}{Recall + Precision}
 $$
 :::
 
-#### v. ROC curve {-}
+#### vi. ROC curve {-}
 
 The ***ROC curve*** is a popular graphic for simultaneously displaying the two types of errors for all possible thresholds.
 
