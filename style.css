@@ -58,7 +58,7 @@ pre code {
 
 /* Sidebar formatting --------------------------------------------*/
 
-div.rstudio-tip, div.tip, div.gotcha, div.design, div.hat, div.formula{
+div.tip, div.hat{
   border: 4px #aed6d963;
   border-style: dashed solid;
   padding: 1em;
@@ -72,34 +72,17 @@ div.rstudio-tip, div.tip, div.gotcha, div.design, div.hat, div.formula{
   background-color: #fcfcfc;
 }
 
-
-div.rstudio-tip {
-  background-image: url("./img/divs/rstudio.png");
-}
-
 div.tip {
   background-image: url("./img/divs/lightbulb.png");
-}
-
-div.gotcha {
-  background-image: url("./img/divs/gotcha_2.jpg");
-}
-
-div.design {
-  background-image: url("./img/divs/design.png");
 }
 
 div.hat {
   background-image: url("./img/divs/hat.png");
 }
 
-
-
-/* for fancy bookdown cookbook */
-
 div.formula {
-  border: 2px #22BC22;
-  border-style: dashed solid;
+  border: 2px #644624;
+  border-style: dashed;
   padding: 1em;
   margin: 1em 0;
   padding-left: 100px;
@@ -107,13 +90,13 @@ div.formula {
   background-repeat: no-repeat;
   background-position: 15px center;
   min-height: 120px;
-  color: #4c9a2a;
+  color: #644624;
   background-color: #fcfcfc;
   
 }
 
 div.formula {
-  background-image: url("./img/divs/gotcha.jpg");
+  background-image: url("./img/divs/gotcha.png");
 }
 
 /*--- LOGO ---*/

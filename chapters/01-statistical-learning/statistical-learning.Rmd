@@ -8,9 +8,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
-```
+<center>![](img/illos/01-stat.png)</center>
 
 ***Statistical learning*** refers to a vast set of tools for understanding data..There are 2 types of statistical learning: _supervised_ and _unsupervised_:
 
@@ -81,13 +79,13 @@ In order to estimate $f$, our goal is to apply a statistical learning method to 
 
 Parametric methods (model-based approach) are those that are able to estimate the parameters of the model based on the training data. It involves a **two-step model-based approach**:
 
-1. First, we make an assumption about the functional form, or shape, of $f$. In other words, we need to choose the model that best fits the data.
+1. First, we **make an assumption about the functional form**, or shape, of $f$. In other words, we need to choose the model that best fits the data.
 
-2. After the model has been selected, we need a procedure that uses the training data to _fit_ or _train_ the model.
+2. After the model has been selected, we need a procedure that uses the training data to **_fit_ or _train_ the model**.
 
 Potential disadvantages of parametric methods is that the model will not usually match the true $f$. This can be avoid by choosing a more _flexible_ models that can fit many possible functions for $f$ forms and usually require greater number of parameters.
 
-:::tip
+:::hat
 Example fitting models for parametric methods (linear): **Ordinary Least Squares (OLS), Lasso.**
 :::
 
@@ -95,7 +93,7 @@ Example fitting models for parametric methods (linear): **Ordinary Least Squares
 
 Non-parametric methods (model-free approach) seek an estimate of $f$ without make explicit assumptions about the functional form of of $f$. Major disadvantages of this approach is that a very large number of observations is required in order to obtain an accurate estimate for $f$.
 
-:::tip
+:::hat
 Example fitting models for non-parametric methods: _**smooth thin-plate spline fit**_ and _**rough thin-plate spline fit**_**.**
 :::
 
@@ -121,15 +119,9 @@ Most statistical learning problems involve both **supervised** and **unsupervise
 
 **In supervised learning**, we wish to fit a model to the training data and predict the response variable based on the predictors, with the aim of accurately predicting the response variable or better understanding the relationship between predictors and response variable.
 
-Some of the statistical approaches that apply the supervised learning method are:
-
-* **Linear Regression**
-
-* **Logistic Regression**
-
-* **Boosting & Support Vector Machine**
-
-* **Generalized Additive Models (GAMs)**
+:::hat
+Some of the statistical approaches that apply the supervised learning method are: **Linear Regression**, **Logistic Regression**, **Boosting & Support Vector Machine**, **Generalized Additive Models (GAMs)**.
+:::
 
 In contrast, **unsupervised learning methods **are those that do not require any training data. One statistical learning tool that we may use in this setting is _cluster analysis_ or clustering. The goal of this method is to ascertain, whether observations fall into distinct groups.
 
@@ -139,8 +131,8 @@ In contrast, **unsupervised learning methods **are those that do not require any
 
 Variables can be characterized as either _**quantitative**_ or _**qualitative**_.&#x20;
 
-* Quantitative variables are those that can be measured in terms of a number.&#x20;
+* **Quantitative variables** are those that can be measured in terms of a number.&#x20;
 
-* Qualitative variables are those that can be measured in terms of a set of categories.
+* **Qualitative variables** are those that can be measured in terms of a set of categories.
 
 We tend to refer to problems with a quantitative response variable as **regression** problems and problems with a qualitative response variable as **classification** problems. However, an important note is that it does not matter much whether the predictors/variables are quantitative or qualitative.

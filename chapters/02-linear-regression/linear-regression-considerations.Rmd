@@ -5,11 +5,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
-```
-
-## Potential Problems {-}
+<center>![](img/illos/02-other.png)</center>
 
 When we fit a linear regression model, many problems can occur, to name a few:
 

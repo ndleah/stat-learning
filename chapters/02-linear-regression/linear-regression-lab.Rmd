@@ -9,7 +9,7 @@ library(ymlthis)
 knitr::include_graphics("img/illos/yours-book.jpg")
 ```
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # Load the library
 library(MASS)
 library(ISLR)
@@ -20,7 +20,6 @@ library(ISLR)
 The Boston data set records `medv` (median house value) for 506 neighborhoods around Boston. We will seek to predict `medv` using 13 predictors such as `rm` (average number of rooms per house), `age` (average age of houses), and `lstat` (percent of households with low socioeconomic status).
 
 ```{r}
-fix(Boston)
 names(Boston)
 ```
 

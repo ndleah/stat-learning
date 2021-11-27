@@ -5,18 +5,17 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
-```
+<center>![](img/illos/02-cs-mkt.png)</center>
 
 
 ## Data Overview
 
 The `Advertising` data set consists of the sales of that product in 200 different markets, along with advertising budgets for the product in each of those markets for three different media: `TV`, `radio`, and `newspaper`. The data are displayed in Figure 6.1. 
 
-The plot displays sales, in thousands of units, as a function of `TV`, `radio`, and `newspaper` budgets, in thousands of dollars, for 200 different markets. In each plot we show the simple least squares fit of sales to that variable, as described in previous section. In other words, each blue line represents a simple model that can be used to predict sales using `TV`, `radio`, and newspaper`, respectively. 
+The plot displays sales, in thousands of units, as a function of `TV`, `radio`, and `newspaper` budgets, in thousands of dollars, for 200 different markets. In each plot we show the simple least squares fit of sales to that variable, as described in previous section. In other words, each blue line represents a simple model that can be used to predict sales using `TV`, `radio`, and `newspaper`, respectively. 
 
-```{r echo=FALSE, out.width='85%', fig.cap='he Advertising data set'}
+
+```{r echo=FALSE, out.width='75%', fig.cap='the Advertising data set'}
 knitr::include_graphics("img/30-Figure2.1-1.png")
 ```
 
@@ -30,20 +29,26 @@ Suppose that in our role as statistical consultants we are asked to suggest, on 
 This question can be answered by fitting a multiple regression model
 of sales onto `TV`, `radio`, and `newspaper`, as:
 
+:::formula
 $$
 \Large sales = \beta_0 + \beta_1 × TV + \beta_2 × radio + \beta_3 × newspaper + \epsilon.
 $$
+:::
 
 and testing the hypothesis 
 $$
 \Large H_0: \beta_{TV} = \beta_{radio} = \beta_{newspaper} = 0
 $$
  
-F-statistic can be used to determine whether or not we should reject this null hypothesis. In this case, the p-value corresponding to the F-statistic in Figure 6.1 is very low, indicating clear evidence of a relationship between advertising and sales.
+F-statistic can be used to determine whether or not we should reject this null hypothesis. In this case, the p-value corresponding to the F-statistic in Table 6.1 is very low, indicating clear evidence of a relationship between advertising and sales.
 
-```{r echo=FALSE, out.width='50%', fig.cap='More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data'}
-knitr::include_graphics("img/90-Table3.6-1.png")
-```
+| Quantity                | Value |
+|-------------------------|-------|
+| Residual standard error | 1.69  |
+| $R^2$                   | 0.897 |
+| F-statistic             | 570   |
+Table: **Table 6.1:** More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data
+
 
 2. ***How strong is the relationship?***
 
@@ -55,9 +60,14 @@ population regression line. For the `Advertising` data, the RSE is 1,681 units w
 
 To answer this question, we can examine the p-values associated with each predictor’s t-statistic. In the multiple linear regression displayed in Figure 6.3, the p-values for `TV` and `radio` are low, but the p-value for `newspaper` is not. This suggests that only `TV` and `radio` are related to sales.
 
-```{r echo=FALSE, out.width='65%', fig.cap='For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets.'}
-knitr::include_graphics("img/88-Table3.4-1.png")
-```
+|             | Coefficient | Std. error | t-statistic | p-value  |
+|-------------|-------------|------------|-------------|----------|
+| `Intercept` | 2.939       | 0.3119     | 9.42        | < 0.0001 |
+| `TV`        | 0.046       | 0.0014     | 32.81       | < 0.0001 |
+| `radio`     | 0.189       | 0.0086     | 21.89       | < 0.0001 |
+| `newspaper` | -0.001      | 0.0059     | -0.18       | 0.8599   |
+Table: **Table 6.2.** More information about the least squares model for the regression of number of units sold on TV, newspaper, and radio advertising budgets in the Advertising data
+
 
 4. ***How large is the effect of each medium on sales?***
 
@@ -71,17 +81,29 @@ We saw in previous section that collinearity can result in very wide standard er
 
 The VIF scores are 1.005, 1.145, and 1.145 for `TV`,`radio`, and `newspaper`, suggesting no evidence of collinearity.
 
-In order to assess the association of each medium individually on sales, we can perform three separate simple linear regressions. Results are shown in Figure 6.4 and 6.5. 
+In order to assess the association of each medium individually on sales, we can perform three separate simple linear regressions. Results are shown in Table 6.3, 6.4 and 6.5. 
 
-```{r echo=FALSE, out.width='60%', fig.cap='More simple linear regression models for the Advertising data'}
-knitr::include_graphics("img/82-Table3.1-1.png")
-```
+|             | Coefficient | Std. error | t-statistic | p-value |
+|-------------|-------------|------------|-------------|---------|
+| Intercept | 7.0325      | 0.4578     | 15.36       | <0.0001 |
+| `TV`        | 0.0475      | 0.0027     | 17.67       | <0.0001 |
+Table: **Table 6.3**. Simple regression of sales on TV
 
+:::tip
 Coefficients of the least squares model for the regression of number of units sold on `TV` advertising budget. An increase of $1,000 in the `TV` advertising budget is associated with an increase in sales by around 50 units.
+:::
 
-```{r echo=FALSE, out.width='65%', fig.cap='More simple linear regression models for the Advertising data'}
-knitr::include_graphics("img/86-Table3.3-1.png")
-```
+|           | Coefficient | Std. error | t-statistic | p-value |
+|-----------|-------------|------------|-------------|---------|
+| Intercept | 9.312       | 0.563      | 16.54       | <0.0001 |
+| `radio`   | 0.203       | 0.02       | 9.92        | <0.0001 |
+Table: **Table 6.4**. Simple regression of sales on radio
+
+|           | Coefficient | Std. error | t-statistic | p-value |
+|-----------|-------------|------------|-------------|---------|
+| Intercept | 12.351       | 0.621      | 19.88       | <0.0001 |
+| `newspaper`   | 0.055       | 0.017       | 3.30        | 0.00115 |
+Table: **Table 6.5**. Simple regression of sales on newspaper
 
 Coefficients of the simple linear regression model for number of units sold on:
 
@@ -89,8 +111,9 @@ Coefficients of the simple linear regression model for number of units sold on:
 
 * **Bottom:** `newspaper` advertising budget. 
 
+:::tip
 A $1,000 increase in spending on `radio` advertising is associated with an average increase in sales by around 203 units, while the same increase in spending on `newspaper` advertising is associated with an average increase in sales by around 55 units.
-
+:::
 
 There is evidence of an extremely strong association between `TV` and `sales` and between `radio` and `sales`. There is evidence of a mild association between `newspaper` and `sales`, when the values of `TV` and `radio` are ignored.
 
@@ -109,7 +132,7 @@ The accuracy associated with this estimate depends on whether we wish to predict
 6. ***Is the relationship linear?***
 
 In previous section, we saw that residual plots can be used in order to
-identify non-linearity. If the relationships are linear, then the residual plots should display no pattern. In the case of the `Advertising` data, we observe a non-linear effect in Figure 3.5, though this effect could also be observed in a residual plot. We also discussed the inclusion of transformations of the predictors in the linear regression model in order to accommodate non-linear relationships.
+identify non-linearity. If the relationships are linear, then the residual plots should display no pattern. In the case of the `Advertising` data, we observe a non-linear effect in Figure 6.2, though this effect could also be observed in a residual plot. We also discussed the inclusion of transformations of the predictors in the linear regression model in order to accommodate non-linear relationships.
 
 ```{r echo=FALSE, out.width='65%', fig.cap= 'A linear regression fit to sales using TV and radio as predictors'}
 knitr::include_graphics("img/95-Figure3.5-1.png")
@@ -122,4 +145,4 @@ From the pattern of the residuals, we can see that there is a pronounced non-lin
 The standard linear regression model assumes an additive relationship
 between the predictors and the response. An additive model is easy to interpret because the effect of each predictor on the response is unrelated to the values of the other predictors. However, the additive assumption may be unrealistic for certain data sets. A small p-value associated with the interaction term indicates the presence of such relationships. 
 
-Figure 6.6 suggested that the `Advertising` data may not be additive. Including an interaction term in the model results in a substantial increase in R2, from around 90% to almost 97%.
+Figure 6.2 suggested that the `Advertising` data may not be additive. Including an interaction term in the model results in a substantial increase in $R^2$, from around 90% to almost 97%.

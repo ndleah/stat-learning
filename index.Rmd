@@ -1,6 +1,4 @@
 ---
-title: "Stat Learning"
-description: "My note for learning statistics concepts in the **Introduction to Statistical Learning** book"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
@@ -9,13 +7,14 @@ always_allow_html: yes
 url: 'https//:www.ndleah.github.io/stat-learning/'
 ---
 
-# INTRODUCTION {-}
 
 ```{r, include = FALSE}
 source("common.R")
 ```
 
-<center>![](img/illos/index-hi.jpg){width=60%}</center>
 
 
+# Introduction {-}
+
+<center>![](img/illos/00-index.png)</center>
 Welcome!

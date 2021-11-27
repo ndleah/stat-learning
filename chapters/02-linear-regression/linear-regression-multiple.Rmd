@@ -5,9 +5,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
-```
+<center>![](img/illos/02-mlg.png)</center>
 
 In general, the multiple linear regression model takes the form
 
@@ -16,8 +14,6 @@ $$
 \Large Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n + \epsilon
 $$
 :::
-
-## Some Important Questions: {-}
 
 When we perform multiple linear regression, we usually are interested in answering a few important questions.
 
@@ -49,13 +45,14 @@ $$
 \Large F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
 $$
 :::
+
 If F-statistic:
 
 * **Near 1** - no relationship between response and predictors.
 
 * **Greater than 1** - there is some relationship between response and predictors.
 
-:::hat
+:::tip
    F-statistic only apply when the number of $p$ predictors is small.
    
    When *p* is large, some of the approaches discussed in the next section, such as *forward selection*, can be used.

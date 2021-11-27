@@ -5,9 +5,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
-```
+<center>![](img/illos/01-accuracy.png)</center>
 
 
 > _"**There is no free lunch in statistics"**_
@@ -45,7 +43,7 @@ When a given method yields a small training MSE but a large test MSE, we are sai
 
 Ideally, it should not change too much from one training dataset to the next, meaning that the algorithm is good at picking out the hidden underlying mapping between the inputs and the output variables.
 
-:::tip
+:::hat
 Examples of low-variance machine learning algorithms include: **Linear Regression, Linear Discriminant Analysis and Logistic Regression.**
 
 Examples of high-variance machine learning algorithms include: **Decision Trees, k-Nearest Neighbors** and **Support Vector Machines.**
@@ -60,7 +58,7 @@ Generally, linear algorithms have a high bias making them fast to learn and easi
 * **Low Bias:** Suggests less assumptions about the form of the target function.
 * **High-Bias:** Suggests more assumptions about the form of the target function.
 
-:::tip
+:::hat
 Examples of low-bias machine learning algorithms include: **Decision Trees, k-Nearest Neighbors **and **Support Vector Machines.**
 
 Examples of high-bias machine learning algorithms include: **Linear Regression, Linear Discriminant Analysis** and **Logistic Regression.**
@@ -71,7 +69,7 @@ Examples of high-bias machine learning algorithms include: **Linear Regression, 
 
 The goal of any supervised machine learning algorithm is to achieve _low bias_ and _low variance_. In turn the algorithm should achieve good prediction performance.
 
-:::hat
+:::tip
 * **Linear machine learning algorithms** often have a high bias but a low variance.
 * **Nonlinear machine learning algorithms** often have a low bias but a high variance.
 * The parameterization of machine learning algorithms is often a battle to balance out bias and variance.
@@ -105,7 +103,7 @@ This algorithm is called Naïve because it works on the naïve assumption that t
 
 > Conditional probability of an event $A$ given $B$, $P(A|B)$ is the probability of $A$ given that $B$ has already occurred. It is often defined as the ratio of joint probability of $A$ and $B$ (probability of $A$ and $B$ occurring together) to the marginal probability of $A$ (probability of event $A$)
 
-:::gotcha
+:::tip
   **Pros**
 
   * Easy to implement
@@ -123,7 +121,7 @@ This algorithm is called Naïve because it works on the naïve assumption that t
 
 K-Nearest neighbors algorithm can be used to solve both classification and regression problems. When algorithms such as Naïve Bayes Classifier uses probabilities from training samples for predictions, KNN is Lazy learner that does not create any model in advance. The just find the closest based on feature similarity.
 
-:::gotcha
+:::tip
   **Pros**
 
   * Easy to implement

@@ -6,9 +6,8 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
-```
+<center>![](img/illos/02-slg.png)</center>
+
 
 ***Simple linear regression*** is a very straightforward approach for predicting a qualitative response $Y$ on the basis of a single predictor $X$. Mathematically, we can write this linear relationship as
 
@@ -165,7 +164,7 @@ After we have rejected the null hypothesis, t is natural to want to quantify the
 
 The quality of a linear regression fit is typically assessed using 2 related quantities: the *residual standard error* and the $R^2$ statistic.
 
-## Residual Standard Error 
+### Residual Standard Error 
 
 The RSE is an estimation of the standard deviation of $\epsilon$. Roughly speaking, it is the average amount that the response will deviate from the true regression line. It is computed using the formula:
 
