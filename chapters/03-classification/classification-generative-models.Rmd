@@ -20,7 +20,7 @@ Suppose that we wish to classify an observation into one of $K$ classes, where $
 
 :::formula
 $$
-\Pr(A|B)=\frac{\Pr(B|A)\Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)}
+\Large \Pr(A|B)=\frac{\Pr(B|A)\Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)}
 $$
 :::
 
@@ -81,7 +81,7 @@ It determines whether a model is reliable or not. It is useful for the condition
 
 :::formula
 $$
-Precision = \frac{TP}{TP+FP}
+\Large \Large Precision = \frac{TP}{TP+FP}
 $$
 :::
 
@@ -92,7 +92,7 @@ $$
  
 :::formula
 $$
-Recall = \frac{TP}{TP+FN}
+\Large Recall = \frac{TP}{TP+FN}
 $$
 :::
 
@@ -106,7 +106,7 @@ One of the significant parameters in determining the ***accuracy*** of the class
 
 :::formula
 $$
-Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
+\Large Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
 $$
 :::
 
@@ -124,7 +124,7 @@ By calculating F-score, we can evaluate the recall and precision at the same tim
 
 :::formula
 $$
-F-measure = \frac{2 \times Recall \times precision}{Recall + Precision}
+\Large F-measure = \frac{2 \times Recall \times precision}{Recall + Precision}
 $$
 :::
 

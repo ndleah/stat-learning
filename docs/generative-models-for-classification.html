@@ -309,7 +309,7 @@ Why do we need another method, when we have logistic regression? There are sever
 <p>Suppose that we wish to classify an observation into one of <span class="math inline">\(K\)</span> classes, where <span class="math inline">\(K ≥ 2\)</span>. Then Bayes’ theorem states that:</p>
 <div class="formula">
 <p><span class="math display">\[
-\Pr(A|B)=\frac{\Pr(B|A)\Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)}
+\Large \Pr(A|B)=\frac{\Pr(B|A)\Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)}
 \]</span></p>
 </div>
 <p>In the following sections, we discuss three classifiers that use different estimates of <span class="math inline">\(f_k(x)\)</span> to approximate the Bayes classifier:
@@ -360,7 +360,7 @@ Figure 11.1: A sample 2x2 confusion matrix
 <p>It determines whether a model is reliable or not. It is useful for the conditions where false positive is a higher concern as compared to a false negative. For calculating the precision, the formula is:</p>
 <div class="formula">
 <p><span class="math display">\[
-Precision = \frac{TP}{TP+FP}
+\Large \Large Precision = \frac{TP}{TP+FP}
 \]</span></p>
 </div>
 </div>
@@ -369,7 +369,7 @@ Precision = \frac{TP}{TP+FP}
 <p><strong><em>Recall</em></strong> describes how many of the actual positive values to be predicted correctly out of the model. It is useful when false-negative dominates false positives. The formula for calculating the recall is</p>
 <div class="formula">
 <p><span class="math display">\[
-Recall = \frac{TP}{TP+FN}
+\Large Recall = \frac{TP}{TP+FN}
 \]</span></p>
 </div>
 <div class="hat">
@@ -381,7 +381,7 @@ Recall = \frac{TP}{TP+FN}
 <p>One of the significant parameters in determining the <strong><em>accuracy</em></strong> of the classification problems, it explains how regularly the model predicts the correct outputs and can be measured as the ratio of the number of correct predictions made by the classifier over the total number of predictions made by the classifiers. The formula is</p>
 <div class="formula">
 <p><span class="math display">\[
-Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
+\Large Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
 \]</span></p>
 </div>
 </div>
@@ -394,7 +394,7 @@ Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
 <p>By calculating F-score, we can evaluate the recall and precision at the same time. Also, if the recall is equal to precision, The F-score is maximum and can be calculated using the below formula</p>
 <div class="formula">
 <p><span class="math display">\[
-F-measure = \frac{2 \times Recall \times precision}{Recall + Precision}
+\Large F-measure = \frac{2 \times Recall \times precision}{Recall + Precision}
 \]</span></p>
 </div>
 </div>

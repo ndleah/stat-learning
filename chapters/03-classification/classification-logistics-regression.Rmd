@@ -15,7 +15,7 @@ In logistic regression, we use the _logistic function_, which is defined as:
 
 :::formula
 $$
-p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}
+\Large p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}
 $$
 :::
 
@@ -23,7 +23,7 @@ After a bit of manipulation of the above equation, we find that
 
 :::formula
 $$
-\frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1X}
+\Large \frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1X}
 $$
 :::
 
@@ -34,7 +34,7 @@ By taking the logarithm of both sides of (4.3), we arrive at
 
 :::formula
 $$
-log(\frac{p(X)}{1 - p(X)}) = \beta_0 + \beta_1X
+\Large log(\frac{p(X)}{1 - p(X)}) = \beta_0 + \beta_1X
 $$
 :::
 
@@ -68,7 +68,7 @@ regression in Chapter 3, we can generalize the logistics regression formula as f
 
 :::formula
 $$
-p(X) = \frac{e^{\beta_0+\beta_1X_1+...+\beta_pX_p}}{1+e^{\beta_0+\beta_1X_1+...+\beta_pX_p}}
+\Large p(X) = \frac{e^{\beta_0+\beta_1X_1+...+\beta_pX_p}}{1+e^{\beta_0+\beta_1X_1+...+\beta_pX_p}}
 $$
 :::
 
