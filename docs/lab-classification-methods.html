@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 13 Lab: Classification Methods | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 13 Lab: Classification Methods | _main.knit" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
+  <meta property="og:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
+  
+  <meta name="github-repo" content="ndleah/stat-learning" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 13 Lab: Classification Methods | _main.knit" />
+  
+  
+  <meta name="twitter:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a-comparison-of-classification-methods.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="img/illos/logo_2.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="part"><span><b>I STATISTICAL LEARNING</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html"><i class="fa fa-check"></i><b>1</b> What is Statistical Learning?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#why-estimate-f"><i class="fa fa-check"></i><b>1.1</b> Why Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>1.1.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#how-do-we-estimate-f"><i class="fa fa-check"></i><b>1.2</b> How Do We Estimate f?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#parametric-methods"><i class="fa fa-check"></i><b>1.2.1</b> Parametric Methods</a></li>
+<li class="chapter" data-level="1.2.2" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#non-parametric-methods"><i class="fa fa-check"></i><b>1.2.2</b> Non-Parametric Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#the-tradeoff-between-prediction-accuracy-and-model-interpretability"><i class="fa fa-check"></i><b>1.3</b> The Tradeoff Between Prediction Accuracy and Model Interpretability</a></li>
+<li class="chapter" data-level="1.4" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#supervised-vs.-unsupervised-learning"><i class="fa fa-check"></i><b>1.4</b> Supervised Vs. Unsupervised Learning</a></li>
+<li class="chapter" data-level="1.5" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html#regression-vs.-classification"><i class="fa fa-check"></i><b>1.5</b> Regression Vs. Classification</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html"><i class="fa fa-check"></i><b>2</b> Assessing Model Accuracy</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-regression-setting"><i class="fa fa-check"></i><b>2.1</b> The Regression Setting</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#measuring-the-quality-of-fit"><i class="fa fa-check"></i><b>2.1.1</b> Measuring the Quality of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bias-variance-trade-off"><i class="fa fa-check"></i><b>2.2</b> The Bias-Variance Trade-Off</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#variance-error"><i class="fa fa-check"></i><b>2.2.1</b> Variance Error</a></li>
+<li class="chapter" data-level="2.2.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-error"><i class="fa fa-check"></i><b>2.2.2</b> Bias Error</a></li>
+<li class="chapter" data-level="2.2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#bias-variance-trafe-off"><i class="fa fa-check"></i><b>2.2.3</b> <strong>Bias-Variance Trafe-Off</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-classification-setting"><i class="fa fa-check"></i><b>2.3</b> The Classification Setting</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#the-bayes-classifier"><i class="fa fa-check"></i><b>2.3.1</b> The Bayes Classifier</a></li>
+<li class="chapter" data-level="2.3.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#k-nearest-neighbors-knn"><i class="fa fa-check"></i><b>2.3.2</b> K-Nearest Neighbors (KNN)</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II LINEAR REGRESSION</b></span></li>
+<li class="chapter" data-level="3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>3</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1</b> Estimating the Coefficients</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.2</b> Assessing the Accuracy of the Coefficient Estimates</a>
+<ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#population-regression-line"><i class="fa fa-check"></i>Population Regression Line</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#least-squares-line"><i class="fa fa-check"></i>Least Squares Line</a></li>
+<li><a href="simple-linear-regression.html#how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu">How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#how-far-is-far-enough"><i class="fa fa-check"></i>How far is far enough?</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#t-distribution"><i class="fa fa-check"></i>T-distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.3</b> Assessing the Accuracy of the Model</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#residual-standard-error"><i class="fa fa-check"></i><b>3.3.1</b> Residual Standard Error</a></li>
+<li class="chapter" data-level="3.3.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#r2-standard-error"><i class="fa fa-check"></i><b>3.3.2</b> <span class="math inline">\(R^2\)</span> Standard Error</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#consideration"><i class="fa fa-check"></i><b>3.4</b> Consideration</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>4</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#response-and-predictors-relationships"><i class="fa fa-check"></i><b>4.1</b> Response and Predictors Relationships</a></li>
+<li class="chapter" data-level="4.2" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#dealing-with-large-number-of-variables"><i class="fa fa-check"></i><b>4.2</b> Dealing With Large Number Of Variables</a></li>
+<li class="chapter" data-level="4.3" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html#model-fit"><i class="fa fa-check"></i><b>4.3</b> Model Fit</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html"><i class="fa fa-check"></i><b>5</b> Other Considerations in the Regression Model</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-linearity-of-the-data"><i class="fa fa-check"></i><b>5.1</b> Non-linearity of the Data</a></li>
+<li class="chapter" data-level="5.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-of-error-terms"><i class="fa fa-check"></i><b>5.2</b> Correlation of Error Terms</a></li>
+<li class="chapter" data-level="5.3" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#non-constant-variance-of-error-terms-heteroscedasticity"><i class="fa fa-check"></i><b>5.3</b> Non-constant Variance of Error Terms (Heteroscedasticity)</a></li>
+<li class="chapter" data-level="5.4" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#outlier"><i class="fa fa-check"></i><b>5.4</b> Outlier</a></li>
+<li class="chapter" data-level="5.5" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#high-leverage-points"><i class="fa fa-check"></i><b>5.5</b> High Leverage Points</a></li>
+<li class="chapter" data-level="5.6" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#collinearity"><i class="fa fa-check"></i><b>5.6</b> Collinearity</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#correlation-matrix"><i class="fa fa-check"></i><b>5.6.1</b> Correlation Matrix</a></li>
+<li class="chapter" data-level="5.6.2" data-path="other-considerations-in-the-regression-model.html"><a href="other-considerations-in-the-regression-model.html#variance-inflation-factor-vif"><i class="fa fa-check"></i><b>5.6.2</b> Variance Inflation Factor (VIF)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html"><i class="fa fa-check"></i><b>6</b> Case Study - Marketing Plan</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#data-overview"><i class="fa fa-check"></i><b>6.1</b> Data Overview</a></li>
+<li class="chapter" data-level="6.2" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#important-questions"><i class="fa fa-check"></i><b>6.2</b> Important Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Lab: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>7.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.2" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>7.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="7.3" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>7.3</b> Interaction Terms</a></li>
+<li class="chapter" data-level="7.4" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>7.4</b> Non-linear Transformations of the Predictors</a></li>
+<li class="chapter" data-level="7.5" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>7.5</b> Qualitative Predictors</a></li>
+<li class="chapter" data-level="7.6" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>7.6</b> Writing Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises-applied.html"><a href="exercises-applied.html"><i class="fa fa-check"></i><b>8</b> Exercises (Applied)</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
+<ul>
+<li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
+<li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-2"><i class="fa fa-check"></i>Question 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set."><i class="fa fa-check"></i>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</a></li>
+<li><a href="exercises-applied.html#b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative.">(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</a></li>
+<li><a href="exercises-applied.html#c-use-the-lm-function-to-perform-a-multiple-linear-regression-with-mpg-as-the-response-and-all-other-variables-except-name-as-the-predictors.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(c) Use the <code>lm()</code> function to perform a multiple linear regression with <code>mpg</code> as the response and all other variables except “name” as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
+<li><a href="exercises-applied.html#d-use-the-plot-function-to-produce-diagnostic-plots-of-the-linear-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</a></li>
+<li><a href="exercises-applied.html#e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant">(e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</a></li>
+<li><a href="exercises-applied.html#f-try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings.">(f) Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III CLASSIFICATION</b></span></li>
+<li class="chapter" data-level="9" data-path="an-overview-of-classification.html"><a href="an-overview-of-classification.html"><i class="fa fa-check"></i><b>9</b> An Overview of Classification</a></li>
+<li class="chapter" data-level="10" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html#logistic-model"><i class="fa fa-check"></i><b>10.1</b> Logistic Model</a></li>
+<li class="chapter" data-level="10.2" data-path="logistic-regression.html"><a href="logistic-regression.html#estimating-the-regression-coefficients"><i class="fa fa-check"></i><b>10.2</b> Estimating the Regression Coefficients</a></li>
+<li class="chapter" data-level="10.3" data-path="logistic-regression.html"><a href="logistic-regression.html#multiple-logistic-regression"><i class="fa fa-check"></i><b>10.3</b> Multiple Logistic Regression</a></li>
+<li class="chapter" data-level="10.4" data-path="logistic-regression.html"><a href="logistic-regression.html#multinomial-logistic-regression"><i class="fa fa-check"></i><b>10.4</b> Multinomial Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html"><i class="fa fa-check"></i><b>11</b> Generative Models for Classification</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>11.1</b> Linear Discriminant Analysis</a>
+<ul>
+<li><a href="generative-models-for-classification.html#a.-when-p-1">a. When <span class="math inline">\(p\)</span> = 1</a></li>
+<li><a href="generative-models-for-classification.html#b.-when-p-1">b. When <span class="math inline">\(p\)</span> &gt; 1</a></li>
+<li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#c.-problems-with-lda"><i class="fa fa-check"></i>c. Problems with LDA</a></li>
+<li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#d.-confusion-matrix"><i class="fa fa-check"></i>d. Confusion Matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#quadratic-discriminant-analysis"><i class="fa fa-check"></i><b>11.2</b> Quadratic Discriminant Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#why-is-this-important"><i class="fa fa-check"></i>Why is this important?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html"><i class="fa fa-check"></i><b>12</b> A Comparison of Classification Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#figure-for-scenarios-1-2-3"><i class="fa fa-check"></i>Figure for Scenarios 1, 2, 3</a></li>
+<li class="chapter" data-level="12.1" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-1"><i class="fa fa-check"></i><b>12.1</b> Scenario 1</a></li>
+<li class="chapter" data-level="12.2" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-2"><i class="fa fa-check"></i><b>12.2</b> Scenario 2</a></li>
+<li class="chapter" data-level="12.3" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-3"><i class="fa fa-check"></i><b>12.3</b> Scenario 3</a></li>
+<li class="chapter" data-level="" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#figure-for-scenarios-4-5-6"><i class="fa fa-check"></i>Figure for Scenarios 4, 5, 6</a></li>
+<li class="chapter" data-level="12.4" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-4"><i class="fa fa-check"></i><b>12.4</b> Scenario 4</a></li>
+<li class="chapter" data-level="12.5" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-5"><i class="fa fa-check"></i><b>12.5</b> Scenario 5</a></li>
+<li class="chapter" data-level="12.6" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-6"><i class="fa fa-check"></i><b>12.6</b> Scenario 6</a></li>
+<li class="chapter" data-level="" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html"><i class="fa fa-check"></i><b>13</b> Lab: Classification Methods</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-stock-market-data"><i class="fa fa-check"></i><b>13.1</b> The Stock Market Data</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-1"><i class="fa fa-check"></i><b>13.1.1</b> Data Overview</a></li>
+<li class="chapter" data-level="13.1.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#linear-discriminant-analysis-1"><i class="fa fa-check"></i><b>13.1.2</b> Linear Discriminant Analysis</a></li>
+<li class="chapter" data-level="13.1.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#quadratic-discriminant-analysis-1"><i class="fa fa-check"></i><b>13.1.3</b> Quadratic Discriminant Analysis</a></li>
+<li class="chapter" data-level="13.1.4" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#naive-bayes"><i class="fa fa-check"></i><b>13.1.4</b> Naive Bayes</a></li>
+<li class="chapter" data-level="13.1.5" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>13.1.5</b> K-Nearest Neighbors</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-caravan-insurance-data"><i class="fa fa-check"></i><b>13.2</b> The Caravan Insurance Data</a></li>
+<li class="chapter" data-level="13.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-2"><i class="fa fa-check"></i><b>13.3</b> Data Overview</a></li>
+<li class="chapter" data-level="13.4" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#k-nearest-neighbors-1"><i class="fa fa-check"></i><b>13.4</b> K-Nearest Neighbors</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<link href="style.css" rel="stylesheet">
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="img/illos/cover.png">
+</div>
+<div id="lab-classification-methods" class="section level1" number="13">
+<h1><span class="header-section-number">Section 13</span> Lab: Classification Methods</h1>
+<div id="the-stock-market-data" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> The Stock Market Data</h2>
+<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
+<div id="data-overview-1" class="section level3" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Data Overview</h3>
+<p>The <code>Smarket</code> data set consists of percentage returns for the S&amp;P 500 stock index over 1, 250 days, from the beginning of 2001 until the end of 2005. For each date, we have recorded the percentage returns for each of the five previous trading days, <code>Lag1</code> through <code>Lag5</code>.</p>
+<p>We have also recorded:</p>
+<ul>
+<li><code>Volume</code>: the number of shares traded on the previous day, in billions.</li>
+<li><code>Today</code>: the percentage return on the date in question.</li>
+<li><code>Direction</code>: whether the market was <code>Up</code> or <code>Down</code> on this date.</li>
+</ul>
+<p>Our goal is to predict <code>Direction</code> (a qualitative response) using the other features.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="lab-classification-methods.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR) <span class="co"># load the library</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="lab-classification-methods.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Smarket) <span class="co"># get the column names</span></span></code></pre></div>
+<pre><code>## [1] &quot;Year&quot;      &quot;Lag1&quot;      &quot;Lag2&quot;      &quot;Lag3&quot;      &quot;Lag4&quot;      &quot;Lag5&quot;     
+## [7] &quot;Volume&quot;    &quot;Today&quot;     &quot;Direction&quot;</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="lab-classification-methods.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Smarket) <span class="co"># data dimension overview</span></span></code></pre></div>
+<pre><code>## [1] 1250    9</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="lab-classification-methods.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Smarket) <span class="co"># overall info of the data set</span></span></code></pre></div>
+<pre><code>##       Year           Lag1                Lag2                Lag3          
+##  Min.   :2001   Min.   :-4.922000   Min.   :-4.922000   Min.   :-4.922000  
+##  1st Qu.:2002   1st Qu.:-0.639500   1st Qu.:-0.639500   1st Qu.:-0.640000  
+##  Median :2003   Median : 0.039000   Median : 0.039000   Median : 0.038500  
+##  Mean   :2003   Mean   : 0.003834   Mean   : 0.003919   Mean   : 0.001716  
+##  3rd Qu.:2004   3rd Qu.: 0.596750   3rd Qu.: 0.596750   3rd Qu.: 0.596750  
+##  Max.   :2005   Max.   : 5.733000   Max.   : 5.733000   Max.   : 5.733000  
+##       Lag4                Lag5              Volume           Today          
+##  Min.   :-4.922000   Min.   :-4.92200   Min.   :0.3561   Min.   :-4.922000  
+##  1st Qu.:-0.640000   1st Qu.:-0.64000   1st Qu.:1.2574   1st Qu.:-0.639500  
+##  Median : 0.038500   Median : 0.03850   Median :1.4229   Median : 0.038500  
+##  Mean   : 0.001636   Mean   : 0.00561   Mean   :1.4783   Mean   : 0.003138  
+##  3rd Qu.: 0.596750   3rd Qu.: 0.59700   3rd Qu.:1.6417   3rd Qu.: 0.596750  
+##  Max.   : 5.733000   Max.   : 5.73300   Max.   :3.1525   Max.   : 5.733000  
+##  Direction 
+##  Down:602  
+##  Up  :648  
+##            
+##            
+##            
+## </code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="lab-classification-methods.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Smarket) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="lab-classification-methods.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># produces a matrix that contains all of the pairwise correlations among the predictors in a data set, exclude the Direction variable</span></span>
+<span id="cb89-2"><a href="lab-classification-methods.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Smarket[, <span class="sc">-</span><span class="dv">9</span>]) </span></code></pre></div>
+<pre><code>##              Year         Lag1         Lag2         Lag3         Lag4
+## Year   1.00000000  0.029699649  0.030596422  0.033194581  0.035688718
+## Lag1   0.02969965  1.000000000 -0.026294328 -0.010803402 -0.002985911
+## Lag2   0.03059642 -0.026294328  1.000000000 -0.025896670 -0.010853533
+## Lag3   0.03319458 -0.010803402 -0.025896670  1.000000000 -0.024051036
+## Lag4   0.03568872 -0.002985911 -0.010853533 -0.024051036  1.000000000
+## Lag5   0.02978799 -0.005674606 -0.003557949 -0.018808338 -0.027083641
+## Volume 0.53900647  0.040909908 -0.043383215 -0.041823686 -0.048414246
+## Today  0.03009523 -0.026155045 -0.010250033 -0.002447647 -0.006899527
+##                Lag5      Volume        Today
+## Year    0.029787995  0.53900647  0.030095229
+## Lag1   -0.005674606  0.04090991 -0.026155045
+## Lag2   -0.003557949 -0.04338321 -0.010250033
+## Lag3   -0.018808338 -0.04182369 -0.002447647
+## Lag4   -0.027083641 -0.04841425 -0.006899527
+## Lag5    1.000000000 -0.02200231 -0.034860083
+## Volume -0.022002315  1.00000000  0.014591823
+## Today  -0.034860083  0.01459182  1.000000000</code></pre>
+<div class="tip">
+<p>There appears to be little correlation between today’s returns and previous days’ returns as the correlations between the lag variables and today’s returns are <strong>close to zero</strong>.</p>
+<p>The only substantial correlation is between <code>Year</code> and <code>Volume</code>.</p>
+</div>
+<p>By plotting the data, which is ordered chronologically, we see that <code>Volume</code> is increasing over time. In other words, the average number of shares traded daily increased from 2001 to 2005.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="lab-classification-methods.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Smarket)</span>
+<span id="cb91-2"><a href="lab-classification-methods.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Volume)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" style="display: block; margin: auto;" />
+### Logistic Regression</p>
+<p>Next, we will fit a logistic regression model in order to predict <code>Direction</code> using <code>Lag1</code> through <code>Lag5</code> and <code>Volume</code>. The glm() function can be used to fit <code>glm()</code> many types of generalized linear models, including logistic regression. The generalized linear model syntax of the <code>glm()</code> function is similar to that of <code>lm()</code>, except that we must pass in the argument <code>family = binomial</code> in order to tell R to run a <strong>logistic regression</strong> rather than some other type of generalized linear model.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="lab-classification-methods.html#cb92-1" aria-hidden="true" tabindex="-1"></a>glm.fits <span class="ot">&lt;-</span> <span class="fu">glm</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 <span class="sc">+</span> Lag3 <span class="sc">+</span> Lag4 <span class="sc">+</span> Lag5 <span class="sc">+</span> Volume, <span class="at">data =</span> Smarket, <span class="at">family =</span> binomial)</span>
+<span id="cb92-2"><a href="lab-classification-methods.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.fits)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 + 
+##     Volume, family = binomial, data = Smarket)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -1.446  -1.203   1.065   1.145   1.326  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept) -0.126000   0.240736  -0.523    0.601
+## Lag1        -0.073074   0.050167  -1.457    0.145
+## Lag2        -0.042301   0.050086  -0.845    0.398
+## Lag3         0.011085   0.049939   0.222    0.824
+## Lag4         0.009359   0.049974   0.187    0.851
+## Lag5         0.010313   0.049511   0.208    0.835
+## Volume       0.135441   0.158360   0.855    0.392
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1731.2  on 1249  degrees of freedom
+## Residual deviance: 1727.6  on 1243  degrees of freedom
+## AIC: 1741.6
+## 
+## Number of Fisher Scoring iterations: 3</code></pre>
+<p>The smallest p-value here is associated with <code>Lag1</code>. The negative coefficient for this predictor suggests that if the market had a positive return yesterday, then it is less likely to go up today. However, at a value of 0.15, the <span class="math inline">\(p\)</span> value is still relatively large, and so there is no clear evidence of a real association between <code>Lag1</code> and <code>Direction</code>.</p>
+<p>We use the <code>coef()</code> function in order to access just the coefficients for this fitted model. We can also use the <code>summary()</code> function to access particular aspects of the fitted model, such as the p-values for the coefficients.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="lab-classification-methods.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(glm.fits)</span></code></pre></div>
+<pre><code>##  (Intercept)         Lag1         Lag2         Lag3         Lag4         Lag5 
+## -0.126000257 -0.073073746 -0.042301344  0.011085108  0.009358938  0.010313068 
+##       Volume 
+##  0.135440659</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="lab-classification-methods.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.fits)<span class="sc">$</span>coef</span></code></pre></div>
+<pre><code>##                 Estimate Std. Error    z value  Pr(&gt;|z|)
+## (Intercept) -0.126000257 0.24073574 -0.5233966 0.6006983
+## Lag1        -0.073073746 0.05016739 -1.4565986 0.1452272
+## Lag2        -0.042301344 0.05008605 -0.8445733 0.3983491
+## Lag3         0.011085108 0.04993854  0.2219750 0.8243333
+## Lag4         0.009358938 0.04997413  0.1872757 0.8514445
+## Lag5         0.010313068 0.04951146  0.2082966 0.8349974
+## Volume       0.135440659 0.15835970  0.8552723 0.3924004</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="lab-classification-methods.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.fits)<span class="sc">$</span>coef[,<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## (Intercept)        Lag1        Lag2        Lag3        Lag4        Lag5 
+##   0.6006983   0.1452272   0.3983491   0.8243333   0.8514445   0.8349974 
+##      Volume 
+##   0.3924004</code></pre>
+<p>The <code>predict()</code> function can be used to predict the probability that the market will go up, given values of the predictors.</p>
+<p>Here we have printed only the first ten probabilities. We know that these values correspond to the probability of the market going up, rather than down, because the <code>contrasts()</code> function indicates that <code>R</code> has created a dummy variable with
+a 1 for <code>Up</code>.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="lab-classification-methods.html#cb100-1" aria-hidden="true" tabindex="-1"></a>glm.probs <span class="ot">&lt;-</span> <span class="fu">predict</span>(glm.fits, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb100-2"><a href="lab-classification-methods.html#cb100-2" aria-hidden="true" tabindex="-1"></a>glm.probs[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##         1         2         3         4         5         6         7         8 
+## 0.5070841 0.4814679 0.4811388 0.5152224 0.5107812 0.5069565 0.4926509 0.5092292 
+##         9        10 
+## 0.5176135 0.4888378</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="lab-classification-methods.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(Direction)</span></code></pre></div>
+<pre><code>##      Up
+## Down  0
+## Up    1</code></pre>
+<p>In order to make a prediction as to whether the market will go up or down on a particular day, we must convert these predicted probabilities into class labels, <code>Up</code> or <code>Down</code>. The following two commands create a vector of class predictions based on whether the predicted probability of a market
+increase is greater than or less than 0.5.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="lab-classification-methods.html#cb104-1" aria-hidden="true" tabindex="-1"></a>glm.pred <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;Down&quot;</span>, <span class="dv">1250</span>)</span>
+<span id="cb104-2"><a href="lab-classification-methods.html#cb104-2" aria-hidden="true" tabindex="-1"></a>glm.pred[glm.probs <span class="sc">&gt;</span> .<span class="dv">5</span>] <span class="ot">=</span> <span class="st">&quot;Up&quot;</span></span></code></pre></div>
+<p>Given these predictions, the <code>table()</code> function can be used to produce a confusion matrix in order to determine how many observations were correctly or incorrectly classified.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="lab-classification-methods.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred, Direction)</span></code></pre></div>
+<pre><code>##         Direction
+## glm.pred Down  Up
+##     Down  145 141
+##     Up    457 507</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="lab-classification-methods.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(glm.pred <span class="sc">==</span> Direction)</span></code></pre></div>
+<pre><code>## [1] 0.5216</code></pre>
+<p><strong>Interpreting the result:</strong>
+The diagonal elements of the confusion matrix indicate correct predictions, while the off-diagonals represent incorrect predictions. Hence our model correctly predicted that the market would go up on 507 days and that it would go down on 145 days, for a total of 507 + 145 = 652 correct
+predictions.</p>
+<p>The <code>mean()</code> function can be used to compute the fraction of days for which the prediction was correct. In this case, logistic regression correctly predicted the movement of the market 52.2% of the time.</p>
+<p><strong>Problems:</strong></p>
+<p>At first glance, it appears that the logistic regression model is working a little better than random guessing. However, this result is misleading
+because we trained and tested the model on the same set of 1,250 observations.</p>
+<p>In other words, 100% − 52.2% = 47.8%, is the <em>training error</em> rate. As we have seen previously, the training error rate is often overly optimistic—it tends to underestimate the test error rate.</p>
+<p>In order to better assess the accuracy of the logistic regression model in this setting, we can
+fit the model using part of the data, and then examine how well it predicts the held out data. This will yield a more realistic error rate, in the sense
+that in practice we will be interested in our model’s performance not on the data that we used to fit the model, but rather on days in the future for
+which the market’s movements are unknown.</p>
+<p>To implement this strategy, we will first create a vector corresponding to the observations from 2001 through 2004. We will then use this vector to create a held out data set of observations from 2005.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="lab-classification-methods.html#cb109-1" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> (Year <span class="sc">&lt;</span> <span class="dv">2005</span>)</span>
+<span id="cb109-2"><a href="lab-classification-methods.html#cb109-2" aria-hidden="true" tabindex="-1"></a>Smarket<span class="fl">.2005</span> <span class="ot">&lt;-</span> Smarket[<span class="sc">!</span>train,]</span>
+<span id="cb109-3"><a href="lab-classification-methods.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Smarket<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>## [1] 252   9</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="lab-classification-methods.html#cb111-1" aria-hidden="true" tabindex="-1"></a>Direction<span class="fl">.2005</span> <span class="ot">&lt;-</span> Direction[<span class="sc">!</span>train]</span></code></pre></div>
+<p>We now fit a logistic regression model using only the subset of the observations that correspond to dates before 2005, using the <code>subset</code> argument. We then obtain predicted probabilities of the stock market going up for each of the days in our test set—that is, for the days in 2005.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="lab-classification-methods.html#cb112-1" aria-hidden="true" tabindex="-1"></a>glm.fits <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb112-2"><a href="lab-classification-methods.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  Direction ∼ Lag1 <span class="sc">+</span> Lag2 <span class="sc">+</span> Lag3 <span class="sc">+</span> Lag4 <span class="sc">+</span> Lag5 <span class="sc">+</span> Volume ,</span>
+<span id="cb112-3"><a href="lab-classification-methods.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> Smarket , <span class="at">family =</span> binomial , <span class="at">subset =</span> train</span>
+<span id="cb112-4"><a href="lab-classification-methods.html#cb112-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb112-5"><a href="lab-classification-methods.html#cb112-5" aria-hidden="true" tabindex="-1"></a>glm.probs <span class="ot">&lt;-</span> <span class="fu">predict</span>(glm.fits , Smarket<span class="fl">.2005</span>,</span>
+<span id="cb112-6"><a href="lab-classification-methods.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span></code></pre></div>
+<p>Notice that we have trained and tested our model on two completely separate data sets:</p>
+<ul>
+<li>training was performed using only the dates before 2005</li>
+<li>testing was performed using only the dates in 2005</li>
+</ul>
+<p>Finally, we compute the predictions for 2005 and compare them to the actual movements of the market over that time period.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="lab-classification-methods.html#cb113-1" aria-hidden="true" tabindex="-1"></a>glm.pred <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;Down&quot;</span>, <span class="dv">252</span>)</span>
+<span id="cb113-2"><a href="lab-classification-methods.html#cb113-2" aria-hidden="true" tabindex="-1"></a>glm.pred[glm.probs <span class="sc">&gt;</span> .<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Up&quot;</span></span>
+<span id="cb113-3"><a href="lab-classification-methods.html#cb113-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred, Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>##         Direction.2005
+## glm.pred Down Up
+##     Down   77 97
+##     Up     34 44</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lab-classification-methods.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># training error rate</span></span>
+<span id="cb115-2"><a href="lab-classification-methods.html#cb115-2" aria-hidden="true" tabindex="-1"></a>glm.train_error_rate <span class="ot">&lt;-</span> <span class="fu">mean</span>(glm.pred <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span>
+<span id="cb115-3"><a href="lab-classification-methods.html#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;The training error rate is %s&quot;</span>,<span class="fu">round</span>(glm.train_error_rate,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;The training error rate is 0.4802&quot;</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="lab-classification-methods.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test error rate</span></span>
+<span id="cb117-2"><a href="lab-classification-methods.html#cb117-2" aria-hidden="true" tabindex="-1"></a>glm.test_error_rate <span class="ot">&lt;-</span> <span class="fu">mean</span>(glm.pred <span class="sc">!=</span> Direction<span class="fl">.2005</span>)</span>
+<span id="cb117-3"><a href="lab-classification-methods.html#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;The test error rate is %s&quot;</span>,<span class="fu">round</span>(glm.test_error_rate,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;The test error rate is 0.5198&quot;</code></pre>
+<p>The results are rather disappointing: the test error
+rate is 52 %, which is worse than random guessing.</p>
+<p>We recall that the logistic regression model had very underwhelming p-values associated with all of the predictors, and that the smallest p-value, though not very small, corresponded to <code>Lag1</code>. Perhaps by removing the variables that appear not to be helpful in predicting Direction, we can
+obtain a more effective model.</p>
+<div class="tip">
+<p>After all, using predictors that have no relationship with the response tends to cause a deterioration in the test error rate (since such predictors cause an increase in variance without a corresponding decrease in bias), and so removing such predictors may in turn yield an improvement.</p>
+</div>
+<p>Below we have refit the logistic regression using just <code>Lag1</code> and <code>Lag2</code>, which seemed to have the highest predictive power in the original logistic regression model.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="lab-classification-methods.html#cb119-1" aria-hidden="true" tabindex="-1"></a>glm.fits <span class="ot">&lt;-</span> <span class="fu">glm</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 , <span class="at">data =</span> Smarket ,</span>
+<span id="cb119-2"><a href="lab-classification-methods.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="at">family =</span> binomial , <span class="at">subset =</span> train)</span>
+<span id="cb119-3"><a href="lab-classification-methods.html#cb119-3" aria-hidden="true" tabindex="-1"></a>glm.probs <span class="ot">&lt;-</span> <span class="fu">predict</span>(glm.fits , Smarket<span class="fl">.2005</span>,</span>
+<span id="cb119-4"><a href="lab-classification-methods.html#cb119-4" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb119-5"><a href="lab-classification-methods.html#cb119-5" aria-hidden="true" tabindex="-1"></a>glm.pred <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;Down&quot;</span>, <span class="dv">252</span>)</span>
+<span id="cb119-6"><a href="lab-classification-methods.html#cb119-6" aria-hidden="true" tabindex="-1"></a>glm.pred[glm.probs <span class="sc">&gt;</span> .<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Up&quot;</span></span>
+<span id="cb119-7"><a href="lab-classification-methods.html#cb119-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred , Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>##         Direction.2005
+## glm.pred Down  Up
+##     Down   35  35
+##     Up     76 106</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="lab-classification-methods.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># training error rate</span></span>
+<span id="cb121-2"><a href="lab-classification-methods.html#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(glm.pred <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5595238</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="lab-classification-methods.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="dv">106</span> <span class="sc">/</span> (<span class="dv">106</span> <span class="sc">+</span> <span class="dv">76</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5824176</code></pre>
+<p>Now the results appear to be a little better: 56% of the daily movements have been correctly predicted. However, the confusion matrix shows that on days when logistic regression predicts an increase in the market, it has a 58% accuracy rate. This suggests a possible trading strategy of buying on days when the model predicts an increasing market, and avoiding trades on days when a decrease is predicted.</p>
+<p>Suppose that we want to predict the returns associated with particular values of Lag1 and Lag2. In particular, we want to predict Direction on a day when Lag1 and Lag2 equal 1.2 and 1.1, respectively, and on a day when they equal 1.5 and −0.8. We do this using the <code>predict()</code> function.</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="lab-classification-methods.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(glm.fits, <span class="at">newdata =</span> </span>
+<span id="cb125-2"><a href="lab-classification-methods.html#cb125-2" aria-hidden="true" tabindex="-1"></a>          <span class="fu">data.frame</span>(<span class="at">Lag1 =</span> <span class="fu">c</span>(<span class="fl">1.2</span> , <span class="fl">1.5</span>), </span>
+<span id="cb125-3"><a href="lab-classification-methods.html#cb125-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Lag2 =</span> <span class="fu">c</span>(<span class="fl">1.1</span> , <span class="sc">-</span><span class="fl">0.8</span>)),</span>
+<span id="cb125-4"><a href="lab-classification-methods.html#cb125-4" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="st">&quot;response&quot;</span></span>
+<span id="cb125-5"><a href="lab-classification-methods.html#cb125-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##         1         2 
+## 0.4791462 0.4960939</code></pre>
+</div>
+<div id="linear-discriminant-analysis-1" class="section level3" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Linear Discriminant Analysis</h3>
+<p>Now we will perform LDA on the Smarket data. In R, we fit an LDA model using the <code>lda()</code> function, which is part of the <code>MASS</code> library. We fit the model using only the observations before 2005.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="lab-classification-methods.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb127-2"><a href="lab-classification-methods.html#cb127-2" aria-hidden="true" tabindex="-1"></a>lda.fit <span class="ot">&lt;-</span> <span class="fu">lda</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 , <span class="at">data =</span> Smarket, <span class="at">subset =</span> train)</span>
+<span id="cb127-3"><a href="lab-classification-methods.html#cb127-3" aria-hidden="true" tabindex="-1"></a>lda.fit</span></code></pre></div>
+<pre><code>## Call:
+## lda(Direction ~ Lag1 + Lag2, data = Smarket, subset = train)
+## 
+## Prior probabilities of groups:
+##     Down       Up 
+## 0.491984 0.508016 
+## 
+## Group means:
+##             Lag1        Lag2
+## Down  0.04279022  0.03389409
+## Up   -0.03954635 -0.03132544
+## 
+## Coefficients of linear discriminants:
+##             LD1
+## Lag1 -0.6420190
+## Lag2 -0.5135293</code></pre>
+<p>The LDA output indicates that 49.2% of the training observations correspond to days during which the market went down. The <em>coefficients of linear discriminants</em> output provides the linear combination of <code>Lag1</code> and <code>Lag2</code> that are used to form the LDA decision rule.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="lab-classification-methods.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lda.fit)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-108-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The plot() function produces plots of the linear discriminants, obtained by computing<code>−0.642×Lag1</code>−<code>0.514×Lag2</code> for each of the training observations. The <code>Up</code> and <code>Down</code> observations are displayed separately.</p>
+<p>The <code>predict()</code> function returns a list with three elements. The first element, <code>class</code>, contains LDA’s predictions about the movement of the market. The second element, <code>posterior</code>, is a matrix whose <span class="math inline">\(k\)</span>th column contains the posterior probability that the corresponding observation belongs to the <span class="math inline">\(k\)</span>th class. Finally, x contains the linear discriminants, described earlier.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="lab-classification-methods.html#cb130-1" aria-hidden="true" tabindex="-1"></a>lda.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lda.fit , Smarket<span class="fl">.2005</span>)</span>
+<span id="cb130-2"><a href="lab-classification-methods.html#cb130-2" aria-hidden="true" tabindex="-1"></a>lda.class <span class="ot">&lt;-</span> lda.pred<span class="sc">$</span>class</span>
+<span id="cb130-3"><a href="lab-classification-methods.html#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lda.class, Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>##          Direction.2005
+## lda.class Down  Up
+##      Down   35  35
+##      Up     76 106</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="lab-classification-methods.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(lda.class <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5595238</code></pre>
+<p>Applying a 50% threshold to the posterior probabilities allows us to recreate the predictions contained in <code>lda.pred$class</code>.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="lab-classification-methods.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(lda.pred<span class="sc">$</span>posterior[, <span class="dv">1</span>] <span class="sc">&gt;=</span> .<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 70</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="lab-classification-methods.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(lda.pred<span class="sc">$</span>posterior[, <span class="dv">1</span>] <span class="sc">&lt;</span> .<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 182</code></pre>
+<p>Notice that the posterior probability output by the model corresponds to the probability that the market will decrease:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="lab-classification-methods.html#cb138-1" aria-hidden="true" tabindex="-1"></a>lda.pred<span class="sc">$</span>posterior[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##       999      1000      1001      1002      1003      1004      1005      1006 
+## 0.4901792 0.4792185 0.4668185 0.4740011 0.4927877 0.4938562 0.4951016 0.4872861 
+##      1007      1008      1009      1010      1011      1012      1013      1014 
+## 0.4907013 0.4844026 0.4906963 0.5119988 0.4895152 0.4706761 0.4744593 0.4799583 
+##      1015      1016      1017      1018 
+## 0.4935775 0.5030894 0.4978806 0.4886331</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="lab-classification-methods.html#cb140-1" aria-hidden="true" tabindex="-1"></a>lda.class[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span></code></pre></div>
+<pre><code>##  [1] Up   Up   Up   Up   Up   Up   Up   Up   Up   Up   Up   Down Up   Up   Up  
+## [16] Up   Up   Down Up   Up  
+## Levels: Down Up</code></pre>
+</div>
+<div id="quadratic-discriminant-analysis-1" class="section level3" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> Quadratic Discriminant Analysis</h3>
+<p>We will now fit a QDA model to the <code>Smarket</code> data. QDA is implemented in R using the <code>qda()</code> function, which is also part of the <code>MASS</code> library.</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="lab-classification-methods.html#cb142-1" aria-hidden="true" tabindex="-1"></a>qda.fit <span class="ot">&lt;-</span> <span class="fu">qda</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 , <span class="at">data =</span> Smarket,</span>
+<span id="cb142-2"><a href="lab-classification-methods.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="at">subset =</span> train)</span>
+<span id="cb142-3"><a href="lab-classification-methods.html#cb142-3" aria-hidden="true" tabindex="-1"></a>qda.fit</span></code></pre></div>
+<pre><code>## Call:
+## qda(Direction ~ Lag1 + Lag2, data = Smarket, subset = train)
+## 
+## Prior probabilities of groups:
+##     Down       Up 
+## 0.491984 0.508016 
+## 
+## Group means:
+##             Lag1        Lag2
+## Down  0.04279022  0.03389409
+## Up   -0.03954635 -0.03132544</code></pre>
+<p>The output contains the group means. But it does not contain the coefficients of the linear discriminants, because the QDA classifier involves a quadratic, rather than a linear, function of the predictors.</p>
+<p>The <code>predict()</code> function works in exactly the same fashion as for LDA.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="lab-classification-methods.html#cb144-1" aria-hidden="true" tabindex="-1"></a>qda.class <span class="ot">&lt;-</span> <span class="fu">predict</span>(qda.fit , Smarket<span class="fl">.2005</span>)<span class="sc">$</span>class</span>
+<span id="cb144-2"><a href="lab-classification-methods.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qda.class , Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>##          Direction.2005
+## qda.class Down  Up
+##      Down   30  20
+##      Up     81 121</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="lab-classification-methods.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(qda.class <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5992063</code></pre>
+<p>Interestingly, the QDA predictions are accurate almost 60% of the time, even though the 2005 data was not used to fit the model. This level of accuracy is quite impressive for stock market data, which is known to be quite hard to model accurately. This suggests that the quadratic form assumed by QDA may capture the true relationship more accurately than the linear forms assumed by LDA and logistic regression. However, we recommend evaluating this method’s performance on a larger test set before betting
+that this approach will consistently beat the market!</p>
+</div>
+<div id="naive-bayes" class="section level3" number="13.1.4">
+<h3><span class="header-section-number">13.1.4</span> Naive Bayes</h3>
+<p>Next, we fit a naive Bayes model to the <code>Smarket</code> data.</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="lab-classification-methods.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb148-2"><a href="lab-classification-methods.html#cb148-2" aria-hidden="true" tabindex="-1"></a>nb.fit <span class="ot">&lt;-</span> <span class="fu">naiveBayes</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 , <span class="at">data =</span> Smarket ,</span>
+<span id="cb148-3"><a href="lab-classification-methods.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="at">subset =</span> train)</span>
+<span id="cb148-4"><a href="lab-classification-methods.html#cb148-4" aria-hidden="true" tabindex="-1"></a>nb.fit</span></code></pre></div>
+<pre><code>## 
+## Naive Bayes Classifier for Discrete Predictors
+## 
+## Call:
+## naiveBayes.default(x = X, y = Y, laplace = laplace)
+## 
+## A-priori probabilities:
+## Y
+##     Down       Up 
+## 0.491984 0.508016 
+## 
+## Conditional probabilities:
+##       Lag1
+## Y             [,1]     [,2]
+##   Down  0.04279022 1.227446
+##   Up   -0.03954635 1.231668
+## 
+##       Lag2
+## Y             [,1]     [,2]
+##   Down  0.03389409 1.239191
+##   Up   -0.03132544 1.220765</code></pre>
+<p>The output contains the estimated mean and standard deviation for each variable in each class. For example, the mean for <code>Lag1</code> is 0.0428 for <code>Direction=Down</code>, and the standard deviation is 1.23.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="lab-classification-methods.html#cb150-1" aria-hidden="true" tabindex="-1"></a>nb.class <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb.fit , Smarket<span class="fl">.2005</span>)</span>
+<span id="cb150-2"><a href="lab-classification-methods.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(nb.class , Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>##         Direction.2005
+## nb.class Down  Up
+##     Down   28  20
+##     Up     83 121</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="lab-classification-methods.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nb.class <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5912698</code></pre>
+<p>Naive Bayes performs very well on this data, with accurate predictions over 59% of the time. This is slightly worse than QDA, but much better than LDA.</p>
+<p>The <code>predict()</code> function can also generate estimates of the probability that each observation belongs to a particular class.</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="lab-classification-methods.html#cb154-1" aria-hidden="true" tabindex="-1"></a>nb.preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb.fit , Smarket<span class="fl">.2005</span>, <span class="at">type =</span> <span class="st">&quot;raw&quot;</span>)</span>
+<span id="cb154-2"><a href="lab-classification-methods.html#cb154-2" aria-hidden="true" tabindex="-1"></a>nb.preds[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span></code></pre></div>
+<pre><code>##           Down        Up
+## [1,] 0.4873164 0.5126836
+## [2,] 0.4762492 0.5237508
+## [3,] 0.4653377 0.5346623
+## [4,] 0.4748652 0.5251348
+## [5,] 0.4901890 0.5098110</code></pre>
+</div>
+<div id="k-nearest-neighbors" class="section level3" number="13.1.5">
+<h3><span class="header-section-number">13.1.5</span> K-Nearest Neighbors</h3>
+<p>We will now perform KNN using the <code>knn()</code> function, which is part of the class library. This function works rather differently from the other modelfitting functions that we have encountered thus far. Rather than a two-step approach in which we first fit the model and then we use the model to make predictions, <code>knn()</code> forms predictions using a single command. The function requires four inputs.</p>
+<ol style="list-style-type: decimal">
+<li>A matrix containing the predictors associated with the training data, labeled <code>train.X</code> below.</li>
+<li>A matrix containing the predictors associated with the data for which we wish to make predictions, labeled <code>test.X</code> below.</li>
+<li>A vector containing the class labels for the training observations, labeled <code>train.Direction</code> below.</li>
+<li>A value for <span class="math inline">\(K\)</span>, the number of nearest neighbors to be used by the classifier.</li>
+</ol>
+<p>We use the <code>cbind()</code> function, short for <em>column bind</em>, to bind the <code>Lag1</code> and <code>Lag2</code> variables together into two matrices, one for the training set and the other for the test set.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="lab-classification-methods.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(class)</span>
+<span id="cb156-2"><a href="lab-classification-methods.html#cb156-2" aria-hidden="true" tabindex="-1"></a>train.X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(Lag1 , Lag2)[train , ]</span>
+<span id="cb156-3"><a href="lab-classification-methods.html#cb156-3" aria-hidden="true" tabindex="-1"></a>test.X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(Lag1 , Lag2)[<span class="sc">!</span>train , ]</span>
+<span id="cb156-4"><a href="lab-classification-methods.html#cb156-4" aria-hidden="true" tabindex="-1"></a>train.Direction <span class="ot">&lt;-</span> Direction[train]</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="lab-classification-methods.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb157-2"><a href="lab-classification-methods.html#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-3"><a href="lab-classification-methods.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="co"># K = 1</span></span>
+<span id="cb157-4"><a href="lab-classification-methods.html#cb157-4" aria-hidden="true" tabindex="-1"></a>knn.pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train.X, test.X, train.Direction , <span class="at">k =</span> <span class="dv">1</span>)</span>
+<span id="cb157-5"><a href="lab-classification-methods.html#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(knn.pred , Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>##         Direction.2005
+## knn.pred Down Up
+##     Down   43 58
+##     Up     68 83</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="lab-classification-methods.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(knn.pred <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>The results using <span class="math inline">\(K\)</span> = 1 are not very good, since only 50% of the observations are correctly predicted. Of course, it may be that K = 1 results in an overly flexible fit to the data. Below, we repeat the analysis using <span class="math inline">\(K\)</span> = 3.</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="lab-classification-methods.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="co"># K = 3</span></span>
+<span id="cb161-2"><a href="lab-classification-methods.html#cb161-2" aria-hidden="true" tabindex="-1"></a>knn.pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train.X, test.X, train.Direction , <span class="at">k =</span> <span class="dv">3</span>)</span>
+<span id="cb161-3"><a href="lab-classification-methods.html#cb161-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(knn.pred , Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>##         Direction.2005
+## knn.pred Down Up
+##     Down   48 54
+##     Up     63 87</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="lab-classification-methods.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(knn.pred <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5357143</code></pre>
+<p>The results have improved slightly. But increasing K further turns out to provide no further improvements. It appears that for this data, QDA provides the best results of the methods that we have examined so far.</p>
+</div>
+</div>
+<div id="the-caravan-insurance-data" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> The Caravan Insurance Data</h2>
+</div>
+<div id="data-overview-2" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> Data Overview</h2>
+<p>This data set includes 85 predictors that measure demographic characteristics for 5,822 individuals.
+The response variable is <code>Purchase</code>, which indicates whether or not a given individual purchases a caravan insurance policy. In this data set, only 6% of people purchased caravan insurance.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="lab-classification-methods.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Caravan)</span></code></pre></div>
+<pre><code>## [1] 5822   86</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="lab-classification-methods.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Caravan)</span>
+<span id="cb167-2"><a href="lab-classification-methods.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Purchase)</span></code></pre></div>
+<pre><code>##   No  Yes 
+## 5474  348</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="lab-classification-methods.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="dv">348</span> <span class="sc">/</span> <span class="dv">5822</span></span></code></pre></div>
+<pre><code>## [1] 0.05977327</code></pre>
+</div>
+<div id="k-nearest-neighbors-1" class="section level2" number="13.4">
+<h2><span class="header-section-number">13.4</span> K-Nearest Neighbors</h2>
+<p>To make all variables will be on a comparable scale is to <em>standardize</em> the data so that all variables are given a mean of zero and a standard deviation of one. The <code>scale()</code> function does just this. In standardizing the data, we exclude column 86, because that is the qualitative <code>Purchase</code> variable.</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="lab-classification-methods.html#cb171-1" aria-hidden="true" tabindex="-1"></a>standardized.X <span class="ot">&lt;-</span> <span class="fu">scale</span>(Caravan[, <span class="sc">-</span><span class="dv">86</span>])</span></code></pre></div>
+<p>Now every column of standardized.X has a standard deviation of one and a mean of zero, we now split the observations into a test set, containing the first 1,000 observations, and a training set, containing the remaining observations. We fit a KNN model on the training data using <span class="math inline">\(K\)</span> = 1, and evaluate its performance on the test data.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="lab-classification-methods.html#cb172-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span></span>
+<span id="cb172-2"><a href="lab-classification-methods.html#cb172-2" aria-hidden="true" tabindex="-1"></a>train.X <span class="ot">&lt;-</span> standardized.X[<span class="sc">-</span>test, ]</span>
+<span id="cb172-3"><a href="lab-classification-methods.html#cb172-3" aria-hidden="true" tabindex="-1"></a>test.X <span class="ot">&lt;-</span> standardized.X[test, ]</span>
+<span id="cb172-4"><a href="lab-classification-methods.html#cb172-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb172-5"><a href="lab-classification-methods.html#cb172-5" aria-hidden="true" tabindex="-1"></a>train.Y <span class="ot">&lt;-</span> Purchase[<span class="sc">-</span>test]</span>
+<span id="cb172-6"><a href="lab-classification-methods.html#cb172-6" aria-hidden="true" tabindex="-1"></a>test.Y <span class="ot">&lt;-</span> Purchase[test]</span>
+<span id="cb172-7"><a href="lab-classification-methods.html#cb172-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb172-8"><a href="lab-classification-methods.html#cb172-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span> (<span class="dv">1</span>)</span>
+<span id="cb172-9"><a href="lab-classification-methods.html#cb172-9" aria-hidden="true" tabindex="-1"></a>knn.pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train.X, test.X, train.Y, <span class="at">k =</span> <span class="dv">1</span>)</span>
+<span id="cb172-10"><a href="lab-classification-methods.html#cb172-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(test.Y <span class="sc">!=</span> knn.pred)</span></code></pre></div>
+<pre><code>## [1] 0.118</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="lab-classification-methods.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(test.Y <span class="sc">!=</span> <span class="st">&quot;No&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.059</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a-comparison-of-classification-methods.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -83,3 +83,13 @@ scenario-3
 scenario-4
 scenario-5
 scenario-6
+lab-classification-methods
+the-stock-market-data
+data-overview-1
+linear-discriminant-analysis-1
+quadratic-discriminant-analysis-1
+naive-bayes
+k-nearest-neighbors
+the-caravan-insurance-data
+data-overview-2
+k-nearest-neighbors-1

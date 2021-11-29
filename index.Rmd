@@ -2,6 +2,7 @@
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
+cover-image: img/illos/cover.png
 github-repo: "ndleah/stat-learning"
 always_allow_html: yes
 url: 'https//:www.ndleah.github.io/stat-learning/'
