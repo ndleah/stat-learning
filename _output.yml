@@ -1,7 +1,7 @@
 bookdown::gitbook:
   includes:
     before_body: docs/hero-image.html
-  highlight: tango
+  highlight: espresso
   css: style.css
   config:
     toc:
