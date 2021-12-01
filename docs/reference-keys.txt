@@ -83,9 +83,13 @@ scenario-3
 scenario-4
 scenario-5
 scenario-6
+logistic-regression-1
+generalized-linear-model
+generalized-linear-models-in-greater-generality
 lab-classification-methods
 the-stock-market-data
 data-overview-1
+logistic-regression-2
 linear-discriminant-analysis-1
 quadratic-discriminant-analysis-1
 naive-bayes
@@ -93,3 +97,6 @@ k-nearest-neighbors
 the-caravan-insurance-data
 data-overview-2
 k-nearest-neighbors-1
+logistics-regression
+bikeshare-data
+data-overview-3

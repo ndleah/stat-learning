@@ -13,11 +13,11 @@ library(MASS)
 library(ISLR)
 ```
 
-## Question 1 {-}
+#### Question 1 {-}
 
 This question involves the use of simple linear regression on the `Auto` data set.
 
-###### (a) Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output. {-}
+##### (a) Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output. {-}
 
 ```{r}
 mpg.fit <- lm(mpg ~ horsepower, data = Auto)
@@ -82,14 +82,14 @@ predict(mpg.fit, data.frame(horsepower = 98), interval = "prediction", level = 0
 ```
 The prediction interval is wider than the confidence interval as we would expect.
 
-### (b) Plot the response and the predictor. Use the `abline()` function to display the least squares regression line. {-}
+##### (b) Plot the response and the predictor. Use the `abline()` function to display the least squares regression line. {-}
 
 ```{r}
 plot(Auto$horsepower,Auto$mpg,xlab = "horsepower", ylab = "mpg",main = "Scatterplot of mpg vs. horsepower")
 abline(mpg.fit,col="red")
 ```
 
-### (c) Use the `plot()` function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit. {-}
+##### (c) Use the `plot()` function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit. {-}
 
 ```{r}
 par(mfrow=c(2,2))
@@ -98,7 +98,7 @@ plot(mpg.fit)
 
 The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:
 
-######  **(i) Residuals vs Fitted** {-}
+###### **(i) Residuals vs Fitted** {-}
 
 This plot shows if residuals have non-linear patterns.
 
@@ -122,17 +122,17 @@ This plot helps us to find influential cases (i.e., subjects) if any.
 The plot of standardized residuals versus leverage indicates the presence of a few outliers and a few high leverage points.
 
 
-## Question 2 {-}
+#### Question 2 {-}
 
 This question involves the use of multiple linear regression on the `Auto` data set.
 
-### (a) Produce a scatterplot matrix which includes all of the variables in the data set. {-}
+##### (a) Produce a scatterplot matrix which includes all of the variables in the data set. {-}
 
 ```{r}
 pairs(Auto)
 ```
 
-### (b) Compute the matrix of correlations between the variables using the function `cor()`. You will need to exclude the “name” variable, which is qualitative. {-}
+##### (b) Compute the matrix of correlations between the variables using the function `cor()`. You will need to exclude the “name” variable, which is qualitative. {-}
 
 ```{r}
 names(Auto)
@@ -142,7 +142,7 @@ names(Auto)
 cor(Auto[-9])
 ```
 
-### (c) Use the `lm()` function to perform a multiple linear regression with `mpg` as the response and all other variables except “name” as the predictors. Use the `summary()` function to print the results. Comment on the output. {-}
+##### (c) Use the `lm()` function to perform a multiple linear regression with `mpg` as the response and all other variables except “name” as the predictors. Use the `summary()` function to print the results. Comment on the output. {-}
 
 ```{r}
 mpg.fit2 <- lm(mpg ~. -name, data=Auto)
@@ -177,7 +177,7 @@ coef(mpg.fit2)[7]
 
 The coefficient ot the `year` variable suggests that the average effect of an increase of 1 year is an increase of 0.7507727 in `mpg` (all other predictors remaining constant). In other words, cars become more fuel efficient every year by almost 1 mpg / year.
 
-### (d) Use the `plot()` function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit. {-}
+##### (d) Use the `plot()` function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit. {-}
 
 ```{r}
 par(mfrow=c(2,2))
@@ -207,7 +207,7 @@ This plot helps us to find influential cases (i.e., subjects) if any.
 
 We can see some evidence of observations (e.g. 14) with both high leverage and high residual statistics, that may be disproportionately influencing the regression predictions.
 
-### (e) Use the `*` and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant? {-}
+##### (e) Use the `*` and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant? {-}
 
 Since we have relatively few predictors, we can test all interactions with `mpg ~ . * .` in the call to `lm()`:
 
@@ -215,6 +215,7 @@ Since we have relatively few predictors, we can test all interactions with `mpg 
 mpg.fit3 <- lm(mpg ~.* ., data=Auto[,-9]) 
 summary(mpg.fit3)
 ```
+
 We can see the significant terms (at the 0.05 level) are those with at least one asterisk (*). It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.
 
 Using the standard threshold of 0.05, the significant interaction terms are given by:
@@ -222,7 +223,7 @@ Using the standard threshold of 0.05, the significant interaction terms are give
 * `acceleration:year`
 * `acceleration:origin`
 
-### (f) Try a few different transformations of the variables, such as $log(X)$, $\sqrt{X}$, $X^2$. Comment on your findings. {-}
+##### (f) Try a few different transformations of the variables, such as $log(X)$, $\sqrt{X}$, $X^2$. Comment on your findings. {-}
 
 ```{r}
 par(mfrow = c(2, 2))

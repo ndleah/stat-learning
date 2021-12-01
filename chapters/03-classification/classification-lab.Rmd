@@ -1,3 +1,12 @@
+---
+output: 
+  html_document: 
+    highlight: espresso
+    css: C:/Users/LEAH NGUYEN/Downloads/prism.css
+    number_sections: yes
+---
+
+
 # Lab: Classification Methods
 
 ## The Stock Market Data
@@ -24,8 +33,8 @@ We have also recorded:
 
 Our goal is to predict `Direction` (a qualitative response) using the other features.
 
-```{r}
-library(ISLR) # load the library
+```{r message=FALSE, warning=FALSE}
+library(ISLR2) # load the library
 ```
 ```{r}
 names(Smarket) # get the column names
@@ -58,6 +67,7 @@ By plotting the data, which is ordered chronologically, we see that `Volume` is 
 attach(Smarket)
 plot(Volume)
 ```
+
 ### Logistic Regression
 
 Next, we will fit a logistic regression model in order to predict `Direction` using `Lag1` through `Lag5` and `Volume`. The glm() function can be used to fit `glm()` many types of generalized linear models, including logistic regression. The generalized linear model syntax of the `glm()` function is similar to that of `lm()`, except that we must pass in the argument `family = binomial` in order to tell R to run a **logistic regression** rather than some other type of generalized linear model.
@@ -342,7 +352,7 @@ The results have improved slightly. But increasing K further turns out to provid
 
 ## The Caravan Insurance Data
 
-## Data Overview
+### Data Overview
 
 This data set includes 85 predictors that measure demographic characteristics for 5,822 individuals.
 The response variable is `Purchase`, which indicates whether or not a given individual purchases a caravan insurance policy. In this data set, only 6% of people purchased caravan insurance.
@@ -354,7 +364,7 @@ summary(Purchase)
 348 / 5822
 ```
 
-## K-Nearest Neighbors
+### K-Nearest Neighbors
 
 To make all variables will be on a comparable scale is to *standardize* the data so that all variables are given a mean of zero and a standard deviation of one. The `scale()` function does just this. In standardizing the data, we exclude column 86, because that is the qualitative `Purchase` variable.
 
@@ -362,7 +372,7 @@ To make all variables will be on a comparable scale is to *standardize* the data
 standardized.X <- scale(Caravan[, -86])
 ```
 
-Now every column of standardized.X has a standard deviation of one and a mean of zero, we now split the observations into a test set, containing the first 1,000 observations, and a training set, containing the remaining observations. We fit a KNN model on the training data using $K$ = 1, and evaluate its performance on the test data.
+Now every column of `standardized.X` has a standard deviation of one and a mean of zero, we now split the observations into a test set, containing the first 1,000 observations, and a training set, containing the remaining observations. We fit a KNN model on the training data using $K$ = 1, and evaluate its performance on the test data.
 
 ```{r}
 test <- 1:1000
@@ -373,8 +383,131 @@ train.Y <- Purchase[-test]
 test.Y <- Purchase[test]
 
 set.seed (1)
+
+# k = 1
 knn.pred <- knn(train.X, test.X, train.Y, k = 1)
 mean(test.Y != knn.pred)
 mean(test.Y != "No")
+table(knn.pred , test.Y)
+9 / (68 + 9)
 ```
 
+```{r}
+# k = 3
+knn.pred <- knn(train.X, test.X, train.Y, k = 3)
+table(knn.pred , test.Y)
+5/26
+```
+```{r}
+knn.pred <- knn(train.X, test.X, train.Y, k = 5)
+table(knn.pred , test.Y)
+4/15
+```
+
+Using $K$ = 3, the success rate increases to 19%, and with $K$ = 5 the rate is 26.7%. This is over four times the rate that results from random guessing. It appears that KNN is finding some real patterns in a difficult data set!
+
+However, while this strategy is cost-effective, it is worth noting that only 15 customers are predicted to purchase insurance using KNN with $K$ = 5. In practice, the insurance company may wish to expend resources on convincing more than just 15 potential customers to buy insurance.
+
+### Logistics Regression
+
+As a comparison, we can also fit a logistic regression model to the data. If we use 0.5 as the predicted probability cut-off for the classifier, then
+we have a problem: only seven of the test observations are predicted to purchase insurance. Even worse, we are wrong about all of these! However, we are not required to use a cut-off of 0.5. If we instead predict a purchase any time the predicted probability of purchase exceeds 0.25, we get much better results: we predict that 33 people will purchase insurance, and we are correct for about 33% of these people. This is over five times better than random guessing!
+
+```{r}
+# fit the model
+glm.fits <- glm(Purchase ∼ ., data = Caravan, family = binomial , subset = -test)
+glm.probs <- predict(glm.fits , Caravan[test , ], type = "response")
+glm.pred <- rep("No", 1000)
+
+# threshold = 0.5
+print("Threshold = 0.5")
+glm.pred[glm.probs > .5] <- "Yes"
+table(glm.pred , test.Y)
+sprintf("Prediction accuracy: %s",round(0/(22+11)*100,4))
+
+# threshold = 0.25
+print("Threshold = 0.25")
+glm.pred <- rep("No", 1000)
+glm.pred[glm.probs > .25] <- "Yes"
+table(glm.pred , test.Y)
+sprintf("Prediction accuracy: %s",round(11/(22+11),4))
+```
+
+
+## Bikeshare Data
+
+### Data Overview
+
+
+The data set measures the number of bike rentals (bikers) per hour in Washington, DC. The response is bikers, the number of hourly users of a bike sharing program in Washington, DC. This response value is neither qualitative nor quantitative. Instead, it takes on non-negative integer values, or counts. We will consider counts predicting bikers using the covariates `mnth` (month of the year), `hr` (hour of the day, from 0 to 23), `workingday` (an indicator variable that equals 1 if it is neither a weekend nor a holiday), `temp` (the normalized temperature, in Celsius), and `weathersit` (a qualitative variable that takes on one of four possible values: clear; misty or cloudy; light rain or light snow; or heavy rain or heavy snow.)
+
+In the analyses that follow, we will treat `mnth`, `hr`, and `weathersit` as qualitative variables.
+```{r message=FALSE}
+attach(Bikeshare)
+dim(Bikeshare)
+names(Bikeshare)
+```
+
+We begin by fitting a least squares linear regression model to the data.
+
+```{r}
+mod.lm <- lm(
+  bikers ∼ mnth + hr + workingday + temp + weathersit ,
+data = Bikeshare
+)
+summary(mod.lm)
+```
+In `mod.lm`, the first level of `hr` (0) and `mnth` (Jan) are treated as the baseline values, and so no coefficient estimates are provided for them: implicitly, their coefficient estimates are zero, and all other levels are measured relative to these baselines. For example, the Feb coefficient of 6.845 signifies that, holding all other variables constant, there are on average about 7 more riders in February than in January. Similarly there are about 16.5 more riders in March than in January.
+
+Now, we consider instead fitting a Poisson regression model to the `Bikeshare` data. Very little changes, except that we now use the function `glm()` with the argument `family = poisson` to specify that we wish to fit a Poisson regression model:
+
+```{r}
+mod.pois <- glm(
+bikers ∼ mnth + hr + workingday + temp + weathersit ,
+data = Bikeshare , family = poisson
+)
+summary(mod.pois)
+```
+
+or
+
+```{r}
+contrasts(Bikeshare$hr) = contr.sum (24)
+contrasts(Bikeshare$mnth) = contr.sum (12)
+mod.lm2 <- lm(
+bikers ∼ mnth + hr + workingday + temp + weathersit ,
+data = Bikeshare
+)
+summary(mod.lm2)
+```
+We can plot the coefficients associated with `mnth` and `hr`:
+
+```{r message=FALSE, warning=FALSE}
+coef.mnth <- c(coef(mod.pois)[2:12],-sum(coef(mod.pois)[2:12]))
+# month
+plot(coef.mnth , 
+     xlab = "Month", 
+     ylab = "Coefficient", 
+     xaxt = "n", col = "blue", 
+     pch = 19, 
+     type = "o")
+axis(side = 1, at = 1:12, 
+     labels = c("J", "F", "M", "A", "M",
+                "J", "J", "A", "S", "O", "N", "D"))
+
+# hour
+coef.hours <- c(coef(mod.pois)[13:35],-sum(coef(mod.pois)[13:35]))
+plot(coef.hours , 
+       xlab = "Hour", 
+       ylab = "Coefficient",
+       col = "blue", 
+       pch = 19, 
+       type = "o")
+```
+
+```{r}
+plot(predict(mod.lm2), predict(mod.pois , type = "response"))
+abline (0, 1, col = 2, lwd = 3)
+```
+
+The predictions from the Poisson regression model are correlated with those from the linear model; however, the former are non-negative. As a result the Poisson regression predictions tend to be larger than those from the linear model for either very low or very high levels of ridership.

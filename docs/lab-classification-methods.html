@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 13 Lab: Classification Methods | _main.knit</title>
+  <title>Section 14 Lab: Classification Methods | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 13 Lab: Classification Methods | _main.knit" />
+  <meta property="og:title" content="Section 14 Lab: Classification Methods | _main.knit" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
   <meta property="og:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 13 Lab: Classification Methods | _main.knit" />
+  <meta name="twitter:title" content="Section 14 Lab: Classification Methods | _main.knit" />
   
   
   <meta name="twitter:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="a-comparison-of-classification-methods.html"/>
+<link rel="prev" href="logistic-regression-1.html"/>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -221,23 +221,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>7.5</b> Qualitative Predictors</a></li>
 <li class="chapter" data-level="7.6" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>7.6</b> Writing Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="exercises-applied.html"><a href="exercises-applied.html"><i class="fa fa-check"></i><b>8</b> Exercises (Applied)</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-1"><i class="fa fa-check"></i>Question 1</a>
-<ul>
-<li><a href="exercises-applied.html#b-plot-the-response-and-the-predictor.-use-the-abline-function-to-display-the-least-squares-regression-line.">(b) Plot the response and the predictor. Use the <code>abline()</code> function to display the least squares regression line.</a></li>
-<li><a href="exercises-applied.html#c-use-the-plot-function-to-produce-diagnostic-plots-of-the-least-squares-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(c) Use the <code>plot()</code> function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#question-2"><i class="fa fa-check"></i>Question 2</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-applied.html"><a href="exercises-applied.html#a-produce-a-scatterplot-matrix-which-includes-all-of-the-variables-in-the-data-set."><i class="fa fa-check"></i>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</a></li>
-<li><a href="exercises-applied.html#b-compute-the-matrix-of-correlations-between-the-variables-using-the-function-cor.-you-will-need-to-exclude-the-name-variable-which-is-qualitative.">(b) Compute the matrix of correlations between the variables using the function <code>cor()</code>. You will need to exclude the “name” variable, which is qualitative.</a></li>
-<li><a href="exercises-applied.html#c-use-the-lm-function-to-perform-a-multiple-linear-regression-with-mpg-as-the-response-and-all-other-variables-except-name-as-the-predictors.-use-the-summary-function-to-print-the-results.-comment-on-the-output.">(c) Use the <code>lm()</code> function to perform a multiple linear regression with <code>mpg</code> as the response and all other variables except “name” as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output.</a></li>
-<li><a href="exercises-applied.html#d-use-the-plot-function-to-produce-diagnostic-plots-of-the-linear-regression-fit.-comment-on-any-problems-you-see-with-the-fit.">(d) Use the <code>plot()</code> function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</a></li>
-<li><a href="exercises-applied.html#e-use-the-and-symbols-to-fit-linear-regression-models-with-interaction-effects.-do-any-interactions-appear-to-be-statistically-significant">(e) Use the <code>*</code> and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</a></li>
-<li><a href="exercises-applied.html#f-try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings.">(f) Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</a></li>
-</ul></li>
-</ul></li>
+<li class="chapter" data-level="8" data-path="exercises-applied.html"><a href="exercises-applied.html"><i class="fa fa-check"></i><b>8</b> Exercises (Applied)</a></li>
 <li class="part"><span><b>III CLASSIFICATION</b></span></li>
 <li class="chapter" data-level="9" data-path="an-overview-of-classification.html"><a href="an-overview-of-classification.html"><i class="fa fa-check"></i><b>9</b> An Overview of Classification</a></li>
 <li class="chapter" data-level="10" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10</b> Logistic Regression</a>
@@ -273,19 +257,34 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.6" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-6"><i class="fa fa-check"></i><b>12.6</b> Scenario 6</a></li>
 <li class="chapter" data-level="" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html"><i class="fa fa-check"></i><b>13</b> Lab: Classification Methods</a>
+<li class="chapter" data-level="13" data-path="logistic-regression-1.html"><a href="logistic-regression-1.html"><i class="fa fa-check"></i><b>13</b> Logistic Regression</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-stock-market-data"><i class="fa fa-check"></i><b>13.1</b> The Stock Market Data</a>
+<li class="chapter" data-level="13.1" data-path="logistic-regression-1.html"><a href="logistic-regression-1.html#generalized-linear-model"><i class="fa fa-check"></i><b>13.1</b> Generalized Linear Model</a>
 <ul>
-<li class="chapter" data-level="13.1.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-1"><i class="fa fa-check"></i><b>13.1.1</b> Data Overview</a></li>
-<li class="chapter" data-level="13.1.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#linear-discriminant-analysis-1"><i class="fa fa-check"></i><b>13.1.2</b> Linear Discriminant Analysis</a></li>
-<li class="chapter" data-level="13.1.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#quadratic-discriminant-analysis-1"><i class="fa fa-check"></i><b>13.1.3</b> Quadratic Discriminant Analysis</a></li>
-<li class="chapter" data-level="13.1.4" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#naive-bayes"><i class="fa fa-check"></i><b>13.1.4</b> Naive Bayes</a></li>
-<li class="chapter" data-level="13.1.5" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>13.1.5</b> K-Nearest Neighbors</a></li>
+<li class="chapter" data-level="13.1.1" data-path="logistic-regression-1.html"><a href="logistic-regression-1.html#generalized-linear-models-in-greater-generality"><i class="fa fa-check"></i><b>13.1.1</b> Generalized Linear Models in Greater Generality</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-caravan-insurance-data"><i class="fa fa-check"></i><b>13.2</b> The Caravan Insurance Data</a></li>
-<li class="chapter" data-level="13.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-2"><i class="fa fa-check"></i><b>13.3</b> Data Overview</a></li>
-<li class="chapter" data-level="13.4" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#k-nearest-neighbors-1"><i class="fa fa-check"></i><b>13.4</b> K-Nearest Neighbors</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html"><i class="fa fa-check"></i><b>14</b> Lab: Classification Methods</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-stock-market-data"><i class="fa fa-check"></i><b>14.1</b> The Stock Market Data</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-1"><i class="fa fa-check"></i><b>14.1.1</b> Data Overview</a></li>
+<li class="chapter" data-level="14.1.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#logistic-regression-2"><i class="fa fa-check"></i><b>14.1.2</b> Logistic Regression</a></li>
+<li class="chapter" data-level="14.1.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#linear-discriminant-analysis-1"><i class="fa fa-check"></i><b>14.1.3</b> Linear Discriminant Analysis</a></li>
+<li class="chapter" data-level="14.1.4" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#quadratic-discriminant-analysis-1"><i class="fa fa-check"></i><b>14.1.4</b> Quadratic Discriminant Analysis</a></li>
+<li class="chapter" data-level="14.1.5" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#naive-bayes"><i class="fa fa-check"></i><b>14.1.5</b> Naive Bayes</a></li>
+<li class="chapter" data-level="14.1.6" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>14.1.6</b> K-Nearest Neighbors</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-caravan-insurance-data"><i class="fa fa-check"></i><b>14.2</b> The Caravan Insurance Data</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-2"><i class="fa fa-check"></i><b>14.2.1</b> Data Overview</a></li>
+<li class="chapter" data-level="14.2.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#k-nearest-neighbors-1"><i class="fa fa-check"></i><b>14.2.2</b> K-Nearest Neighbors</a></li>
+<li class="chapter" data-level="14.2.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#logistics-regression"><i class="fa fa-check"></i><b>14.2.3</b> Logistics Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#bikeshare-data"><i class="fa fa-check"></i><b>14.3</b> Bikeshare Data</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-3"><i class="fa fa-check"></i><b>14.3.1</b> Data Overview</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
@@ -311,13 +310,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="img/illos/cover.png">
 </div>
-<div id="lab-classification-methods" class="section level1" number="13">
-<h1><span class="header-section-number">Section 13</span> Lab: Classification Methods</h1>
-<div id="the-stock-market-data" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> The Stock Market Data</h2>
+<div id="lab-classification-methods" class="section level1" number="14">
+<h1><span class="header-section-number">Section 14</span> Lab: Classification Methods</h1>
+<div id="the-stock-market-data" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> The Stock Market Data</h2>
 <p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
-<div id="data-overview-1" class="section level3" number="13.1.1">
-<h3><span class="header-section-number">13.1.1</span> Data Overview</h3>
+<div id="data-overview-1" class="section level3" number="14.1.1">
+<h3><span class="header-section-number">14.1.1</span> Data Overview</h3>
 <p>The <code>Smarket</code> data set consists of percentage returns for the S&amp;P 500 stock index over 1, 250 days, from the beginning of 2001 until the end of 2005. For each date, we have recorded the percentage returns for each of the five previous trading days, <code>Lag1</code> through <code>Lag5</code>.</p>
 <p>We have also recorded:</p>
 <ul>
@@ -326,7 +325,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><code>Direction</code>: whether the market was <code>Up</code> or <code>Down</code> on this date.</li>
 </ul>
 <p>Our goal is to predict <code>Direction</code> (a qualitative response) using the other features.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="lab-classification-methods.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR) <span class="co"># load the library</span></span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="lab-classification-methods.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2) <span class="co"># load the library</span></span></code></pre></div>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="lab-classification-methods.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Smarket) <span class="co"># get the column names</span></span></code></pre></div>
 <pre><code>## [1] &quot;Year&quot;      &quot;Lag1&quot;      &quot;Lag2&quot;      &quot;Lag3&quot;      &quot;Lag4&quot;      &quot;Lag5&quot;     
 ## [7] &quot;Volume&quot;    &quot;Today&quot;     &quot;Direction&quot;</code></pre>
@@ -355,7 +354,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##            
 ## </code></pre>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="lab-classification-methods.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Smarket) </span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="lab-classification-methods.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># produces a matrix that contains all of the pairwise correlations among the predictors in a data set, exclude the Direction variable</span></span>
 <span id="cb89-2"><a href="lab-classification-methods.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Smarket[, <span class="sc">-</span><span class="dv">9</span>]) </span></code></pre></div>
 <pre><code>##              Year         Lag1         Lag2         Lag3         Lag4
@@ -383,8 +382,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>By plotting the data, which is ordered chronologically, we see that <code>Volume</code> is increasing over time. In other words, the average number of shares traded daily increased from 2001 to 2005.</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="lab-classification-methods.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Smarket)</span>
 <span id="cb91-2"><a href="lab-classification-methods.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Volume)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" style="display: block; margin: auto;" />
-### Logistic Regression</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-94-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="logistic-regression-2" class="section level3" number="14.1.2">
+<h3><span class="header-section-number">14.1.2</span> Logistic Regression</h3>
 <p>Next, we will fit a logistic regression model in order to predict <code>Direction</code> using <code>Lag1</code> through <code>Lag5</code> and <code>Volume</code>. The glm() function can be used to fit <code>glm()</code> many types of generalized linear models, including logistic regression. The generalized linear model syntax of the <code>glm()</code> function is similar to that of <code>lm()</code>, except that we must pass in the argument <code>family = binomial</code> in order to tell R to run a <strong>logistic regression</strong> rather than some other type of generalized linear model.</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="lab-classification-methods.html#cb92-1" aria-hidden="true" tabindex="-1"></a>glm.fits <span class="ot">&lt;-</span> <span class="fu">glm</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 <span class="sc">+</span> Lag3 <span class="sc">+</span> Lag4 <span class="sc">+</span> Lag5 <span class="sc">+</span> Volume, <span class="at">data =</span> Smarket, <span class="at">family =</span> binomial)</span>
 <span id="cb92-2"><a href="lab-classification-methods.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.fits)</span></code></pre></div>
@@ -540,8 +541,8 @@ obtain a more effective model.</p>
 <pre><code>##         1         2 
 ## 0.4791462 0.4960939</code></pre>
 </div>
-<div id="linear-discriminant-analysis-1" class="section level3" number="13.1.2">
-<h3><span class="header-section-number">13.1.2</span> Linear Discriminant Analysis</h3>
+<div id="linear-discriminant-analysis-1" class="section level3" number="14.1.3">
+<h3><span class="header-section-number">14.1.3</span> Linear Discriminant Analysis</h3>
 <p>Now we will perform LDA on the Smarket data. In R, we fit an LDA model using the <code>lda()</code> function, which is part of the <code>MASS</code> library. We fit the model using only the observations before 2005.</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="lab-classification-methods.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
 <span id="cb127-2"><a href="lab-classification-methods.html#cb127-2" aria-hidden="true" tabindex="-1"></a>lda.fit <span class="ot">&lt;-</span> <span class="fu">lda</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 , <span class="at">data =</span> Smarket, <span class="at">subset =</span> train)</span>
@@ -564,7 +565,7 @@ obtain a more effective model.</p>
 ## Lag2 -0.5135293</code></pre>
 <p>The LDA output indicates that 49.2% of the training observations correspond to days during which the market went down. The <em>coefficients of linear discriminants</em> output provides the linear combination of <code>Lag1</code> and <code>Lag2</code> that are used to form the LDA decision rule.</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="lab-classification-methods.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lda.fit)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-108-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-110-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The plot() function produces plots of the linear discriminants, obtained by computing<code>−0.642×Lag1</code>−<code>0.514×Lag2</code> for each of the training observations. The <code>Up</code> and <code>Down</code> observations are displayed separately.</p>
 <p>The <code>predict()</code> function returns a list with three elements. The first element, <code>class</code>, contains LDA’s predictions about the movement of the market. The second element, <code>posterior</code>, is a matrix whose <span class="math inline">\(k\)</span>th column contains the posterior probability that the corresponding observation belongs to the <span class="math inline">\(k\)</span>th class. Finally, x contains the linear discriminants, described earlier.</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="lab-classification-methods.html#cb130-1" aria-hidden="true" tabindex="-1"></a>lda.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lda.fit , Smarket<span class="fl">.2005</span>)</span>
@@ -594,8 +595,8 @@ obtain a more effective model.</p>
 ## [16] Up   Up   Down Up   Up  
 ## Levels: Down Up</code></pre>
 </div>
-<div id="quadratic-discriminant-analysis-1" class="section level3" number="13.1.3">
-<h3><span class="header-section-number">13.1.3</span> Quadratic Discriminant Analysis</h3>
+<div id="quadratic-discriminant-analysis-1" class="section level3" number="14.1.4">
+<h3><span class="header-section-number">14.1.4</span> Quadratic Discriminant Analysis</h3>
 <p>We will now fit a QDA model to the <code>Smarket</code> data. QDA is implemented in R using the <code>qda()</code> function, which is also part of the <code>MASS</code> library.</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="lab-classification-methods.html#cb142-1" aria-hidden="true" tabindex="-1"></a>qda.fit <span class="ot">&lt;-</span> <span class="fu">qda</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 , <span class="at">data =</span> Smarket,</span>
 <span id="cb142-2"><a href="lab-classification-methods.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="at">subset =</span> train)</span>
@@ -624,8 +625,8 @@ obtain a more effective model.</p>
 <p>Interestingly, the QDA predictions are accurate almost 60% of the time, even though the 2005 data was not used to fit the model. This level of accuracy is quite impressive for stock market data, which is known to be quite hard to model accurately. This suggests that the quadratic form assumed by QDA may capture the true relationship more accurately than the linear forms assumed by LDA and logistic regression. However, we recommend evaluating this method’s performance on a larger test set before betting
 that this approach will consistently beat the market!</p>
 </div>
-<div id="naive-bayes" class="section level3" number="13.1.4">
-<h3><span class="header-section-number">13.1.4</span> Naive Bayes</h3>
+<div id="naive-bayes" class="section level3" number="14.1.5">
+<h3><span class="header-section-number">14.1.5</span> Naive Bayes</h3>
 <p>Next, we fit a naive Bayes model to the <code>Smarket</code> data.</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="lab-classification-methods.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
 <span id="cb148-2"><a href="lab-classification-methods.html#cb148-2" aria-hidden="true" tabindex="-1"></a>nb.fit <span class="ot">&lt;-</span> <span class="fu">naiveBayes</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 , <span class="at">data =</span> Smarket ,</span>
@@ -672,8 +673,8 @@ that this approach will consistently beat the market!</p>
 ## [4,] 0.4748652 0.5251348
 ## [5,] 0.4901890 0.5098110</code></pre>
 </div>
-<div id="k-nearest-neighbors" class="section level3" number="13.1.5">
-<h3><span class="header-section-number">13.1.5</span> K-Nearest Neighbors</h3>
+<div id="k-nearest-neighbors" class="section level3" number="14.1.6">
+<h3><span class="header-section-number">14.1.6</span> K-Nearest Neighbors</h3>
 <p>We will now perform KNN using the <code>knn()</code> function, which is part of the class library. This function works rather differently from the other modelfitting functions that we have encountered thus far. Rather than a two-step approach in which we first fit the model and then we use the model to make predictions, <code>knn()</code> forms predictions using a single command. The function requires four inputs.</p>
 <ol style="list-style-type: decimal">
 <li>A matrix containing the predictors associated with the training data, labeled <code>train.X</code> below.</li>
@@ -710,11 +711,10 @@ that this approach will consistently beat the market!</p>
 <p>The results have improved slightly. But increasing K further turns out to provide no further improvements. It appears that for this data, QDA provides the best results of the methods that we have examined so far.</p>
 </div>
 </div>
-<div id="the-caravan-insurance-data" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> The Caravan Insurance Data</h2>
-</div>
-<div id="data-overview-2" class="section level2" number="13.3">
-<h2><span class="header-section-number">13.3</span> Data Overview</h2>
+<div id="the-caravan-insurance-data" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> The Caravan Insurance Data</h2>
+<div id="data-overview-2" class="section level3" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> Data Overview</h3>
 <p>This data set includes 85 predictors that measure demographic characteristics for 5,822 individuals.
 The response variable is <code>Purchase</code>, which indicates whether or not a given individual purchases a caravan insurance policy. In this data set, only 6% of people purchased caravan insurance.</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="lab-classification-methods.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Caravan)</span></code></pre></div>
@@ -726,11 +726,11 @@ The response variable is <code>Purchase</code>, which indicates whether or not a
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="lab-classification-methods.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="dv">348</span> <span class="sc">/</span> <span class="dv">5822</span></span></code></pre></div>
 <pre><code>## [1] 0.05977327</code></pre>
 </div>
-<div id="k-nearest-neighbors-1" class="section level2" number="13.4">
-<h2><span class="header-section-number">13.4</span> K-Nearest Neighbors</h2>
+<div id="k-nearest-neighbors-1" class="section level3" number="14.2.2">
+<h3><span class="header-section-number">14.2.2</span> K-Nearest Neighbors</h3>
 <p>To make all variables will be on a comparable scale is to <em>standardize</em> the data so that all variables are given a mean of zero and a standard deviation of one. The <code>scale()</code> function does just this. In standardizing the data, we exclude column 86, because that is the qualitative <code>Purchase</code> variable.</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="lab-classification-methods.html#cb171-1" aria-hidden="true" tabindex="-1"></a>standardized.X <span class="ot">&lt;-</span> <span class="fu">scale</span>(Caravan[, <span class="sc">-</span><span class="dv">86</span>])</span></code></pre></div>
-<p>Now every column of standardized.X has a standard deviation of one and a mean of zero, we now split the observations into a test set, containing the first 1,000 observations, and a training set, containing the remaining observations. We fit a KNN model on the training data using <span class="math inline">\(K\)</span> = 1, and evaluate its performance on the test data.</p>
+<p>Now every column of <code>standardized.X</code> has a standard deviation of one and a mean of zero, we now split the observations into a test set, containing the first 1,000 observations, and a training set, containing the remaining observations. We fit a KNN model on the training data using <span class="math inline">\(K\)</span> = 1, and evaluate its performance on the test data.</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="lab-classification-methods.html#cb172-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span></span>
 <span id="cb172-2"><a href="lab-classification-methods.html#cb172-2" aria-hidden="true" tabindex="-1"></a>train.X <span class="ot">&lt;-</span> standardized.X[<span class="sc">-</span>test, ]</span>
 <span id="cb172-3"><a href="lab-classification-methods.html#cb172-3" aria-hidden="true" tabindex="-1"></a>test.X <span class="ot">&lt;-</span> standardized.X[test, ]</span>
@@ -739,12 +739,312 @@ The response variable is <code>Purchase</code>, which indicates whether or not a
 <span id="cb172-6"><a href="lab-classification-methods.html#cb172-6" aria-hidden="true" tabindex="-1"></a>test.Y <span class="ot">&lt;-</span> Purchase[test]</span>
 <span id="cb172-7"><a href="lab-classification-methods.html#cb172-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb172-8"><a href="lab-classification-methods.html#cb172-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span> (<span class="dv">1</span>)</span>
-<span id="cb172-9"><a href="lab-classification-methods.html#cb172-9" aria-hidden="true" tabindex="-1"></a>knn.pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train.X, test.X, train.Y, <span class="at">k =</span> <span class="dv">1</span>)</span>
-<span id="cb172-10"><a href="lab-classification-methods.html#cb172-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(test.Y <span class="sc">!=</span> knn.pred)</span></code></pre></div>
+<span id="cb172-9"><a href="lab-classification-methods.html#cb172-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb172-10"><a href="lab-classification-methods.html#cb172-10" aria-hidden="true" tabindex="-1"></a><span class="co"># k = 1</span></span>
+<span id="cb172-11"><a href="lab-classification-methods.html#cb172-11" aria-hidden="true" tabindex="-1"></a>knn.pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train.X, test.X, train.Y, <span class="at">k =</span> <span class="dv">1</span>)</span>
+<span id="cb172-12"><a href="lab-classification-methods.html#cb172-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(test.Y <span class="sc">!=</span> knn.pred)</span></code></pre></div>
 <pre><code>## [1] 0.118</code></pre>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="lab-classification-methods.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(test.Y <span class="sc">!=</span> <span class="st">&quot;No&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.059</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="lab-classification-methods.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(knn.pred , test.Y)</span></code></pre></div>
+<pre><code>##         test.Y
+## knn.pred  No Yes
+##      No  873  50
+##      Yes  68   9</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="lab-classification-methods.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="sc">/</span> (<span class="dv">68</span> <span class="sc">+</span> <span class="dv">9</span>)</span></code></pre></div>
+<pre><code>## [1] 0.1168831</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="lab-classification-methods.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># k = 3</span></span>
+<span id="cb180-2"><a href="lab-classification-methods.html#cb180-2" aria-hidden="true" tabindex="-1"></a>knn.pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train.X, test.X, train.Y, <span class="at">k =</span> <span class="dv">3</span>)</span>
+<span id="cb180-3"><a href="lab-classification-methods.html#cb180-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(knn.pred , test.Y)</span></code></pre></div>
+<pre><code>##         test.Y
+## knn.pred  No Yes
+##      No  920  54
+##      Yes  21   5</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="lab-classification-methods.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">/</span><span class="dv">26</span></span></code></pre></div>
+<pre><code>## [1] 0.1923077</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="lab-classification-methods.html#cb184-1" aria-hidden="true" tabindex="-1"></a>knn.pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train.X, test.X, train.Y, <span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb184-2"><a href="lab-classification-methods.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(knn.pred , test.Y)</span></code></pre></div>
+<pre><code>##         test.Y
+## knn.pred  No Yes
+##      No  930  55
+##      Yes  11   4</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="lab-classification-methods.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">/</span><span class="dv">15</span></span></code></pre></div>
+<pre><code>## [1] 0.2666667</code></pre>
+<p>Using <span class="math inline">\(K\)</span> = 3, the success rate increases to 19%, and with <span class="math inline">\(K\)</span> = 5 the rate is 26.7%. This is over four times the rate that results from random guessing. It appears that KNN is finding some real patterns in a difficult data set!</p>
+<p>However, while this strategy is cost-effective, it is worth noting that only 15 customers are predicted to purchase insurance using KNN with <span class="math inline">\(K\)</span> = 5. In practice, the insurance company may wish to expend resources on convincing more than just 15 potential customers to buy insurance.</p>
+</div>
+<div id="logistics-regression" class="section level3" number="14.2.3">
+<h3><span class="header-section-number">14.2.3</span> Logistics Regression</h3>
+<p>As a comparison, we can also fit a logistic regression model to the data. If we use 0.5 as the predicted probability cut-off for the classifier, then
+we have a problem: only seven of the test observations are predicted to purchase insurance. Even worse, we are wrong about all of these! However, we are not required to use a cut-off of 0.5. If we instead predict a purchase any time the predicted probability of purchase exceeds 0.25, we get much better results: we predict that 33 people will purchase insurance, and we are correct for about 33% of these people. This is over five times better than random guessing!</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="lab-classification-methods.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model</span></span>
+<span id="cb188-2"><a href="lab-classification-methods.html#cb188-2" aria-hidden="true" tabindex="-1"></a>glm.fits <span class="ot">&lt;-</span> <span class="fu">glm</span>(Purchase ∼ ., <span class="at">data =</span> Caravan, <span class="at">family =</span> binomial , <span class="at">subset =</span> <span class="sc">-</span>test)</span></code></pre></div>
+<pre><code>## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="lab-classification-methods.html#cb190-1" aria-hidden="true" tabindex="-1"></a>glm.probs <span class="ot">&lt;-</span> <span class="fu">predict</span>(glm.fits , Caravan[test , ], <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb190-2"><a href="lab-classification-methods.html#cb190-2" aria-hidden="true" tabindex="-1"></a>glm.pred <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;No&quot;</span>, <span class="dv">1000</span>)</span>
+<span id="cb190-3"><a href="lab-classification-methods.html#cb190-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-4"><a href="lab-classification-methods.html#cb190-4" aria-hidden="true" tabindex="-1"></a><span class="co"># threshold = 0.5</span></span>
+<span id="cb190-5"><a href="lab-classification-methods.html#cb190-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Threshold = 0.5&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Threshold = 0.5&quot;</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="lab-classification-methods.html#cb192-1" aria-hidden="true" tabindex="-1"></a>glm.pred[glm.probs <span class="sc">&gt;</span> .<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Yes&quot;</span></span>
+<span id="cb192-2"><a href="lab-classification-methods.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred , test.Y)</span></code></pre></div>
+<pre><code>##         test.Y
+## glm.pred  No Yes
+##      No  934  59
+##      Yes   7   0</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="lab-classification-methods.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;Prediction accuracy: %s&quot;</span>,<span class="fu">round</span>(<span class="dv">0</span><span class="sc">/</span>(<span class="dv">22</span><span class="sc">+</span><span class="dv">11</span>)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;Prediction accuracy: 0&quot;</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="lab-classification-methods.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># threshold = 0.25</span></span>
+<span id="cb196-2"><a href="lab-classification-methods.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Threshold = 0.25&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Threshold = 0.25&quot;</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="lab-classification-methods.html#cb198-1" aria-hidden="true" tabindex="-1"></a>glm.pred <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&quot;No&quot;</span>, <span class="dv">1000</span>)</span>
+<span id="cb198-2"><a href="lab-classification-methods.html#cb198-2" aria-hidden="true" tabindex="-1"></a>glm.pred[glm.probs <span class="sc">&gt;</span> .<span class="dv">25</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Yes&quot;</span></span>
+<span id="cb198-3"><a href="lab-classification-methods.html#cb198-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred , test.Y)</span></code></pre></div>
+<pre><code>##         test.Y
+## glm.pred  No Yes
+##      No  919  48
+##      Yes  22  11</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="lab-classification-methods.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;Prediction accuracy: %s&quot;</span>,<span class="fu">round</span>(<span class="dv">11</span><span class="sc">/</span>(<span class="dv">22</span><span class="sc">+</span><span class="dv">11</span>),<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;Prediction accuracy: 0.3333&quot;</code></pre>
+</div>
+</div>
+<div id="bikeshare-data" class="section level2" number="14.3">
+<h2><span class="header-section-number">14.3</span> Bikeshare Data</h2>
+<div id="data-overview-3" class="section level3" number="14.3.1">
+<h3><span class="header-section-number">14.3.1</span> Data Overview</h3>
+<p>The data set measures the number of bike rentals (bikers) per hour in Washington, DC. The response is bikers, the number of hourly users of a bike sharing program in Washington, DC. This response value is neither qualitative nor quantitative. Instead, it takes on non-negative integer values, or counts. We will consider counts predicting bikers using the covariates <code>mnth</code> (month of the year), <code>hr</code> (hour of the day, from 0 to 23), <code>workingday</code> (an indicator variable that equals 1 if it is neither a weekend nor a holiday), <code>temp</code> (the normalized temperature, in Celsius), and <code>weathersit</code> (a qualitative variable that takes on one of four possible values: clear; misty or cloudy; light rain or light snow; or heavy rain or heavy snow.)</p>
+<p>In the analyses that follow, we will treat <code>mnth</code>, <code>hr</code>, and <code>weathersit</code> as qualitative variables.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="lab-classification-methods.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Bikeshare)</span>
+<span id="cb202-2"><a href="lab-classification-methods.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Bikeshare)</span></code></pre></div>
+<pre><code>## [1] 8645   15</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="lab-classification-methods.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Bikeshare)</span></code></pre></div>
+<pre><code>##  [1] &quot;season&quot;     &quot;mnth&quot;       &quot;day&quot;        &quot;hr&quot;         &quot;holiday&quot;   
+##  [6] &quot;weekday&quot;    &quot;workingday&quot; &quot;weathersit&quot; &quot;temp&quot;       &quot;atemp&quot;     
+## [11] &quot;hum&quot;        &quot;windspeed&quot;  &quot;casual&quot;     &quot;registered&quot; &quot;bikers&quot;</code></pre>
+<p>We begin by fitting a least squares linear regression model to the data.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="lab-classification-methods.html#cb206-1" aria-hidden="true" tabindex="-1"></a>mod.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb206-2"><a href="lab-classification-methods.html#cb206-2" aria-hidden="true" tabindex="-1"></a>  bikers ∼ mnth <span class="sc">+</span> hr <span class="sc">+</span> workingday <span class="sc">+</span> temp <span class="sc">+</span> weathersit ,</span>
+<span id="cb206-3"><a href="lab-classification-methods.html#cb206-3" aria-hidden="true" tabindex="-1"></a><span class="at">data =</span> Bikeshare</span>
+<span id="cb206-4"><a href="lab-classification-methods.html#cb206-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb206-5"><a href="lab-classification-methods.html#cb206-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod.lm)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = bikers ~ mnth + hr + workingday + temp + weathersit, 
+##     data = Bikeshare)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -299.00  -45.70   -6.23   41.08  425.29 
+## 
+## Coefficients:
+##                           Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                -68.632      5.307 -12.932  &lt; 2e-16 ***
+## mnthFeb                      6.845      4.287   1.597 0.110398    
+## mnthMarch                   16.551      4.301   3.848 0.000120 ***
+## mnthApril                   41.425      4.972   8.331  &lt; 2e-16 ***
+## mnthMay                     72.557      5.641  12.862  &lt; 2e-16 ***
+## mnthJune                    67.819      6.544  10.364  &lt; 2e-16 ***
+## mnthJuly                    45.324      7.081   6.401 1.63e-10 ***
+## mnthAug                     53.243      6.640   8.019 1.21e-15 ***
+## mnthSept                    66.678      5.925  11.254  &lt; 2e-16 ***
+## mnthOct                     75.834      4.950  15.319  &lt; 2e-16 ***
+## mnthNov                     60.310      4.610  13.083  &lt; 2e-16 ***
+## mnthDec                     46.458      4.271  10.878  &lt; 2e-16 ***
+## hr1                        -14.579      5.699  -2.558 0.010536 *  
+## hr2                        -21.579      5.733  -3.764 0.000168 ***
+## hr3                        -31.141      5.778  -5.389 7.26e-08 ***
+## hr4                        -36.908      5.802  -6.361 2.11e-10 ***
+## hr5                        -24.135      5.737  -4.207 2.61e-05 ***
+## hr6                         20.600      5.704   3.612 0.000306 ***
+## hr7                        120.093      5.693  21.095  &lt; 2e-16 ***
+## hr8                        223.662      5.690  39.310  &lt; 2e-16 ***
+## hr9                        120.582      5.693  21.182  &lt; 2e-16 ***
+## hr10                        83.801      5.705  14.689  &lt; 2e-16 ***
+## hr11                       105.423      5.722  18.424  &lt; 2e-16 ***
+## hr12                       137.284      5.740  23.916  &lt; 2e-16 ***
+## hr13                       136.036      5.760  23.617  &lt; 2e-16 ***
+## hr14                       126.636      5.776  21.923  &lt; 2e-16 ***
+## hr15                       132.087      5.780  22.852  &lt; 2e-16 ***
+## hr16                       178.521      5.772  30.927  &lt; 2e-16 ***
+## hr17                       296.267      5.749  51.537  &lt; 2e-16 ***
+## hr18                       269.441      5.736  46.976  &lt; 2e-16 ***
+## hr19                       186.256      5.714  32.596  &lt; 2e-16 ***
+## hr20                       125.549      5.704  22.012  &lt; 2e-16 ***
+## hr21                        87.554      5.693  15.378  &lt; 2e-16 ***
+## hr22                        59.123      5.689  10.392  &lt; 2e-16 ***
+## hr23                        26.838      5.688   4.719 2.41e-06 ***
+## workingday                   1.270      1.784   0.711 0.476810    
+## temp                       157.209     10.261  15.321  &lt; 2e-16 ***
+## weathersitcloudy/misty     -12.890      1.964  -6.562 5.60e-11 ***
+## weathersitlight rain/snow  -66.494      2.965 -22.425  &lt; 2e-16 ***
+## weathersitheavy rain/snow -109.745     76.667  -1.431 0.152341    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 76.5 on 8605 degrees of freedom
+## Multiple R-squared:  0.6745, Adjusted R-squared:  0.6731 
+## F-statistic: 457.3 on 39 and 8605 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>In <code>mod.lm</code>, the first level of <code>hr</code> (0) and <code>mnth</code> (Jan) are treated as the baseline values, and so no coefficient estimates are provided for them: implicitly, their coefficient estimates are zero, and all other levels are measured relative to these baselines. For example, the Feb coefficient of 6.845 signifies that, holding all other variables constant, there are on average about 7 more riders in February than in January. Similarly there are about 16.5 more riders in March than in January.</p>
+<p>Now, we consider instead fitting a Poisson regression model to the <code>Bikeshare</code> data. Very little changes, except that we now use the function <code>glm()</code> with the argument <code>family = poisson</code> to specify that we wish to fit a Poisson regression model:</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="lab-classification-methods.html#cb208-1" aria-hidden="true" tabindex="-1"></a>mod.pois <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb208-2"><a href="lab-classification-methods.html#cb208-2" aria-hidden="true" tabindex="-1"></a>bikers ∼ mnth <span class="sc">+</span> hr <span class="sc">+</span> workingday <span class="sc">+</span> temp <span class="sc">+</span> weathersit ,</span>
+<span id="cb208-3"><a href="lab-classification-methods.html#cb208-3" aria-hidden="true" tabindex="-1"></a><span class="at">data =</span> Bikeshare , <span class="at">family =</span> poisson</span>
+<span id="cb208-4"><a href="lab-classification-methods.html#cb208-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb208-5"><a href="lab-classification-methods.html#cb208-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod.pois)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = bikers ~ mnth + hr + workingday + temp + weathersit, 
+##     family = poisson, data = Bikeshare)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -20.7574   -3.3441   -0.6549    2.6999   21.9628  
+## 
+## Coefficients:
+##                            Estimate Std. Error  z value Pr(&gt;|z|)    
+## (Intercept)                2.693688   0.009720  277.124  &lt; 2e-16 ***
+## mnthFeb                    0.226046   0.006951   32.521  &lt; 2e-16 ***
+## mnthMarch                  0.376437   0.006691   56.263  &lt; 2e-16 ***
+## mnthApril                  0.691693   0.006987   98.996  &lt; 2e-16 ***
+## mnthMay                    0.910641   0.007436  122.469  &lt; 2e-16 ***
+## mnthJune                   0.893405   0.008242  108.402  &lt; 2e-16 ***
+## mnthJuly                   0.773787   0.008806   87.874  &lt; 2e-16 ***
+## mnthAug                    0.821341   0.008332   98.573  &lt; 2e-16 ***
+## mnthSept                   0.903663   0.007621  118.578  &lt; 2e-16 ***
+## mnthOct                    0.937743   0.006744  139.054  &lt; 2e-16 ***
+## mnthNov                    0.820433   0.006494  126.334  &lt; 2e-16 ***
+## mnthDec                    0.686850   0.006317  108.724  &lt; 2e-16 ***
+## hr1                       -0.471593   0.012999  -36.278  &lt; 2e-16 ***
+## hr2                       -0.808761   0.014646  -55.220  &lt; 2e-16 ***
+## hr3                       -1.443918   0.018843  -76.631  &lt; 2e-16 ***
+## hr4                       -2.076098   0.024796  -83.728  &lt; 2e-16 ***
+## hr5                       -1.060271   0.016075  -65.957  &lt; 2e-16 ***
+## hr6                        0.324498   0.010610   30.585  &lt; 2e-16 ***
+## hr7                        1.329567   0.009056  146.822  &lt; 2e-16 ***
+## hr8                        1.831313   0.008653  211.630  &lt; 2e-16 ***
+## hr9                        1.336155   0.009016  148.191  &lt; 2e-16 ***
+## hr10                       1.091238   0.009261  117.831  &lt; 2e-16 ***
+## hr11                       1.248507   0.009093  137.304  &lt; 2e-16 ***
+## hr12                       1.434028   0.008936  160.486  &lt; 2e-16 ***
+## hr13                       1.427951   0.008951  159.529  &lt; 2e-16 ***
+## hr14                       1.379296   0.008999  153.266  &lt; 2e-16 ***
+## hr15                       1.408149   0.008977  156.862  &lt; 2e-16 ***
+## hr16                       1.628688   0.008805  184.979  &lt; 2e-16 ***
+## hr17                       2.049021   0.008565  239.221  &lt; 2e-16 ***
+## hr18                       1.966668   0.008586  229.065  &lt; 2e-16 ***
+## hr19                       1.668409   0.008743  190.830  &lt; 2e-16 ***
+## hr20                       1.370588   0.008973  152.737  &lt; 2e-16 ***
+## hr21                       1.118568   0.009215  121.383  &lt; 2e-16 ***
+## hr22                       0.871879   0.009536   91.429  &lt; 2e-16 ***
+## hr23                       0.481387   0.010207   47.164  &lt; 2e-16 ***
+## workingday                 0.014665   0.001955    7.502 6.27e-14 ***
+## temp                       0.785292   0.011475   68.434  &lt; 2e-16 ***
+## weathersitcloudy/misty    -0.075231   0.002179  -34.528  &lt; 2e-16 ***
+## weathersitlight rain/snow -0.575800   0.004058 -141.905  &lt; 2e-16 ***
+## weathersitheavy rain/snow -0.926287   0.166782   -5.554 2.79e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 1052921  on 8644  degrees of freedom
+## Residual deviance:  228041  on 8605  degrees of freedom
+## AIC: 281159
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<p>or</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="lab-classification-methods.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(Bikeshare<span class="sc">$</span>hr) <span class="ot">=</span> <span class="fu">contr.sum</span> (<span class="dv">24</span>)</span>
+<span id="cb210-2"><a href="lab-classification-methods.html#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(Bikeshare<span class="sc">$</span>mnth) <span class="ot">=</span> <span class="fu">contr.sum</span> (<span class="dv">12</span>)</span>
+<span id="cb210-3"><a href="lab-classification-methods.html#cb210-3" aria-hidden="true" tabindex="-1"></a>mod.lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb210-4"><a href="lab-classification-methods.html#cb210-4" aria-hidden="true" tabindex="-1"></a>bikers ∼ mnth <span class="sc">+</span> hr <span class="sc">+</span> workingday <span class="sc">+</span> temp <span class="sc">+</span> weathersit ,</span>
+<span id="cb210-5"><a href="lab-classification-methods.html#cb210-5" aria-hidden="true" tabindex="-1"></a><span class="at">data =</span> Bikeshare</span>
+<span id="cb210-6"><a href="lab-classification-methods.html#cb210-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb210-7"><a href="lab-classification-methods.html#cb210-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod.lm2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = bikers ~ mnth + hr + workingday + temp + weathersit, 
+##     data = Bikeshare)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -299.00  -45.70   -6.23   41.08  425.29 
+## 
+## Coefficients:
+##                            Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                 73.5974     5.1322  14.340  &lt; 2e-16 ***
+## mnth1                      -46.0871     4.0855 -11.281  &lt; 2e-16 ***
+## mnth2                      -39.2419     3.5391 -11.088  &lt; 2e-16 ***
+## mnth3                      -29.5357     3.1552  -9.361  &lt; 2e-16 ***
+## mnth4                       -4.6622     2.7406  -1.701  0.08895 .  
+## mnth5                       26.4700     2.8508   9.285  &lt; 2e-16 ***
+## mnth6                       21.7317     3.4651   6.272 3.75e-10 ***
+## mnth7                       -0.7626     3.9084  -0.195  0.84530    
+## mnth8                        7.1560     3.5347   2.024  0.04295 *  
+## mnth9                       20.5912     3.0456   6.761 1.46e-11 ***
+## mnth10                      29.7472     2.6995  11.019  &lt; 2e-16 ***
+## mnth11                      14.2229     2.8604   4.972 6.74e-07 ***
+## hr1                        -96.1420     3.9554 -24.307  &lt; 2e-16 ***
+## hr2                       -110.7213     3.9662 -27.916  &lt; 2e-16 ***
+## hr3                       -117.7212     4.0165 -29.310  &lt; 2e-16 ***
+## hr4                       -127.2828     4.0808 -31.191  &lt; 2e-16 ***
+## hr5                       -133.0495     4.1168 -32.319  &lt; 2e-16 ***
+## hr6                       -120.2775     4.0370 -29.794  &lt; 2e-16 ***
+## hr7                        -75.5424     3.9916 -18.925  &lt; 2e-16 ***
+## hr8                         23.9511     3.9686   6.035 1.65e-09 ***
+## hr9                        127.5199     3.9500  32.284  &lt; 2e-16 ***
+## hr10                        24.4399     3.9360   6.209 5.57e-10 ***
+## hr11                       -12.3407     3.9361  -3.135  0.00172 ** 
+## hr12                         9.2814     3.9447   2.353  0.01865 *  
+## hr13                        41.1417     3.9571  10.397  &lt; 2e-16 ***
+## hr14                        39.8939     3.9750  10.036  &lt; 2e-16 ***
+## hr15                        30.4940     3.9910   7.641 2.39e-14 ***
+## hr16                        35.9445     3.9949   8.998  &lt; 2e-16 ***
+## hr17                        82.3786     3.9883  20.655  &lt; 2e-16 ***
+## hr18                       200.1249     3.9638  50.488  &lt; 2e-16 ***
+## hr19                       173.2989     3.9561  43.806  &lt; 2e-16 ***
+## hr20                        90.1138     3.9400  22.872  &lt; 2e-16 ***
+## hr21                        29.4071     3.9362   7.471 8.74e-14 ***
+## hr22                        -8.5883     3.9332  -2.184  0.02902 *  
+## hr23                       -37.0194     3.9344  -9.409  &lt; 2e-16 ***
+## workingday                   1.2696     1.7845   0.711  0.47681    
+## temp                       157.2094    10.2612  15.321  &lt; 2e-16 ***
+## weathersitcloudy/misty     -12.8903     1.9643  -6.562 5.60e-11 ***
+## weathersitlight rain/snow  -66.4944     2.9652 -22.425  &lt; 2e-16 ***
+## weathersitheavy rain/snow -109.7446    76.6674  -1.431  0.15234    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 76.5 on 8605 degrees of freedom
+## Multiple R-squared:  0.6745, Adjusted R-squared:  0.6731 
+## F-statistic: 457.3 on 39 and 8605 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We can plot the coefficients associated with <code>mnth</code> and <code>hr</code>:</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="lab-classification-methods.html#cb212-1" aria-hidden="true" tabindex="-1"></a>coef.mnth <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">coef</span>(mod.pois)[<span class="dv">2</span><span class="sc">:</span><span class="dv">12</span>],<span class="sc">-</span><span class="fu">sum</span>(<span class="fu">coef</span>(mod.pois)[<span class="dv">2</span><span class="sc">:</span><span class="dv">12</span>]))</span>
+<span id="cb212-2"><a href="lab-classification-methods.html#cb212-2" aria-hidden="true" tabindex="-1"></a><span class="co"># month</span></span>
+<span id="cb212-3"><a href="lab-classification-methods.html#cb212-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(coef.mnth , </span>
+<span id="cb212-4"><a href="lab-classification-methods.html#cb212-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>, </span>
+<span id="cb212-5"><a href="lab-classification-methods.html#cb212-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Coefficient&quot;</span>, </span>
+<span id="cb212-6"><a href="lab-classification-methods.html#cb212-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb212-7"><a href="lab-classification-methods.html#cb212-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, </span>
+<span id="cb212-8"><a href="lab-classification-methods.html#cb212-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span>
+<span id="cb212-9"><a href="lab-classification-methods.html#cb212-9" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, </span>
+<span id="cb212-10"><a href="lab-classification-methods.html#cb212-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;J&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;M&quot;</span>,</span>
+<span id="cb212-11"><a href="lab-classification-methods.html#cb212-11" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;J&quot;</span>, <span class="st">&quot;J&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;O&quot;</span>, <span class="st">&quot;N&quot;</span>, <span class="st">&quot;D&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-132-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="lab-classification-methods.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hour</span></span>
+<span id="cb213-2"><a href="lab-classification-methods.html#cb213-2" aria-hidden="true" tabindex="-1"></a>coef.hours <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">coef</span>(mod.pois)[<span class="dv">13</span><span class="sc">:</span><span class="dv">35</span>],<span class="sc">-</span><span class="fu">sum</span>(<span class="fu">coef</span>(mod.pois)[<span class="dv">13</span><span class="sc">:</span><span class="dv">35</span>]))</span>
+<span id="cb213-3"><a href="lab-classification-methods.html#cb213-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(coef.hours , </span>
+<span id="cb213-4"><a href="lab-classification-methods.html#cb213-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">&quot;Hour&quot;</span>, </span>
+<span id="cb213-5"><a href="lab-classification-methods.html#cb213-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab =</span> <span class="st">&quot;Coefficient&quot;</span>,</span>
+<span id="cb213-6"><a href="lab-classification-methods.html#cb213-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb213-7"><a href="lab-classification-methods.html#cb213-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>, </span>
+<span id="cb213-8"><a href="lab-classification-methods.html#cb213-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-132-2.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="lab-classification-methods.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict</span>(mod.lm2), <span class="fu">predict</span>(mod.pois , <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb214-2"><a href="lab-classification-methods.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span> (<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">col =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-133-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The predictions from the Poisson regression model are correlated with those from the linear model; however, the former are non-negative. As a result the Poisson regression predictions tend to be larger than those from the linear model for either very low or very high levels of ridership.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -752,7 +1052,7 @@ The response variable is <code>Purchase</code>, which indicates whether or not a
           </div>
         </div>
       </div>
-<a href="a-comparison-of-classification-methods.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistic-regression-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
