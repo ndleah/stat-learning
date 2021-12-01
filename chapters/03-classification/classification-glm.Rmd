@@ -1,5 +1,3 @@
-# Logistic Regression
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
@@ -9,7 +7,9 @@ library(ymlthis)
 knitr::include_graphics("img/logre.png")
 ```
 
-## Generalized Linear Model
+# Generalized Linear Model
+
+## Overview
 
 In reality, we may sometimes be faced with situations in which Y is neither qualitative nor quantitative, and so neither linear regression nor the classification approaches covered in this chapter is applicable. 
 
@@ -31,7 +31,7 @@ on average only 60.7% as many people will use bikes when it is rainy relative to
 * **nonnegative fitted values:** There are no negative predictions using the Poisson regression model. This is because the Poisson model itself only allows for nonnegative values.
 :::
 
-### Generalized Linear Models in Greater Generality
+## Generalized Linear Models in Greater Generality
 
 We have now discussed three types of regression models: **linear**, **logistic** and **Poisson**. These approaches share some common characteristics:
 

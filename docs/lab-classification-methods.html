@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="logistic-regression-1.html"/>
-
+<link rel="prev" href="generalized-linear-model.html"/>
+<link rel="next" href="an-overview-of-resampling-methods.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -257,19 +257,17 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="12.6" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-6"><i class="fa fa-check"></i><b>12.6</b> Scenario 6</a></li>
 <li class="chapter" data-level="" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="logistic-regression-1.html"><a href="logistic-regression-1.html"><i class="fa fa-check"></i><b>13</b> Logistic Regression</a>
+<li class="chapter" data-level="13" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i><b>13</b> Generalized Linear Model</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="logistic-regression-1.html"><a href="logistic-regression-1.html#generalized-linear-model"><i class="fa fa-check"></i><b>13.1</b> Generalized Linear Model</a>
-<ul>
-<li class="chapter" data-level="13.1.1" data-path="logistic-regression-1.html"><a href="logistic-regression-1.html#generalized-linear-models-in-greater-generality"><i class="fa fa-check"></i><b>13.1.1</b> Generalized Linear Models in Greater Generality</a></li>
-</ul></li>
+<li class="chapter" data-level="13.1" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html#overview"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
+<li class="chapter" data-level="13.2" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html#generalized-linear-models-in-greater-generality"><i class="fa fa-check"></i><b>13.2</b> Generalized Linear Models in Greater Generality</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html"><i class="fa fa-check"></i><b>14</b> Lab: Classification Methods</a>
 <ul>
 <li class="chapter" data-level="14.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-stock-market-data"><i class="fa fa-check"></i><b>14.1</b> The Stock Market Data</a>
 <ul>
 <li class="chapter" data-level="14.1.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-1"><i class="fa fa-check"></i><b>14.1.1</b> Data Overview</a></li>
-<li class="chapter" data-level="14.1.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#logistic-regression-2"><i class="fa fa-check"></i><b>14.1.2</b> Logistic Regression</a></li>
+<li class="chapter" data-level="14.1.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.1.2</b> Logistic Regression</a></li>
 <li class="chapter" data-level="14.1.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#linear-discriminant-analysis-1"><i class="fa fa-check"></i><b>14.1.3</b> Linear Discriminant Analysis</a></li>
 <li class="chapter" data-level="14.1.4" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#quadratic-discriminant-analysis-1"><i class="fa fa-check"></i><b>14.1.4</b> Quadratic Discriminant Analysis</a></li>
 <li class="chapter" data-level="14.1.5" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#naive-bayes"><i class="fa fa-check"></i><b>14.1.5</b> Naive Bayes</a></li>
@@ -286,6 +284,9 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="14.3.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-3"><i class="fa fa-check"></i><b>14.3.1</b> Data Overview</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>IV RESAMPLING METHOD</b></span></li>
+<li class="chapter" data-level="15" data-path="an-overview-of-resampling-methods.html"><a href="an-overview-of-resampling-methods.html"><i class="fa fa-check"></i><b>15</b> An Overview of Resampling Methods</a></li>
+<li class="chapter" data-level="16" data-path="cross-validation.html"><a href="cross-validation.html"><i class="fa fa-check"></i><b>16</b> Cross-Validation</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
 
@@ -314,7 +315,7 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <h1><span class="header-section-number">Section 14</span> Lab: Classification Methods</h1>
 <div id="the-stock-market-data" class="section level2" number="14.1">
 <h2><span class="header-section-number">14.1</span> The Stock Market Data</h2>
-<p><img src="img/illos/yours-book.jpg" width="65%" style="display: block; margin: auto;" /></p>
+<p><img src="img/illos/03-lab-classification.png" width="65%" style="display: block; margin: auto;" /></p>
 <div id="data-overview-1" class="section level3" number="14.1.1">
 <h3><span class="header-section-number">14.1.1</span> Data Overview</h3>
 <p>The <code>Smarket</code> data set consists of percentage returns for the S&amp;P 500 stock index over 1, 250 days, from the beginning of 2001 until the end of 2005. For each date, we have recorded the percentage returns for each of the five previous trading days, <code>Lag1</code> through <code>Lag5</code>.</p>
@@ -384,7 +385,7 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <span id="cb91-2"><a href="lab-classification-methods.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Volume)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-94-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="logistic-regression-2" class="section level3" number="14.1.2">
+<div id="logistic-regression-1" class="section level3" number="14.1.2">
 <h3><span class="header-section-number">14.1.2</span> Logistic Regression</h3>
 <p>Next, we will fit a logistic regression model in order to predict <code>Direction</code> using <code>Lag1</code> through <code>Lag5</code> and <code>Volume</code>. The glm() function can be used to fit <code>glm()</code> many types of generalized linear models, including logistic regression. The generalized linear model syntax of the <code>glm()</code> function is similar to that of <code>lm()</code>, except that we must pass in the argument <code>family = binomial</code> in order to tell R to run a <strong>logistic regression</strong> rather than some other type of generalized linear model.</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="lab-classification-methods.html#cb92-1" aria-hidden="true" tabindex="-1"></a>glm.fits <span class="ot">&lt;-</span> <span class="fu">glm</span>(Direction ∼ Lag1 <span class="sc">+</span> Lag2 <span class="sc">+</span> Lag3 <span class="sc">+</span> Lag4 <span class="sc">+</span> Lag5 <span class="sc">+</span> Volume, <span class="at">data =</span> Smarket, <span class="at">family =</span> binomial)</span>
@@ -1047,13 +1048,16 @@ we have a problem: only seven of the test observations are predicted to purchase
 </div>
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="logistic-regression-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="generalized-linear-model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="an-overview-of-resampling-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

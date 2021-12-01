@@ -1,0 +1,11 @@
+# Cross-Validation
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(fig.align="center")
+library(ymlthis)
+```
+
+```{r echo = FALSE, out.width="65%"}
+knitr::include_graphics("img/illos/04-cross-validation.png")
+```
+

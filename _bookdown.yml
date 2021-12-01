@@ -22,5 +22,10 @@ rmd_files: [
   "chapters/03-classification/classification-generative-models.Rmd",
   "chapters/03-classification/classification-comparison.Rmd",
   "chapters/03-classification/classification-glm.Rmd",
-  "chapters/03-classification/classification-lab.Rmd"
+  "chapters/03-classification/classification-lab.Rmd",
+  
+  "chapters/04-resampling-method/rm-overview.Rmd",
+  "chapters/04-resampling-method/rm-cross-validation.Rmd",
+  "chapters/04-resampling-method/rm-bootstrap.Rmd",
+  "chapters/04-resampling-method/rm-lab.Rmd"
   ]

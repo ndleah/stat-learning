@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 9 An Overview of Classification | _main.knit</title>
+  <title>Section 13 Generalized Linear Model | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 9 An Overview of Classification | _main.knit" />
+  <meta property="og:title" content="Section 13 Generalized Linear Model | _main.knit" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
   <meta property="og:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 9 An Overview of Classification | _main.knit" />
+  <meta name="twitter:title" content="Section 13 Generalized Linear Model | _main.knit" />
   
   
   <meta name="twitter:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="exercises-applied.html"/>
-<link rel="next" href="logistic-regression.html"/>
+<link rel="prev" href="a-comparison-of-classification-methods.html"/>
+<link rel="next" href="lab-classification-methods.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -311,29 +311,73 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <div class="hero-image-container"> 
   <img class= "hero-image" src="img/illos/cover.png">
 </div>
-<div id="an-overview-of-classification" class="section level1" number="9">
-<h1><span class="header-section-number">Section 9</span> An Overview of Classification</h1>
-<p><img src="img/illos/03-classification.png" width="65%" style="display: block; margin: auto;" /></p>
-<p>In this chapter, we study approaches for predicting qualitative responses, a process that is known as <em><strong>classification</strong></em>.</p>
-<p>Predicting a qualitative response for an observation can be referred to as classifying that observation, since it involves assigning the observation to a category, or class. On the other hand, often the methods used for classification first predict the probability that the observation belongs to each of the categories of a qualitative variable, as the basis for making the classification.</p>
-<p>Genrally, we discuss some widely-used classifiers:
-1. <em>Logistic Regression</em>
-2. <em>Linear Discriminant Analysis</em>
-3. <em>Quadratic Dislogistic Regression</em>
-4. <em>Linear Discriminant Analysis</em>
-5. <em>Criminant Analysis</em>
-6. <em>Naive Bayes </em>
-7. <em>K-nearest neighbors. </em></p>
-<p>The discussion of logistic regression is used as a jumping-off point for a discussion of <em><strong>generalized linear models</strong></em>, and in particular, <em>Poisson regression</em>.</p>
+<div id="generalized-linear-model" class="section level1" number="13">
+<h1><span class="header-section-number">Section 13</span> Generalized Linear Model</h1>
+<div id="overview" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Overview</h2>
+<p>In reality, we may sometimes be faced with situations in which Y is neither qualitative nor quantitative, and so neither linear regression nor the classification approaches covered in this chapter is applicable.</p>
+<p>To overcome the inadequacies of linear regression for analyzing the Bikeshare data set, we will make use of an alternative approach, called <em>Poisson regression</em>.</p>
+<p><strong>The Poisson distribution:</strong> is typically used to model counts; this is a natural choice for a number of reasons, including the fact that counts, like
+the Poisson distribution, take on nonnegative integer values.</p>
+<div class="tip">
+<p>Some important distinctions between the Poisson regression model and the linear regression model are as follows:</p>
+<ul>
+<li><strong>Interpretation:</strong> To interpret the coefficients in the <em>Poisson regression</em> model, we must pay close attention to (4.37), which states that an increase in <span class="math inline">\(X_j\)</span> by one unit is associated with a change in <span class="math inline">\(E(Y)\)</span> = <span class="math inline">\(\lambda\)</span> by a factor of exp(<span class="math inline">\(\beta_j\)</span>). For example, a change in weather from clear to cloudy skies is associated with a change in mean bike usage by a factor of exp(−0.08) = 0.923, i.e. on average, only 92.3% as many people will use bikes when it is cloudy relative to when it is clear.</li>
+</ul>
+<p>If the weather worsens further and it begins to rain, then the mean bike usage will further change by a factor of exp(−0.5) = 0.607, i.e.
+on average only 60.7% as many people will use bikes when it is rainy relative to when it is cloudy.</p>
+<ul>
+<li><p><strong>Mean-variance relationship:</strong> by modeling the data set with a Poisson regression, we implicitly assume that mean output in a given factor equals the variance of output to that variable. By contrast, under a linear regression model, the variance of the output always takes on a constant value. Thus, the Poisson regression model is able to handle the mean-variance relationship seen in the data set in a way that the linear regression model is not</p></li>
+<li><p><strong>nonnegative fitted values:</strong> There are no negative predictions using the Poisson regression model. This is because the Poisson model itself only allows for nonnegative values.</p></li>
+</ul>
+</div>
+</div>
+<div id="generalized-linear-models-in-greater-generality" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> Generalized Linear Models in Greater Generality</h2>
+<p>We have now discussed three types of regression models: <strong>linear</strong>, <strong>logistic</strong> and <strong>Poisson</strong>. These approaches share some common characteristics:</p>
+<ul>
+<li><p>Each approach uses predictors <span class="math inline">\(X_1,...,X_p\)</span> to predict a response <span class="math inline">\(Y\)</span>. We assume that, conditional on <span class="math inline">\(X_1,...,X_p\)</span>, <span class="math inline">\(Y\)</span> belongs to a certain family of distributions:</p>
+<ol style="list-style-type: decimal">
+<li>For <strong><em>linear regression</em></strong>, we typically assume that <span class="math inline">\(Y\)</span> follows a Gaussian or <em>normal distribution</em>.</li>
+<li>For <strong><em>logistic regression</em></strong>, we assume that <span class="math inline">\(Y\)</span> follows a <em>Bernoulli distribution</em>.</li>
+<li>For <strong><em>Poisson regression</em></strong>, we assume that <span class="math inline">\(Y\)</span> follows a <em>Poisson distribution</em>.</li>
+</ol></li>
+<li><p>Each approach models the mean of <span class="math inline">\(Y\)</span> as a function of the predictors:</p>
+<ol style="list-style-type: decimal">
+<li>In <strong><em>linear regression</em></strong>, the mean of <span class="math inline">\(Y\)</span> takes the form:</li>
+</ol>
+<p><span class="math display">\[
+E(Y|X_1, . . . ,X_p) = \beta_0 + \beta_1X_1 + · · · + \beta_pX_p
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>For <strong><em>logistic regression</em></strong>, the mean instead takes the form:
+<span class="math display">\[
+E(Y|X_1, . . . ,X_p) = Pr(Y=1|X_1, . . . ,X_p)
+\]</span></p></li>
+<li><p>For <strong><em>Poisson regression</em></strong>, the mean takes the form:
+<span class="math display">\[
+E(Y|X_1, . . . ,X_p) = \lambda(X_1, . . . ,X_p)  
+\]</span></p></li>
+</ol></li>
+</ul>
+<div class="hat">
+<ul>
+<li><p>The Gaussian, Bernoulli and Poisson distributions are all members of a wider class of distributions, known as the exponential family.</p></li>
+<li><p>Other wellexponential known members of this family are the exponential distribution, the Gamma distribution, and the negative binomial distribution (which is not cover in this secion).</p></li>
+</ul>
+</div>
+<p>In general, we can perform a regression by modeling the response <span class="math inline">\(Y\)</span> as coming from a particular member of the exponential family, and then transforming the mean of the response so that the transformed mean is a linear function of the predictors Poisson.</p>
+<p>Any regression approach that follows this very general recipe is known as a generalized linear model (GLM). Thus, linear regression, logistic generalized linear model regression, and Poisson regression are three examples of GLMs.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="exercises-applied.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="logistic-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="a-comparison-of-classification-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-classification-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

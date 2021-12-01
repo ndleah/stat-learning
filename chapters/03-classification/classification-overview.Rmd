@@ -8,7 +8,7 @@ library(ymlthis)
 ```
 
 ```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
+knitr::include_graphics("img/illos/03-classification.png")
 ```
 
 In this chapter, we study approaches for predicting qualitative responses, a process that is known as _**classification**_. 

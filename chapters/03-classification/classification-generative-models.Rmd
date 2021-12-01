@@ -6,7 +6,7 @@ library(ymlthis)
 ```
 
 ```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
+knitr::include_graphics("img/illos/03-gm.png")
 ```
 Why do we need another method, when we have logistic regression? There are several reasons:
 

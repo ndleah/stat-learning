@@ -6,7 +6,7 @@ library(ymlthis)
 ```
 
 ```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/yours-book.jpg")
+knitr::include_graphics("img/illos/03-comparison.png")
 ```
 We now compare the empirical (practical) performance of logistic regression, LDA, QDA, naive Bayes, and KNN. We generated data from six different scenarios, each of which involves a binary (two-class) classification problem.
 
