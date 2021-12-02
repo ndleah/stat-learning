@@ -1,7 +1,7 @@
 # Lab: Linear Regression
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(fig.align="center")
+knitr::opts_chunk$set(fig.align="center",collapse=TRUE)
 library(ymlthis)
 ```
 

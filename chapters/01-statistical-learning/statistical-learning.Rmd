@@ -12,9 +12,28 @@ library(ymlthis)
 
 **Statistical learning** refers to a vast set of tools for understanding data. There are 2 types of statistical learning - _**supervised**_ and _**unsupervised**_:
 
-* <mark class="def">Supervised learning</mark> is when you have a label for each data point, which mean it involves building a model that can predict an _output_ based on one or more _inputs_.
+<br>
 
-* <mark class="def">Unsupervised learning</mark> is when you don't have a label for each data point, where there are _inputs_ but no supervising _output_.
+:::def
+<div class="split">
+<div class="split1">
+<mark class="def">Supervised learning</mark> 
+
+is when you have a label for each data point, which mean it involves building a model that can predict an _output_ based on one or more _inputs_.
+
+</div>
+
+<div class="split2">
+
+<mark class="def">Unsupervised learning</mark> 
+
+is when you don't have a label for each data point, where there are _inputs_ but no supervising _output_.
+
+</div>
+</div>
+:::
+
+</br>
 
 In statistical learning, _**input variables**_ $(X_{n})$ are typically denoted by _features_, _predictors_, _independent variables_ or _variables_ while _**output variable**_ $(Y)$ often called _dependent variable_ or _response_.
 
@@ -57,9 +76,29 @@ Whereas:
 
 The accuracy of $\hat{Y}$ as a prediction for $Y$ depends on 2 quantities: _**reducible error**_ and _**irreducible error**_.
 
-* <mark class="def">**Reducible error**</mark>: Errors arising from the mismatch between $\hat{f}$ and $f$. Can be improved by choosing a better model. Usually caused by <u>**Variance Error/Bias Error**</u>.
+<br>
 
-* <mark class="def">**Irreducible error**</mark>: Errors which can't be removed no matter what algorithm you apply. These errors are caused by unknown variables that are affecting the independent/output variable but are not one of the dependent/input variable while designing the model.
+:::def
+<div class="split">
+<div class="split1">
+
+<mark class="def">Reducible error</mark> 
+
+Errors arising from the mismatch between $\hat{f}$ and $f$. Can be improved by choosing a better model. Usually caused by <u>**Variance Error/Bias Error**</u>.
+
+</div>
+
+<div class="split2">
+
+<mark class="def">Irreducible error</mark> 
+
+Errors which can't be removed no matter what algorithm you apply. These errors are caused by unknown variables that are affecting the output variable but are not one of the input variable while designing the model.
+
+</div>
+</div>
+:::
+
+</br>
 
 #### Inference
 
@@ -117,7 +156,7 @@ The tradeoff between prediction accuracy ad moel interpretability are illustrate
 
 ## Supervised Vs. Unsupervised Learning
 
-Most statistical learning problems involve both **supervised** and **unsupervised learning*</mark>**.
+Most statistical learning problems involve both **supervised** and **unsupervised learning**.
 
 <mark class="def">In supervised learning</mark>, we wish to fit a model to the training data and predict the response variable based on the predictors, with the aim of accurately predicting the response variable or better understanding the relationship between predictors and response variable.
 
@@ -133,8 +172,27 @@ In contrast, <mark class="def">unsupervised learning methods</mark> are those th
 
 Variables can be characterized as either _**quantitative**_ or _**qualitative**_
 
-* <mark class="def">Quantitative variables</mark> are those that can be measured in terms of a number;
+<br>
 
-* <mark class="def">Qualitative variables</mark> are those that can be measured in terms of a set of categories.
+:::def
+<div class="split">
+<div class="split1">
 
+<mark class="def">Quantitative variables</mark> 
+
+are those that can be measured in terms of a number
+
+</div>
+
+<div class="split2">
+
+<mark class="def">Qualitative variables</mark> 
+
+are those that can be measured in terms of a set of categories.
+
+</div>
+</div>
+:::
+
+</br>
 We tend to refer to problems with a quantitative response variable as **regression** problems and problems with a qualitative response variable as **classification** problems. However, an important note is that <u><strong>it does not matter much whether the predictors/variables are quantitative or qualitative</u></strong>.
