@@ -15,7 +15,7 @@ In this chapter, we study approaches for predicting qualitative responses, a pro
 
 Predicting a qualitative response for an observation can be referred to as classifying that observation, since it involves assigning the observation to a category, or class. On the other hand, often the methods used for classification first predict the probability that the observation belongs to each of the categories of a qualitative variable, as the basis for making the classification.
 
-Genrally, we discuss some widely-used classifiers: 
+Generally, we discuss some widely-used classifiers: 
 1. _Logistic Regression_
 2. _Linear Discriminant Analysis_
 3. _Quadratic Dislogistic Regression_

@@ -81,8 +81,8 @@ div.hat {
 }
 
 div.formula {
-  border: 2px #644624;
-  border-style: dashed;
+  border: 4px #aed6d963;
+  border-style: dashed solid;
   padding: 1em;
   margin: 1em 0;
   padding-left: 100px;
@@ -90,7 +90,7 @@ div.formula {
   background-repeat: no-repeat;
   background-position: 15px center;
   min-height: 120px;
-  color: #644624;
+  color: #1B98A8;
   background-color: #fcfcfc;
   
 }
@@ -120,22 +120,39 @@ div.formula {
 /*-----Body Links-------*/
 
 .book .book-body .page-wrapper .page-inner section.normal a {
-  color: #971800;
+  color: #1B98A8;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal a:hover {
-color: #971800; /* darker color when hovering */
+color: #1B98A8; /* darker color when hovering */
 text-decoration: none;
 }
 
 /* all TOC list items, basically */
 .summary a:hover {
-  color: #971800 !important;
+  color: #1B98A8 !important;
 }
 
 .book .book-summary ul.summary li.active>a { /*active TOC links*/
-  color: #971800 !important;
+  color: #1B98A8 !important;
   border-left: solid 4px;
-  border-color: #971800;
+  border-color: #1B98A8;
   padding-left: 11px !important;
 }  
+
+/* text highlighting */
+
+mark.def {
+  background-color: #CEEDEE /*#FFE5D1*/;
+  font-weight: bold;
+}
+mark.quest {
+  background-color: #CEEDEE;
+  font-weight: bold;
+}
+
+mark.example {
+  background-color: #57c1c5;
+  color: white;
+  font-weight: bold;
+}

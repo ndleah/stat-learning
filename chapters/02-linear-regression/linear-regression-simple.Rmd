@@ -9,12 +9,13 @@ library(ymlthis)
 <center>![](img/illos/02-slg.png)</center>
 
 
-***Simple linear regression*** is a very straightforward approach for predicting a qualitative response $Y$ on the basis of a single predictor $X$. Mathematically, we can write this linear relationship as
+<mark class="def">Simple linear regression</mark> is a very straightforward approach for predicting a qualitative response $Y$ on the basis of a single predictor $X$. Mathematically, we can write this linear relationship as equation \@ref(eq:lr):
 
 :::formula
-$$
+\begin{equation}
 \Large Y \approx \beta_0 + \beta_1 X
-$$
+(\#eq:lr) 
+\end{equation}
 :::
 
 Whereas:
@@ -24,34 +25,36 @@ Whereas:
 
 ## Estimating the Coefficients
 
-In practice, $\beta_0$ and $\beta_1$ are unknown. So before make predictions, we must use data to estimate the coefficients. Let $(x_1, Y_1), (x_2, Y_2),...,(x_n, Y_n)$
-represent $n$ observation pairs, each of which consists of a measurement of $X$ and a measurement of $Y$. Our goal is to obtain coefficient estimates $\beta_0$ and $\beta_1$ such that the linear model fits the available data well. In other words, we want to find an intercept $\beta_0$ and a slope $\beta_1$ such that the resulting line is as close as possible to the $n$ data points.
+In practice, $\beta_0$ and $\beta_1$ are unknown. So before make predictions, we must use data to estimate the coefficients. Let $(x_1, Y_1), (x_2, Y_2),...,(x_n, Y_n)$ represent $n$ observation pairs, each of which consists of a measurement of $X$ and a measurement of $Y$. 
 
-```{r echo=FALSE, out.width='80%', fig.cap='Regression Line'}
+Our goal is to obtain coefficient estimates $\beta_0$ and $\beta_1$ such that the linear model fits the available data well. In other words, we want to find an intercept $\beta_0$ and a slope $\beta_1$ such that the resulting line is as close as possible to the $n$ data points. Figure \@ref(fig:regression) illustrated the oveview of linear regression elements.
+
+```{r regression, echo=FALSE, out.width='80%', fig.cap='Regression Line'}
 knitr::include_graphics("img/regression.png")
 ```
 
 There are numbers of ways of measuring *closeness*. However, by far the most common approach involves minimizing the *least squares* criterion, and we take that approach in this chapter.
 
 
-
-Let $Y_i = \beta_0 + \beta_1 X_i$ be the prediction for $Y$ based on the $i$th value of $X$. Then $e_i = y_i -\hat{y}+i$ represents the $i$th *residual* - this is the difference between the $i$th value and the $i$th reponse value that is predicted by our linear model. We define the ***residual sum of square (RSS)*** as
+Let $Y_i = \beta_0 + \beta_1 X_i$ be the prediction for $Y$ based on the $i$th value of $X$. Then $e_i = y_i -\hat{y}+i$ represents the $i$th *residual* - this is the difference between the $i$th value and the $i$th reponse value that is predicted by our linear model. We define the ***residual sum of square (RSS)*** as \@ref(eq:rss) equation:
 
 :::formula
-$$
+\begin{equation}
 \Large RSS = e_1^2 + e_2^2 + ... + e_n^2
-$$
+(\#eq:rss) 
+\end{equation}
 :::
 
-or equivalent as 
+or equivalent as \@ref(eq:rss2):
 
 :::formula
-$$
+\begin{equation}
 RSS = (y_1 - \hat{\beta_0} - \hat{\beta_1}x_2)^2 + (y_2 - \hat{\beta_0} - \hat{\beta_1}x_2)^2  + ... + (y_n - \hat{\beta_0} - \hat{\beta_1}x_n)^2
-$$
+(\#eq:rss2) 
+\end{equation}
 :::
 
-***The least square approach*** chooses $\hat{\beta_0}$ and $\hat{\beta_1}$ to minimize the RSS.
+***The least square approach***  chooses $\hat{\beta_0}$ and $\hat{\beta_1}$ to minimize the RSS.
 
 
 ## Assessing the Accuracy of the Coefficient Estimates
@@ -59,9 +62,10 @@ $$
 ### Population Regression Line {-}
 
 :::formula 
-$$
+\begin{equation}
 \Large Y=\beta_0 + \beta_1X + \epsilon
-$$
+(\#eq:prl)
+\end{equation}
 :::
 
 where $\epsilon$ mean zero random error term.
@@ -69,28 +73,31 @@ where $\epsilon$ mean zero random error term.
 ### Least Squares Line {-}
 
 :::formula
-$$
+\begin{equation}
 \Large \hat{y}=\hat{\beta_0} + \hat{\beta_1}X 
-$$
+(\#eq:lsl)
+\end{equation}
 :::
 
 true relationship between $X$ and $Y$ takes the form $Y=f(X)+\epsilon$.
 
-Fundamentally, the concept of these two lines (population regression line vs. least squares line) is a natural extension of the standard statistical approach of using information from a sample to estimate characteristics of a large population. 
+Fundamentally, the concept of these two lines ([Population Regression Line](#Population-Regression-Line) vs. [Least Squares Line](#Least-Squares-Line)) is a natural extension of the standard statistical approach of using information from a sample to estimate characteristics of a large population. 
 
 For example, suppose that we are interested in knowing the population mean $\mu$  of some random variable $Y$. Unfortunately, $\mu$ is unknown, but we do have access to $n$ observations from $Y$, which we can write as $y_1$, $y_2$, $\cdots$, $y_n$, and which we can use to estimate $\mu$. A reasonable estimate is $\hat{\mu}$ = $\hat{y}$, where $\hat{y} = \dfrac {1}{n}\sum^n_{i=1}{y_i}$ is the sample mean.
 
-The sample mean and the population mean are different, but in general the sample mean will provide a good estimate of the population mean. In the same way, the unknown coefficients $\beta_0$ and $\beta_1$ in linear regression define the population regression line. We seek to estimate these unknown coefficients using \hat{\beta_0} and \hat{\beta_1} given in the least square line formula above. These coefficient estimates define the least squares line.
+The sample mean and the population mean are different, but in general the sample mean will provide a good estimate of the population mean. In the same way, the unknown coefficients $\beta_0$ and $\beta_1$ in linear regression define the population regression line. We seek to estimate these unknown coefficients using \hat{\beta_0} and \hat{\beta_1} given in \@ref(eq:lsl). These coefficient estimates define the least squares line.
 
 The analogy between linear regression and estimation of the mean of a random variable is an apt one based on the concept of bias. If we use the sample mean $\hat{\mu}$ to estimate $\mu$, this estimate is unbiased, in the sense that on average, we expect $\hat{\mu}$ to equal $\mu$.
 
 In other words, if we estimate $\beta_0$ and $\beta_1$ on the basis of a particular data set, then our estimates won’t be exactly equal to $\beta_0$ and $\beta_1$. But if we could average the estimates obtained over a huge number of data sets, then the average of these estimates would be spot on! 
 
-In fact, we can see from the right-hand panel of Figure 3.2 that the average of many least squares lines, each estimated from a separate data set, is pretty close to the true population regression line.
+In fact, we can see from the right-hand panel of Figure \@ref(fig:simulated) that the average of many least squares lines, each estimated from a separate data set, is pretty close to the true population regression line.
 
-```{r echo=FALSE, out.width='80%', fig.cap='A simulated data set'}
+```{r simulated, echo=FALSE, out.width='80%', fig.cap='A simulated data set'}
 knitr::include_graphics("img/fig3.3.png")
 ```
+
+As isllutrated in Figure \@ref(fig:simulated):
 
 * **Left:** The red line represents the true relationship, $f(X) = 2+3Xf(X)=2+3X$, which is known as the population regression line. The blue line is the least squares line; it is the least squares estimate for $f(X)$ based on the observed data, shown in black. 
 
@@ -107,16 +114,15 @@ Standard errors can also be used to perform ***hypothesis tests*** on the coeffi
 
 Mathematically, this corresponds to testing
 
-$$
-\Large H_0: \beta_1 = 0
-$$
+\begin{equation}
+H_0: \beta_1 = 0
+\end{equation}
 
 versus
 
-$$
-\Large H_1: \beta_1 \neq 0
-$$
-
+\begin{equation}
+H_1: \beta_1 \neq 0
+\end{equation}
 If $\beta_1 = 0$ then the model reduces to $Y=\beta_0+\epsilon$, and $X$ is not associated with $Y$.
 
 To test the null hypothesis, we need to determine whether $\hat{\beta_1}$, our estimate for $\beta_1$, is sufficiently far from zero that we can be confident that $\beta_1$ is non-zero. 
@@ -127,36 +133,35 @@ This is course depends on the accuracy of $\hat{\beta_1}$ -that is, it depends o
 
 ### T-distribution {-}
 
-**The t-distribution** describes the standardized distances of sample means to the population mean when the population standard deviation is not known, and the observations come from a normally distributed population.
+The <mark class="def">T-distribution</mark> describes the standardized distances of sample means to the population mean when the population standard deviation is not known, and the observations come from a normally distributed population.
 
-In practice, we compute a ***t-statistic***, given by
+In practice, we compute a <mark class="def">t-statistic</mark>, given by
 
 :::formula
-$$
+\begin{equation}
 \Large t=\dfrac{\hat{\beta_1}-0}{SE(\hat{\beta_1})}
-$$
+\end{equation}
 :::
 
-For example, we have a t-distribution with $n-2$ degrees of freedom as in Figure 3.3.
+For example, we have a t-distribution with $n-2$ degrees of freedom as in Figure \@ref(fig:tstat).
 
-```{r echo=FALSE, out.width='65%', fig.cap='Sampling Distribution of Test Statistic'}
+```{r tstat, echo=FALSE, out.width='65%', fig.cap='Sampling Distribution of Test Statistic'}
 knitr::include_graphics("img/tstat.png")
 ```
 
-
-The t-distribution has a bell shape and for values of n greater than approximately 30 it is quite similar to the normal distribution. Consequently, it is a simple matter to compute probability of observing any value equal to $|t|$ or larger, assuming $\beta_1 =0$. We call this probability the ***p-value***.
+The t-distribution has a bell shape and for values of n greater than approximately 30 it is quite similar to the normal distribution. Consequently, it is a simple matter to compute probability of observing any value equal to $|t|$ or larger, assuming $\beta_1 =0$. We call this probability the  <mark class="def">p-value</mark>.
 
 :::formula
-$$
+\begin{equation}
 \Large P(|T| > t) = p
-$$
+\end{equation}
 :::
 
 Roughly speaking, we interpret the ***p-value*** as follows: 
 
 If we see a small p-value, then we can infer that there is an association between the predictor and the response. We reject the null hypothesis-that is, we declare a relationship to exist between X and Y- if the p-value is small enough.
 
-Typical p-value cutoffs for rejecting the null hypothesis are 5 or 1 %. When n = 30, these corresponds to t-statistics of around 2 and 2.75, respectively.
+Typical p-value cutoffs for rejecting the null hypothesis are 5 or 1%. When $n$ = 30, these corresponds to t-statistics of around 2 and 2.75, respectively.
 
 ## Assessing the Accuracy of the Model
 
@@ -166,12 +171,13 @@ The quality of a linear regression fit is typically assessed using 2 related qua
 
 ### Residual Standard Error 
 
-The RSE is an estimation of the standard deviation of $\epsilon$. Roughly speaking, it is the average amount that the response will deviate from the true regression line. It is computed using the formula:
+The <mark class="def">Residual Standard Error</mark> (RSE) is an estimation of the standard deviation of $\epsilon$. Roughly speaking, it is the average amount that the response will deviate from the true regression line. It is computed using \@ref(eq:rse):
 
 :::formula
-$$
-\Large RSE=\sqrt{\frac{1}{n-2}} RSS= \sqrt{\frac{1}{n-2} {\sum_{i=1}^n (y_{i} - \hat{y_1})^{2}}}
-$$
+\begin{equation}
+RSE=\sqrt{\frac{1}{n-2}} RSS=\sqrt{\frac{1}{n-2}{\sum_{i=1}^n (y_{i} - \hat{y_1})^{2}}}
+(\#eq:rse) 
+\end{equation}
 :::
 
 The RSE is considered a measure of the *lack of fit* of the model to the data:
@@ -186,12 +192,13 @@ One consideration of RSE is it is the measure in the units of $Y$ and thus, the 
 
 ### $R^2$ Standard Error
 
-The $R^2$ statistic takes the form of a *proportion*-the proportion of variance explained-and so it always takes on a value between 0 and 1, and is independent of the scale of $Y$. To calculate $R^2$, we use the formula:
+The <mark class="def">$R^2$ statistic</mark> takes the form of a *proportion* - the proportion of variance explained-and so it always takes on a value between 0 and 1, and is independent of the scale of $Y$. To calculate $R^2$, we use the formula \@ref(eq:r2):
 
 :::formula
-$$
+\begin{equation}
 \Large R^2 = \frac{TSS}{TSS−RSS}=1−\frac{TSS}{RSS}
-$$
+(\#eq:r2) 
+\end{equation}
 :::
 
 Whereas:
@@ -206,6 +213,6 @@ In terms of evaluating the $R^2$ statistic result:
 
 ## Consideration
 
-**Simple linear regression** is a useful approach for predicting a response on the basis of a single predictor variable. However, in practice we often have more than one predictor. 
+<mark class="quest">Simple linear regression</mark> is a useful approach for predicting a response on the basis of a single predictor variable. However, in practice we often have more than one predictor. 
  
-The solution for this is to use another linear regression named as **Multiple Linear Regression**, which will be discussed in the next section.
+The solution for this is to use another linear regression named as <mark class="quest">Multiple Linear Regression</mark>, which will be discussed in the next section.

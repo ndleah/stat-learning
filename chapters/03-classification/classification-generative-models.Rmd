@@ -58,9 +58,11 @@ In simple words, “ A confusion matrix is a performance measurement for machine
 
 By visualizing the confusion matrix, an individual could determine the accuracy of the model by observing the diagonal values for measuring the number of accurate classification.
 
-```{r echo=FALSE, out.width="50%", fig.cap='A sample 2x2 confusion matrix'}
+```{r hello,echo=FALSE, out.width="50%", fig.cap='A sample 2x2 confusion matrix'}
 knitr::include_graphics("img/cm.png")
 ```
+
+see figure \@ref(fig:hello)
 
 #### i. True Positive, True Negative, False Positive and False Negative {-}
 

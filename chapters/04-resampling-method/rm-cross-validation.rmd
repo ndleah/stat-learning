@@ -9,3 +9,17 @@ library(ymlthis)
 knitr::include_graphics("img/illos/04-cross-validation.png")
 ```
 
+## Test and Training Error Rate
+
+In previous section, we discuss the distinction between the test error rate and the training error rate as follows:
+
+* The **test error** is the average error that results from using a statistical learning method to predict the response on a new observation— that is, a measurement that was not used in training the method. The test error can be easily calculated if a designated test set is available. Unfortunately, this is usually not the case.
+
+
+* The **training error** can be easily calculated by applying the
+statistical learning method to the observations used in its training. However, the training error rate often is quite different from the test error rate, and in particular the former can dramatically underestimate the latter.
+
+In this section, we instead consider a class of methods that estimate the test error rate by holding out a subset of the training observations from the fitting process, and then applying the statistical learning method to those held out observations.
+
+## The Validation Set Approach
+
