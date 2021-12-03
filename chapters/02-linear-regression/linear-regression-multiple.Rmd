@@ -62,10 +62,13 @@ The task of determining which predictors are associated with the response is ref
 
 There are 3 classical approaches:
 
+:::def
 * <mark class="def">Forward selection</mark>: starts with no selected variables. During subsequent steps, it evaluates if each candidate variable improves some chosen statistical criterion given previously selected variables, and adds the variable that improves the criterion most. It repeats these steps until none of the remaining variables improves the criterion.
-* <mark class="def">Backward selection</mark>:starts with the full model, that is, all the variables. At each step, it removes a variable that is least important and does not meet the criterion.
-* <mark class="def">Mixed (Stepwise) selection</mark>: is the combination of forward selection and backward elimination. Start with no variables in the model, then add variables that is the best fit. However, if at any point the p-value for one of the variables in the model series rises above a certain threshold, then we remove that variable out of the model.
 
+* <mark class="def">Backward selection</mark>:starts with the full model, that is, all the variables. At each step, it removes a variable that is least important and does not meet the criterion.
+
+* <mark class="def">Mixed (Stepwise) selection</mark>: is the combination of forward selection and backward elimination. Start with no variables in the model, then add variables that is the best fit. However, if at any point the p-value for one of the variables in the model series rises above a certain threshold, then we remove that variable out of the model.
+:::
 
 ## Model Fit{#Model-Fit}
 

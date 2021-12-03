@@ -1,7 +1,8 @@
 bookdown::gitbook:
   includes:
     before_body: docs/hero-image.html
-  highlight: tango
+  pandoc_args: --highlight-style=style.css
+  # highlight: tango
   css: style.css
   config:
     toc:

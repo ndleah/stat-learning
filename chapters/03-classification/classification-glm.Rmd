@@ -3,9 +3,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/logre.png")
-```
+<center>![](img/illos/03-logre.png)</center>
 
 # Generalized Linear Model
 

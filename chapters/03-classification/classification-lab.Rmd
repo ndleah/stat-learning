@@ -17,9 +17,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/03-lab-classification.png")
-```
+<center>![](img/illos/03-lab-classification.png)</center>
 
 ### Data Overview
 
@@ -35,14 +33,8 @@ Our goal is to predict `Direction` (a qualitative response) using the other feat
 
 ```{r message=FALSE, warning=FALSE}
 library(ISLR2) # load the library
-```
-```{r}
 names(Smarket) # get the column names
-```
-```{r}
 dim(Smarket) # data dimension overview
-```
-```{r}
 summary(Smarket) # overall info of the data set
 ```
 
@@ -83,13 +75,7 @@ We use the `coef()` function in order to access just the coefficients for this f
 
 ```{r}
 coef(glm.fits)
-```
-
-```{r}
 summary(glm.fits)$coef
-```
-
-```{r}
 summary(glm.fits)$coef[,4]
 ```
 
@@ -119,7 +105,8 @@ table(glm.pred, Direction)
 mean(glm.pred == Direction)
 ```
 
-**Interpreting the result:**
+<mark class="def">Interpreting the result</mark> 
+
 The diagonal elements of the confusion matrix indicate correct predictions, while the off-diagonals represent incorrect predictions. Hence our model correctly predicted that the market would go up on 507 days and that it would go down on 145 days, for a total of 507 + 145 = 652 correct
 predictions. 
 
@@ -132,11 +119,7 @@ because we trained and tested the model on the same set of 1,250 observations.
 
 In other words, 100% − 52.2% = 47.8%, is the *training error* rate. As we have seen previously, the training error rate is often overly optimistic—it tends to underestimate the test error rate.
 
-In order to better assess the accuracy of the logistic regression model in this setting, we can
-fit the model using part of the data, and then examine how well it predicts the held out data. This will yield a more realistic error rate, in the sense
-that in practice we will be interested in our model’s performance not on the data that we used to fit the model, but rather on days in the future for
-which the market’s movements are unknown.
-
+In order to better assess the accuracy of the logistic regression model in this setting, we can fit the model using part of the data, and then examine how well it predicts the held out data. This will yield a more realistic error rate, in the sense that in practice we will be interested in our model’s performance not on the data that we used to fit the model, but rather on days in the future for which the market’s movements are unknown.
 
 To implement this strategy, we will first create a vector corresponding to the observations from 2001 through 2004. We will then use this vector to create a held out data set of observations from 2005.
 
@@ -146,6 +129,7 @@ Smarket.2005 <- Smarket[!train,]
 dim(Smarket.2005)
 Direction.2005 <- Direction[!train]
 ```
+
 We now fit a logistic regression model using only the subset of the observations that correspond to dates before 2005, using the `subset` argument. We then obtain predicted probabilities of the stock market going up for each of the days in our test set—that is, for the days in 2005.
 
 ```{r}
@@ -168,24 +152,19 @@ Finally, we compute the predictions for 2005 and compare them to the actual move
 glm.pred <- rep("Down", 252)
 glm.pred[glm.probs > .5] <- "Up"
 table(glm.pred, Direction.2005)
-```
 
-```{r}
 # training error rate
 glm.train_error_rate <- mean(glm.pred == Direction.2005)
 sprintf("The training error rate is %s",round(glm.train_error_rate,4))
-```
-```{r}
+
 # test error rate
 glm.test_error_rate <- mean(glm.pred != Direction.2005)
 sprintf("The test error rate is %s",round(glm.test_error_rate,4))
-``````
+```
 
-The results are rather disappointing: the test error
-rate is 52 %, which is worse than random guessing.
+The results are rather disappointing: the test error rate is 52%, which is worse than random guessing.
 
-We recall that the logistic regression model had very underwhelming p-values associated with all of the predictors, and that the smallest p-value, though not very small, corresponded to `Lag1`. Perhaps by removing the variables that appear not to be helpful in predicting Direction, we can
-obtain a more effective model. 
+We recall that the logistic regression model had very underwhelming `p-values` associated with all of the predictors, and that the smallest `p-value`, though not very small, corresponded to `Lag1`. Perhaps by removing the variables that appear not to be helpful in predicting Direction, we can obtain a more effective model. 
 
 :::tip
 After all, using predictors that have no relationship with the response tends to cause a deterioration in the test error rate (since such predictors cause an increase in variance without a corresponding decrease in bias), and so removing such predictors may in turn yield an improvement.
@@ -201,6 +180,7 @@ type = "response")
 glm.pred <- rep("Down", 252)
 glm.pred[glm.probs > .5] <- "Up"
 table(glm.pred , Direction.2005)
+
 # training error rate
 mean(glm.pred == Direction.2005)
 106 / (106 + 76)
@@ -215,14 +195,11 @@ predict(glm.fits, newdata =
                      Lag2 = c(1.1 , -0.8)),
 type = "response"
 )
-
 ```
 
 ### Linear Discriminant Analysis
 
 Now we will perform LDA on the Smarket data. In R, we fit an LDA model using the `lda()` function, which is part of the `MASS` library. We fit the model using only the observations before 2005.
-
-
 
 ```{r message=FALSE}
 library(MASS)
@@ -282,8 +259,9 @@ table(qda.class , Direction.2005)
 mean(qda.class == Direction.2005)
 ```
 
-Interestingly, the QDA predictions are accurate almost 60% of the time, even though the 2005 data was not used to fit the model. This level of accuracy is quite impressive for stock market data, which is known to be quite hard to model accurately. This suggests that the quadratic form assumed by QDA may capture the true relationship more accurately than the linear forms assumed by LDA and logistic regression. However, we recommend evaluating this method’s performance on a larger test set before betting
-that this approach will consistently beat the market!
+Interestingly, the QDA predictions are accurate almost 60% of the time, even though the 2005 data was not used to fit the model. This level of accuracy is quite impressive for stock market data, which is known to be quite hard to model accurately. 
+
+This suggests that the quadratic form assumed by QDA may capture the true relationship more accurately than the linear forms assumed by LDA and logistic regression. However, we recommend evaluating this method’s performance on a larger test set before betting that this approach will consistently beat the market!
 
 ### Naive Bayes
 
@@ -348,6 +326,7 @@ knn.pred <- knn(train.X, test.X, train.Direction , k = 3)
 table(knn.pred , Direction.2005)
 mean(knn.pred == Direction.2005)
 ```
+
 The results have improved slightly. But increasing K further turns out to provide no further improvements. It appears that for this data, QDA provides the best results of the methods that we have examined so far.
 
 ## The Caravan Insurance Data
@@ -390,9 +369,7 @@ mean(test.Y != knn.pred)
 mean(test.Y != "No")
 table(knn.pred , test.Y)
 9 / (68 + 9)
-```
 
-```{r}
 # k = 3
 knn.pred <- knn(train.X, test.X, train.Y, k = 3)
 table(knn.pred , test.Y)
@@ -410,8 +387,9 @@ However, while this strategy is cost-effective, it is worth noting that only 15 
 
 ### Logistics Regression
 
-As a comparison, we can also fit a logistic regression model to the data. If we use 0.5 as the predicted probability cut-off for the classifier, then
-we have a problem: only seven of the test observations are predicted to purchase insurance. Even worse, we are wrong about all of these! However, we are not required to use a cut-off of 0.5. If we instead predict a purchase any time the predicted probability of purchase exceeds 0.25, we get much better results: we predict that 33 people will purchase insurance, and we are correct for about 33% of these people. This is over five times better than random guessing!
+As a comparison, we can also fit a logistic regression model to the data. If we use 0.5 as the predicted probability cut-off for the classifier, then we have a problem: only seven of the test observations are predicted to purchase insurance. Even worse, we are wrong about all of these! 
+
+However, we are not required to use a cut-off of 0.5. If we instead predict a purchase any time the predicted probability of purchase exceeds 0.25, we get much better results: we predict that 33 people will purchase insurance, and we are correct for about 33% of these people. This is over five times better than random guessing!
 
 ```{r}
 # fit the model

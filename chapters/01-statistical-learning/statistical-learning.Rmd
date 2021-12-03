@@ -84,7 +84,7 @@ The accuracy of $\hat{Y}$ as a prediction for $Y$ depends on 2 quantities: _**re
 
 <mark class="def">Reducible error</mark> 
 
-Errors arising from the mismatch between $\hat{f}$ and $f$. Can be improved by choosing a better model. Usually caused by <u>**Variance Error/Bias Error**</u>.
+Errors arising from the mismatch between $\hat{f}$ and $f$. Can be improved by choosing a better model. Usually caused by <u>**[Variance Error](#Variance-Error)/[Bias Error](Bias-Error)**</u>.
 
 </div>
 

@@ -1,4 +1,4 @@
-# (PART) LINEAR REGRESSION {-}
+# (PART) LINEAR REGRESSION{#LINEAR-REGRESSION} {-}
 
 # Simple Linear Regression
 ```{r, include = FALSE}
@@ -103,7 +103,7 @@ As isllutrated in Figure \@ref(fig:simulated):
 
 * **Right:** The population regression line is again shown in red, and the least squares line in dark blue. In light blue, ten least squares lines are shown, each computed on the basis of a separate random set of observations. Each least squares line is different, but on average, the least squares lines are quite close to the population regression line.
 
-### How Accurate Is The Sample Mean $\hat{\mu}$ As An Estimate Of Population Mean $\mu$ {-}
+### <mark class="quest"> How Accurate Is The Sample Mean $\hat{\mu}$ As An Estimate Of Population Mean $\mu$ </mark> {-}
 
 We answer this question by computing the ***standard error*** of $\mu$, written as SE($\hat{\mu}$).
 
@@ -127,7 +127,7 @@ If $\beta_1 = 0$ then the model reduces to $Y=\beta_0+\epsilon$, and $X$ is not 
 
 To test the null hypothesis, we need to determine whether $\hat{\beta_1}$, our estimate for $\beta_1$, is sufficiently far from zero that we can be confident that $\beta_1$ is non-zero. 
  
-### How far is far enough? {-}
+### <mark class="quest"> How Far Is Far Enough? </mark> {-}
 
 This is course depends on the accuracy of $\hat{\beta_1}$ -that is, it depends on $SE(\hat{\beta_1})$. If SE($\hat{\beta_1}$) is small, then even relatively small values of $\hat{\beta_1}$ may provide strong evidence that $\beta_1 \neq 0$​, and hence that there is a relationship between $X$ and $Y$. In contrast, if SE($\hat{\beta_1}$) is large, then $\hat{\beta_1}$ must be large in absolute value in order for us to reject the null hypothesis. 
 

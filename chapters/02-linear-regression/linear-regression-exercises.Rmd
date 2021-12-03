@@ -1,4 +1,4 @@
-# Exercises (Applied)
+# Exercises
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(fig.align="center")
@@ -17,7 +17,7 @@ library(ISLR)
 
 This question involves the use of simple linear regression on the `Auto` data set.
 
-##### (a) Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output. {-}
+##### <mark class="quest"> (a) Use the `lm()` function to perform a simple linear regression with `mpg` as the response and `horsepower` as the predictor. Use the `summary()` function to print the results. Comment on the output. </mark> {-}
 
 ```{r}
 mpg.fit <- lm(mpg ~ horsepower, data = Auto)
@@ -26,7 +26,7 @@ summary(mpg.fit)
 
 In order to interpret the result, a set of following questions are set up to better investigate the model:
 
-###### i. *Is there a relationship between the predictor and the response?* {-}
+###### <mark class="def">i. Is there a relationship between the predictor and the response? </mark>{-}
 
 This question can be answered by fitting the simple linear regression model of `mpg` on `horsepower` and testing the null hypothesis:
 
@@ -39,7 +39,7 @@ $$
 
 The p-value for the `horsepower` variable is very small (<<0.05), so there is strong evidence to believe that `horsepower` is associated with `mpg`. Therefore, there is a relationship between the predictor and response.
 
-###### ii. *How strong is the relationship between the predictor and the response?* {-}
+###### <mark class="def">ii. How strong is the relationship between the predictor and the response?</mark> {-}
 
 There are 2 measures of model accuracy to evaluate the degree of relationship between the predictor and the response, which are: **RSE** and $R^2$ **statistic**.
 
@@ -62,7 +62,7 @@ summary(mpg.fit)$r.squared
 ```
 So the `horsepower` explains 60.59% of the variance in `mpg`.
 
-###### iii. *Is the relationship between the predictor and the response positive or negative?* {-}
+###### <mark class="def">iii. Is the relationship between the predictor and the response positive or negative?</mark> {-}
 
 ```{r}
 coefficients(mpg.fit)
@@ -70,7 +70,7 @@ coefficients(mpg.fit)
 
 The relationship is negative between `mpg` and `horsepower` as the coefficient estimate is -0.1578447.
 
-###### iv. *What is the predicted `mpg` associated with a `horsepower` of 98? What are the associated 95% confidence and prediction intervals?* {-}
+###### <mark class="def">iv. What is the predicted `mpg` associated with a `horsepower` of 98? What are the associated 95% confidence and prediction intervals?</mark> {-}
 
 The confidence interval:
 ```{r}
@@ -82,14 +82,14 @@ predict(mpg.fit, data.frame(horsepower = 98), interval = "prediction", level = 0
 ```
 The prediction interval is wider than the confidence interval as we would expect.
 
-##### (b) Plot the response and the predictor. Use the `abline()` function to display the least squares regression line. {-}
+##### <mark class="quest">(b) Plot the response and the predictor. Use the `abline()` function to display the least squares regression line.</mark> {-}
 
 ```{r}
 plot(Auto$horsepower,Auto$mpg,xlab = "horsepower", ylab = "mpg",main = "Scatterplot of mpg vs. horsepower")
 abline(mpg.fit,col="red")
 ```
 
-##### (c) Use the `plot()` function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit. {-}
+##### <mark class="quest">(c) Use the `plot()` function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.</mark> {-}
 
 ```{r}
 par(mfrow=c(2,2))
@@ -98,24 +98,24 @@ plot(mpg.fit)
 
 The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:
 
-###### **(i) Residuals vs Fitted** {-}
+###### <mark class="def">(i) Residuals vs Fitted</mark> {-}
 
 This plot shows if residuals have non-linear patterns.
 
 In this case, The plot of residuals versus fitted values indicates the presence of non linearity in the data.
 
-###### **(ii) Normal Q-Q** {-}
+###### <mark class="def">(ii) Normal Q-Q</mark> {-}
 
 This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.
 
 
-###### **(iii) Scale-Location** {-}
+###### <mark class="def">(iii) Scale-Location</mark> {-}
 
 This plot show how you can check the assumption of equal variance (homoscedasticity).
 
 In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as $log(y)$ or $\sqrt{y}$ can shrink larger responses by a greater amount and reduce this issue.
 
-###### **(iv) Residuals vs Leverage** {-}
+###### <mark class="def">(iv) Residuals vs Leverage</mark> {-}
 
 This plot helps us to find influential cases (i.e., subjects) if any. 
 
@@ -126,13 +126,13 @@ The plot of standardized residuals versus leverage indicates the presence of a f
 
 This question involves the use of multiple linear regression on the `Auto` data set.
 
-##### (a) Produce a scatterplot matrix which includes all of the variables in the data set. {-}
+##### <mark class="quest">(a) Produce a scatterplot matrix which includes all of the variables in the data set.</mark> {-}
 
 ```{r}
 pairs(Auto)
 ```
 
-##### (b) Compute the matrix of correlations between the variables using the function `cor()`. You will need to exclude the “name” variable, which is qualitative. {-}
+##### <mark class="quest">(b) Compute the matrix of correlations between the variables using the function `cor()`. You will need to exclude the “name” variable, which is qualitative.</mark> {-}
 
 ```{r}
 names(Auto)
@@ -142,20 +142,22 @@ names(Auto)
 cor(Auto[-9])
 ```
 
-##### (c) Use the `lm()` function to perform a multiple linear regression with `mpg` as the response and all other variables except “name” as the predictors. Use the `summary()` function to print the results. Comment on the output. {-}
+##### <mark class="quest">(c) Use the `lm()` function to perform a multiple linear regression with `mpg` as the response and all other variables except “name” as the predictors. Use the `summary()` function to print the results. Comment on the output.</mark> {-}
 
 ```{r}
 mpg.fit2 <- lm(mpg ~. -name, data=Auto)
 summary(mpg.fit2)
 ```
 
-###### i. Is there a relationship between the predictors and the response? {-}
+###### <mark class="def">i. Is there a relationship between the predictors and the response?</mark> {-}
 
  We answer this question by performing an F-test, where we test the null hypothesis that all of the regression coefficients are zero:
  
 $$
-H_0:\beta_1=\beta_2=...=\beta_p=0\\
+H_0:\beta_1=\beta_2=...=\beta_p=0
+$$
 
+$$
 H_a: at \;least \;one \;\beta_j\neq0
 $$
 
@@ -163,12 +165,12 @@ The p-value is given at the bottom of the model summary (`p-value: < 2.2e-16`), 
 
 We reject the null hypothesis (and hence conclude that there is a relationship between the predictors and `mpg`).
 
-###### ii. Which predictors appear to have a statistically significant relationship to the response? {-}
+###### <mark class="def">ii. Which predictors appear to have a statistically significant relationship to the response?</mark> {-}
 
 We can answer this question by checking the p-values associated with each predictor’s t-statistic. We may conclude that all predictors are statistically significant except `cylinders`, `horsepower` and `acceleration`.
 
 
-###### iii. What does the coefficient for the `year` variable suggest? {-}
+###### <mark class="def">iii. What does the coefficient for the `year` variable suggest?</mark> {-}
 
 ```{r}
 coef(mpg.fit2)[7]
@@ -177,37 +179,37 @@ coef(mpg.fit2)[7]
 
 The coefficient ot the `year` variable suggests that the average effect of an increase of 1 year is an increase of 0.7507727 in `mpg` (all other predictors remaining constant). In other words, cars become more fuel efficient every year by almost 1 mpg / year.
 
-##### (d) Use the `plot()` function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit. {-}
+##### <mark class="quest">(d) Use the `plot()` function to produce diagnostic plots of the linear regression fit. Comment on any problems you see with the fit.</mark> {-}
 
 ```{r}
 par(mfrow=c(2,2))
 plot(mpg.fit2)
 ```
 
-###### **(i) Residuals vs Fitted** {-}
+###### <mark class="def">(i) Residuals vs Fitted</mark> {-}
 
 This plot shows if residuals have non-linear patterns.
 
 In this case, The plot of residuals versus fitted values indicates the presence of mild non linearity in the data.
 
-###### **(ii) Normal Q-Q** {-}
+###### <mark class="def">(ii) Normal Q-Q</mark> {-}
 
 This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good to see that residuals in this model are lined well on the straight dashed line.
 
 
-###### **(iii) Scale-Location** {-}
+###### <mark class="def">(iii) Scale-Location</mark> {-}
 
 This plot show how you can check the assumption of equal variance (homoscedasticity).
 
 In this case, there also appears to be non-constant variance in the error terms (heteroscedasticity), but this could be corrected to an extent when trying a quadratic fit. If not, transformations such as $log(y)$ or $\sqrt{y}$ can shrink larger responses by a greater amount and reduce this issue.
 
-###### **(iv) Residuals vs Leverage** {-}
+###### <mark class="def">(iv) Residuals vs Leverage</mark> {-}
 
 This plot helps us to find influential cases (i.e., subjects) if any. 
 
 We can see some evidence of observations (e.g. 14) with both high leverage and high residual statistics, that may be disproportionately influencing the regression predictions.
 
-##### (e) Use the `*` and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant? {-}
+##### <mark class="quest">(e) Use the `*` and : symbols to fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</mark> {-}
 
 Since we have relatively few predictors, we can test all interactions with `mpg ~ . * .` in the call to `lm()`:
 
@@ -216,14 +218,14 @@ mpg.fit3 <- lm(mpg ~.* ., data=Auto[,-9])
 summary(mpg.fit3)
 ```
 
-We can see the significant terms (at the 0.05 level) are those with at least one asterisk (*). It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.
+We can see the significant terms (at the 0.05 level) are those with at least one asterisk `(*)`. It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.
 
 Using the standard threshold of 0.05, the significant interaction terms are given by:
 * `displacement:year`
 * `acceleration:year`
 * `acceleration:origin`
 
-##### (f) Try a few different transformations of the variables, such as $log(X)$, $\sqrt{X}$, $X^2$. Comment on your findings. {-}
+##### <mark class="quest">(f) Try a few different transformations of the variables, such as $log(X)$, $\sqrt{X}$, $X^2$. Comment on your findings.</mark> {-}
 
 ```{r}
 par(mfrow = c(2, 2))

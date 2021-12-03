@@ -14,6 +14,97 @@ pre code {
   white-space: inherit;
 }
 
+$color-code-background: #272822;
+$color-code-color: #f8f8f2;
+
+code {
+    background-color: $color-code-background !important;
+    color: $color-code-color !important;
+    border-radius: 0.3em !important;
+    padding: 4px 5px 6px !important;
+    white-space: nowrap! important;
+}
+
+/*  ==============================================================================
+                        Base16 - DarkViolet Color Scheme                      
+    ==============================================================================
+    Style from the "Base16 - DarkViolet Color Scheme" syntax highlighting theme.
+    ------------------------------------------------------------------------------
+*/
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #000 };
+    color: #b08ae6;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #7a7c7d;  padding-left: 4px; }
+div.sourceCode
+  { color: #b08ae6; background-color: #432d59; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #a82ee6; } /* Normal */
+code span.al { color: #95da4c; } /* Alert */
+code span.an { color: #593380; } /* Annotation */
+code span.at { color: #2980b9; } /* Attribute */
+code span.bn { color: #3daee9; } /* BaseN */
+code span.bu { color: #7f8c8d; } /* BuiltIn */
+code span.cf { color: #b08ae6; } /* ControlFlow */
+code span.ch { color: #3daee9; } /* Char */
+code span.cn { color: #a82ee6; } /* Constant */
+code span.co { color: #3daee9; } /* Comment */
+code span.cv { color: #a886bf; } /* CommentVar */
+code span.do { color: #7E4FAE; } /* Documentation */
+code span.dt { color: #2980b9; } /* DataType */
+code span.dv { color: #a82ee6; } /* DecVal */
+code span.er { color: #da4453; } /* Error */
+code span.ex { color: #0099ff; } /* Extension */
+code span.fl { color: #b08ae6; } /* Float */
+code span.fu { color: #a82ee6; } /* Function */
+code span.im { color: #27ae60; } /* Import */
+code span.in { color: #c45b00; } /* Information */
+code span.kw { color: #a82ee6; } /* Keyword */
+code span.op { color: #a82ee6; } /* Operator */
+code span.ot { color: #4595e6; } /* Other */
+code span.pp { color: #4595e6; } /* Preprocessor */
+code span.re { color: #2980b9; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #f29df2; } /* SpecialString */
+code span.st { color: #b08ae6; } /* String */
+code span.va { color: #b08ae6; } /* Variable */
+code span.vs { color: #4595e6; } /* VerbatimString */
+code span.wa { color: #0f0; } /* Warning */
+
+
+.Rchunk {
+  background-color: #000 !important;
+}
+
+.Rout {
+  background-color: #000 !important;
+}
+
 /* --------------Two columns--------------- */
 
 .col2 {
@@ -54,7 +145,7 @@ pre code {
 /* -------Clipboard copy button --------- */
 .copy {
   width: inherit;
-  background-color: #e2e2e2 ;
+  background-color: #e2e2e2;
   border: none;
   border-radius: 2px;
   float: right;
@@ -123,10 +214,12 @@ padding-left: 0;
 
 .sourceCode pre {
   margin: 0 !important; /* makes space above and below symmetrical*/
+  border-radius: 15px;
 }
 
 .sourceCode {
   margin-bottom: 0.85em; /* adds same amount of margin as a <p> would */
+  border-radius: 15px;
 }
 
 /* HERO IMAGE */
@@ -256,8 +349,8 @@ mark.quest {
 }
 
 mark.example {
-  background-color: #57c1c5;
-  color: white;
+  background-color: #daecec; /*#57c1c5;*/
+  color: black;
   font-weight: bold;
 }
 

@@ -5,9 +5,8 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-```{r echo = FALSE, out.width="65%"}
-knitr::include_graphics("img/illos/03-gm.png")
-```
+/* <center>![](img/illos/03-gm.png)</center> */
+
 Why do we need another method, when we have logistic regression? There are several reasons:
 
 * When there is substantial separation between the two classes, the parameter estimates for the logistic regression model are surprisingly unstable. The methods that we consider in this section do not suffer from this problem.
@@ -29,7 +28,7 @@ In the following sections, we discuss three classifiers that use different estim
 2. _quadratic discriminant analysis_
 3. _naive Bayes_
 
-## Linear Discriminant Analysis 
+## Linear Discriminant Analysis{#Linear-Discriminant-Analysis} 
 
 ### a. When $p$ = 1 {-}
 
@@ -66,13 +65,47 @@ see figure \@ref(fig:hello)
 
 #### i. True Positive, True Negative, False Positive and False Negative {-}
 
-* A **true positive** is an outcome where the model correctly predicts the positive class, 
+<br>
 
-* A **true negative** is an outcome where the model correctly predicts the negative class. 
+:::def
+<div class="split">
+<div class="split1">
 
-* A **false positive** (_Type I Error_) is an outcome where the model incorrectly predicts the positive class when the actual class is negative.
+<mark class="def">true positive</mark>
 
-* A **false negative** (_Type II Error_) is an outcome where the model incorrectly predicts the negative class when the actual class is positive.
+is an outcome where the model correctly predicts the positive class, 
+
+</div>
+
+<div class="split2">
+
+<mark class="def">true negative</mark>
+
+is an outcome where the model correctly predicts the negative class. 
+
+</div>
+</div>
+
+<div class="split">
+<div class="split1">
+
+<mark class="def">false positive</mark> (_Type I Error_) 
+
+is an outcome where the model incorrectly predicts the positive class when the actual class is negative.
+
+</div>
+
+<div class="split2">
+
+<mark class="def">false negative</mark> (_Type II Error_) 
+
+is an outcome where the model incorrectly predicts the negative class when the actual class is positive.
+
+</div>
+</div>
+:::
+
+</br>
 
 #### ii. Precision {-}
 
@@ -141,7 +174,7 @@ knitr::include_graphics("img/162-Figure4.8-1.png")
 Figure above displays the ROC curve for the LDA classifier on the training data. The overall performance of a classifier, summarized over all possible thresholds, is given by the area under the (ROC) curve (AUC). An ideal ROC curve will hug the top left corner, so the large area under the (ROC) curve
 the AUC the better the classifier. For this data the AUC is 0.95, which is close to the maximum of one so would be considered very good.
 
-## Quadratic Discriminant Analysis
+## Quadratic Discriminant Analysis{#QDA}
 
 ***Quadratic discriminant analysis (QDA)*** provides an alternative approach. Like LDA, the QDA classifier assumes that the observations from each class of Y are drawn from a Gaussian distribution. However, unlike LDA, QDA assumes that each class has its own covariance matrix. 
 
