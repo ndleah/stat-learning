@@ -4,7 +4,7 @@
 [![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/ndleah?tab=repositories)
 
 
-# Statistics Learning <img src="/img/illos/logo_stat.png" align="right" width="120"/>
+# Statistics Learning <img src="/img/illos/logo_stat.png" align="right" width="150"/>
 
  > A collection of my notes and exercise attempts for ITSL.
 
