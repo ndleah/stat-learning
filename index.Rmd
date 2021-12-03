@@ -23,8 +23,7 @@ source("common.R")
 [![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/ndleah)
 [![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/ndleah?tab=repositories)
 
-
-# Statistics Learning <img src="/img/illos/logo_stat.png" align="right" width="150"/>
+# Introduction {-}
 
  > A collection of my notes and exercise attempts for ITSL.
 
@@ -33,22 +32,9 @@ source("common.R")
 ![Forks](https://img.shields.io/github/forks/ndleah/stat-learning?style=social&logo=github)
 ![Stars](https://img.shields.io/github/stars/ndleah/stat-learning?style=social&logo=github)
 
-# Aim Of The Project{-}
+## Aim Of The Project
 
 Learning Statistics! 👉
 
 [![Read The Notebook](https://img.shields.io/badge/Deploy-The_Notebook_-aed6d963?style=for-the-badge&logo=GITHUB)]()
-
-# Feedback{-}
-
-If you have any feedback or ideas to improve this project, feel free to contact me via
-
-<a href="https://www.linkedin.com/in/ndleah/">
-  <img align="left" alt="Leah's LinkdedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />
-
-</a>
-<a href="https://github.com/ndleah">
-  <img align="left" alt="Leah's Github" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
-</a>
-
 

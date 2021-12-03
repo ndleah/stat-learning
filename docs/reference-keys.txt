@@ -32,6 +32,7 @@ fig:unnamed-chunk-64
 fig:unnamed-chunk-65
 fig:unnamed-chunk-66
 fig:unnamed-chunk-67
+aim-of-the-project
 what-is-statistical-learning
 why-estimate-f
 prediction
