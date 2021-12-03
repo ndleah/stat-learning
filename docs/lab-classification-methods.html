@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#QDA"><i class="fa fa-check"></i><b>11.2</b> Quadratic Discriminant Analysis</a>
 <ul>
-<li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#why-is-this-important"><i class="fa fa-check"></i>Why is this important?</a></li>
+<li><a href="generative-models-for-classification.html#why-is-this-important"><mark class="quest">Why is this important?</mark></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html"><i class="fa fa-check"></i><b>12</b> A Comparison of Classification Methods</a>
@@ -475,10 +475,11 @@ increase is greater than or less than 0.5.</p>
 <p>The diagonal elements of the confusion matrix indicate correct predictions, while the off-diagonals represent incorrect predictions. Hence our model correctly predicted that the market would go up on 507 days and that it would go down on 145 days, for a total of 507 + 145 = 652 correct
 predictions.</p>
 <p>The <code>mean()</code> function can be used to compute the fraction of days for which the prediction was correct. In this case, logistic regression correctly predicted the movement of the market 52.2% of the time.</p>
-<p><strong>Problems:</strong></p>
+<p><mark class="def">Problems</mark></p>
 <p>At first glance, it appears that the logistic regression model is working a little better than random guessing. However, this result is misleading
 because we trained and tested the model on the same set of 1,250 observations.</p>
 <p>In other words, 100% − 52.2% = 47.8%, is the <em>training error</em> rate. As we have seen previously, the training error rate is often overly optimistic—it tends to underestimate the test error rate.</p>
+<p><mark class="def">Solution</mark></p>
 <p>In order to better assess the accuracy of the logistic regression model in this setting, we can fit the model using part of the data, and then examine how well it predicts the held out data. This will yield a more realistic error rate, in the sense that in practice we will be interested in our model’s performance not on the data that we used to fit the model, but rather on days in the future for which the market’s movements are unknown.</p>
 <p>To implement this strategy, we will first create a vector corresponding to the observations from 2001 through 2004. We will then use this vector to create a held out data set of observations from 2005.</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r Rchunk"><code class="sourceCode r"><span id="cb56-1"><a href="lab-classification-methods.html#cb56-1" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> (Year <span class="sc">&lt;</span> <span class="dv">2005</span>)</span>

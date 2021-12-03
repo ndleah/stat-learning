@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#QDA"><i class="fa fa-check"></i><b>11.2</b> Quadratic Discriminant Analysis</a>
 <ul>
-<li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#why-is-this-important"><i class="fa fa-check"></i>Why is this important?</a></li>
+<li><a href="generative-models-for-classification.html#why-is-this-important"><mark class="quest">Why is this important?</mark></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html"><i class="fa fa-check"></i><b>12</b> A Comparison of Classification Methods</a>
@@ -324,7 +324,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To overcome the inadequacies of linear regression for analyzing the Bikeshare data set, we will make use of an alternative approach, called <em>Poisson regression</em>.</p>
 <p><strong>The Poisson distribution:</strong> is typically used to model counts; this is a natural choice for a number of reasons, including the fact that counts, like
 the Poisson distribution, take on nonnegative integer values.</p>
-<div class="tip">
 <p>Some important distinctions between the Poisson regression model and the linear regression model are as follows:</p>
 <ul>
 <li><strong>Interpretation:</strong> To interpret the coefficients in the <em>Poisson regression</em> model, we must pay close attention to (4.37), which states that an increase in <span class="math inline">\(X_j\)</span> by one unit is associated with a change in <span class="math inline">\(E(Y)\)</span> = <span class="math inline">\(\lambda\)</span> by a factor of exp(<span class="math inline">\(\beta_j\)</span>). For example, a change in weather from clear to cloudy skies is associated with a change in mean bike usage by a factor of exp(−0.08) = 0.923, i.e. on average, only 92.3% as many people will use bikes when it is cloudy relative to when it is clear.</li>
@@ -335,7 +334,6 @@ on average only 60.7% as many people will use bikes when it is rainy relative to
 <li><p><strong>Mean-variance relationship:</strong> by modeling the data set with a Poisson regression, we implicitly assume that mean output in a given factor equals the variance of output to that variable. By contrast, under a linear regression model, the variance of the output always takes on a constant value. Thus, the Poisson regression model is able to handle the mean-variance relationship seen in the data set in a way that the linear regression model is not</p></li>
 <li><p><strong>nonnegative fitted values:</strong> There are no negative predictions using the Poisson regression model. This is because the Poisson model itself only allows for nonnegative values.</p></li>
 </ul>
-</div>
 </div>
 <div id="generalized-linear-models-in-greater-generality" class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> Generalized Linear Models in Greater Generality</h2>

@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#QDA"><i class="fa fa-check"></i><b>11.2</b> Quadratic Discriminant Analysis</a>
 <ul>
-<li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#why-is-this-important"><i class="fa fa-check"></i>Why is this important?</a></li>
+<li><a href="generative-models-for-classification.html#why-is-this-important"><mark class="quest">Why is this important?</mark></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html"><i class="fa fa-check"></i><b>12</b> A Comparison of Classification Methods</a>
@@ -321,19 +321,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <center>
 <img src="img/illos/04-resampling-methods.png" />
 </center>
-<p><em>Resampling methods</em> are an indispensable tool in modern statistics. They involve repeatedly drawing samples from a training set and refitting a model of interest on each sample in order to obtain additional information about the fitted model.</p>
+<p><strong>Resampling methods</strong> are an indispensable tool in modern statistics. They involve repeatedly drawing samples from a training set and refitting a model of interest on each sample in order to obtain additional information about the fitted model.</p>
 <div class="note">
 <p>For example, in order to estimate the variability of a linear regression fit, we can repeatedly <strong>draw different samples</strong> from the training data, <strong>fit a linear regression</strong> to each new sample, and then examine the extent to which the resulting fits differ.</p>
 </div>
 <p>Such an approach may allow us to obtain information that would not be available from fitting the model only once using the original training sample.</p>
-<p>In this chapter, we discuss two of the most commonly used resampling methods: <strong><em>cross-validation</em></strong> and the <strong><em>bootstrap</em></strong>, which are important tools in the practical application of many statistical learning procedures.</p>
+<p>In this chapter, we discuss two of the most commonly used resampling methods: <mark class="def">cross-validation</mark> and the <mark class="def">bootstrap</mark>, which are important tools in the practical application of many statistical learning procedures.</p>
 <div class="tip">
 <p><strong>Cross-validation</strong> can be used to estimate the test error associated with a given statistical learning method in order to evaluate its performance, or to select the appropriate level of flexibility.</p>
+<p>The <strong>bootstrap</strong> is used in several contexts, most commonly model to provide a measure of accuracy of a parameter estimate or of a given selection statistical learning method.</p>
 </div>
-<p>The process of evaluating a model’s performance is known as <em>model assessment</em>, whereas model the process of selecting the proper level of flexibility for a model is known as <em>assessment model selection</em>.
-:::tip
-The <strong>bootstrap</strong> is used in several contexts, most commonly model to provide a measure of accuracy of a parameter estimate or of a given selection statistical learning method.
-:::</p>
+<p><br></p>
+<div class="def">
+<div class="split">
+<div class="split1">
+<p><mark class="def">Model assessment</mark></p>
+<p>The process of evaluating a model’s performance.</p>
+</div>
+<div class="split2">
+<p><mark class="def">Assessment Model selection</mark></p>
+<p>The process of selecting the proper level of flexibility for a model.</p>
+</div>
+</div>
+</div>
+<p></br></p>
 
 </div>
             </section>

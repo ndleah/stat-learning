@@ -112,12 +112,14 @@ predictions.
 
 The `mean()` function can be used to compute the fraction of days for which the prediction was correct. In this case, logistic regression correctly predicted the movement of the market 52.2% of the time.
 
-**Problems:**
+<mark class="def">Problems</mark> 
 
 At first glance, it appears that the logistic regression model is working a little better than random guessing. However, this result is misleading
 because we trained and tested the model on the same set of 1,250 observations.
 
 In other words, 100% − 52.2% = 47.8%, is the *training error* rate. As we have seen previously, the training error rate is often overly optimistic—it tends to underestimate the test error rate.
+
+<mark class="def">Solution</mark> 
 
 In order to better assess the accuracy of the logistic regression model in this setting, we can fit the model using part of the data, and then examine how well it predicts the held out data. This will yield a more realistic error rate, in the sense that in practice we will be interested in our model’s performance not on the data that we used to fit the model, but rather on days in the future for which the market’s movements are unknown.
 

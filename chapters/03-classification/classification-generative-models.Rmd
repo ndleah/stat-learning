@@ -5,9 +5,11 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-/* <center>![](img/illos/03-gm.png)</center> */
+<center>![](img/illos/03-gm.png)</center>
 
-Why do we need another method, when we have logistic regression? There are several reasons:
+<mark class="quest">Why do we need another method, when we have logistic regression?</mark>
+
+There are several reasons:
 
 * When there is substantial separation between the two classes, the parameter estimates for the logistic regression model are surprisingly unstable. The methods that we consider in this section do not suffer from this problem.
 
@@ -55,13 +57,12 @@ A ***confusion matrix*** is a summarized table of the number of correct and inco
 In simple words, “ A confusion matrix is a performance measurement for machine learning algorithm”.
 :::
 
-By visualizing the confusion matrix, an individual could determine the accuracy of the model by observing the diagonal values for measuring the number of accurate classification.
+By visualizing the confusion matrix, an individual could determine the accuracy of the model by observing the diagonal values for measuring the number of accurate classification. A breif explanation of the confusion matrix is illustrated in Figure \@ref(fig:hello).
 
 ```{r hello,echo=FALSE, out.width="50%", fig.cap='A sample 2x2 confusion matrix'}
 knitr::include_graphics("img/cm.png")
 ```
 
-see figure \@ref(fig:hello)
 
 #### i. True Positive, True Negative, False Positive and False Negative {-}
 
@@ -71,7 +72,7 @@ see figure \@ref(fig:hello)
 <div class="split">
 <div class="split1">
 
-<mark class="def">true positive</mark>
+<mark class="def">True Positive</mark>
 
 is an outcome where the model correctly predicts the positive class, 
 
@@ -79,7 +80,7 @@ is an outcome where the model correctly predicts the positive class,
 
 <div class="split2">
 
-<mark class="def">true negative</mark>
+<mark class="def">True Negative</mark>
 
 is an outcome where the model correctly predicts the negative class. 
 
@@ -89,7 +90,7 @@ is an outcome where the model correctly predicts the negative class.
 <div class="split">
 <div class="split1">
 
-<mark class="def">false positive</mark> (_Type I Error_) 
+<mark class="def">False Positive</mark> (_Type I Error_) 
 
 is an outcome where the model incorrectly predicts the positive class when the actual class is negative.
 
@@ -97,7 +98,7 @@ is an outcome where the model incorrectly predicts the positive class when the a
 
 <div class="split2">
 
-<mark class="def">false negative</mark> (_Type II Error_) 
+<mark class="def">False Negative</mark> (_Type II Error_) 
 
 is an outcome where the model incorrectly predicts the negative class when the actual class is positive.
 
@@ -180,7 +181,7 @@ the AUC the better the classifier. For this data the AUC is 0.95, which is close
 
 In other words, the predictor variables are not assumed to have common variance across each of the $k$ levels in $Y$. Mathematically, it assumes that an observation from the $k$th class is of the form, where is a covariance matrix for the $k$th class. Under this assumption, the classifier assigns an observation to the class for which is largest.
 
-### Why is this important? {-}
+### <mark class="quest">Why is this important?</mark> {-}
 
 Consider the image below. In trying to classify the observations into the three (color-coded) classes, LDA (left plot) provides linear decision boundaries that are based on the assumption that the observations vary consistently across all classes. However, when looking at the data it becomes apparent that the variability of the observations within each class differ. Consequently, QDA (right plot) is able to capture the differing covariances and provide more accurate non-linear classification decision boundaries.
 

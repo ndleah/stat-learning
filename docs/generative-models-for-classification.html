@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#QDA"><i class="fa fa-check"></i><b>11.2</b> Quadratic Discriminant Analysis</a>
 <ul>
-<li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#why-is-this-important"><i class="fa fa-check"></i>Why is this important?</a></li>
+<li><a href="generative-models-for-classification.html#why-is-this-important"><mark class="quest">Why is this important?</mark></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html"><i class="fa fa-check"></i><b>12</b> A Comparison of Classification Methods</a>
@@ -318,12 +318,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="generative-models-for-classification" class="section level1" number="11">
 <h1><span class="header-section-number">Section 11</span> Generative Models for Classification</h1>
-/*
 <center>
 <img src="img/illos/03-gm.png" />
 </center>
-<p>*/</p>
-<p>Why do we need another method, when we have logistic regression? There are several reasons:</p>
+<p><mark class="quest">Why do we need another method, when we have logistic regression?</mark></p>
+<p>There are several reasons:</p>
 <ul>
 <li><p>When there is substantial separation between the two classes, the parameter estimates for the logistic regression model are surprisingly unstable. The methods that we consider in this section do not suffer from this problem.</p></li>
 <li><p>If the distribution of the predictors X is approximately normal in each of the classes and the sample size is small, then the approaches in this section may be more accurate than logistic regression.</p></li>
@@ -361,35 +360,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="tip">
 <p>In simple words, “ A confusion matrix is a performance measurement for machine learning algorithm”.</p>
 </div>
-<p>By visualizing the confusion matrix, an individual could determine the accuracy of the model by observing the diagonal values for measuring the number of accurate classification.</p>
+<p>By visualizing the confusion matrix, an individual could determine the accuracy of the model by observing the diagonal values for measuring the number of accurate classification. A breif explanation of the confusion matrix is illustrated in Figure <a href="generative-models-for-classification.html#fig:hello">11.1</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hello"></span>
 <img src="img/cm.png" alt="A sample 2x2 confusion matrix" width="50%" />
 <p class="caption">
 Figure 11.1: A sample 2x2 confusion matrix
 </p>
 </div>
-<p>see figure <a href="generative-models-for-classification.html#fig:hello">11.1</a></p>
 <div id="i.-true-positive-true-negative-false-positive-and-false-negative" class="section level4 unnumbered">
 <h4>i. True Positive, True Negative, False Positive and False Negative</h4>
 <p><br></p>
 <div class="def">
 <div class="split">
 <div class="split1">
-<p><mark class="def">true positive</mark></p>
+<p><mark class="def">True Positive</mark></p>
 <p>is an outcome where the model correctly predicts the positive class,</p>
 </div>
 <div class="split2">
-<p><mark class="def">true negative</mark></p>
+<p><mark class="def">True Negative</mark></p>
 <p>is an outcome where the model correctly predicts the negative class.</p>
 </div>
 </div>
 <div class="split">
 <div class="split1">
-<p><mark class="def">false positive</mark> (<em>Type I Error</em>)</p>
+<p><mark class="def">False Positive</mark> (<em>Type I Error</em>)</p>
 <p>is an outcome where the model incorrectly predicts the positive class when the actual class is negative.</p>
 </div>
 <div class="split2">
-<p><mark class="def">false negative</mark> (<em>Type II Error</em>)</p>
+<p><mark class="def">False Negative</mark> (<em>Type II Error</em>)</p>
 <p>is an outcome where the model incorrectly predicts the negative class when the actual class is positive.</p>
 </div>
 </div>
@@ -459,7 +457,7 @@ the AUC the better the classifier. For this data the AUC is 0.95, which is close
 <p><strong><em>Quadratic discriminant analysis (QDA)</em></strong> provides an alternative approach. Like LDA, the QDA classifier assumes that the observations from each class of Y are drawn from a Gaussian distribution. However, unlike LDA, QDA assumes that each class has its own covariance matrix.</p>
 <p>In other words, the predictor variables are not assumed to have common variance across each of the <span class="math inline">\(k\)</span> levels in <span class="math inline">\(Y\)</span>. Mathematically, it assumes that an observation from the <span class="math inline">\(k\)</span>th class is of the form, where is a covariance matrix for the <span class="math inline">\(k\)</span>th class. Under this assumption, the classifier assigns an observation to the class for which is largest.</p>
 <div id="why-is-this-important" class="section level3 unnumbered">
-<h3>Why is this important?</h3>
+<h3><mark class="quest">Why is this important?</mark></h3>
 <p>Consider the image below. In trying to classify the observations into the three (color-coded) classes, LDA (left plot) provides linear decision boundaries that are based on the assumption that the observations vary consistently across all classes. However, when looking at the data it becomes apparent that the variability of the observations within each class differ. Consequently, QDA (right plot) is able to capture the differing covariances and provide more accurate non-linear classification decision boundaries.</p>
 <p><img src="img/QDA.png" width="65%" style="display: block; margin: auto;" /></p>
 

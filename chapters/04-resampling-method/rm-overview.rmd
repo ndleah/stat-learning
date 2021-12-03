@@ -10,7 +10,7 @@ library(ymlthis)
 <center>![](img/illos/04-resampling-methods.png)</center>
 
 
-_Resampling methods_ are an indispensable tool in modern statistics. They involve repeatedly drawing samples from a training set and refitting a model of interest on each sample in order to obtain additional information about the fitted model. 
+**Resampling methods** are an indispensable tool in modern statistics. They involve repeatedly drawing samples from a training set and refitting a model of interest on each sample in order to obtain additional information about the fitted model. 
 
 ::::note
 For example, in order to estimate the variability of a linear regression fit, we can repeatedly **draw different samples** from the training data, **fit a linear regression** to each new sample, and then examine the extent to which the resulting fits differ. 
@@ -18,17 +18,37 @@ For example, in order to estimate the variability of a linear regression fit, we
 
 Such an approach may allow us to obtain information that would not be available from fitting the model only once using the original training sample.
 
-In this chapter, we discuss two of the most commonly used resampling methods: ***cross-validation*** and the ***bootstrap***, which are important tools in the practical application of many statistical learning procedures.
+In this chapter, we discuss two of the most commonly used resampling methods: <mark class="def">cross-validation</mark> and the <mark class="def">bootstrap</mark>, which are important tools in the practical application of many statistical learning procedures.
 
 :::tip
 **Cross-validation** can be used to estimate the test error associated with a given statistical learning method in order to evaluate its performance, or to select the appropriate level of flexibility.
-:::
 
-The process of evaluating a model’s performance is known as *model assessment*, whereas model the process of selecting the proper level of flexibility for a model is known as *assessment model selection*. 
-:::tip
 The **bootstrap** is used in several contexts, most commonly model to provide a measure of accuracy of a parameter estimate or of a given selection statistical learning method.
 :::
 
+<br>
+
+:::def
+<div class="split">
+<div class="split1">
+
+<mark class="def">Model assessment</mark>
+
+The process of evaluating a model’s performance. 
+
+</div>
+
+<div class="split2">
+
+<mark class="def">Assessment Model selection</mark>
+
+The process of selecting the proper level of flexibility for a model. 
+
+</div>
+</div>
+:::
+
+</br>
 
 
 

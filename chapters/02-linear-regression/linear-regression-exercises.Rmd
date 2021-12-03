@@ -221,8 +221,11 @@ summary(mpg.fit3)
 We can see the significant terms (at the 0.05 level) are those with at least one asterisk `(*)`. It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.
 
 Using the standard threshold of 0.05, the significant interaction terms are given by:
+
 * `displacement:year`
+
 * `acceleration:year`
+
 * `acceleration:origin`
 
 ##### <mark class="quest">(f) Try a few different transformations of the variables, such as $log(X)$, $\sqrt{X}$, $X^2$. Comment on your findings.</mark> {-}

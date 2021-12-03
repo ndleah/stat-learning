@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#QDA"><i class="fa fa-check"></i><b>11.2</b> Quadratic Discriminant Analysis</a>
 <ul>
-<li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#why-is-this-important"><i class="fa fa-check"></i>Why is this important?</a></li>
+<li><a href="generative-models-for-classification.html#why-is-this-important"><mark class="quest">Why is this important?</mark></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html"><i class="fa fa-check"></i><b>12</b> A Comparison of Classification Methods</a>
@@ -586,10 +586,12 @@ H_a: at \;least \;one \;\beta_j\neq0
 <span id="cb45-46"><a href="exercises.html#cb45-46" aria-hidden="true" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.8893, Adjusted R-squared:  0.8808 </span></span>
 <span id="cb45-47"><a href="exercises.html#cb45-47" aria-hidden="true" tabindex="-1"></a><span class="do">## F-statistic: 104.2 on 28 and 363 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
 <p>We can see the significant terms (at the 0.05 level) are those with at least one asterisk <code>(*)</code>. It is probably unreasonable to use a significance level of 0.05 here, as we are testing such a large number of hypothesis, perhaps a lower threshold for significance (or a p-value correction using the p.adjust() function) would be appropriate.</p>
-<p>Using the standard threshold of 0.05, the significant interaction terms are given by:
-* <code>displacement:year</code>
-* <code>acceleration:year</code>
-* <code>acceleration:origin</code></p>
+<p>Using the standard threshold of 0.05, the significant interaction terms are given by:</p>
+<ul>
+<li><p><code>displacement:year</code></p></li>
+<li><p><code>acceleration:year</code></p></li>
+<li><p><code>acceleration:origin</code></p></li>
+</ul>
 </div>
 <div id="f-try-a-few-different-transformations-of-the-variables-such-as-logx-sqrtx-x2.-comment-on-your-findings." class="section level5 unnumbered">
 <h5><mark class="quest">(f) Try a few different transformations of the variables, such as <span class="math inline">\(log(X)\)</span>, <span class="math inline">\(\sqrt{X}\)</span>, <span class="math inline">\(X^2\)</span>. Comment on your findings.</mark></h5>
