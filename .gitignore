@@ -36,5 +36,3 @@ vignettes/*.pdf
 rsconnect/
 Chapter 2 - Statistical Learning/C2.md
 *.Rproj
-
-_bookdown_files
