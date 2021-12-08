@@ -1,5 +1,4 @@
 delete_merged_file: true
-self_contained: no
 output_dir: "docs"
 language:
   ui:
