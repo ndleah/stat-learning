@@ -12,7 +12,6 @@ header-includes:
     - \usepackage{setspace}\doublespacing # change the spacing 
 ---
 
-
 ```{r, include = FALSE}
 source("common.R")
 ```
