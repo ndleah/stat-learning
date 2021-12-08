@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Statistics Learning</title>
-  <meta name="description" content="Statistics Learning" />
+  <title>Section 17 The Bootstrap | Statistics Learning</title>
+  <meta name="description" content="Section 17 The Bootstrap | Statistics Learning" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Statistics Learning" />
+  <meta property="og:title" content="Section 17 The Bootstrap | Statistics Learning" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
   <meta property="og:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Statistics Learning" />
+  <meta name="twitter:title" content="Section 17 The Bootstrap | Statistics Learning" />
   
   
   <meta name="twitter:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/illos/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="what-is-statistical-learning.html"/>
+<link rel="prev" href="cross-validation.html"/>
+<link rel="next" href="lab-resampling-methods.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -330,35 +330,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="img/illos/cover.png">
 </div>
-<div id="header">
-<h1 class="title">Statistics Learning</h1>
+<div id="the-bootstrap" class="section level1" number="17">
+<h1><span class="header-section-number">Section 17</span> The Bootstrap</h1>
+<p><mark class="def">The bootstrap</mark> is a widely applicable and extremely powerful statistical tool that can be used to quantify the uncertainty associated with a given estimator or statistical learning method.</p>
+<p><mark class="def">The bootstrap</mark> method is a statistical technique for estimating quantities about a population by averaging estimates from multiple small data samples.</p>
+<p>Importantly, samples are constructed by drawing observations from a large data sample one at a time and returning them to the data sample after they have been chosen. This allows a given observation to be included in a given small sample more than once. This approach to sampling is called sampling with replacement.</p>
+<p>The process for building one sample can be summarized as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Choose the size of the sample.</p></li>
+<li><p>While the size of the sample is less than the chosen size:</p></li>
+<li><p>Randomly select an observation from the dataset</p></li>
+<li><p>Add it to the sample</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bootstrap"></span>
+<img src="img/193-Figure5.3-1.png" alt="A graphical illustration of the bootstrap approach on a small sample containing n=3 observation" width="65%" />
+<p class="caption">
+Figure 17.1: A graphical illustration of the bootstrap approach on a small sample containing n=3 observation
+</p>
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
-<blockquote>
-<p>A collection of my notes and exercise attempts for ITSL.</p>
-</blockquote>
-<p><img src="https://img.shields.io/github/issues/ndleah/stat-learning?style=social&amp;logo=github" alt="Issues" />
-<img src="https://img.shields.io/github/issues-pr/ndleah/stat-learning?style=social&amp;logo=github" alt="Pull Requests" />
-<img src="https://img.shields.io/github/forks/ndleah/stat-learning?style=social&amp;logo=github" alt="Forks" />
-<img src="https://img.shields.io/github/stars/ndleah/stat-learning?style=social&amp;logo=github" alt="Stars" /></p>
-<div id="aim-of-the-project" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> Aim Of The Project</h2>
-<p>Learning Statistics! 👉</p>
-<p><a href=""><img src="https://img.shields.io/badge/Deploy-The_Notebook_-aed6d963?style=for-the-badge&amp;logo=GITHUB" alt="Read The Notebook" /></a></p>
+<p>A graphical illustration of the bootstrap approach is illustrated in Figure <a href="the-bootstrap.html#fig:bootstrap">17.1</a>. Each bootstrap data set contains <span class="math inline">\(n\)</span> observations, sampled with replacement from the original data set. Each bootstrap data set is used to obtain an estimate of <span class="math inline">\(\alpha\)</span>.</p>
 
 </div>
-</div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="what-is-statistical-learning.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cross-validation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-resampling-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

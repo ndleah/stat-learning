@@ -32,6 +32,9 @@ fig:unnamed-chunk-64
 fig:unnamed-chunk-65
 fig:unnamed-chunk-66
 fig:unnamed-chunk-67
+fig:cv
+fig:LOOCV
+fig:bootstrap
 aim-of-the-project
 what-is-statistical-learning
 why-estimate-f
@@ -120,4 +123,13 @@ data-overview-3
 an-overview-of-resampling-methods
 cross-validation
 test-and-training-error-rate
+vsa
+LOOCV
+k-fold-cross-validation
+bias-variance-trade-off-for-k-fold-cross-validation
+the-bootstrap
+lab-resampling-methods
 the-validation-set-approach
+leave-one-out-cross-validation
+k-fold-cross-validation-1
+the-bootstrap-1

@@ -3,13 +3,13 @@ knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
 ```
 
-<center>![](img/illos/03-logre.png)</center>
-
 # Generalized Linear Model
+
+<center>![](img/illos/03-glm.png)</center>
 
 ## Overview
 
-In reality, we may sometimes be faced with situations in which Y is neither qualitative nor quantitative, and so neither linear regression nor the classification approaches covered in this chapter is applicable. 
+In reality, we may sometimes be faced with situations in which $Y$ is neither qualitative nor quantitative, and so neither linear regression nor the classification approaches covered in this chapter is applicable. 
 
 To overcome the inadequacies of linear regression for analyzing the Bikeshare data set, we will make use of an alternative approach, called *Poisson regression*.
 

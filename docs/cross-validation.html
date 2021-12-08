@@ -30,7 +30,7 @@
   
   <link rel="shortcut icon" href="img/illos/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="an-overview-of-resampling-methods.html"/>
-
+<link rel="next" href="the-bootstrap.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -293,7 +293,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16" data-path="cross-validation.html"><a href="cross-validation.html"><i class="fa fa-check"></i><b>16</b> Cross-Validation</a>
 <ul>
 <li class="chapter" data-level="16.1" data-path="cross-validation.html"><a href="cross-validation.html#test-and-training-error-rate"><i class="fa fa-check"></i><b>16.1</b> Test and Training Error Rate</a></li>
-<li class="chapter" data-level="16.2" data-path="cross-validation.html"><a href="cross-validation.html#the-validation-set-approach"><i class="fa fa-check"></i><b>16.2</b> The Validation Set Approach</a></li>
+<li class="chapter" data-level="16.2" data-path="cross-validation.html"><a href="cross-validation.html#vsa"><i class="fa fa-check"></i><b>16.2</b> The Validation Set Approach</a></li>
+<li class="chapter" data-level="16.3" data-path="cross-validation.html"><a href="cross-validation.html#LOOCV"><i class="fa fa-check"></i><b>16.3</b> Leave-One-Out Cross-Validation</a></li>
+<li class="chapter" data-level="16.4" data-path="cross-validation.html"><a href="cross-validation.html#k-fold-cross-validation"><i class="fa fa-check"></i><b>16.4</b> <span class="math inline">\(k\)</span>-Fold Cross-Validation</a></li>
+<li class="chapter" data-level="16.5" data-path="cross-validation.html"><a href="cross-validation.html#bias-variance-trade-off-for-k-fold-cross-validation"><i class="fa fa-check"></i><b>16.5</b> Bias-Variance Trade-Off for k-Fold Cross-Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="the-bootstrap.html"><a href="the-bootstrap.html"><i class="fa fa-check"></i><b>17</b> The Bootstrap</a></li>
+<li class="chapter" data-level="18" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html"><i class="fa fa-check"></i><b>18</b> Lab: Resampling Methods</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html#the-validation-set-approach"><i class="fa fa-check"></i><b>18.1</b> The Validation Set Approach</a></li>
+<li class="chapter" data-level="18.2" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html#leave-one-out-cross-validation"><i class="fa fa-check"></i><b>18.2</b> Leave-One-Out Cross-Validation</a></li>
+<li class="chapter" data-level="18.3" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html#k-fold-cross-validation-1"><i class="fa fa-check"></i><b>18.3</b> <span class="math inline">\(k\)</span>-Fold Cross-Validation</a></li>
+<li class="chapter" data-level="18.4" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html#the-bootstrap-1"><i class="fa fa-check"></i><b>18.4</b> The Bootstrap</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
@@ -334,10 +345,68 @@ statistical learning method to the observations used in its training. However, t
 </ul>
 <p>In this section, we instead consider a class of methods that estimate the test error rate by holding out a subset of the training observations from the fitting process, and then applying the statistical learning method to those held out observations.</p>
 </div>
-<div id="the-validation-set-approach" class="section level2" number="16.2">
+<div id="vsa" class="section level2" number="16.2">
 <h2><span class="header-section-number">16.2</span> The Validation Set Approach</h2>
-
-
+<p>The <mark class="def">validation set approach</mark> is a cross-validation technique in Machine learning. In the Validation Set approach, the dataset which will be used to build the model is divided randomly into 2 parts namely <strong>training</strong> set and <strong>validation</strong> set(or testing set).</p>
+<div class="tip">
+<p>Steps Involved in the Validation Set Approach:</p>
+<ol style="list-style-type: decimal">
+<li><p>A random splitting of the dataset into a certain ratio(generally 70-30 or 80-20 ratio is preferred)</p></li>
+<li><p>Training of the model on the <strong>training</strong> data set</p></li>
+<li><p>The resultant model is applied to the <strong>validation</strong> set</p></li>
+<li><p>Model’s accuracy is calculated through prediction error by using model performance metrics</p></li>
+</ol>
+</div>
+<p>The validation set approach is illustrated in Figure <a href="cross-validation.html#fig:cv">16.1</a>. A set of <span class="math inline">\(n\)</span> observations are randomly split into a <strong>training</strong> set (shown in blue, containing observations 7, 22, and 13, among others) and a <strong>validation</strong> set (shown in beige, and containing observation 91, among others). The statistical learning method is fit on the training set, and its performance is evaluated on the validation set.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cv"></span>
+<img src="img/191-Figure5.1-1.png" alt="A schematic display of CV" width="65%" />
+<p class="caption">
+Figure 16.1: A schematic display of CV
+</p>
+</div>
+<p>The validation set approach is conceptually simple and is easy to implement. But it has two potential drawbacks:</p>
+<ol style="list-style-type: decimal">
+<li><p>the validation estimate of the test error rate can be highly variable, depending on precisely which observations are included in the training set and which observations are included in the validation set.</p></li>
+<li><p>In the validation approach, only a subset of the observations—those that are included in the training set rather than in the validation set—are used to fit the model. Since statistical methods tend to perform worse when trained on fewer observations, this suggests that the validation set error rate may tend to <em>overestimate</em> the test error rate for the model fit on the entire data set.</p></li>
+</ol>
+</div>
+<div id="LOOCV" class="section level2" number="16.3">
+<h2><span class="header-section-number">16.3</span> Leave-One-Out Cross-Validation</h2>
+<p><mark class="def">Leave-one-out cross-validation</mark> (LOOCV) is closely related to the validation leave-oneout crossvalidation set approach of Section <a href="cross-validation.html#vsa">Validation Set Approach</a>, but it attempts to address that method’s drawbacks.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LOOCV"></span>
+<img src="img/193-Figure5.3-1.png" alt="A schematic display of LOOCV" width="65%" />
+<p class="caption">
+Figure 16.2: A schematic display of LOOCV
+</p>
+</div>
+<p>A display of LOOCV is illustrated in Figure <a href="cross-validation.html#fig:LOOCV">16.2</a>. A set of <span class="math inline">\(n\)</span> data points is repeatedly split into a training set (shown in blue) containing all but one observation (<span class="math inline">\(n-1\)</span>), and a validation set that contains only that observation (shown in beige). The test error is then estimated by averaging the <span class="math inline">\(n\)</span> resulting <span class="math inline">\(MSE\)</span>’s. The first training set contains all but observation 1, the second training set contains all but observation 2, and so forth.</p>
+<p>The benefit of so many fit and evaluated models is a more robust estimate of model performance as each row of data is given an opportunity to represent the entirety of the test dataset. Specifically, LOOCV has a couple of major advantages over the validation set approach:</p>
+<ol style="list-style-type: decimal">
+<li>First, <mark class="quest">it has far less bias</mark>. In LOOCV, we repeatedly fit the statistical learning method using training sets that contain <span class="math inline">\(n − 1\)</span> observations, almost as many as are in the entire data set. This is in contrast to the validation set approach, in which the training set is typically around half the size of the original data set. Consequently, the LOOCV approach tends not to overestimate the test error rate as much as the validation set approach does.</li>
+</ol>
+<p>Second, <mark class="quest">there is no randomness in the training/validation set splits</mark>. In contrast to the validation approach which will yield different results when applied repeatedly due to randomness in the training/validation set splits, performing LOOCV multiple times will always yield the same results.</p>
+<p>However, this method has the maximum computational cost. It requires one model to be created and evaluated for each example in the training dataset and thus, is not suggested to apply when there is very lage number of <span class="math inline">\(n\)</span>.</p>
+<div class="tip">
+<ul>
+<li><p><strong>Don’t Use LOOCV:</strong> Large datasets or costly models to fit.</p></li>
+<li><p><strong>Use LOOCV:</strong> Small datasets or when estimated model performance is critical.</p></li>
+</ul>
+</div>
+</div>
+<div id="k-fold-cross-validation" class="section level2" number="16.4">
+<h2><span class="header-section-number">16.4</span> <span class="math inline">\(k\)</span>-Fold Cross-Validation</h2>
+<p>An alternative to <a href="cross-validation.html#LOOCV">LOOCV</a> is <mark class="def">k-fold CV</mark>. This approach involves randomly k-fold CV dividing the set of observations into <span class="math inline">\(k\)</span> groups, or folds, of approximately equal size. The first fold is treated as a validation set, and the method is fit on the remaining <span class="math inline">\(k − 1\)</span> folds.</p>
+<p>It is not hard to see that LOOCV is a special case of k-fold CV in which <span class="math inline">\(k\)</span> is set to equal <span class="math inline">\(n\)</span>. In practice, one typically performs k-fold CV using <span class="math inline">\(k = 5\)</span> or <span class="math inline">\(k = 10\)</span>.</p>
+<p>The most obvious advantage is computational. LOOCV requires fitting the statistical learning method <span class="math inline">\(n\)</span> times. This has the potential to be computationally expensive. Some statistical learning methods have computationally intensive fitting procedures, and so performing LOOCV may pose computational problems. In contrast, performing 10-fold CV requires fitting the learning procedure only ten times, which may be much more feasible.</p>
+<p>But putting computational issues aside, a less obvious but potentially more important advantage of k-fold CV is that it often gives more accurate estimates of the test error rate than does LOOCV. This has to do with a <em>bias-variance trade-off</em>.</p>
+</div>
+<div id="bias-variance-trade-off-for-k-fold-cross-validation" class="section level2" number="16.5">
+<h2><span class="header-section-number">16.5</span> Bias-Variance Trade-Off for k-Fold Cross-Validation</h2>
+<p>It was mentioned in Section <a href="cross-validation.html#vsa">Validation Set Approach</a> that the validation set approach can lead to <em>overestimates</em> of the test error rate, since in this approach the training set used to fit the statistical learning method contains only half
+the observations of the entire data set.</p>
+<p>Using this logic, it is not hard to see that LOOCV will give approximately unbiased estimates of the test error, since each training set contains <span class="math inline">\(n−1\)</span> observations, which is almost as many as the number of observations in the full data set.</p>
+<p>And performing k-fold CV for, say, <span class="math inline">\(k = 5\)</span> or <span class="math inline">\(k = 10\)</span> will lead to an intermediate level of bias - fewer than in the LOOCV approach, but substantially more than in the validation set approach. Therefore, from the perspective of bias reduction, it is clear that LOOCV is to be preferred to k-fold CV.</p>
+<p>To summarize, there is a bias-variance trade-off associated with the choice of k in k-fold cross-validation. Typically, given these considerations, one performs k-fold cross-validation using <span class="math inline">\(k = 5\)</span> or <span class="math inline">\(k = 10\)</span>, as these values have been shown empirically to yield test error rate estimates that suffer neither from excessively high bias nor from very high variance.</p>
 
 </div>
 </div>
@@ -346,8 +415,8 @@ statistical learning method to the observations used in its training. However, t
           </div>
         </div>
       </div>
-<a href="an-overview-of-resampling-methods.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="an-overview-of-resampling-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-bootstrap.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
