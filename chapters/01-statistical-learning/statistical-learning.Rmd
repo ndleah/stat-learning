@@ -146,7 +146,7 @@ knitr::include_graphics("img/xkcd-interpretability-vs-flexibility.png")
 ```
 
 
-<mark class="quest">Why would we ever choose to use a more restrictive method instead of a very flexible approach?</mark>;
+<mark class="quest">Why would we ever choose to use a more restrictive method instead of a very flexible approach?</mark>
 
 If we are mainly interested in the interpretability of the model, we would rather use a more flexible model. This is because the flexibility of the model is usually better than the interpretability of the model.&#x20;
 

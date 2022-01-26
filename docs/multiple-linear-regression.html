@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/illos/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="simple-linear-regression.html"/>
+<link rel="prev" href="LINEAR-REGRESSION.html"/>
 <link rel="next" href="other-considerations-in-the-regression-model.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -53,70 +53,6 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -135,10 +71,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="img/illos/logo_2.png"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#aim-of-the-project"><i class="fa fa-check"></i><b>0.1</b> Aim Of The Project</a></li>
-</ul></li>
 <li class="part"><span><b>I STATISTICAL LEARNING</b></span></li>
 <li class="chapter" data-level="1" data-path="what-is-statistical-learning.html"><a href="what-is-statistical-learning.html"><i class="fa fa-check"></i><b>1</b> What is Statistical Learning?</a>
 <ul>
@@ -173,24 +105,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.2" data-path="assessing-model-accuracy.html"><a href="assessing-model-accuracy.html#KNN"><i class="fa fa-check"></i><b>2.3.2</b> K-Nearest Neighbors (KNN)</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>II LINEAR REGRESSION{#LINEAR-REGRESSION}</b></span></li>
-<li class="chapter" data-level="3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>3</b> Simple Linear Regression</a>
+<li class="part"><span><b>II LINEAR REGRESSION</b></span></li>
+<li class="chapter" data-level="3" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html"><i class="fa fa-check"></i><b>3</b> Simple Linear Regression</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1</b> Estimating the Coefficients</a></li>
-<li class="chapter" data-level="3.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.2</b> Assessing the Accuracy of the Coefficient Estimates</a>
+<li class="chapter" data-level="3.1" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#estimating-the-coefficients"><i class="fa fa-check"></i><b>3.1</b> Estimating the Coefficients</a></li>
+<li class="chapter" data-level="3.2" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#assessing-the-accuracy-of-the-coefficient-estimates"><i class="fa fa-check"></i><b>3.2</b> Assessing the Accuracy of the Coefficient Estimates</a>
 <ul>
-<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#population-regression-line"><i class="fa fa-check"></i>Population Regression Line</a></li>
-<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#least-squares-line"><i class="fa fa-check"></i>Least Squares Line</a></li>
-<li><a href="simple-linear-regression.html#how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu"><mark class="quest"> How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span> </mark></a></li>
-<li><a href="simple-linear-regression.html#how-far-is-far-enough"><mark class="quest"> How Far Is Far Enough? </mark></a></li>
-<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#t-distribution"><i class="fa fa-check"></i>T-distribution</a></li>
+<li class="chapter" data-level="" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#population-regression-line"><i class="fa fa-check"></i>Population Regression Line</a></li>
+<li class="chapter" data-level="" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#least-squares-line"><i class="fa fa-check"></i>Least Squares Line</a></li>
+<li><a href="LINEAR-REGRESSION.html#how-accurate-is-the-sample-mean-hatmu-as-an-estimate-of-population-mean-mu"><mark class="quest"> How Accurate Is The Sample Mean <span class="math inline">\(\hat{\mu}\)</span> As An Estimate Of Population Mean <span class="math inline">\(\mu\)</span> </mark></a></li>
+<li><a href="LINEAR-REGRESSION.html#how-far-is-far-enough"><mark class="quest"> How Far Is Far Enough? </mark></a></li>
+<li class="chapter" data-level="" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#t-distribution"><i class="fa fa-check"></i>T-distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.3</b> Assessing the Accuracy of the Model</a>
+<li class="chapter" data-level="3.3" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#assessing-the-accuracy-of-the-model"><i class="fa fa-check"></i><b>3.3</b> Assessing the Accuracy of the Model</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#residual-standard-error"><i class="fa fa-check"></i><b>3.3.1</b> Residual Standard Error</a></li>
-<li class="chapter" data-level="3.3.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#r2-standard-error"><i class="fa fa-check"></i><b>3.3.2</b> <span class="math inline">\(R^2\)</span> Standard Error</a></li>
+<li class="chapter" data-level="3.3.1" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#residual-standard-error"><i class="fa fa-check"></i><b>3.3.1</b> Residual Standard Error</a></li>
+<li class="chapter" data-level="3.3.2" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#r2-standard-error"><i class="fa fa-check"></i><b>3.3.2</b> <span class="math inline">\(R^2\)</span> Standard Error</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#consideration"><i class="fa fa-check"></i><b>3.4</b> Consideration</a></li>
+<li class="chapter" data-level="3.4" data-path="LINEAR-REGRESSION.html"><a href="LINEAR-REGRESSION.html#consideration"><i class="fa fa-check"></i><b>3.4</b> Consideration</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="multiple-linear-regression.html"><a href="multiple-linear-regression.html"><i class="fa fa-check"></i><b>4</b> Multiple Linear Regression</a>
 <ul>
@@ -216,96 +148,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#data-overview"><i class="fa fa-check"></i><b>6.1</b> Data Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="case-study---marketing-plan.html"><a href="case-study---marketing-plan.html#important-questions"><i class="fa fa-check"></i><b>6.2</b> Important Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Lab: Linear Regression</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>7.1</b> Simple Linear Regression</a></li>
-<li class="chapter" data-level="7.2" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>7.2</b> Multiple Linear Regression</a></li>
-<li class="chapter" data-level="7.3" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#interaction-terms"><i class="fa fa-check"></i><b>7.3</b> Interaction Terms</a></li>
-<li class="chapter" data-level="7.4" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#non-linear-transformations-of-the-predictors"><i class="fa fa-check"></i><b>7.4</b> Non-linear Transformations of the Predictors</a></li>
-<li class="chapter" data-level="7.5" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#qualitative-predictors"><i class="fa fa-check"></i><b>7.5</b> Qualitative Predictors</a></li>
-<li class="chapter" data-level="7.6" data-path="lab-linear-regression.html"><a href="lab-linear-regression.html#writing-functions"><i class="fa fa-check"></i><b>7.6</b> Writing Functions</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>8</b> Exercises</a></li>
 <li class="part"><span><b>III CLASSIFICATION</b></span></li>
-<li class="chapter" data-level="9" data-path="an-overview-of-classification.html"><a href="an-overview-of-classification.html"><i class="fa fa-check"></i><b>9</b> An Overview of Classification</a></li>
-<li class="chapter" data-level="10" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10</b> Logistic Regression</a>
+<li class="chapter" data-level="7" data-path="an-overview-of-classification.html"><a href="an-overview-of-classification.html"><i class="fa fa-check"></i><b>7</b> An Overview of Classification</a></li>
+<li class="chapter" data-level="8" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>8</b> Logistic Regression</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html#logistic-model"><i class="fa fa-check"></i><b>10.1</b> Logistic Model</a></li>
-<li class="chapter" data-level="10.2" data-path="logistic-regression.html"><a href="logistic-regression.html#estimating-the-regression-coefficients"><i class="fa fa-check"></i><b>10.2</b> Estimating the Regression Coefficients</a></li>
-<li class="chapter" data-level="10.3" data-path="logistic-regression.html"><a href="logistic-regression.html#multiple-logistic-regression"><i class="fa fa-check"></i><b>10.3</b> Multiple Logistic Regression</a></li>
-<li class="chapter" data-level="10.4" data-path="logistic-regression.html"><a href="logistic-regression.html#multinomial-logistic-regression"><i class="fa fa-check"></i><b>10.4</b> Multinomial Logistic Regression</a></li>
+<li class="chapter" data-level="8.1" data-path="logistic-regression.html"><a href="logistic-regression.html#logistic-model"><i class="fa fa-check"></i><b>8.1</b> Logistic Model</a></li>
+<li class="chapter" data-level="8.2" data-path="logistic-regression.html"><a href="logistic-regression.html#estimating-the-regression-coefficients"><i class="fa fa-check"></i><b>8.2</b> Estimating the Regression Coefficients</a></li>
+<li class="chapter" data-level="8.3" data-path="logistic-regression.html"><a href="logistic-regression.html#multiple-logistic-regression"><i class="fa fa-check"></i><b>8.3</b> Multiple Logistic Regression</a></li>
+<li class="chapter" data-level="8.4" data-path="logistic-regression.html"><a href="logistic-regression.html#multinomial-logistic-regression"><i class="fa fa-check"></i><b>8.4</b> Multinomial Logistic Regression</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html"><i class="fa fa-check"></i><b>11</b> Generative Models for Classification</a>
+<li class="chapter" data-level="9" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html"><i class="fa fa-check"></i><b>9</b> Generative Models for Classification</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#Linear-Discriminant-Analysis"><i class="fa fa-check"></i><b>11.1</b> Linear Discriminant Analysis</a>
+<li class="chapter" data-level="9.1" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#Linear-Discriminant-Analysis"><i class="fa fa-check"></i><b>9.1</b> Linear Discriminant Analysis</a>
 <ul>
 <li><a href="generative-models-for-classification.html#a.-when-p-1">a. When <span class="math inline">\(p\)</span> = 1</a></li>
 <li><a href="generative-models-for-classification.html#b.-when-p-1">b. When <span class="math inline">\(p\)</span> &gt; 1</a></li>
 <li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#c.-problems-with-lda"><i class="fa fa-check"></i>c. Problems with LDA</a></li>
 <li class="chapter" data-level="" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#d.-confusion-matrix"><i class="fa fa-check"></i>d. Confusion Matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#QDA"><i class="fa fa-check"></i><b>11.2</b> Quadratic Discriminant Analysis</a>
+<li class="chapter" data-level="9.2" data-path="generative-models-for-classification.html"><a href="generative-models-for-classification.html#QDA"><i class="fa fa-check"></i><b>9.2</b> Quadratic Discriminant Analysis</a>
 <ul>
 <li><a href="generative-models-for-classification.html#why-is-this-important"><mark class="quest">Why is this important?</mark></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html"><i class="fa fa-check"></i><b>12</b> A Comparison of Classification Methods</a>
+<li class="chapter" data-level="10" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html"><i class="fa fa-check"></i><b>10</b> A Comparison of Classification Methods</a>
 <ul>
 <li class="chapter" data-level="" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#figure-for-scenarios-1-2-3"><i class="fa fa-check"></i>Figure for Scenarios 1, 2, 3</a></li>
-<li class="chapter" data-level="12.1" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-1"><i class="fa fa-check"></i><b>12.1</b> Scenario 1</a></li>
-<li class="chapter" data-level="12.2" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-2"><i class="fa fa-check"></i><b>12.2</b> Scenario 2</a></li>
-<li class="chapter" data-level="12.3" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-3"><i class="fa fa-check"></i><b>12.3</b> Scenario 3</a></li>
+<li class="chapter" data-level="10.1" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-1"><i class="fa fa-check"></i><b>10.1</b> Scenario 1</a></li>
+<li class="chapter" data-level="10.2" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-2"><i class="fa fa-check"></i><b>10.2</b> Scenario 2</a></li>
+<li class="chapter" data-level="10.3" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-3"><i class="fa fa-check"></i><b>10.3</b> Scenario 3</a></li>
 <li class="chapter" data-level="" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#figure-for-scenarios-4-5-6"><i class="fa fa-check"></i>Figure for Scenarios 4, 5, 6</a></li>
-<li class="chapter" data-level="12.4" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-4"><i class="fa fa-check"></i><b>12.4</b> Scenario 4</a></li>
-<li class="chapter" data-level="12.5" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-5"><i class="fa fa-check"></i><b>12.5</b> Scenario 5</a></li>
-<li class="chapter" data-level="12.6" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-6"><i class="fa fa-check"></i><b>12.6</b> Scenario 6</a></li>
+<li class="chapter" data-level="10.4" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-4"><i class="fa fa-check"></i><b>10.4</b> Scenario 4</a></li>
+<li class="chapter" data-level="10.5" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-5"><i class="fa fa-check"></i><b>10.5</b> Scenario 5</a></li>
+<li class="chapter" data-level="10.6" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#scenario-6"><i class="fa fa-check"></i><b>10.6</b> Scenario 6</a></li>
 <li class="chapter" data-level="" data-path="a-comparison-of-classification-methods.html"><a href="a-comparison-of-classification-methods.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i><b>13</b> Generalized Linear Model</a>
+<li class="chapter" data-level="11" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i><b>11</b> Generalized Linear Model</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html#overview"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
-<li class="chapter" data-level="13.2" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html#generalized-linear-models-in-greater-generality"><i class="fa fa-check"></i><b>13.2</b> Generalized Linear Models in Greater Generality</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html"><i class="fa fa-check"></i><b>14</b> Lab: Classification Methods</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-stock-market-data"><i class="fa fa-check"></i><b>14.1</b> The Stock Market Data</a>
-<ul>
-<li class="chapter" data-level="14.1.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-1"><i class="fa fa-check"></i><b>14.1.1</b> Data Overview</a></li>
-<li class="chapter" data-level="14.1.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.1.2</b> Logistic Regression</a></li>
-<li class="chapter" data-level="14.1.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>14.1.3</b> Linear Discriminant Analysis</a></li>
-<li class="chapter" data-level="14.1.4" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#quadratic-discriminant-analysis"><i class="fa fa-check"></i><b>14.1.4</b> Quadratic Discriminant Analysis</a></li>
-<li class="chapter" data-level="14.1.5" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#naive-bayes"><i class="fa fa-check"></i><b>14.1.5</b> Naive Bayes</a></li>
-<li class="chapter" data-level="14.1.6" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>14.1.6</b> K-Nearest Neighbors</a></li>
-</ul></li>
-<li class="chapter" data-level="14.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#the-caravan-insurance-data"><i class="fa fa-check"></i><b>14.2</b> The Caravan Insurance Data</a>
-<ul>
-<li class="chapter" data-level="14.2.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-2"><i class="fa fa-check"></i><b>14.2.1</b> Data Overview</a></li>
-<li class="chapter" data-level="14.2.2" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#k-nearest-neighbors-1"><i class="fa fa-check"></i><b>14.2.2</b> K-Nearest Neighbors</a></li>
-<li class="chapter" data-level="14.2.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#logistics-regression"><i class="fa fa-check"></i><b>14.2.3</b> Logistics Regression</a></li>
-</ul></li>
-<li class="chapter" data-level="14.3" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#bikeshare-data"><i class="fa fa-check"></i><b>14.3</b> Bikeshare Data</a>
-<ul>
-<li class="chapter" data-level="14.3.1" data-path="lab-classification-methods.html"><a href="lab-classification-methods.html#data-overview-3"><i class="fa fa-check"></i><b>14.3.1</b> Data Overview</a></li>
-</ul></li>
+<li class="chapter" data-level="11.1" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html#overview"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html#generalized-linear-models-in-greater-generality"><i class="fa fa-check"></i><b>11.2</b> Generalized Linear Models in Greater Generality</a></li>
 </ul></li>
 <li class="part"><span><b>IV RESAMPLING METHOD</b></span></li>
-<li class="chapter" data-level="15" data-path="an-overview-of-resampling-methods.html"><a href="an-overview-of-resampling-methods.html"><i class="fa fa-check"></i><b>15</b> An Overview of Resampling Methods</a></li>
-<li class="chapter" data-level="16" data-path="cross-validation.html"><a href="cross-validation.html"><i class="fa fa-check"></i><b>16</b> Cross-Validation</a>
+<li class="chapter" data-level="12" data-path="an-overview-of-resampling-methods.html"><a href="an-overview-of-resampling-methods.html"><i class="fa fa-check"></i><b>12</b> An Overview of Resampling Methods</a></li>
+<li class="chapter" data-level="13" data-path="cross-validation.html"><a href="cross-validation.html"><i class="fa fa-check"></i><b>13</b> Cross-Validation</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="cross-validation.html"><a href="cross-validation.html#test-and-training-error-rate"><i class="fa fa-check"></i><b>16.1</b> Test and Training Error Rate</a></li>
-<li class="chapter" data-level="16.2" data-path="cross-validation.html"><a href="cross-validation.html#vsa"><i class="fa fa-check"></i><b>16.2</b> The Validation Set Approach</a></li>
-<li class="chapter" data-level="16.3" data-path="cross-validation.html"><a href="cross-validation.html#LOOCV"><i class="fa fa-check"></i><b>16.3</b> Leave-One-Out Cross-Validation</a></li>
-<li class="chapter" data-level="16.4" data-path="cross-validation.html"><a href="cross-validation.html#k-fold-cross-validation"><i class="fa fa-check"></i><b>16.4</b> <span class="math inline">\(k\)</span>-Fold Cross-Validation</a></li>
-<li class="chapter" data-level="16.5" data-path="cross-validation.html"><a href="cross-validation.html#bias-variance-trade-off-for-k-fold-cross-validation"><i class="fa fa-check"></i><b>16.5</b> Bias-Variance Trade-Off for k-Fold Cross-Validation</a></li>
+<li class="chapter" data-level="13.1" data-path="cross-validation.html"><a href="cross-validation.html#test-and-training-error-rate"><i class="fa fa-check"></i><b>13.1</b> Test and Training Error Rate</a></li>
+<li class="chapter" data-level="13.2" data-path="cross-validation.html"><a href="cross-validation.html#vsa"><i class="fa fa-check"></i><b>13.2</b> The Validation Set Approach</a></li>
+<li class="chapter" data-level="13.3" data-path="cross-validation.html"><a href="cross-validation.html#LOOCV"><i class="fa fa-check"></i><b>13.3</b> Leave-One-Out Cross-Validation</a></li>
+<li class="chapter" data-level="13.4" data-path="cross-validation.html"><a href="cross-validation.html#k-fold-cross-validation"><i class="fa fa-check"></i><b>13.4</b> <span class="math inline">\(k\)</span>-Fold Cross-Validation</a></li>
+<li class="chapter" data-level="13.5" data-path="cross-validation.html"><a href="cross-validation.html#bias-variance-trade-off-for-k-fold-cross-validation"><i class="fa fa-check"></i><b>13.5</b> Bias-Variance Trade-Off for k-Fold Cross-Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="the-bootstrap.html"><a href="the-bootstrap.html"><i class="fa fa-check"></i><b>17</b> The Bootstrap</a></li>
-<li class="chapter" data-level="18" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html"><i class="fa fa-check"></i><b>18</b> Lab: Resampling Methods</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html#the-validation-set-approach"><i class="fa fa-check"></i><b>18.1</b> The Validation Set Approach</a></li>
-<li class="chapter" data-level="18.2" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html#leave-one-out-cross-validation"><i class="fa fa-check"></i><b>18.2</b> Leave-One-Out Cross-Validation</a></li>
-<li class="chapter" data-level="18.3" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html#k-fold-cross-validation-1"><i class="fa fa-check"></i><b>18.3</b> <span class="math inline">\(k\)</span>-Fold Cross-Validation</a></li>
-<li class="chapter" data-level="18.4" data-path="lab-resampling-methods.html"><a href="lab-resampling-methods.html#the-bootstrap-1"><i class="fa fa-check"></i><b>18.4</b> The Bootstrap</a></li>
-</ul></li>
+<li class="chapter" data-level="14" data-path="the-bootstrap.html"><a href="the-bootstrap.html"><i class="fa fa-check"></i><b>14</b> The Bootstrap</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/ndleah/stat-learning" target="blank">View my GitHub</a></li>
 
@@ -398,7 +291,7 @@ H_a = \beta_j \neq 0
           </div>
         </div>
       </div>
-<a href="simple-linear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="LINEAR-REGRESSION.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="other-considerations-in-the-regression-model.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

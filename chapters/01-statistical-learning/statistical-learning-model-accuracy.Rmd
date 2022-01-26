@@ -17,7 +17,7 @@ No one method dominates all others over all possible data sets. This section int
 
 ### Measuring the Quality of fit
 
-In order to evaluate the performance of a model, we need to measure how well its predictions actually match the observed data. In the regression setting, the most commonly used measure is the <mark class="def">mean squared error</mark> (MSE) as illustrated in \@ref(eq:mse):
+In order to evaluate the performance of a model, we need to measure how well its predictions actually match the observed data. In the regression setting, the most commonly used measure is the <mark class="def">mean squared error</mark> (MSE). MSE is the average squared difference between the estimated values and the actual value. The MSE formula illustrated in \@ref(eq:mse):
 
 :::formula
 \begin{equation}

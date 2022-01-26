@@ -1,6 +1,6 @@
-# (PART) LINEAR REGRESSION{#LINEAR-REGRESSION} {-}
+# (PART) LINEAR REGRESSION {-}
 
-# Simple Linear Regression
+# Simple Linear Regression {#LINEAR-REGRESSION}
 ```{r, include = FALSE}
 knitr::opts_chunk$set(fig.align="center")
 library(ymlthis)
@@ -99,7 +99,7 @@ knitr::include_graphics("img/fig3.3.png")
 
 As isllutrated in Figure \@ref(fig:simulated):
 
-* **Left:** The red line represents the true relationship, $f(X) = 2+3Xf(X)=2+3X$, which is known as the population regression line. The blue line is the least squares line; it is the least squares estimate for $f(X)$ based on the observed data, shown in black. 
+* **Left:** The red line represents the true relationship, $f(X) = 2+3X$, which is known as the population regression line. The blue line is the least squares line; it is the least squares estimate for $f(X)$ based on the observed data, shown in black. 
 
 * **Right:** The population regression line is again shown in red, and the least squares line in dark blue. In light blue, ten least squares lines are shown, each computed on the basis of a separate random set of observations. Each least squares line is different, but on average, the least squares lines are quite close to the population regression line.
 
