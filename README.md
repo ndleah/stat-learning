@@ -7,7 +7,7 @@
 
 # Statistics Learning <img src="/img/illos/logo_stat.png" align="right" width="150"/>
 
- > A collection of my notes and exercise attempts for ISTL and other sources for the aim of learning statistical concepts.
+ > A collection of my notes and exercise attempts for ITSL and other sources for the aim of learning statistical concepts.
 
 ![Issues](https://img.shields.io/github/issues/ndleah/stat-learning?style=social&logo=github)
 ![Pull Requests](https://img.shields.io/github/issues-pr/ndleah/stat-learning?style=social&logo=github)
