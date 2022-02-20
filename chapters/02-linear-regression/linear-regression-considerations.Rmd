@@ -18,7 +18,7 @@ When we fit a linear regression model, many problems can occur, to name a few:
 
 
 
-## Non-linearity of the Data{#Non-linearity-of-the-Data}
+## Non-linearity of the Data {#Non-linearity-of-the-Data}
 
 The first assumption of Linear Regression is that relations between the independent and dependent variables must be linear.
 
