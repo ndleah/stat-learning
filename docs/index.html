@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 2 What is Statistical Learning? | Statistics Learning</title>
-  <meta name="description" content="Section 2 What is Statistical Learning? | Statistics Learning" />
+  <title>Statistics Learning</title>
+  <meta name="description" content="Statistics Learning" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 2 What is Statistical Learning? | Statistics Learning" />
+  <meta property="og:title" content="Statistics Learning" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https//:www.ndleah.github.io/stat-learning/" />
   <meta property="og:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ndleah/stat-learning" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 2 What is Statistical Learning? | Statistics Learning" />
+  <meta name="twitter:title" content="Statistics Learning" />
   
   
   <meta name="twitter:image" content="https//:www.ndleah.github.io/stat-learning//img/illos/cover.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/illos/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="assessing-model-accuracy.html"/>
+
+<link rel="next" href="what-is-statistical-learning.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -228,154 +228,43 @@
 <div class="hero-image-container"> 
   <img class= "hero-image" src="img/illos/cover.png">
 </div>
-<div id="what-is-statistical-learning" class="section level1" number="2">
-<h1><span class="header-section-number">Section 2</span> What is Statistical Learning?</h1>
-<center>
-<img src="img/illos/01-stat.png" />
-</center>
-<p><strong>Statistical learning</strong> refers to a vast set of tools for understanding data. There are 2 types of statistical learning - <em><strong>supervised</strong></em> and <em><strong>unsupervised</strong></em>:</p>
-<p><br></p>
-<div class="def">
-<div class="split">
-<div class="split1">
-<p><mark class="def">Supervised learning</mark></p>
-<p>is when you have a label for each data point, which mean it involves building a model that can predict an <em>output</em> based on one or more <em>inputs</em>.</p>
+<div id="header">
+<h1 class="title">Statistics Learning</h1>
 </div>
-<div class="split2">
-<p><mark class="def">Unsupervised learning</mark></p>
-<p>is when you don’t have a label for each data point, where there are <em>inputs</em> but no supervising <em>output</em>.</p>
+<div id="welcome" class="section level1" number="1">
+<h1><span class="header-section-number">Section 1</span> Welcome</h1>
+<div id="about" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> About</h2>
+<p><img src="https://img.shields.io/github/issues/ndleah/stat-learning?style=social&amp;logo=github" alt="Issues" />
+<img src="https://img.shields.io/github/issues-pr/ndleah/stat-learning?style=social&amp;logo=github" alt="Pull Requests" />
+<img src="https://img.shields.io/github/forks/ndleah/stat-learning?style=social&amp;logo=github" alt="Forks" />
+<img src="https://img.shields.io/github/stars/ndleah/stat-learning?style=social&amp;logo=github" alt="Stars" /></p>
+<blockquote>
+<p>A collection of my notes and exercise attempts for ITSL and other sources for the aim of learning statistical concepts.</p>
+</blockquote>
 </div>
-</div>
-</div>
-<p></br></p>
-<p>In statistical learning, <em><strong>input variables</strong></em> <span class="math inline">\((X_{n})\)</span> are typically denoted by <em>features</em>, <em>predictors</em>, <em>independent variables</em> or <em>variables</em> while <em><strong>output variable</strong></em> <span class="math inline">\((Y)\)</span> often called <em>dependent variable</em> or <em>response</em>.</p>
-<p>To assess the relationship between predictors <span class="math inline">\(X_{1}, X_{2}, ...,X_{p}\)</span>, we have the equation as <a href="what-is-statistical-learning.html#eq:rela">(2.1)</a>:</p>
-<div class="formula">
-<p><span class="math display" id="eq:rela">\[\begin{equation}
-\Large Y=f(X) + \epsilon
-\tag{2.1} 
-\end{equation}\]</span></p>
-</div>
-<p>Whereas:</p>
-<ul>
-<li><span class="math inline">\(f\)</span> is fixed but unknown function of <span class="math inline">\(X_{1},...,X_{p}\)</span> and <span class="math inline">\(\epsilon\)</span> is a random <em>error term</em>, which is independent of <span class="math inline">\(X\)</span> and has mean zero.</li>
-</ul>
-<p>In essence, statistical learning refers to a set of approaches for estimating <span class="math inline">\(f\)</span>.</p>
-<div id="why-estimate-f" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Why Estimate f?</h2>
-<p>There are 2 main reasons: <em><strong>prediction</strong></em> and <em><strong>inference</strong></em>.</p>
-<div id="prediction" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Prediction</h3>
-<p>Hypothetically, let’s say we have the <em><strong>error term</strong></em> averages to 0, predicting <span class="math inline">\(Y\)</span> can be assessed using this equation <a href="what-is-statistical-learning.html#eq:errorterm">(2.2)</a>:</p>
-<div class="formula">
-<p><span class="math display" id="eq:errorterm">\[\begin{equation}
-\Large \hat{Y} = \hat{f}(X)
-\tag{2.2} \end{equation}\]</span></p>
-</div>
-<p>Whereas:</p>
-<ul>
-<li><p><span class="math inline">\(\hat{f}\)</span> represents the estimate for <span class="math inline">\(f\)</span></p></li>
-<li><p><span class="math inline">\(\hat{Y}\)</span> represents the resulting prediction for <span class="math inline">\(Y\)</span></p></li>
-</ul>
-<p>The accuracy of <span class="math inline">\(\hat{Y}\)</span> as a prediction for <span class="math inline">\(Y\)</span> depends on 2 quantities: <em><strong>reducible error</strong></em> and <em><strong>irreducible error</strong></em>.</p>
-<p><br></p>
-<div class="def">
-<div class="split">
-<div class="split1">
-<p><mark class="def">Reducible error</mark></p>
-<p>Errors arising from the mismatch between <span class="math inline">\(\hat{f}\)</span> and <span class="math inline">\(f\)</span>. Can be improved by choosing a better model. Usually caused by <u><strong><a href="assessing-model-accuracy.html#Variance-Error">Variance Error</a>/<a href="Bias-Error">Bias Error</a></strong></u>.</p>
-</div>
-<div class="split2">
-<p><mark class="def">Irreducible error</mark></p>
-<p>Errors which can’t be removed no matter what algorithm you apply. These errors are caused by unknown variables that are affecting the output variable but are not one of the input variable while designing the model.</p>
-</div>
-</div>
-</div>
-<p></br></p>
-<div id="inference" class="section level4" number="2.1.1.1">
-<h4><span class="header-section-number">2.1.1.1</span> Inference</h4>
-<p>Necessary questions need to be asked in order to further understand the relationship between predictors <span class="math inline">\((X_{n})\)</span> and outcome <span class="math inline">\((Y)\)</span>:</p>
-<ul>
-<li><p><mark class="quest">Which predictors are associated with response?</mark> Only a small fraction of the available predictors are associated with the response.</p></li>
-<li><p><mark class="quest">What is the relationship between predictors and response?</mark> The relationship between predictors and response is not always linear.</p></li>
-<li><p><mark class="quest">Can the relationship between predictors and response be explained by the linear model or it is more complicated?</mark> The model can explain the relationship between predictors and response if the model is able to predict the response based on the predictors.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="how-do-we-estimate-f" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> How Do We Estimate f?</h2>
-<p>In order to estimate <span class="math inline">\(f\)</span>, our goal is to apply a statistical learning method to the training data. Broadly speaking, most statistical learning methods for this task can be characterized as either <em><strong>parametric</strong></em> or <em><strong>non-parametric</strong></em>.</p>
-<div id="parametric-methods" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Parametric Methods</h3>
-<p><mark class="def">Parametric methods</mark> (model-based approach) are those that are able to estimate the parameters of the model based on the training data. It involves a <strong>two-step model-based approach</strong>:</p>
-<ol style="list-style-type: decimal">
-<li><p>First, we <strong>make an assumption about the functional form</strong>, or shape, of <span class="math inline">\(f\)</span>. In other words, we need to choose the model that best fits the data.</p></li>
-<li><p>After the model has been selected, we need a procedure that uses the training data to <strong><em>fit</em> or <em>train</em> the model</strong>.</p></li>
-</ol>
-<p>Potential disadvantages of parametric methods is that the model will not usually match the true <span class="math inline">\(f\)</span>. This can be avoid by choosing a more <em>flexible</em> models that can fit many possible functions for <span class="math inline">\(f\)</span> forms and usually require greater number of parameters.</p>
-<div class="hat">
-<p>Example fitting models for parametric methods (linear): <mark class="example">Ordinary Least Squares (OLS)</mark>, <mark class="example">Lasso</mark>.</p>
-</div>
-</div>
-<div id="non-parametric-methods" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Non-Parametric Methods</h3>
-<p><mark class="def">Non-parametric methods</mark> (model-free approach) seek an estimate of <span class="math inline">\(f\)</span> without make explicit assumptions about the functional form of of <span class="math inline">\(f\)</span>. Major disadvantages of this approach is that a very large number of observations is required in order to obtain an accurate estimate for <span class="math inline">\(f\)</span>.</p>
-<div class="hat">
-<p>Example fitting models for non-parametric methods: <mark class="example">smooth thin-plate spline fit</mark> and <mark class="example">rough thin-plate spline fit</mark>.</p>
-</div>
-</div>
-</div>
-<div id="the-tradeoff-between-prediction-accuracy-and-model-interpretability" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> The Tradeoff Between Prediction Accuracy and Model Interpretability</h2>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tradeoff"></span>
-<img src="img/xkcd-interpretability-vs-flexibility.png" alt="Tradeoff Between Prediction Accuracy and Model Interpretability" width="85%" />
-<p class="caption">
-Figure 2.1: Tradeoff Between Prediction Accuracy and Model Interpretability
-</p>
-</div>
-<p><mark class="quest">Why would we ever choose to use a more restrictive method instead of a very flexible approach?</mark></p>
-<p>If we are mainly interested in the interpretability of the model, we would rather use a more flexible model. This is because the flexibility of the model is usually better than the interpretability of the model. </p>
-<p>In contrast, if we are interested in the prediction accuracy of the model, we would rather use a more restrictive model. This is because the flexibility of the model is usually better than the prediction accuracy of the model.</p>
-<p>The tradeoff between prediction accuracy ad moel interpretability are illustrate in Figure <a href="what-is-statistical-learning.html#fig:tradeoff">2.1</a></p>
-</div>
-<div id="supervised-vs.-unsupervised-learning" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Supervised Vs. Unsupervised Learning</h2>
-<p>Most statistical learning problems involve both <strong>supervised</strong> and <strong>unsupervised learning</strong>.</p>
-<p><mark class="def">In supervised learning</mark>, we wish to fit a model to the training data and predict the response variable based on the predictors, with the aim of accurately predicting the response variable or better understanding the relationship between predictors and response variable.</p>
-<div class="hat">
-<p>Some of the statistical approaches that apply the supervised learning method are: <mark class="example">Linear Regression</mark>, <mark class="example">Logistic Regression</mark>, <mark class="example">Boosting &amp; Support Vector Machine</mark>, <mark class="example">Generalized Additive Models (GAMs)</mark>.</p>
-</div>
-<p>In contrast, <mark class="def">unsupervised learning methods</mark> are those that do not require any training data. One statistical learning tool that we may use in this setting is <em>cluster analysis</em> or clustering. The goal of this method is to ascertain, whether observations fall into distinct groups.</p>
-</div>
-<div id="regression-vs.-classification" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Regression Vs. Classification</h2>
-<p>Variables can be characterized as either <em><strong>quantitative</strong></em> or <em><strong>qualitative</strong></em></p>
-<p><br></p>
-<div class="def">
-<div class="split">
-<div class="split1">
-<p><mark class="def">Quantitative variables</mark></p>
-<p>are those that can be measured in terms of a number</p>
-</div>
-<div class="split2">
-<p><mark class="def">Qualitative variables</mark></p>
-<p>are those that can be measured in terms of a set of categories.</p>
-</div>
-</div>
-</div>
-<p></br>
-We tend to refer to problems with a quantitative response variable as <strong>regression</strong> problems and problems with a qualitative response variable as <strong>classification</strong> problems. However, an important note is that <u><strong>it does not matter much whether the predictors/variables are quantitative or qualitative</u></strong>.</p>
+<div id="feedback" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Feedback</h2>
+<p>If you have any feedback or ideas to improve this project, feel free to contact me via</p>
+<p><a href="https://www.linkedin.com/in/ndleah/">
+<img align="left" alt="Leah's LinkdedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" /></p>
+<p></a>
+<a href="https://github.com/ndleah">
+<img align="left" alt="Leah's Github" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
+</a></p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="assessing-model-accuracy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="what-is-statistical-learning.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
